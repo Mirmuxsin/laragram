@@ -1,0 +1,11 @@
+{
+    "name": "milly/laragram",
+    "description": "Package to develop telegram bot inside laravel project",
+    "authors": [
+        {
+            "name": "Mirmuxsin",
+            "email": "millykhamroev@gmail.com"
+        }
+    ],
+    "require": {}
+}
