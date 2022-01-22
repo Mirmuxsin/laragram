@@ -1,0 +1,18 @@
+{
+    "name": "milly/laragram",
+    "description": "Laravel package to develop telegram bot inside laravel project",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Milly\\Laragram\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mirmuxsin",
+            "email": "millykhamroev@gmail.com"
+        }
+    ],
+    "require": {}
+}
