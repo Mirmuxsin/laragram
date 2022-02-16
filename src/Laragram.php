@@ -3,6 +3,7 @@
 namespace Milly\Laragram;
 
 use Illuminate\Support\Facades\Validator;
+use Milly\Laragram\Updates\Update;
 
 class Laragram
 {
@@ -10,15 +11,9 @@ class Laragram
     /**
      * To receive updates from request
      *
-     * @return array|\Illuminate\Contracts\Foundation\Application|\Illuminate\Http\Request|string
+     * @return Update
      */
-    public function update () {
-        $request =  \request();
-//        $validate = $request->validate([
-//            'update_id' => 'required|int',
-//        ]);
-
-
-        return $request;
+    public static function update () {
+        return Update::get();
     }
 }
