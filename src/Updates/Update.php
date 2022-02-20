@@ -19,8 +19,7 @@ class Update {
      * Filter update
      *
      * @param $update
-     * @return |update
-     *
+     * @return mixed |update
      */
     private static function filterUpdate ($update) {
         $update->validate([
