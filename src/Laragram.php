@@ -12,7 +12,6 @@ class Laragram extends Update
 
     /**
      * To receive updates from request
-     *
      * @return Update
      */
     public static function update () {
@@ -21,7 +20,6 @@ class Laragram extends Update
 
     /**
      * @return Request $array
-     *
      *
      * @throws \Exception
      * @throws GuzzleException
