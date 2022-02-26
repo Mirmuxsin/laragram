@@ -57,6 +57,6 @@ class Update {
             return $update;
         }
 
-        return throw new \Exception('Telegram IP is incorrect!');
+        return throwException('Validation update failed!');
     }
 }
