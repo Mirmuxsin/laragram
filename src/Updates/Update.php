@@ -57,7 +57,7 @@ class Update {
             return $update;
         }
 
-        //return error
+        //return error.
         return throwException('Validation update failed!');
     }
 }
