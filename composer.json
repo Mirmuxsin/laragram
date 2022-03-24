@@ -1,6 +1,6 @@
 {
     "name": "milly/laragram",
-    "description": "Package to develop telegram bot inside laravel project",
+    "description": "Laravel package to develop telegram bot inside laravel project",
     "authors": [
         {
             "name": "Mirmuxsin",
