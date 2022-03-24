@@ -20,7 +20,10 @@
         "laravel": {
             "providers": [
                 "Milly\\Laragram\\LaragramServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "FSM": "Milly\\Laragram\\FSM\\FSM"
+            }
         }
     }
 }
