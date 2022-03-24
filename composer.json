@@ -7,5 +7,12 @@
             "email": "millykhamroev@gmail.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Milly\\Laragram\\": "src"
+        }
+    },
+    "require": {
+        "laravel/laravel": "^9.0"
+    }
 }
