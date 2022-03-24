@@ -11,7 +11,7 @@ class Handler {
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public static function sendMessage ($array): \Milly\Laragram\Request
+    public static function sendMessage ($array)
     {
         return SendMessage::sendMessage($array);
     }
@@ -20,7 +20,7 @@ class Handler {
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public static function SendVideo ($array): \Milly\Laragram\Request
+    public static function SendVideo ($array)
     {
         return SendVideo::sendVideo($array);
     }
