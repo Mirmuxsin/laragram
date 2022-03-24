@@ -13,7 +13,5 @@
         }
     },
     "license": "MIT",
-    "require": {
-        "laravel/laravel": "^9.0"
-    }
+    "require": {}
 }
