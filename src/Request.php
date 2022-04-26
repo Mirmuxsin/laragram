@@ -32,6 +32,7 @@ class Request
 
             $client = $guzzle->request('POST', 'https://api.telegram.org/bot' . $this->token . '/' . $method, [
                 'query' => $array,
+                'http_errors' => false
             ]);
 
             return $client->getBody();
