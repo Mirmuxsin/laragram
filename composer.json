@@ -1,29 +1,17 @@
 {
     "name": "milly/laragram",
-    "description": "Laravel package to develop telegram-bot inside laravel",
-    "type": "library",
-    "version": "1.0.0",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Milly\\Laragram\\": "src/"
-        }
-    },
+    "description": "Laravel package to develop telegram bot inside laravel project",
     "authors": [
         {
             "name": "Mirmuxsin",
             "email": "millykhamroev@gmail.com"
         }
     ],
-    "require": {},
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Milly\\Laragram\\LaragramServiceProvider"
-            ],
-            "aliases": {
-                "FSM": "Milly\\Laragram\\FSM\\FSM"
-            }
+    "autoload": {
+        "psr-4": {
+            "Milly\\Laragram\\": "src"
         }
-    }
+    },
+    "license": "MIT",
+    "require": {}
 }
