@@ -25,6 +25,10 @@ class Laragram extends Handler
         return new RequestAlias('editMessageReplyMarkup', $array);
     }
 
+    public static function answerCallbackQuery($array) {
+        return new RequestAlias('answerCallbackQuery', $array);
+    }
+
     /**
      * @throws GuzzleException
      */
