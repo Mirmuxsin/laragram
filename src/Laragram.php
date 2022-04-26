@@ -20,6 +20,11 @@ class Laragram extends Handler
         return Update::get();
     }
 
+    public static function editMessageReplyMarkup(array $array)
+    {
+        return new RequestAlias('editMessageReplyMarkup', $array);
+    }
+
     /**
      * @throws GuzzleException
      */
