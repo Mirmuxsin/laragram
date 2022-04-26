@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Milly\Laragram\Updates\Chat\Chat;
 use Milly\Laragram\Updates\Update;
 use Milly\Laragram\Methods\Handler;
+use Milly\Laragram\Request as RequestAlias;
 
 class Laragram extends Handler
 {
@@ -19,6 +20,12 @@ class Laragram extends Handler
         return Update::get();
     }
 
+    /**
+     * @throws GuzzleException
+     */
+    public function __call($method, $data) {
+        return new RequestAlias($method, $data);
+    }
 
 //    /**
 //     * @param array $array
