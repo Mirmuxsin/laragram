@@ -16,7 +16,9 @@
 
 ## Installation
 
-<code>composer require milly/laragram</code>
+1.<code>composer require milly/laragram</code>
+
+2.<code>php artisan migrate</code>
 
 ## FSM-Routing:
 <img src="./img/fsm-2.png" alt="">
