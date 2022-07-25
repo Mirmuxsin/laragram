@@ -10,12 +10,26 @@ class FSM extends Model
     use HasFactory;
 
     /**
+     * The primary key associated with the table.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'telegram_id';
+
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = "laragram_fsm";
+
+    /**
      * @var int|mixed|null
      */
     public int $telegram_id;
+
     /**
-     * @var mixed|string
+     * @var string
      */
     public string $status;
-    protected $table = "laragram_fsm";
 }

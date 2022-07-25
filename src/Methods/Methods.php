@@ -20,7 +20,7 @@ class Methods extends Laragram
      * @var integer offset  Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as [getUpdates](https://core.telegram.org/bots/api/#getupdates) is called with an *offset* higher than its *update\_id*. The negative offset can be specified to retrieve updates starting from *-offset* update from the end of the updates queue. All previous updates will forgotten.
      * @var integer limit *(default: 100)* Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.
      * @var integer timeout *(default: 0)* Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only.
-     * @var array allowed_updates  A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\_channel\_post”, “callback\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\_member* (default). If not specified, the previous setting will be used.  
+     * @var array allowed_updates  A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\_channel\_post”, “callback\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\_member* (default). If not specified, the previous setting will be used.
 
 Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.
      * */
@@ -34,7 +34,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\InputFile certificate  Upload your public key certificate so that the root certificate in use can be checked. See our [self-signed guide](https://core.telegram.org/bots/self-signed) for details.
      * @var string ip_address  The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS
      * @var integer max_connections *(default: 40)* The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to *40*. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.
-     * @var array allowed_updates  A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\_channel\_post”, “callback\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\_member* (default). If not specified, the previous setting will be used.  
+     * @var array allowed_updates  A JSON-serialized list of the update types you want your bot to receive. For example, specify [“message”, “edited\_channel\_post”, “callback\_query”] to only receive updates of these types. See [Update](https://core.telegram.org/bots/api/#update) for a complete list of available update types. Specify an empty list to receive all update types except *chat\_member* (default). If not specified, the previous setting will be used.
 Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.
      * @var bool drop_pending_updates  Pass *True* to drop all pending updates
      * @var string secret_token *(min length: 1)**(max length: 1)* A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed. The header is useful to ensure that the request comes from a webhook set by you.
@@ -690,7 +690,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string callback_query_id *(required: true)* Unique identifier for the query to be answered
      * @var string text *(min length: 0)**(max length: 0)* Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters
      * @var bool show_alert *(default: )* If *True*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*.
-     * @var string url  URL that will be opened by the user's client. If you have created a [Game](https://core.telegram.org/bots/api/#game) and accepted the conditions via [@BotFather](https://t.me/botfather), specify the URL that opens your game - note that this will only work if the query comes from a [*callback\_game*](https://core.telegram.org/bots/api/#inlinekeyboardbutton) button.  
+     * @var string url  URL that will be opened by the user's client. If you have created a [Game](https://core.telegram.org/bots/api/#game) and accepted the conditions via [@BotFather](https://t.me/botfather), specify the URL that opens your game - note that this will only work if the query comes from a [*callback\_game*](https://core.telegram.org/bots/api/#inlinekeyboardbutton) button.
 
 Otherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot with a parameter.
      * @var integer cache_time *(default: 0)* The maximum amount of time in seconds that the result of the callback query may be cached client-side. Telegram apps will support caching starting in version 3.14. Defaults to 0.
@@ -928,7 +928,7 @@ Otherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot 
      * @var bool is_personal  Pass *True*, if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query
      * @var string next_offset  Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes.
      * @var string switch_pm_text  If passed, clients will display a button with specified text that switches the user to a private chat with the bot and sends the bot a start message with the parameter *switch\_pm\_parameter*
-     * @var string switch_pm_parameter *(min length: 1)**(max length: 1)* [Deep-linking](https://core.telegram.org/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.  
+     * @var string switch_pm_parameter *(min length: 1)**(max length: 1)* [Deep-linking](https://core.telegram.org/bots#deep-linking) parameter for the /start message sent to the bot when user presses the switch button. 1-64 characters, only `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed.
 
 *Example:* An inline bot that sends YouTube videos can ask the user to connect the bot to their YouTube account to adapt search results accordingly. To do this, it displays a 'Connect your YouTube account' button above the results, or even before showing any. The user presses the button, switches to a private chat with the bot and, in doing so, passes a start parameter that instructs the bot to return an OAuth link. Once done, the bot can offer a [*switch\_inline*](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) button so that the user can easily return to the chat where they wanted to use the bot's inline capabilities.
      * */
@@ -1075,6 +1075,4 @@ Otherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot 
     public static function getGameHighScores ($user_id, $chat_id, $message_id, $inline_message_id, ) {
         return Laragram::request('getGameHighScores', func_get_args());
     }
-
-;
 }
