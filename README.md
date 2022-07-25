@@ -26,4 +26,4 @@
 ## Using telegram bot api methods
 <img src="./img/methods.png" alt="">
 
-That's all:) <a href="patreon.com/mirmuxsin">Buy me a coffee</a>
+That's all:) <a href="https://patreon.com/mirmuxsin">Buy me a coffee</a>
