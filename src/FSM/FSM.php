@@ -17,7 +17,6 @@ use phpDocumentor\Reflection\Types\ClassString;
  */
 class FSM
 {
-
     protected static ?string $status = null;
 
     /**
@@ -58,7 +57,7 @@ class FSM
         if (!self::$status){
 
             $user_id = self::getUserId();
-            $fsm = \Milly\Laragram\app\Models\FSM::where('telegram_id', $user_id)->first();
+            $fsm = \Milly\Laragram\app\Models\FSM::find($user_id);
 
             if (!$fsm) {
                 $fsm = new \Milly\Laragram\app\Models\FSM();
@@ -83,7 +82,7 @@ class FSM
 
     public static function update (string $status, int $user_id = null) {
         $user_id= self::getUserId();
-        $fsm = \Milly\Laragram\app\Models\FSM::where('telegram_id', $user_id)->first();
+        $fsm = \Milly\Laragram\app\Models\FSM::find($user_id);
         $fsm['status'] = $status;
         $fsm->save();
         return true;
@@ -91,12 +90,12 @@ class FSM
 
     /**
      * @param int|null $user_id
-     * @return array
+     * @return int
      */
     public static function getUserId(?int $user_id = null): int
     {
         if (!$user_id) {
-            if (isset((new \Milly\Laragram\Types\Update())->message->from->id)) $user_id = $user_id = (new \Milly\Laragram\Types\Update())->message->from->id;
+            if (isset((new \Milly\Laragram\Types\Update())->message->from->id)) $user_id = (new \Milly\Laragram\Types\Update())->message->from->id;
             if (isset((new Update())->callback_query->from->id)) $user_id = (new Update())->callback_query->from->id;
         }
 

@@ -26,5 +26,12 @@
         "post-autoload-dump": [
             "# <href=https://www.patreon.com/millykhamroev>Buy me a coffee</>"
         ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Milly\\Laragram\\LaragramServiceProvider"
+            ]
+        }
     }
 }
