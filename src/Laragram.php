@@ -48,10 +48,12 @@ class Laragram
      */
     public static function request (string $method, array $array) {
         $token = config('laragram.token');
-        $client = new Client();
-        return $client->get("https://api.telegram.org/bot".$token."/$method", [
+        $client = new Client([
+            'verify' => false,
+        ]);
+
+        return $client->get("https://api.telegram.org/bot" . $token . "/" . $method, [
             "query" => $array[0]
         ])->getBody()->getContents();
     }
-
 }
