@@ -49,7 +49,7 @@ class LaragramServiceProvider extends ServiceProvider
     public function loadRoutes()
     {
         $this->routes(function () {
-            Route::get('_laragram', function () {
+            Route::any('_laragram', function () {
                 require base_path('routes/laragram.php');
             })->middleware('api')->name('_laragram');
         });
