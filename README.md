@@ -7,7 +7,7 @@
 </p>
 
 ## Installation
-> This package required Laravel ^5.5 or newer
+> This package is required Laravel ^5.5 or newer
 
 First, install Laragram package, and make sure that the database connection settings are correct!
 
