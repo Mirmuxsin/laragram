@@ -22,7 +22,12 @@ php artisan vendor:publish --provider="Milly\Laragram\LaragramServiceProvider"
 ```
 
 After run command you can find config file in `config/laragram.php`. \
-At last create `routes/laragram.php` and controller.
+At last create `routes/laragram.php` and controller, \
+and run this command to run application.
+
+```bash
+php artisan laragram:start
+```
 
 Sample:
 
