@@ -50,7 +50,7 @@ namespace App\Http\LaragramController;
 use Milly\Laragram\Laragram;
 use Milly\Laragram\Types\Message;
 
-class HomeController extends Controller
+class LaragramController extends Controller
 {
     public static function start(Message $message)
     {
