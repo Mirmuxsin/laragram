@@ -7,7 +7,7 @@
 </p>
 
 ## Installation
-> This package is required Laravel ^5.5 or newer
+> This package requires Laravel ^5.5 or newer
 
 First, install Laragram package, and make sure that the database connection settings are correct!
 
@@ -21,7 +21,7 @@ Then run these commands to publish assets and config
 php artisan vendor:publish --provider="Milly\Laragram\LaragramServiceProvider"
 ```
 
-After run command you can find config file in `config/laragram.php`. \
+After running this command you can find config file in `config/laragram.php`. \
 At last create `routes/laragram.php` and controller, \
 and run this command to run application.
 
@@ -75,11 +75,11 @@ class LaragramController extends Controller
 ### Using telegram bot api methods:
 > ![Laragram bot api methods](./img/methods.png)
 
-### All types and methods are documented, so you can code easy with your ide:
+### All types and methods are documented so you can code easily with your IDE:
 > ![Types](./img/img.png) <br/><br/>
 > ![Hints](https://user-images.githubusercontent.com/88322285/181101799-9143e994-a746-4683-9b7a-0cbda79fb328.png)
 
-### Use it inside laravel project as a package, and you will be able to all utils:
+### Use it inside laravel project as a package and you will be able to use all features, including:
 - route middleware
 - multi-lang
 - guards
