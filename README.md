@@ -21,6 +21,11 @@ Then run these commands to publish assets and config
 php artisan vendor:publish --provider="Milly\Laragram\LaragramServiceProvider"
 ```
 
+Add your telegram bot token to .env
+```bash
+TELEGRAM_BOT_TOKEN=123456789:XXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
 After running this command you can find config file in `config/laragram.php`. \
 At last create `routes/laragram.php` and controller, \
 and run this command to run application.
