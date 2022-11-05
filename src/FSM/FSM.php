@@ -6,6 +6,7 @@ use Exception;
 use Milly\Laragram\Laragram;
 use Milly\Laragram\Types\Update;
 use phpDocumentor\Reflection\Types\ClassString;
+use Throwable;
 
 
 /**
@@ -25,10 +26,10 @@ class FSM
      * @var string $status Status of chat
      * @var array $class Function to call from array
      * @var array $types Types which allowed in to this function
-     * @throws Exception
+     * @throws Throwable
      */
     public static function route (string $status, array $class, array $types) {
-        if(!isset($class)) throw new Exception("Call to undefined method ".json_encode($class));
+        throw_if(!isset($class),"Call to undefined method ".json_encode($class));
         foreach ($types as $type){
             if (!isset($type)) {
                 //when type is not found in this update

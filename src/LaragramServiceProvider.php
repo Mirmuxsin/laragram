@@ -22,9 +22,9 @@ class LaragramServiceProvider extends ServiceProvider
             __DIR__ . '/config/laragram.php' => config_path('laragram.php'),
         ], 'laragram-config');
 
-        $this->publishes([
-            __DIR__ . '/routes/laragram.php' => base_path('laragram.php')
-        ], 'laragram-routes');
+//        $this->publishes([
+//            __DIR__ . '/routes/laragram.php' => base_path('laragram.php')
+//        ], 'laragram-routes');
 
         $this->loadRoutes();
 

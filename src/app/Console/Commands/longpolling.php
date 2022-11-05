@@ -39,8 +39,8 @@ class longpolling extends Command
         if (!$this->existTunnel()) return;
         $url = $this->serve();
 
-        $this->info('Webhook address: ' . $url);
-        file_get_contents("https://api.telegram.org/bot" . $token . "/setWebhook?url=" . $url);
+        $this->info('Webhook address: ' . $url.config('laragram.url'));
+        file_get_contents("https://api.telegram.org/bot" . $token . "/setWebhook?url=" . $url.config('laragram.url'));
         $this->info('Webhook was successfully set');
         $this->call('serve');
     }
@@ -101,6 +101,6 @@ class longpolling extends Command
             exit();
         }
 
-        return $url[0] . route('_laragram', absolute: false); // return webhook payload url
+        return $url[0]; // return webhook payload url
     }
 }
