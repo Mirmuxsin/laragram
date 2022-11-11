@@ -29,6 +29,8 @@ use GuzzleHttp\Exception\GuzzleException;
  */
 class Laragram
 {
+    public static string $url;
+
     /**
      * @throws Exception|GuzzleException
      */
@@ -55,5 +57,9 @@ class Laragram
         return $client->get("https://api.telegram.org/bot" . $token . "/" . $method, [
             "query" => $array[0]
         ])->getBody()->getContents();
+    }
+
+    public static function setUrl ($url) {
+        return self::$url = $url;
     }
 }
