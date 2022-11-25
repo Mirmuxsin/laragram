@@ -30,7 +30,7 @@ use GuzzleHttp\Exception\GuzzleException;
 class Laragram
 {
     public static string $url;
-
+    public static string|null $token;
     /**
      * @throws Exception|GuzzleException
      */
@@ -49,7 +49,7 @@ class Laragram
      * @throws GuzzleException
      */
     public static function request (string $method, array $array) {
-        $token = config('laragram.token');
+        $token = self::$token ?? config('laragram.token');
         $client = new Client([
             'verify' => false,
         ]);
@@ -61,5 +61,10 @@ class Laragram
 
     public static function setUrl ($url) {
         return self::$url = $url;
+    }
+
+    public static function setToken($token)
+    {
+        return self::$token = $token;
     }
 }
