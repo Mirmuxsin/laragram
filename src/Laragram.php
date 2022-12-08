@@ -30,7 +30,7 @@ use GuzzleHttp\Exception\GuzzleException;
 class Laragram
 {
     public static string $url;
-    public static string|null $token;
+    public static ?string $token = null;
     /**
      * @throws Exception|GuzzleException
      */
@@ -52,6 +52,7 @@ class Laragram
         $token = self::$token ?? config('laragram.token');
         $client = new Client([
             'verify' => false,
+            'http_errors' => false
         ]);
 
         return $client->get("https://api.telegram.org/bot" . $token . "/" . $method, [
