@@ -56,7 +56,8 @@ class Laragram
         ]);
 
         return $client->get("https://api.telegram.org/bot" . $token . "/" . $method, [
-            "query" => $array[0]
+            "query" => $array[0],
+            'http_errors' => false
         ])->getBody()->getContents();
     }
 
