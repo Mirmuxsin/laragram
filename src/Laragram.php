@@ -38,10 +38,6 @@ class Laragram
     {
         $get = self::request($name, $arguments);
 
-        if (!json_decode($get, true)['ok']) {
-            return throw new Exception('Method can\'t be done: '.$get);
-        }
-
         return json_decode($get, true);
     }
 
