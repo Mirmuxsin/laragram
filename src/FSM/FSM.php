@@ -91,9 +91,9 @@ class FSM
 
     /**
      * @param int|null $user_id
-     * @return int
+     * @return int|null
      */
-    public static function getUserId(?int $user_id = null): int
+    public static function getUserId(?int $user_id = null): ?int
     {
         if (!$user_id) {
             if (isset((new \Milly\Laragram\Types\Update())->message->from->id)) $user_id = (new \Milly\Laragram\Types\Update())->message->from->id;
