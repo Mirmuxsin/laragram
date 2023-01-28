@@ -5,7 +5,6 @@ namespace Milly\Laragram\FSM;
 use Exception;
 use Milly\Laragram\Laragram;
 use Milly\Laragram\Types\Update;
-use phpDocumentor\Reflection\Types\ClassString;
 use Throwable;
 
 
@@ -91,15 +90,15 @@ class FSM
 
     /**
      * @param int|null $user_id
-     * @return int|null
+     * @return int
      */
-    public static function getUserId(?int $user_id = null): ?int
+    public static function getUserId(?int $user_id = null): int
     {
         if (!$user_id) {
-            if (isset((new \Milly\Laragram\Types\Update())->message->from->id)) $user_id = (new \Milly\Laragram\Types\Update())->message->from->id;
-            if (isset((new Update())->callback_query->from->id)) $user_id = (new Update())->callback_query->from->id;
+            if (isset((new Update())->message->from->id)) $user_id = (new Update())->message->from->id;
+            else if (isset((new Update())->callback_query->from->id)) $user_id = (new Update())->callback_query->from->id;
+            else die('cant reach user_id!');
         }
-
         return $user_id;
     }
 }
