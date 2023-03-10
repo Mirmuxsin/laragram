@@ -52,7 +52,7 @@ class handler {
      */
     private static function filterUpdate (Request $update) {
         if (!$update->get('update_id')){
-            return throw new Exception('update_id is not found!');
+            throw new Exception('update_id is not found!');
         }
 
         if (App::environment('local') && IpUtils::checkIp($update->ip(), self::$localIpNets)) {
@@ -64,6 +64,6 @@ class handler {
         }
 
         //return error.
-        return throw new Exception('Validation update failed!');
+        throw new Exception('Update validation failed!');
     }
 }
