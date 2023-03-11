@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * Audio
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#audio
  */
-class Audio extends Laragram
+class Audio
 {
     /**
     * Identifier for this file, which can be used to download or reuse the file
@@ -66,7 +65,7 @@ class Audio extends Laragram
     * *Optional*. Thumbnail of the album cover to which the music file belongs
     * @var PhotoSize|null
     */
-    public ?PhotoSize $thumb = null;
+    public ?PhotoSize $thumbnail = null;
 
 
 
@@ -95,8 +94,8 @@ class Audio extends Laragram
             $this->file_size = $data['file_size'];
         }
 
-        if (isset($data['thumb'])){
-            $this->thumb = new PhotoSize($data['thumb']);
+        if (isset($data['thumbnail'])){
+            $this->thumbnail = new PhotoSize($data['thumbnail']);
         }
 
     }

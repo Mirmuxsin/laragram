@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * Message
@@ -12,13 +11,19 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#message
  */
-class Message extends Laragram
+class Message
 {
     /**
     * Unique message identifier inside this chat
     * @var int
     */
     public int $message_id;
+
+    /**
+    * *Optional*. Unique identifier of a message thread to which the message belongs; for supergroups only
+    * @var int|null
+    */
+    public ?int $message_thread_id = null;
 
     /**
     * *Optional*. Sender of the message; empty for messages sent to channels. For backward compatibility, the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.
@@ -79,6 +84,12 @@ class Message extends Laragram
     * @var int|null
     */
     public ?int $forward_date = null;
+
+    /**
+    * *Optional*. *True*, if the message is sent to a forum topic
+    * @var bool|null
+    */
+    public ?bool $is_topic_message = null;
 
     /**
     * *Optional*. *True*, if the message is a channel post that was automatically forwarded to the connected discussion group
@@ -193,6 +204,12 @@ class Message extends Laragram
     * @var array|null
     */
     public ?array $caption_entities = null;
+
+    /**
+    * *Optional*. *True*, if the message media is covered by a spoiler animation
+    * @var bool|null
+    */
+    public ?bool $has_media_spoiler = null;
 
     /**
     * *Optional*. Message is a shared contact, information about the contact
@@ -315,10 +332,28 @@ class Message extends Laragram
     public ?SuccessfulPayment $successful_payment = null;
 
     /**
+    * *Optional*. Service message: a user was shared with the bot
+    * @var UserShared|null
+    */
+    public ?UserShared $user_shared = null;
+
+    /**
+    * *Optional*. Service message: a chat was shared with the bot
+    * @var ChatShared|null
+    */
+    public ?ChatShared $chat_shared = null;
+
+    /**
     * *Optional*. The domain name of the website on which the user has logged in. [More about Telegram Login »](https://core.telegram.org/widgets/login)
     * @var string|null
     */
     public ?string $connected_website = null;
+
+    /**
+    * *Optional*. Service message: the user allowed the bot added to the attachment menu to write messages
+    * @var WriteAccessAllowed|null
+    */
+    public ?WriteAccessAllowed $write_access_allowed = null;
 
     /**
     * *Optional*. Telegram Passport data
@@ -331,6 +366,42 @@ class Message extends Laragram
     * @var ProximityAlertTriggered|null
     */
     public ?ProximityAlertTriggered $proximity_alert_triggered = null;
+
+    /**
+    * *Optional*. Service message: forum topic created
+    * @var ForumTopicCreated|null
+    */
+    public ?ForumTopicCreated $forum_topic_created = null;
+
+    /**
+    * *Optional*. Service message: forum topic edited
+    * @var ForumTopicEdited|null
+    */
+    public ?ForumTopicEdited $forum_topic_edited = null;
+
+    /**
+    * *Optional*. Service message: forum topic closed
+    * @var ForumTopicClosed|null
+    */
+    public ?ForumTopicClosed $forum_topic_closed = null;
+
+    /**
+    * *Optional*. Service message: forum topic reopened
+    * @var ForumTopicReopened|null
+    */
+    public ?ForumTopicReopened $forum_topic_reopened = null;
+
+    /**
+    * *Optional*. Service message: the 'General' forum topic hidden
+    * @var GeneralForumTopicHidden|null
+    */
+    public ?GeneralForumTopicHidden $general_forum_topic_hidden = null;
+
+    /**
+    * *Optional*. Service message: the 'General' forum topic unhidden
+    * @var GeneralForumTopicUnhidden|null
+    */
+    public ?GeneralForumTopicUnhidden $general_forum_topic_unhidden = null;
 
     /**
     * *Optional*. Service message: video chat scheduled
@@ -373,6 +444,10 @@ class Message extends Laragram
     public function __construct($data)
     {
         $this->message_id = $data['message_id'];
+        if (isset($data['message_thread_id'])){
+            $this->message_thread_id = $data['message_thread_id'];
+        }
+
         if (isset($data['from'])){
             $this->from = new User($data['from']);
         }
@@ -406,6 +481,10 @@ class Message extends Laragram
 
         if (isset($data['forward_date'])){
             $this->forward_date = $data['forward_date'];
+        }
+
+        if (isset($data['is_topic_message'])){
+            $this->is_topic_message = $data['is_topic_message'];
         }
 
         if (isset($data['is_automatic_forward'])){
@@ -482,6 +561,10 @@ class Message extends Laragram
 
         if (isset($data['caption_entities'])){
             $this->caption_entities = $data['caption_entities'];
+        }
+
+        if (isset($data['has_media_spoiler'])){
+            $this->has_media_spoiler = $data['has_media_spoiler'];
         }
 
         if (isset($data['contact'])){
@@ -564,8 +647,20 @@ class Message extends Laragram
             $this->successful_payment = new SuccessfulPayment($data['successful_payment']);
         }
 
+        if (isset($data['user_shared'])){
+            $this->user_shared = new UserShared($data['user_shared']);
+        }
+
+        if (isset($data['chat_shared'])){
+            $this->chat_shared = new ChatShared($data['chat_shared']);
+        }
+
         if (isset($data['connected_website'])){
             $this->connected_website = $data['connected_website'];
+        }
+
+        if (isset($data['write_access_allowed'])){
+            $this->write_access_allowed = new WriteAccessAllowed($data['write_access_allowed']);
         }
 
         if (isset($data['passport_data'])){
@@ -574,6 +669,30 @@ class Message extends Laragram
 
         if (isset($data['proximity_alert_triggered'])){
             $this->proximity_alert_triggered = new ProximityAlertTriggered($data['proximity_alert_triggered']);
+        }
+
+        if (isset($data['forum_topic_created'])){
+            $this->forum_topic_created = new ForumTopicCreated($data['forum_topic_created']);
+        }
+
+        if (isset($data['forum_topic_edited'])){
+            $this->forum_topic_edited = new ForumTopicEdited($data['forum_topic_edited']);
+        }
+
+        if (isset($data['forum_topic_closed'])){
+            $this->forum_topic_closed = new ForumTopicClosed($data['forum_topic_closed']);
+        }
+
+        if (isset($data['forum_topic_reopened'])){
+            $this->forum_topic_reopened = new ForumTopicReopened($data['forum_topic_reopened']);
+        }
+
+        if (isset($data['general_forum_topic_hidden'])){
+            $this->general_forum_topic_hidden = new GeneralForumTopicHidden($data['general_forum_topic_hidden']);
+        }
+
+        if (isset($data['general_forum_topic_unhidden'])){
+            $this->general_forum_topic_unhidden = new GeneralForumTopicUnhidden($data['general_forum_topic_unhidden']);
         }
 
         if (isset($data['video_chat_scheduled'])){

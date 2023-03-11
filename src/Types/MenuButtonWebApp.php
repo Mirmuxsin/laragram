@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * MenuButtonWebApp
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#menubuttonwebapp
  */
-class MenuButtonWebApp extends Laragram
+class MenuButtonWebApp
 {
     /**
     * Type of the button, must be *web\_app*

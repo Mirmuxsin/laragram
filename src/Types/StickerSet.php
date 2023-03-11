@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * StickerSet
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#stickerset
  */
-class StickerSet extends Laragram
+class StickerSet
 {
     /**
     * Sticker set name
@@ -27,6 +26,12 @@ class StickerSet extends Laragram
     public string $title;
 
     /**
+    * Type of stickers in the set, currently one of “regular”, “mask”, “custom\_emoji”
+    * @var string
+    */
+    public string $sticker_type;
+
+    /**
     * *True*, if the sticker set contains [animated stickers](https://telegram.org/blog/animated-stickers)
     * @var bool
     */
@@ -39,12 +44,6 @@ class StickerSet extends Laragram
     public bool $is_video;
 
     /**
-    * *True*, if the sticker set contains masks
-    * @var bool
-    */
-    public bool $contains_masks;
-
-    /**
     * List of all set stickers
     * @var array
     */
@@ -54,7 +53,7 @@ class StickerSet extends Laragram
     * *Optional*. Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format
     * @var PhotoSize|null
     */
-    public ?PhotoSize $thumb = null;
+    public ?PhotoSize $thumbnail = null;
 
 
 
@@ -62,12 +61,12 @@ class StickerSet extends Laragram
     {
         $this->name = $data['name'];
         $this->title = $data['title'];
+        $this->sticker_type = $data['sticker_type'];
         $this->is_animated = $data['is_animated'];
         $this->is_video = $data['is_video'];
-        $this->contains_masks = $data['contains_masks'];
         $this->stickers = $data['stickers'];
-        if (isset($data['thumb'])){
-            $this->thumb = new PhotoSize($data['thumb']);
+        if (isset($data['thumbnail'])){
+            $this->thumbnail = new PhotoSize($data['thumbnail']);
         }
 
     }

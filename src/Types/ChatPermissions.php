@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * ChatPermissions
@@ -12,34 +11,64 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatpermissions
  */
-class ChatPermissions extends Laragram
+class ChatPermissions
 {
     /**
-    * *Optional*. *True*, if the user is allowed to send text messages, contacts, locations and venues
+    * *Optional*. *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues
     * @var bool|null
     */
     public ?bool $can_send_messages = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send audios, documents, photos, videos, video notes and voice notes, implies can\_send\_messages
+    * *Optional*. *True*, if the user is allowed to send audios
     * @var bool|null
     */
-    public ?bool $can_send_media_messages = null;
+    public ?bool $can_send_audios = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send polls, implies can\_send\_messages
+    * *Optional*. *True*, if the user is allowed to send documents
+    * @var bool|null
+    */
+    public ?bool $can_send_documents = null;
+
+    /**
+    * *Optional*. *True*, if the user is allowed to send photos
+    * @var bool|null
+    */
+    public ?bool $can_send_photos = null;
+
+    /**
+    * *Optional*. *True*, if the user is allowed to send videos
+    * @var bool|null
+    */
+    public ?bool $can_send_videos = null;
+
+    /**
+    * *Optional*. *True*, if the user is allowed to send video notes
+    * @var bool|null
+    */
+    public ?bool $can_send_video_notes = null;
+
+    /**
+    * *Optional*. *True*, if the user is allowed to send voice notes
+    * @var bool|null
+    */
+    public ?bool $can_send_voice_notes = null;
+
+    /**
+    * *Optional*. *True*, if the user is allowed to send polls
     * @var bool|null
     */
     public ?bool $can_send_polls = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots, implies can\_send\_media\_messages
+    * *Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots
     * @var bool|null
     */
     public ?bool $can_send_other_messages = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to add web page previews to their messages, implies can\_send\_media\_messages
+    * *Optional*. *True*, if the user is allowed to add web page previews to their messages
     * @var bool|null
     */
     public ?bool $can_add_web_page_previews = null;
@@ -62,6 +91,12 @@ class ChatPermissions extends Laragram
     */
     public ?bool $can_pin_messages = null;
 
+    /**
+    * *Optional*. *True*, if the user is allowed to create forum topics. If omitted defaults to the value of can\_pin\_messages
+    * @var bool|null
+    */
+    public ?bool $can_manage_topics = null;
+
 
 
     public function __construct($data)
@@ -70,8 +105,28 @@ class ChatPermissions extends Laragram
             $this->can_send_messages = $data['can_send_messages'];
         }
 
-        if (isset($data['can_send_media_messages'])){
-            $this->can_send_media_messages = $data['can_send_media_messages'];
+        if (isset($data['can_send_audios'])){
+            $this->can_send_audios = $data['can_send_audios'];
+        }
+
+        if (isset($data['can_send_documents'])){
+            $this->can_send_documents = $data['can_send_documents'];
+        }
+
+        if (isset($data['can_send_photos'])){
+            $this->can_send_photos = $data['can_send_photos'];
+        }
+
+        if (isset($data['can_send_videos'])){
+            $this->can_send_videos = $data['can_send_videos'];
+        }
+
+        if (isset($data['can_send_video_notes'])){
+            $this->can_send_video_notes = $data['can_send_video_notes'];
+        }
+
+        if (isset($data['can_send_voice_notes'])){
+            $this->can_send_voice_notes = $data['can_send_voice_notes'];
         }
 
         if (isset($data['can_send_polls'])){
@@ -96,6 +151,10 @@ class ChatPermissions extends Laragram
 
         if (isset($data['can_pin_messages'])){
             $this->can_pin_messages = $data['can_pin_messages'];
+        }
+
+        if (isset($data['can_manage_topics'])){
+            $this->can_manage_topics = $data['can_manage_topics'];
         }
 
     }

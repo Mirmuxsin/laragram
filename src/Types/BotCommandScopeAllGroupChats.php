@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * BotCommandScopeAllGroupChats
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopeallgroupchats
  */
-class BotCommandScopeAllGroupChats extends Laragram
+class BotCommandScopeAllGroupChats
 {
     /**
     * Scope type, must be *all\_group\_chats*

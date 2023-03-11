@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * PhotoSize
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#photosize
  */
-class PhotoSize extends Laragram
+class PhotoSize
 {
     /**
     * Identifier for this file, which can be used to download or reuse the file

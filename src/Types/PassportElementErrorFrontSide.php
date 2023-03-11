@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * PassportElementErrorFrontSide
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorfrontside
  */
-class PassportElementErrorFrontSide extends Laragram
+class PassportElementErrorFrontSide
 {
     /**
     * Error source, must be *front\_side*

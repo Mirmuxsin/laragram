@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * UserProfilePhotos
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#userprofilephotos
  */
-class UserProfilePhotos extends Laragram
+class UserProfilePhotos
 {
     /**
     * Total number of profile pictures the target user has

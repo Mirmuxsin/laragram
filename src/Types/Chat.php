@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * Chat
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chat
  */
-class Chat extends Laragram
+class Chat
 {
     /**
     * Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
@@ -51,10 +50,28 @@ class Chat extends Laragram
     public ?string $last_name = null;
 
     /**
+    * *Optional*. *True*, if the supergroup chat is a forum (has [topics](https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups) enabled)
+    * @var bool|null
+    */
+    public ?bool $is_forum = null;
+
+    /**
     * *Optional*. Chat photo. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
     * @var ChatPhoto|null
     */
     public ?ChatPhoto $photo = null;
+
+    /**
+    * *Optional*. If non-empty, the list of all [active chat usernames](https://telegram.org/blog/topics-in-groups-collectible-usernames#collectible-usernames); for private chats, supergroups and channels. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * @var array|null
+    */
+    public ?array $active_usernames = null;
+
+    /**
+    * *Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * @var string|null
+    */
+    public ?string $emoji_status_custom_emoji_id = null;
 
     /**
     * *Optional*. Bio of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
@@ -67,6 +84,12 @@ class Chat extends Laragram
     * @var bool|null
     */
     public ?bool $has_private_forwards = null;
+
+    /**
+    * *Optional*. *True*, if the privacy settings of the other party restrict sending voice and video note messages in the private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * @var bool|null
+    */
+    public ?bool $has_restricted_voice_and_video_messages = null;
 
     /**
     * *Optional*. *True*, if users need to join the supergroup before they can send messages. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
@@ -115,6 +138,18 @@ class Chat extends Laragram
     * @var int|null
     */
     public ?int $message_auto_delete_time = null;
+
+    /**
+    * *Optional*. *True*, if aggressive anti-spam checks are enabled in the supergroup. The field is only available to chat administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * @var bool|null
+    */
+    public ?bool $has_aggressive_anti_spam_enabled = null;
+
+    /**
+    * *Optional*. *True*, if non-administrators can only get the list of bots and administrators in the chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * @var bool|null
+    */
+    public ?bool $has_hidden_members = null;
 
     /**
     * *Optional*. *True*, if messages from the chat can't be forwarded to other chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
@@ -168,8 +203,20 @@ class Chat extends Laragram
             $this->last_name = $data['last_name'];
         }
 
+        if (isset($data['is_forum'])){
+            $this->is_forum = $data['is_forum'];
+        }
+
         if (isset($data['photo'])){
             $this->photo = new ChatPhoto($data['photo']);
+        }
+
+        if (isset($data['active_usernames'])){
+            $this->active_usernames = $data['active_usernames'];
+        }
+
+        if (isset($data['emoji_status_custom_emoji_id'])){
+            $this->emoji_status_custom_emoji_id = $data['emoji_status_custom_emoji_id'];
         }
 
         if (isset($data['bio'])){
@@ -178,6 +225,10 @@ class Chat extends Laragram
 
         if (isset($data['has_private_forwards'])){
             $this->has_private_forwards = $data['has_private_forwards'];
+        }
+
+        if (isset($data['has_restricted_voice_and_video_messages'])){
+            $this->has_restricted_voice_and_video_messages = $data['has_restricted_voice_and_video_messages'];
         }
 
         if (isset($data['join_to_send_messages'])){
@@ -210,6 +261,14 @@ class Chat extends Laragram
 
         if (isset($data['message_auto_delete_time'])){
             $this->message_auto_delete_time = $data['message_auto_delete_time'];
+        }
+
+        if (isset($data['has_aggressive_anti_spam_enabled'])){
+            $this->has_aggressive_anti_spam_enabled = $data['has_aggressive_anti_spam_enabled'];
+        }
+
+        if (isset($data['has_hidden_members'])){
+            $this->has_hidden_members = $data['has_hidden_members'];
         }
 
         if (isset($data['has_protected_content'])){

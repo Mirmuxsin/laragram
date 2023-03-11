@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * PassportElementErrorTranslationFile
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrortranslationfile
  */
-class PassportElementErrorTranslationFile extends Laragram
+class PassportElementErrorTranslationFile
 {
     /**
     * Error source, must be *translation\_file*

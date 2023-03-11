@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InputTextMessageContent
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputtextmessagecontent
  */
-class InputTextMessageContent extends Laragram
+class InputTextMessageContent
 {
     /**
     * Text of the message to be sent, 1-4096 characters

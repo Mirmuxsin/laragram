@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * Video
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#video
  */
-class Video extends Laragram
+class Video
 {
     /**
     * Identifier for this file, which can be used to download or reuse the file
@@ -48,7 +47,7 @@ class Video extends Laragram
     * *Optional*. Video thumbnail
     * @var PhotoSize|null
     */
-    public ?PhotoSize $thumb = null;
+    public ?PhotoSize $thumbnail = null;
 
     /**
     * *Optional*. Original filename as defined by sender
@@ -77,8 +76,8 @@ class Video extends Laragram
         $this->width = $data['width'];
         $this->height = $data['height'];
         $this->duration = $data['duration'];
-        if (isset($data['thumb'])){
-            $this->thumb = new PhotoSize($data['thumb']);
+        if (isset($data['thumbnail'])){
+            $this->thumbnail = new PhotoSize($data['thumbnail']);
         }
 
         if (isset($data['file_name'])){

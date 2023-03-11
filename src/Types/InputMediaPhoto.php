@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InputMediaPhoto
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputmediaphoto
  */
-class InputMediaPhoto extends Laragram
+class InputMediaPhoto
 {
     /**
     * Type of the result, must be *photo*
@@ -21,7 +20,7 @@ class InputMediaPhoto extends Laragram
     public string $type;
 
     /**
-    * File to send. Pass a file\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://<file\_attach\_name>” to upload a new one using multipart/form-data under <file\_attach\_name> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)
+    * File to send. Pass a file\_id to send a file that exists on the Telegram servers (recommended), pass an HTTP URL for Telegram to get a file from the Internet, or pass “attach://\<file\_attach\_name\>” to upload a new one using multipart/form-data under \<file\_attach\_name\> name. [More information on Sending Files »](https://core.telegram.org/bots/api/#sending-files)
     * @var string
     */
     public string $media;
@@ -44,6 +43,12 @@ class InputMediaPhoto extends Laragram
     */
     public ?array $caption_entities = null;
 
+    /**
+    * *Optional*. Pass *True* if the photo needs to be covered with a spoiler animation
+    * @var bool|null
+    */
+    public ?bool $has_spoiler = null;
+
 
 
     public function __construct($data)
@@ -60,6 +65,10 @@ class InputMediaPhoto extends Laragram
 
         if (isset($data['caption_entities'])){
             $this->caption_entities = $data['caption_entities'];
+        }
+
+        if (isset($data['has_spoiler'])){
+            $this->has_spoiler = $data['has_spoiler'];
         }
 
     }

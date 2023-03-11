@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * Sticker
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#sticker
  */
-class Sticker extends Laragram
+class Sticker
 {
     /**
     * Identifier for this file, which can be used to download or reuse the file
@@ -25,6 +24,12 @@ class Sticker extends Laragram
     * @var string
     */
     public string $file_unique_id;
+
+    /**
+    * Type of the sticker, currently one of “regular”, “mask”, “custom\_emoji”. The type of the sticker is independent from its format, which is determined by the fields *is\_animated* and *is\_video*.
+    * @var string
+    */
+    public string $type;
 
     /**
     * Sticker width
@@ -54,7 +59,7 @@ class Sticker extends Laragram
     * *Optional*. Sticker thumbnail in the .WEBP or .JPG format
     * @var PhotoSize|null
     */
-    public ?PhotoSize $thumb = null;
+    public ?PhotoSize $thumbnail = null;
 
     /**
     * *Optional*. Emoji associated with the sticker
@@ -69,7 +74,7 @@ class Sticker extends Laragram
     public ?string $set_name = null;
 
     /**
-    * *Optional*. Premium animation for the sticker, if the sticker is premium
+    * *Optional*. For premium regular stickers, premium animation for the sticker
     * @var File|null
     */
     public ?File $premium_animation = null;
@@ -79,6 +84,18 @@ class Sticker extends Laragram
     * @var MaskPosition|null
     */
     public ?MaskPosition $mask_position = null;
+
+    /**
+    * *Optional*. For custom emoji stickers, unique identifier of the custom emoji
+    * @var string|null
+    */
+    public ?string $custom_emoji_id = null;
+
+    /**
+    * *Optional*. *True*, if the sticker must be repainted to a text color in messages, the color of the Telegram Premium badge in emoji status, white color on chat photos, or another appropriate color in other places
+    * @var bool|null
+    */
+    public ?bool $needs_repainting = null;
 
     /**
     * *Optional*. File size in bytes
@@ -92,12 +109,13 @@ class Sticker extends Laragram
     {
         $this->file_id = $data['file_id'];
         $this->file_unique_id = $data['file_unique_id'];
+        $this->type = $data['type'];
         $this->width = $data['width'];
         $this->height = $data['height'];
         $this->is_animated = $data['is_animated'];
         $this->is_video = $data['is_video'];
-        if (isset($data['thumb'])){
-            $this->thumb = new PhotoSize($data['thumb']);
+        if (isset($data['thumbnail'])){
+            $this->thumbnail = new PhotoSize($data['thumbnail']);
         }
 
         if (isset($data['emoji'])){
@@ -114,6 +132,14 @@ class Sticker extends Laragram
 
         if (isset($data['mask_position'])){
             $this->mask_position = new MaskPosition($data['mask_position']);
+        }
+
+        if (isset($data['custom_emoji_id'])){
+            $this->custom_emoji_id = $data['custom_emoji_id'];
+        }
+
+        if (isset($data['needs_repainting'])){
+            $this->needs_repainting = $data['needs_repainting'];
         }
 
         if (isset($data['file_size'])){
