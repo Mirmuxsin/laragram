@@ -7,7 +7,8 @@
 </p>
 
 ## Installation
-> This package requires Laravel ^5.5 or newer
+
+> This package requires PHP 8.0+
 
 First, install Laragram package, and make sure that the database connection settings are correct!
 
@@ -22,6 +23,7 @@ php artisan vendor:publish --provider="Milly\Laragram\LaragramServiceProvider"
 ```
 
 Add your telegram bot token to .env
+
 ```bash
 TELEGRAM_BOT_TOKEN=123456789:XXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -71,20 +73,57 @@ class LaragramController extends Controller
 
 ---
 
+# 2.3 version
+
+- Support for anonymous functions inside route definition
+
+```php
+// routes/laragram.php
+
+use App\Http\Controllers\LaragramController;
+use Milly\Laragram\FSM\FSM;
+use \Milly\Laragram\Types\Message;
+use \Milly\Laragram\Laragram;
+
+FSM::route('', function (Message $message) {
+    Laragram::sendMessage([
+        'chat_id' => $message->chat->id,
+        'text' => "Inside anonymous function"
+    ]);
+}, [
+  (new \Milly\Laragram\Types\Update())->message
+]);
+```
+
+- State management now supports regexp as status
+
+```php
+// routes/laragram.php
+
+//...
+FSM::route('state_+', [SomeClass::class, 'someMethod'] [
+  (new \Milly\Laragram\Types\Update())->message
+]);
+```
+- minor fixes
 ## Features
 
 ### First PHP telegram bot package which supports FSM-Routing:
+
 > ![FSM-Routing](./img/fsm-routing.png) <br/><br/>
 > ![Update types](./img/types.png)
 
 ### Using telegram bot api methods:
+
 > ![Laragram bot api methods](./img/methods.png)
 
 ### All types and methods are documented so you can code easily with your IDE:
+
 > ![Types](./img/img.png) <br/><br/>
 > ![Hints](https://user-images.githubusercontent.com/88322285/181101799-9143e994-a746-4683-9b7a-0cbda79fb328.png)
 
 ### Use it inside laravel project as a package and you will be able to use all features, including:
+
 - route middleware
 - multi-lang
 - guards
@@ -95,6 +134,7 @@ class LaragramController extends Controller
 ---
 
 ### Changes:
+
 - [Added specific routes](https://github.com/Mirmuxsin/laragram/commit/15d8339b776a1c7f27890fa432cac23aa7625772#diff-35fbaa003e989ec8dcb1ac861c7c592e8e4bda9e121395590e86c0ff2da8bd82)
 - [Added config files](https://github.com/Mirmuxsin/laragram/commit/15d8339b776a1c7f27890fa432cac23aa7625772#diff-d27544c268b9ad05a341ea07100f640cab3a646464bb7ca6652ac0e579056722)
 - [Added hints for IDE](https://github.com/Mirmuxsin/laragram/commit/ed072afacdb30da40d87447d8a30e17fc54b6d8f#diff-96559060a0c25e1a9513eb0545bebd99636c5f29e02ae6101ed0061de81e7d67)

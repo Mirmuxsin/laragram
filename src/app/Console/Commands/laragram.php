@@ -116,7 +116,6 @@ class laragram extends Command
 
 namespace Milly\Laragram\Methods;
 
-use Milly\Laragram\Laragram;
 
 
 /**
@@ -128,9 +127,9 @@ On successful call, a JSON-object containing the result will be returned.
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api#available-methods
  */
-class Methods extends Laragram
+class Methods
 {
-$arguments;
+$arguments
 }";
         file_put_contents(__DIR__ . "/../../../Methods/Methods.php", $text);
     }
@@ -189,7 +188,6 @@ $arguments;
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * ".$method['name']."
@@ -199,7 +197,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url ".$method['documentation_link']."
  */
-class ".$method['name']." extends Laragram
+class ".$method['name']."
 {
 $comments
 
