@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQueryResultCachedDocument
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultcacheddocument
  */
-class InlineQueryResultCachedDocument extends Laragram
+class InlineQueryResultCachedDocument
 {
     /**
     * Type of the result, must be *document*
@@ -63,7 +62,7 @@ class InlineQueryResultCachedDocument extends Laragram
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating) attached to the message
+    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;

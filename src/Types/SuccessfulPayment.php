@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * SuccessfulPayment
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#successfulpayment
  */
-class SuccessfulPayment extends Laragram
+class SuccessfulPayment
 {
     /**
     * Three-letter ISO 4217 [currency](https://core.telegram.org/bots/payments#supported-currencies) code

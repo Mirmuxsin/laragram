@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * SentWebAppMessage
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#sentwebappmessage
  */
-class SentWebAppMessage extends Laragram
+class SentWebAppMessage
 {
     /**
     * *Optional*. Identifier of the sent inline message. Available only if there is an [inline keyboard](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) attached to the message.

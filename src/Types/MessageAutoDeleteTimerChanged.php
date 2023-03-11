@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * MessageAutoDeleteTimerChanged
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageautodeletetimerchanged
  */
-class MessageAutoDeleteTimerChanged extends Laragram
+class MessageAutoDeleteTimerChanged
 {
     /**
     * New auto-delete time for messages in the chat; in seconds

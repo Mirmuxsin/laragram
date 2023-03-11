@@ -2,23 +2,28 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * ReplyKeyboardMarkup
  *
- *This object represents a [custom keyboard](https://core.telegram.org/bots#keyboards) with reply options (see [Introduction to bots](https://core.telegram.org/bots#keyboards) for details and examples).
+ *This object represents a [custom keyboard](https://core.telegram.org/bots/features#keyboards) with reply options (see [Introduction to bots](https://core.telegram.org/bots/features#keyboards) for details and examples).
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#replykeyboardmarkup
  */
-class ReplyKeyboardMarkup extends Laragram
+class ReplyKeyboardMarkup
 {
     /**
     * Array of button rows, each represented by an Array of [KeyboardButton](https://core.telegram.org/bots/api/#keyboardbutton) objects
     * @var array
     */
     public array $keyboard;
+
+    /**
+    * *Optional*. Requests clients to always show the keyboard when the regular keyboard is hidden. Defaults to *false*, in which case the custom keyboard can be hidden and opened with a keyboard icon.
+    * @var bool|null
+    */
+    public ?bool $is_persistent = null;
 
     /**
     * *Optional*. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller if there are just two rows of buttons). Defaults to *false*, in which case the custom keyboard is always of the same height as the app's standard keyboard.
@@ -51,6 +56,10 @@ class ReplyKeyboardMarkup extends Laragram
     public function __construct($data)
     {
         $this->keyboard = $data['keyboard'];
+        if (isset($data['is_persistent'])){
+            $this->is_persistent = $data['is_persistent'];
+        }
+
         if (isset($data['resize_keyboard'])){
             $this->resize_keyboard = $data['resize_keyboard'];
         }

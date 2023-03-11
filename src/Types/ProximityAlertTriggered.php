@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * ProximityAlertTriggered
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#proximityalerttriggered
  */
-class ProximityAlertTriggered extends Laragram
+class ProximityAlertTriggered
 {
     /**
     * User that triggered the alert

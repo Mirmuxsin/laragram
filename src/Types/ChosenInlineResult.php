@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * ChosenInlineResult
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#choseninlineresult
  */
-class ChosenInlineResult extends Laragram
+class ChosenInlineResult
 {
     /**
     * The unique identifier for the result that was chosen

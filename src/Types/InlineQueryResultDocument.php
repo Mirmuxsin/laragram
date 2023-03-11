@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQueryResultDocument
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultdocument
  */
-class InlineQueryResultDocument extends Laragram
+class InlineQueryResultDocument
 {
     /**
     * Type of the result, must be *document*
@@ -84,19 +83,19 @@ class InlineQueryResultDocument extends Laragram
     * *Optional*. URL of the thumbnail (JPEG only) for the file
     * @var string|null
     */
-    public ?string $thumb_url = null;
+    public ?string $thumbnail_url = null;
 
     /**
     * *Optional*. Thumbnail width
     * @var int|null
     */
-    public ?int $thumb_width = null;
+    public ?int $thumbnail_width = null;
 
     /**
     * *Optional*. Thumbnail height
     * @var int|null
     */
-    public ?int $thumb_height = null;
+    public ?int $thumbnail_height = null;
 
 
 
@@ -131,16 +130,16 @@ class InlineQueryResultDocument extends Laragram
             $this->input_message_content = new InputMessageContent($data['input_message_content']);
         }
 
-        if (isset($data['thumb_url'])){
-            $this->thumb_url = $data['thumb_url'];
+        if (isset($data['thumbnail_url'])){
+            $this->thumbnail_url = $data['thumbnail_url'];
         }
 
-        if (isset($data['thumb_width'])){
-            $this->thumb_width = $data['thumb_width'];
+        if (isset($data['thumbnail_width'])){
+            $this->thumbnail_width = $data['thumbnail_width'];
         }
 
-        if (isset($data['thumb_height'])){
-            $this->thumb_height = $data['thumb_height'];
+        if (isset($data['thumbnail_height'])){
+            $this->thumbnail_height = $data['thumbnail_height'];
         }
 
     }

@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQuery
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequery
  */
-class InlineQuery extends Laragram
+class InlineQuery
 {
     /**
     * Unique identifier for this query
@@ -57,8 +56,8 @@ class InlineQuery extends Laragram
         $this->id = $data['id'];
         $this->from = new User($data['from']);
 
-        $this->query = $data['query'] ?? '';
-        $this->offset = $data['offset'] ?? '';
+        $this->query = $data['query'];
+        $this->offset = $data['offset'];
         if (isset($data['chat_type'])){
             $this->chat_type = $data['chat_type'];
         }

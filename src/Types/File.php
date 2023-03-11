@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * File
@@ -14,7 +13,7 @@ The maximum file size to download is 20 MB
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#file
  */
-class File extends Laragram
+class File
 {
     /**
     * Identifier for this file, which can be used to download or reuse the file

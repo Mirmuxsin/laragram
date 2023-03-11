@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * PassportData
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportdata
  */
-class PassportData extends Laragram
+class PassportData
 {
     /**
     * Array with information about documents and other Telegram Passport elements that was shared with the bot

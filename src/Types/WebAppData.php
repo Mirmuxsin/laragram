@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * WebAppData
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#webappdata
  */
-class WebAppData extends Laragram
+class WebAppData
 {
     /**
     * The data. Be aware that a bad client can send arbitrary data in this field.

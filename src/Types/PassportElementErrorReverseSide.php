@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * PassportElementErrorReverseSide
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorreverseside
  */
-class PassportElementErrorReverseSide extends Laragram
+class PassportElementErrorReverseSide
 {
     /**
     * Error source, must be *reverse\_side*

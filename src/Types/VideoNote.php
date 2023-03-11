@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * VideoNote
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#videonote
  */
-class VideoNote extends Laragram
+class VideoNote
 {
     /**
     * Identifier for this file, which can be used to download or reuse the file
@@ -42,7 +41,7 @@ class VideoNote extends Laragram
     * *Optional*. Video thumbnail
     * @var PhotoSize|null
     */
-    public ?PhotoSize $thumb = null;
+    public ?PhotoSize $thumbnail = null;
 
     /**
     * *Optional*. File size in bytes
@@ -58,8 +57,8 @@ class VideoNote extends Laragram
         $this->file_unique_id = $data['file_unique_id'];
         $this->length = $data['length'];
         $this->duration = $data['duration'];
-        if (isset($data['thumb'])){
-            $this->thumb = new PhotoSize($data['thumb']);
+        if (isset($data['thumbnail'])){
+            $this->thumbnail = new PhotoSize($data['thumbnail']);
         }
 
         if (isset($data['file_size'])){

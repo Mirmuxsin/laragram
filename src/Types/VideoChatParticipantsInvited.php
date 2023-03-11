@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * VideoChatParticipantsInvited
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#videochatparticipantsinvited
  */
-class VideoChatParticipantsInvited extends Laragram
+class VideoChatParticipantsInvited
 {
     /**
     * New members that were invited to the video chat

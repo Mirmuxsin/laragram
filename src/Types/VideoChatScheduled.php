@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * VideoChatScheduled
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#videochatscheduled
  */
-class VideoChatScheduled extends Laragram
+class VideoChatScheduled
 {
     /**
     * Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator

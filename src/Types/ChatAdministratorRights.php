@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * ChatAdministratorRights
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatadministratorrights
  */
-class ChatAdministratorRights extends Laragram
+class ChatAdministratorRights
 {
     /**
     * *True*, if the user's presence in the chat is hidden
@@ -45,7 +44,7 @@ class ChatAdministratorRights extends Laragram
     public bool $can_restrict_members;
 
     /**
-    * *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that he has promoted, directly or indirectly (promoted by administrators that were appointed by the user)
+    * *True*, if the administrator can add new administrators with a subset of their own privileges or demote administrators that they have promoted, directly or indirectly (promoted by administrators that were appointed by the user)
     * @var bool
     */
     public bool $can_promote_members;
@@ -80,6 +79,12 @@ class ChatAdministratorRights extends Laragram
     */
     public ?bool $can_pin_messages = null;
 
+    /**
+    * *Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only
+    * @var bool|null
+    */
+    public ?bool $can_manage_topics = null;
+
 
 
     public function __construct($data)
@@ -102,6 +107,10 @@ class ChatAdministratorRights extends Laragram
 
         if (isset($data['can_pin_messages'])){
             $this->can_pin_messages = $data['can_pin_messages'];
+        }
+
+        if (isset($data['can_manage_topics'])){
+            $this->can_manage_topics = $data['can_manage_topics'];
         }
 
     }

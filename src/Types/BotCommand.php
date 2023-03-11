@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * BotCommand
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommand
  */
-class BotCommand extends Laragram
+class BotCommand
 {
     /**
     * Text of the command; 1-32 characters. Can contain only lowercase English letters, digits and underscores.
