@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQueryResultAudio
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultaudio
  */
-class InlineQueryResultAudio extends Laragram
+class InlineQueryResultAudio
 {
     /**
     * Type of the result, must be *audio*
@@ -69,7 +68,7 @@ class InlineQueryResultAudio extends Laragram
     public ?int $audio_duration = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating) attached to the message
+    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;

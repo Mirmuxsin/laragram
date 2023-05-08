@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * BotCommandScopeAllChatAdministrators
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopeallchatadministrators
  */
-class BotCommandScopeAllChatAdministrators extends Laragram
+class BotCommandScopeAllChatAdministrators
 {
     /**
     * Scope type, must be *all\_chat\_administrators*

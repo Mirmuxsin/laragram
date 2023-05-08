@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQueryResultPhoto
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultphoto
  */
-class InlineQueryResultPhoto extends Laragram
+class InlineQueryResultPhoto
 {
     /**
     * Type of the result, must be *photo*
@@ -36,7 +35,7 @@ class InlineQueryResultPhoto extends Laragram
     * URL of the thumbnail for the photo
     * @var string
     */
-    public string $thumb_url;
+    public string $thumbnail_url;
 
     /**
     * *Optional*. Width of the photo
@@ -81,7 +80,7 @@ class InlineQueryResultPhoto extends Laragram
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating) attached to the message
+    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
@@ -99,7 +98,7 @@ class InlineQueryResultPhoto extends Laragram
         $this->type = $data['type'];
         $this->id = $data['id'];
         $this->photo_url = $data['photo_url'];
-        $this->thumb_url = $data['thumb_url'];
+        $this->thumbnail_url = $data['thumbnail_url'];
         if (isset($data['photo_width'])){
             $this->photo_width = $data['photo_width'];
         }

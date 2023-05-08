@@ -2,23 +2,34 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * KeyboardButton
  *
- *This object represents one button of the reply keyboard. For simple text buttons *String* can be used instead of this object to specify text of the button. Optional fields *web\_app*, *request\_contact*, *request\_location*, and *request\_poll* are mutually exclusive.
+ *This object represents one button of the reply keyboard. For simple text buttons, *String* can be used instead of this object to specify the button text. The optional fields *web\_app*, *request\_user*, *request\_chat*, *request\_contact*, *request\_location*, and *request\_poll* are mutually exclusive.
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#keyboardbutton
  */
-class KeyboardButton extends Laragram
+class KeyboardButton
 {
     /**
     * Text of the button. If none of the optional fields are used, it will be sent as a message when the button is pressed
     * @var string
     */
     public string $text;
+
+    /**
+    * *Optional.* If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user\_shared” service message. Available in private chats only.
+    * @var KeyboardButtonRequestUser|null
+    */
+    public ?KeyboardButtonRequestUser $request_user = null;
+
+    /**
+    * *Optional.* If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat\_shared” service message. Available in private chats only.
+    * @var KeyboardButtonRequestChat|null
+    */
+    public ?KeyboardButtonRequestChat $request_chat = null;
 
     /**
     * *Optional*. If *True*, the user's phone number will be sent as a contact when the button is pressed. Available in private chats only.
@@ -49,6 +60,14 @@ class KeyboardButton extends Laragram
     public function __construct($data)
     {
         $this->text = $data['text'];
+        if (isset($data['request_user'])){
+            $this->request_user = new KeyboardButtonRequestUser($data['request_user']);
+        }
+
+        if (isset($data['request_chat'])){
+            $this->request_chat = new KeyboardButtonRequestChat($data['request_chat']);
+        }
+
         if (isset($data['request_contact'])){
             $this->request_contact = $data['request_contact'];
         }

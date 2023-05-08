@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * WebhookInfo
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#webhookinfo
  */
-class WebhookInfo extends Laragram
+class WebhookInfo
 {
     /**
     * Webhook URL, may be empty if webhook is not set up

@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * ChatLocation
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatlocation
  */
-class ChatLocation extends Laragram
+class ChatLocation
 {
     /**
     * The location to which the supergroup is connected. Can't be a live location.

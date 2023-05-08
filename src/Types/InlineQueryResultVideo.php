@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQueryResultVideo
@@ -14,7 +13,7 @@ If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube),
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultvideo
  */
-class InlineQueryResultVideo extends Laragram
+class InlineQueryResultVideo
 {
     /**
     * Type of the result, must be *video*
@@ -44,7 +43,7 @@ class InlineQueryResultVideo extends Laragram
     * URL of the thumbnail (JPEG only) for the video
     * @var string
     */
-    public string $thumb_url;
+    public string $thumbnail_url;
 
     /**
     * Title for the result
@@ -95,7 +94,7 @@ class InlineQueryResultVideo extends Laragram
     public ?string $description = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating) attached to the message
+    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
@@ -114,7 +113,7 @@ class InlineQueryResultVideo extends Laragram
         $this->id = $data['id'];
         $this->video_url = $data['video_url'];
         $this->mime_type = $data['mime_type'];
-        $this->thumb_url = $data['thumb_url'];
+        $this->thumbnail_url = $data['thumbnail_url'];
         $this->title = $data['title'];
         if (isset($data['caption'])){
             $this->caption = $data['caption'];

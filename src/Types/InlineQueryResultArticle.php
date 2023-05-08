@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQueryResultArticle
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultarticle
  */
-class InlineQueryResultArticle extends Laragram
+class InlineQueryResultArticle
 {
     /**
     * Type of the result, must be *article*
@@ -39,7 +38,7 @@ class InlineQueryResultArticle extends Laragram
     public InputMessageContent $input_message_content;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating) attached to the message
+    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
@@ -51,7 +50,7 @@ class InlineQueryResultArticle extends Laragram
     public ?string $url = null;
 
     /**
-    * *Optional*. Pass *True*, if you don't want the URL to be shown in the message
+    * *Optional*. Pass *True* if you don't want the URL to be shown in the message
     * @var bool|null
     */
     public ?bool $hide_url = null;
@@ -66,19 +65,19 @@ class InlineQueryResultArticle extends Laragram
     * *Optional*. Url of the thumbnail for the result
     * @var string|null
     */
-    public ?string $thumb_url = null;
+    public ?string $thumbnail_url = null;
 
     /**
     * *Optional*. Thumbnail width
     * @var int|null
     */
-    public ?int $thumb_width = null;
+    public ?int $thumbnail_width = null;
 
     /**
     * *Optional*. Thumbnail height
     * @var int|null
     */
-    public ?int $thumb_height = null;
+    public ?int $thumbnail_height = null;
 
 
 
@@ -105,16 +104,16 @@ class InlineQueryResultArticle extends Laragram
             $this->description = $data['description'];
         }
 
-        if (isset($data['thumb_url'])){
-            $this->thumb_url = $data['thumb_url'];
+        if (isset($data['thumbnail_url'])){
+            $this->thumbnail_url = $data['thumbnail_url'];
         }
 
-        if (isset($data['thumb_width'])){
-            $this->thumb_width = $data['thumb_width'];
+        if (isset($data['thumbnail_width'])){
+            $this->thumbnail_width = $data['thumbnail_width'];
         }
 
-        if (isset($data['thumb_height'])){
-            $this->thumb_height = $data['thumb_height'];
+        if (isset($data['thumbnail_height'])){
+            $this->thumbnail_height = $data['thumbnail_height'];
         }
 
     }

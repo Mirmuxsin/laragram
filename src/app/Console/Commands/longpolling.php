@@ -42,7 +42,7 @@ class longpolling extends Command
         $this->info('Webhook address: ' . $url.config('laragram.url'));
         file_get_contents("https://api.telegram.org/bot" . $token . "/setWebhook?url=" . $url.config('laragram.url'));
         $setUrl = \Milly\Laragram\Laragram::setUrl($url);
-        $this->info('Webhook was successfully set');
+        $this->info('Webhook was set successfully');
         $this->call('serve');
     }
 

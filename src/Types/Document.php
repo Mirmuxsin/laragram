@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * Document
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#document
  */
-class Document extends Laragram
+class Document
 {
     /**
     * Identifier for this file, which can be used to download or reuse the file
@@ -30,7 +29,7 @@ class Document extends Laragram
     * *Optional*. Document thumbnail as defined by sender
     * @var PhotoSize|null
     */
-    public ?PhotoSize $thumb = null;
+    public ?PhotoSize $thumbnail = null;
 
     /**
     * *Optional*. Original filename as defined by sender
@@ -56,8 +55,8 @@ class Document extends Laragram
     {
         $this->file_id = $data['file_id'];
         $this->file_unique_id = $data['file_unique_id'];
-        if (isset($data['thumb'])){
-            $this->thumb = new PhotoSize($data['thumb']);
+        if (isset($data['thumbnail'])){
+            $this->thumbnail = new PhotoSize($data['thumbnail']);
         }
 
         if (isset($data['file_name'])){

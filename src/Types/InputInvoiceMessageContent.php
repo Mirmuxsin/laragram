@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InputInvoiceMessageContent
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputinvoicemessagecontent
  */
-class InputInvoiceMessageContent extends Laragram
+class InputInvoiceMessageContent
 {
     /**
     * Product name, 1-32 characters
@@ -93,43 +92,43 @@ class InputInvoiceMessageContent extends Laragram
     public ?int $photo_height = null;
 
     /**
-    * *Optional*. Pass *True*, if you require the user's full name to complete the order
+    * *Optional*. Pass *True* if you require the user's full name to complete the order
     * @var bool|null
     */
     public ?bool $need_name = null;
 
     /**
-    * *Optional*. Pass *True*, if you require the user's phone number to complete the order
+    * *Optional*. Pass *True* if you require the user's phone number to complete the order
     * @var bool|null
     */
     public ?bool $need_phone_number = null;
 
     /**
-    * *Optional*. Pass *True*, if you require the user's email address to complete the order
+    * *Optional*. Pass *True* if you require the user's email address to complete the order
     * @var bool|null
     */
     public ?bool $need_email = null;
 
     /**
-    * *Optional*. Pass *True*, if you require the user's shipping address to complete the order
+    * *Optional*. Pass *True* if you require the user's shipping address to complete the order
     * @var bool|null
     */
     public ?bool $need_shipping_address = null;
 
     /**
-    * *Optional*. Pass *True*, if the user's phone number should be sent to provider
+    * *Optional*. Pass *True* if the user's phone number should be sent to provider
     * @var bool|null
     */
     public ?bool $send_phone_number_to_provider = null;
 
     /**
-    * *Optional*. Pass *True*, if the user's email address should be sent to provider
+    * *Optional*. Pass *True* if the user's email address should be sent to provider
     * @var bool|null
     */
     public ?bool $send_email_to_provider = null;
 
     /**
-    * *Optional*. Pass *True*, if the final price depends on the shipping method
+    * *Optional*. Pass *True* if the final price depends on the shipping method
     * @var bool|null
     */
     public ?bool $is_flexible = null;

@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-use Milly\Laragram\Laragram;
 
 /**
 * InlineQueryResultGif
@@ -12,7 +11,7 @@ use Milly\Laragram\Laragram;
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultgif
  */
-class InlineQueryResultGif extends Laragram
+class InlineQueryResultGif
 {
     /**
     * Type of the result, must be *gif*
@@ -54,13 +53,13 @@ class InlineQueryResultGif extends Laragram
     * URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result
     * @var string
     */
-    public string $thumb_url;
+    public string $thumbnail_url;
 
     /**
     * *Optional*. MIME type of the thumbnail, must be one of “image/jpeg”, “image/gif”, or “video/mp4”. Defaults to “image/jpeg”
     * @var string|null
     */
-    public ?string $thumb_mime_type = null;
+    public ?string $thumbnail_mime_type = null;
 
     /**
     * *Optional*. Title for the result
@@ -87,7 +86,7 @@ class InlineQueryResultGif extends Laragram
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating) attached to the message
+    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
@@ -117,9 +116,9 @@ class InlineQueryResultGif extends Laragram
             $this->gif_duration = $data['gif_duration'];
         }
 
-        $this->thumb_url = $data['thumb_url'];
-        if (isset($data['thumb_mime_type'])){
-            $this->thumb_mime_type = $data['thumb_mime_type'];
+        $this->thumbnail_url = $data['thumbnail_url'];
+        if (isset($data['thumbnail_mime_type'])){
+            $this->thumbnail_mime_type = $data['thumbnail_mime_type'];
         }
 
         if (isset($data['title'])){
