@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorReverseSide
  *
- *Represents an issue with the reverse side of a document. The error is considered resolved when the file with reverse side of the document changes.
+ *<p>Error message</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorreverseside
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class PassportElementErrorReverseSide
 {
     /**
-    * Error source, must be *reverse\_side*
+    * <p>Error source, must be *reverse\_side*</p>
     * @var string
     */
     public string $source;
 
     /**
-    * The section of the user's Telegram Passport which has the issue, one of “driver\_license”, “identity\_card”
+    * <p>The section of the user's Telegram Passport which has the issue, one of “driver\<em>license”, “identity\</em>card”</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Base64-encoded hash of the file with the reverse side of the document
+    * <p>Base64-encoded hash of the file with the reverse side of the document</p>
     * @var string
     */
     public string $file_hash;
 
     /**
-    * Error message
+    * <p>Error message</p>
     * @var string
     */
     public string $message;

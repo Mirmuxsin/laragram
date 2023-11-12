@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * UserProfilePhotos
  *
- *This object represent a user's profile pictures.
+ *<p>Requested profile pictures (in up to 4 sizes each)</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#userprofilephotos
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class UserProfilePhotos
 {
     /**
-    * Total number of profile pictures the target user has
+    * <p>Total number of profile pictures the target user has</p>
     * @var int
     */
     public int $total_count;
 
     /**
-    * Requested profile pictures (in up to 4 sizes each)
+    * <p>Requested profile pictures (in up to 4 sizes each)</p>
     * @var array
     */
     public array $photos;

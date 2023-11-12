@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * WebAppData
  *
- *Describes data sent from a [Web App](https://core.telegram.org/bots/webapps) to the bot.
+ *<p>Text of the *web\_app* keyboard button from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#webappdata
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class WebAppData
 {
     /**
-    * The data. Be aware that a bad client can send arbitrary data in this field.
+    * <p>The data. Be aware that a bad client can send arbitrary data in this field.</p>
     * @var string
     */
     public string $data;
 
     /**
-    * Text of the *web\_app* keyboard button from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field.
+    * <p>Text of the *web\_app* keyboard button from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field.</p>
     * @var string
     */
     public string $button_text;

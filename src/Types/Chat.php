@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * Chat
  *
- *This object represents a chat.
+ *<p>*Optional*. For supergroups, the location to which the supergroup is connected. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chat
@@ -14,169 +14,175 @@ namespace Milly\Laragram\Types;
 class Chat
 {
     /**
-    * Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.
+    * <p>Unique identifier for this chat. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this identifier.</p>
     * @var int
     */
     public int $id;
 
     /**
-    * Type of chat, can be either “private”, “group”, “supergroup” or “channel”
+    * <p>Type of chat, can be either “private”, “group”, “supergroup” or “channel”</p>
     * @var string
     */
     public string $type;
 
     /**
-    * *Optional*. Title, for supergroups, channels and group chats
+    * <p>*Optional*. Title, for supergroups, channels and group chats</p>
     * @var string|null
     */
     public ?string $title = null;
 
     /**
-    * *Optional*. Username, for private chats, supergroups and channels if available
+    * <p>*Optional*. Username, for private chats, supergroups and channels if available</p>
     * @var string|null
     */
     public ?string $username = null;
 
     /**
-    * *Optional*. First name of the other party in a private chat
+    * <p>*Optional*. First name of the other party in a private chat</p>
     * @var string|null
     */
     public ?string $first_name = null;
 
     /**
-    * *Optional*. Last name of the other party in a private chat
+    * <p>*Optional*. Last name of the other party in a private chat</p>
     * @var string|null
     */
     public ?string $last_name = null;
 
     /**
-    * *Optional*. *True*, if the supergroup chat is a forum (has [topics](https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups) enabled)
+    * <p>*Optional*. *True*, if the supergroup chat is a forum (has <a href="https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups">topics</a> enabled)</p>
     * @var bool|null
     */
     public ?bool $is_forum = null;
 
     /**
-    * *Optional*. Chat photo. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. Chat photo. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var ChatPhoto|null
     */
     public ?ChatPhoto $photo = null;
 
     /**
-    * *Optional*. If non-empty, the list of all [active chat usernames](https://telegram.org/blog/topics-in-groups-collectible-usernames#collectible-usernames); for private chats, supergroups and channels. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. If non-empty, the list of all <a href="https://telegram.org/blog/topics-in-groups-collectible-usernames#collectible-usernames">active chat usernames</a>; for private chats, supergroups and channels. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var array|null
     */
     public ?array $active_usernames = null;
 
     /**
-    * *Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. Custom emoji identifier of emoji status of the other party in a private chat. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var string|null
     */
     public ?string $emoji_status_custom_emoji_id = null;
 
     /**
-    * *Optional*. Bio of the other party in a private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. Expiration date of the emoji status of the other party in a private chat in Unix time, if any. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
+    * @var int|null
+    */
+    public ?int $emoji_status_expiration_date = null;
+
+    /**
+    * <p>*Optional*. Bio of the other party in a private chat. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var string|null
     */
     public ?string $bio = null;
 
     /**
-    * *Optional*. *True*, if privacy settings of the other party in the private chat allows to use `tg://user?id=<user_id>` links only in chats with the user. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if privacy settings of the other party in the private chat allows to use `tg://user?id=<user_id>` links only in chats with the user. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $has_private_forwards = null;
 
     /**
-    * *Optional*. *True*, if the privacy settings of the other party restrict sending voice and video note messages in the private chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if the privacy settings of the other party restrict sending voice and video note messages in the private chat. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $has_restricted_voice_and_video_messages = null;
 
     /**
-    * *Optional*. *True*, if users need to join the supergroup before they can send messages. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if users need to join the supergroup before they can send messages. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $join_to_send_messages = null;
 
     /**
-    * *Optional*. *True*, if all users directly joining the supergroup need to be approved by supergroup administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if all users directly joining the supergroup need to be approved by supergroup administrators. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $join_by_request = null;
 
     /**
-    * *Optional*. Description, for groups, supergroups and channel chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. Description, for groups, supergroups and channel chats. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var string|null
     */
     public ?string $description = null;
 
     /**
-    * *Optional*. Primary invite link, for groups, supergroups and channel chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. Primary invite link, for groups, supergroups and channel chats. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var string|null
     */
     public ?string $invite_link = null;
 
     /**
-    * *Optional*. The most recent pinned message (by sending date). Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. The most recent pinned message (by sending date). Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var Message|null
     */
     public ?Message $pinned_message = null;
 
     /**
-    * *Optional*. Default chat member permissions, for groups and supergroups. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. Default chat member permissions, for groups and supergroups. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var ChatPermissions|null
     */
     public ?ChatPermissions $permissions = null;
 
     /**
-    * *Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unpriviledged user; in seconds. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var int|null
     */
     public ?int $slow_mode_delay = null;
 
     /**
-    * *Optional*. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. The time after which all messages sent to the chat will be automatically deleted; in seconds. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var int|null
     */
     public ?int $message_auto_delete_time = null;
 
     /**
-    * *Optional*. *True*, if aggressive anti-spam checks are enabled in the supergroup. The field is only available to chat administrators. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if aggressive anti-spam checks are enabled in the supergroup. The field is only available to chat administrators. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $has_aggressive_anti_spam_enabled = null;
 
     /**
-    * *Optional*. *True*, if non-administrators can only get the list of bots and administrators in the chat. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if non-administrators can only get the list of bots and administrators in the chat. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $has_hidden_members = null;
 
     /**
-    * *Optional*. *True*, if messages from the chat can't be forwarded to other chats. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if messages from the chat can't be forwarded to other chats. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $has_protected_content = null;
 
     /**
-    * *Optional*. For supergroups, name of group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. For supergroups, name of group sticker set. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var string|null
     */
     public ?string $sticker_set_name = null;
 
     /**
-    * *Optional*. *True*, if the bot can change the group sticker set. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. *True*, if the bot can change the group sticker set. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var bool|null
     */
     public ?bool $can_set_sticker_set = null;
 
     /**
-    * *Optional*. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. Unique identifier for the linked chat, i.e. the discussion group identifier for a channel and vice versa; for supergroups and channel chats. This identifier may be greater than 32 bits and some programming languages may have difficulty/silent defects in interpreting it. But it is smaller than 52 bits, so a signed 64 bit integer or double-precision float type are safe for storing this identifier. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var int|null
     */
     public ?int $linked_chat_id = null;
 
     /**
-    * *Optional*. For supergroups, the location to which the supergroup is connected. Returned only in [getChat](https://core.telegram.org/bots/api/#getchat).
+    * <p>*Optional*. For supergroups, the location to which the supergroup is connected. Returned only in <a href="https://core.telegram.org/bots/api/#getchat">getChat</a>.</p>
     * @var ChatLocation|null
     */
     public ?ChatLocation $location = null;
@@ -217,6 +223,10 @@ class Chat
 
         if (isset($data['emoji_status_custom_emoji_id'])){
             $this->emoji_status_custom_emoji_id = $data['emoji_status_custom_emoji_id'];
+        }
+
+        if (isset($data['emoji_status_expiration_date'])){
+            $this->emoji_status_expiration_date = $data['emoji_status_expiration_date'];
         }
 
         if (isset($data['bio'])){

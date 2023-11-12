@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportData
  *
- *Describes Telegram Passport data shared with the bot by the user.
+ *<p>Encrypted credentials required to decrypt the data</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportdata
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class PassportData
 {
     /**
-    * Array with information about documents and other Telegram Passport elements that was shared with the bot
+    * <p>Array with information about documents and other Telegram Passport elements that was shared with the bot</p>
     * @var array
     */
     public array $data;
 
     /**
-    * Encrypted credentials required to decrypt the data
+    * <p>Encrypted credentials required to decrypt the data</p>
     * @var EncryptedCredentials
     */
     public EncryptedCredentials $credentials;

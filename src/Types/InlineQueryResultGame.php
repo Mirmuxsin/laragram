@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultGame
  *
- *Represents a [Game](https://core.telegram.org/bots/api/#games).
+ *<p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultgame
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultGame
 {
     /**
-    * Type of the result, must be *game*
+    * <p>Type of the result, must be *game*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * Short name of the game
+    * <p>Short name of the game</p>
     * @var string
     */
     public string $game_short_name;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;

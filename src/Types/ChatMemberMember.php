@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberMember
  *
- *Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that has no additional privileges or restrictions.
+ *<p>Information about the user</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmembermember
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class ChatMemberMember
 {
     /**
-    * The member's status in the chat, always “member”
+    * <p>The member's status in the chat, always “member”</p>
     * @var string
     */
     public string $status;
 
     /**
-    * Information about the user
+    * <p>Information about the user</p>
     * @var User
     */
     public User $user;

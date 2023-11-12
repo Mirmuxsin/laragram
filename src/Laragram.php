@@ -5,29 +5,9 @@ namespace Milly\Laragram;
 use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Milly\Laragram\Methods\Methods;
 
-/**
- * @method static array sendMessage(array $data)
- * @method static array sendPhoto(array $data)
- * @method static array sendAudio(array $data)
- * @method static array sendDocument(array $data)
- * @method static array sendVideo(array $data)
- * @method static array sendAnimation(array $data)
- * @method static array sendVoice(array $data)
- * @method static array sendVideoNote(array $data)
- * @method static array sendMediaGroup(array $data)
- * @method static array sendLocation(array $data)
- * @method static array sendVenue(array $data)
- * @method static array sendContact(array $data)
- * @method static array sendPoll(array $data)
- * @method static array sendDice(array $data)
- * @method static array sendChatAction(array $data)
- * @method static array forwardMessage(array $data)
- * @method static array copyMessage(array $data)
- * @method static array getFile(array $data)
- * @method static array getUserProfilePhotos(array $data)
- */
-class Laragram
+class Laragram extends Methods
 {
     public static string $url;
     public static ?string $token = null;
@@ -44,7 +24,8 @@ class Laragram
     /**
      * @throws GuzzleException
      */
-    public static function request (string $method, array $array) {
+    public static function request (string $method, array $array): string
+    {
         $token = self::$token ?? config('laragram.token');
         $client = new Client([
             'verify' => false,
@@ -52,7 +33,7 @@ class Laragram
         ]);
 
         return $client->get("https://api.telegram.org/bot" . $token . "/" . $method, [
-            "query" => $array[0],
+            "query" => $array,
             'http_errors' => false
         ])->getBody()->getContents();
     }

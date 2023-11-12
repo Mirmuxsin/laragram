@@ -6,9 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultVideo
  *
- *Represents a link to a page containing an embedded video player or a video file. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the video.
-
-If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube), you **must** replace its content using *input\_message\_content*.
+ *<p>*Optional*. Content of the message to be sent instead of the video. This field is <strong>required</strong> if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultvideo
@@ -16,91 +14,91 @@ If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube),
 class InlineQueryResultVideo
 {
     /**
-    * Type of the result, must be *video*
+    * <p>Type of the result, must be *video*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * A valid URL for the embedded video player or video file
+    * <p>A valid URL for the embedded video player or video file</p>
     * @var string
     */
     public string $video_url;
 
     /**
-    * MIME type of the content of the video URL, “text/html” or “video/mp4”
+    * <p>MIME type of the content of the video URL, “text/html” or “video/mp4”</p>
     * @var string
     */
     public string $mime_type;
 
     /**
-    * URL of the thumbnail (JPEG only) for the video
+    * <p>URL of the thumbnail (JPEG only) for the video</p>
     * @var string
     */
     public string $thumbnail_url;
 
     /**
-    * Title for the result
+    * <p>Title for the result</p>
     * @var string
     */
     public string $title;
 
     /**
-    * *Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing
+    * <p>*Optional*. Caption of the video to be sent, 0-1024 characters after entities parsing</p>
     * @var string|null
     */
     public ?string $caption = null;
 
     /**
-    * *Optional*. Mode for parsing entities in the video caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.
+    * <p>*Optional*. Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
     * @var string|null
     */
     public ?string $parse_mode = null;
 
     /**
-    * *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*
+    * <p>*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
     * @var array|null
     */
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. Video width
+    * <p>*Optional*. Video width</p>
     * @var int|null
     */
     public ?int $video_width = null;
 
     /**
-    * *Optional*. Video height
+    * <p>*Optional*. Video height</p>
     * @var int|null
     */
     public ?int $video_height = null;
 
     /**
-    * *Optional*. Video duration in seconds
+    * <p>*Optional*. Video duration in seconds</p>
     * @var int|null
     */
     public ?int $video_duration = null;
 
     /**
-    * *Optional*. Short description of the result
+    * <p>*Optional*. Short description of the result</p>
     * @var string|null
     */
     public ?string $description = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the video. This field is **required** if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).
+    * <p>*Optional*. Content of the message to be sent instead of the video. This field is <strong>required</strong> if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;

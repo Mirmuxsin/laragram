@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ForumTopic
  *
- *This object represents a forum topic.
+ *<p>*Optional*. Unique identifier of the custom emoji shown as the topic icon</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#forumtopic
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class ForumTopic
 {
     /**
-    * Unique identifier of the forum topic
+    * <p>Unique identifier of the forum topic</p>
     * @var int
     */
     public int $message_thread_id;
 
     /**
-    * Name of the topic
+    * <p>Name of the topic</p>
     * @var string
     */
     public string $name;
 
     /**
-    * Color of the topic icon in RGB format
+    * <p>Color of the topic icon in RGB format</p>
     * @var int
     */
     public int $icon_color;
 
     /**
-    * *Optional*. Unique identifier of the custom emoji shown as the topic icon
+    * <p>*Optional*. Unique identifier of the custom emoji shown as the topic icon</p>
     * @var string|null
     */
     public ?string $icon_custom_emoji_id = null;

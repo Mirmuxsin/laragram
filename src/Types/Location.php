@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * Location
  *
- *This object represents a point on the map.
+ *<p>*Optional*. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#location
@@ -14,37 +14,37 @@ namespace Milly\Laragram\Types;
 class Location
 {
     /**
-    * Longitude as defined by sender
+    * <p>Longitude as defined by sender</p>
     * @var float
     */
     public float $longitude;
 
     /**
-    * Latitude as defined by sender
+    * <p>Latitude as defined by sender</p>
     * @var float
     */
     public float $latitude;
 
     /**
-    * *Optional*. The radius of uncertainty for the location, measured in meters; 0-1500
+    * <p>*Optional*. The radius of uncertainty for the location, measured in meters; 0-1500</p>
     * @var float|null
     */
     public ?float $horizontal_accuracy = null;
 
     /**
-    * *Optional*. Time relative to the message sending date, during which the location can be updated; in seconds. For active live locations only.
+    * <p>*Optional*. Time relative to the message sending date, during which the location can be updated; in seconds. For active live locations only.</p>
     * @var int|null
     */
     public ?int $live_period = null;
 
     /**
-    * *Optional*. The direction in which user is moving, in degrees; 1-360. For active live locations only.
+    * <p>*Optional*. The direction in which user is moving, in degrees; 1-360. For active live locations only.</p>
     * @var int|null
     */
     public ?int $heading = null;
 
     /**
-    * *Optional*. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.
+    * <p>*Optional*. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.</p>
     * @var int|null
     */
     public ?int $proximity_alert_radius = null;

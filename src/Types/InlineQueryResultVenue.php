@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultVenue
  *
- *Represents a venue. By default, the venue will be sent by the user. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the venue.
+ *<p>*Optional*. Thumbnail height</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultvenue
@@ -14,91 +14,91 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultVenue
 {
     /**
-    * Type of the result, must be *venue*
+    * <p>Type of the result, must be *venue*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 Bytes
+    * <p>Unique identifier for this result, 1-64 Bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * Latitude of the venue location in degrees
+    * <p>Latitude of the venue location in degrees</p>
     * @var float
     */
     public float $latitude;
 
     /**
-    * Longitude of the venue location in degrees
+    * <p>Longitude of the venue location in degrees</p>
     * @var float
     */
     public float $longitude;
 
     /**
-    * Title of the venue
+    * <p>Title of the venue</p>
     * @var string
     */
     public string $title;
 
     /**
-    * Address of the venue
+    * <p>Address of the venue</p>
     * @var string
     */
     public string $address;
 
     /**
-    * *Optional*. Foursquare identifier of the venue if known
+    * <p>*Optional*. Foursquare identifier of the venue if known</p>
     * @var string|null
     */
     public ?string $foursquare_id = null;
 
     /**
-    * *Optional*. Foursquare type of the venue, if known. (For example, “arts\_entertainment/default”, “arts\_entertainment/aquarium” or “food/icecream”.)
+    * <p>*Optional*. Foursquare type of the venue, if known. (For example, “arts\<em>entertainment/default”, “arts\</em>entertainment/aquarium” or “food/icecream”.)</p>
     * @var string|null
     */
     public ?string $foursquare_type = null;
 
     /**
-    * *Optional*. Google Places identifier of the venue
+    * <p>*Optional*. Google Places identifier of the venue</p>
     * @var string|null
     */
     public ?string $google_place_id = null;
 
     /**
-    * *Optional*. Google Places type of the venue. (See [supported types](https://developers.google.com/places/web-service/supported_types).)
+    * <p>*Optional*. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
     * @var string|null
     */
     public ?string $google_place_type = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the venue
+    * <p>*Optional*. Content of the message to be sent instead of the venue</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;
 
     /**
-    * *Optional*. Url of the thumbnail for the result
+    * <p>*Optional*. Url of the thumbnail for the result</p>
     * @var string|null
     */
     public ?string $thumbnail_url = null;
 
     /**
-    * *Optional*. Thumbnail width
+    * <p>*Optional*. Thumbnail width</p>
     * @var int|null
     */
     public ?int $thumbnail_width = null;
 
     /**
-    * *Optional*. Thumbnail height
+    * <p>*Optional*. Thumbnail height</p>
     * @var int|null
     */
     public ?int $thumbnail_height = null;

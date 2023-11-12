@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatInviteLink
  *
- *Represents an invite link for a chat.
+ *<p>*Optional*. Number of pending join requests created using this link</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatinvitelink
@@ -14,55 +14,55 @@ namespace Milly\Laragram\Types;
 class ChatInviteLink
 {
     /**
-    * The invite link. If the link was created by another chat administrator, then the second part of the link will be replaced with “…”.
+    * <p>The invite link. If the link was created by another chat administrator, then the second part of the link will be replaced with “…”.</p>
     * @var string
     */
     public string $invite_link;
 
     /**
-    * Creator of the link
+    * <p>Creator of the link</p>
     * @var User
     */
     public User $creator;
 
     /**
-    * *True*, if users joining the chat via the link need to be approved by chat administrators
+    * <p>*True*, if users joining the chat via the link need to be approved by chat administrators</p>
     * @var bool
     */
     public bool $creates_join_request;
 
     /**
-    * *True*, if the link is primary
+    * <p>*True*, if the link is primary</p>
     * @var bool
     */
     public bool $is_primary;
 
     /**
-    * *True*, if the link is revoked
+    * <p>*True*, if the link is revoked</p>
     * @var bool
     */
     public bool $is_revoked;
 
     /**
-    * *Optional*. Invite link name
+    * <p>*Optional*. Invite link name</p>
     * @var string|null
     */
     public ?string $name = null;
 
     /**
-    * *Optional*. Point in time (Unix timestamp) when the link will expire or has been expired
+    * <p>*Optional*. Point in time (Unix timestamp) when the link will expire or has been expired</p>
     * @var int|null
     */
     public ?int $expire_date = null;
 
     /**
-    * *Optional*. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999
+    * <p>*Optional*. The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999</p>
     * @var int|null
     */
     public ?int $member_limit = null;
 
     /**
-    * *Optional*. Number of pending join requests created using this link
+    * <p>*Optional*. Number of pending join requests created using this link</p>
     * @var int|null
     */
     public ?int $pending_join_request_count = null;

@@ -3,10 +3,16 @@
 namespace Milly\Laragram\FSM;
 
 use App\Http\Controllers\Bot\TestController;
+use Closure;
 use Exception;
+use Illuminate\Routing\RouteAction;
+use Illuminate\Support\Arr;
 use Milly\Laragram\Laragram;
 use Milly\Laragram\Types\Update;
+use ReflectionFunction;
+use ReflectionMethod;
 use Throwable;
+use UnexpectedValueException;
 
 
 /**
@@ -23,27 +29,48 @@ class FSM
     /**
      * Handle update from telegram
      *
+     * @param string $status
+     * @param object|callable $class
+     * @return bool|mixed
      * @throws Throwable
-     * @var array $class Function to call from array
-     * @var array $types Types which allowed in to this function
-     * @var string $status Status of chat
      */
-    public static function route(string $status, callable $class, array $types)
+    public static function route(string|null $status, callable|string|array $callable): mixed
     {
-        throw_if(!is_callable($class), json_encode($class) . " is not callable");
-        foreach ($types as $type) {
-            if (!isset($type)) {
-                //when type is not found in this update
-                return true;
+//        throw_if(!is_callable($class), json_encode($class) . " is not callable");
+
+        $closure = $callable(...);
+
+        $r = new ReflectionFunction($closure);
+
+        $parameters = $r->getParameters();
+        $params = [];
+
+        if (count($parameters)) {
+            $update = new Update();
+            $properties = (new \ReflectionClass($update))->getProperties();
+            foreach ($properties as $property) {
+                foreach ($parameters as $parameter) {
+                    if ($property->getType()->getName() == $parameter->getType()->getName())
+                        $params[$parameter->getName()] = $update->{$parameter->getName()};
+                }
+            }
+
+            // todo throw beautiful exception if called is not found in update
+            if (count($params) != count($parameters)) {
+                throw new UnexpectedValueException('Cannot call the method from update: '.json_encode($parameters));
             }
         }
+
         $userStatus = static::status();
         if (!(bool)preg_match('#' . $status . '#', $userStatus)) {
             //user status is not equal
             return false;
         }
 
-        return call_user_func_array($class, $types);
+        $method = new \ReflectionFunction($callable);
+//        dd($params);
+
+        return call_user_func_array($callable, $params);
     }
 
 

@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultPhoto
  *
- *Represents a link to a photo. By default, this photo will be sent by the user with optional caption. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the photo.
+ *<p>*Optional*. Content of the message to be sent instead of the photo</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultphoto
@@ -14,79 +14,79 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultPhoto
 {
     /**
-    * Type of the result, must be *photo*
+    * <p>Type of the result, must be *photo*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * A valid URL of the photo. Photo must be in **JPEG** format. Photo size must not exceed 5MB
+    * <p>A valid URL of the photo. Photo must be in <strong>JPEG</strong> format. Photo size must not exceed 5MB</p>
     * @var string
     */
     public string $photo_url;
 
     /**
-    * URL of the thumbnail for the photo
+    * <p>URL of the thumbnail for the photo</p>
     * @var string
     */
     public string $thumbnail_url;
 
     /**
-    * *Optional*. Width of the photo
+    * <p>*Optional*. Width of the photo</p>
     * @var int|null
     */
     public ?int $photo_width = null;
 
     /**
-    * *Optional*. Height of the photo
+    * <p>*Optional*. Height of the photo</p>
     * @var int|null
     */
     public ?int $photo_height = null;
 
     /**
-    * *Optional*. Title for the result
+    * <p>*Optional*. Title for the result</p>
     * @var string|null
     */
     public ?string $title = null;
 
     /**
-    * *Optional*. Short description of the result
+    * <p>*Optional*. Short description of the result</p>
     * @var string|null
     */
     public ?string $description = null;
 
     /**
-    * *Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing
+    * <p>*Optional*. Caption of the photo to be sent, 0-1024 characters after entities parsing</p>
     * @var string|null
     */
     public ?string $caption = null;
 
     /**
-    * *Optional*. Mode for parsing entities in the photo caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.
+    * <p>*Optional*. Mode for parsing entities in the photo caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
     * @var string|null
     */
     public ?string $parse_mode = null;
 
     /**
-    * *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*
+    * <p>*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
     * @var array|null
     */
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the photo
+    * <p>*Optional*. Content of the message to be sent instead of the photo</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;

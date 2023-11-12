@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeDefault
  *
- *Represents the default [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands. Default commands are used if no commands with a [narrower scope](https://core.telegram.org/bots/api/#determining-list-of-commands) are specified for the user.
+ *<p>Scope type, must be *default*</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopedefault
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class BotCommandScopeDefault
 {
     /**
-    * Scope type, must be *default*
+    * <p>Scope type, must be *default*</p>
     * @var string
     */
     public string $type;

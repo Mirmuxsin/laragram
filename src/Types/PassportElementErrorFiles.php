@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorFiles
  *
- *Represents an issue with a list of scans. The error is considered resolved when the list of files containing the scans changes.
+ *<p>Error message</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorfiles
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class PassportElementErrorFiles
 {
     /**
-    * Error source, must be *files*
+    * <p>Error source, must be *files*</p>
     * @var string
     */
     public string $source;
 
     /**
-    * The section of the user's Telegram Passport which has the issue, one of “utility\_bill”, “bank\_statement”, “rental\_agreement”, “passport\_registration”, “temporary\_registration”
+    * <p>The section of the user's Telegram Passport which has the issue, one of “utility\<em>bill”, “bank\</em>statement”, “rental\<em>agreement”, “passport\</em>registration”, “temporary\_registration”</p>
     * @var string
     */
     public string $type;
 
     /**
-    * List of base64-encoded file hashes
+    * <p>List of base64-encoded file hashes</p>
     * @var array
     */
     public array $file_hashes;
 
     /**
-    * Error message
+    * <p>Error message</p>
     * @var string
     */
     public string $message;

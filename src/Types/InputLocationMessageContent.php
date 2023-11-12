@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputLocationMessageContent
  *
- *Represents the [content](https://core.telegram.org/bots/api/#inputmessagecontent) of a location message to be sent as the result of an inline query.
+ *<p>*Optional*. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputlocationmessagecontent
@@ -14,37 +14,37 @@ namespace Milly\Laragram\Types;
 class InputLocationMessageContent
 {
     /**
-    * Latitude of the location in degrees
+    * <p>Latitude of the location in degrees</p>
     * @var float
     */
     public float $latitude;
 
     /**
-    * Longitude of the location in degrees
+    * <p>Longitude of the location in degrees</p>
     * @var float
     */
     public float $longitude;
 
     /**
-    * *Optional*. The radius of uncertainty for the location, measured in meters; 0-1500
+    * <p>*Optional*. The radius of uncertainty for the location, measured in meters; 0-1500</p>
     * @var float|null
     */
     public ?float $horizontal_accuracy = null;
 
     /**
-    * *Optional*. Period in seconds for which the location can be updated, should be between 60 and 86400.
+    * <p>*Optional*. Period in seconds for which the location can be updated, should be between 60 and 86400.</p>
     * @var int|null
     */
     public ?int $live_period = null;
 
     /**
-    * *Optional*. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.
+    * <p>*Optional*. For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</p>
     * @var int|null
     */
     public ?int $heading = null;
 
     /**
-    * *Optional*. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.
+    * <p>*Optional*. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
     * @var int|null
     */
     public ?int $proximity_alert_radius = null;

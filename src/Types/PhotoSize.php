@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * PhotoSize
  *
- *This object represents one size of a photo or a [file](https://core.telegram.org/bots/api/#document) / [sticker](https://core.telegram.org/bots/api/#sticker) thumbnail.
+ *<p>*Optional*. File size in bytes</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#photosize
@@ -14,31 +14,31 @@ namespace Milly\Laragram\Types;
 class PhotoSize
 {
     /**
-    * Identifier for this file, which can be used to download or reuse the file
+    * <p>Identifier for this file, which can be used to download or reuse the file</p>
     * @var string
     */
     public string $file_id;
 
     /**
-    * Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+    * <p>Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.</p>
     * @var string
     */
     public string $file_unique_id;
 
     /**
-    * Photo width
+    * <p>Photo width</p>
     * @var int
     */
     public int $width;
 
     /**
-    * Photo height
+    * <p>Photo height</p>
     * @var int
     */
     public int $height;
 
     /**
-    * *Optional*. File size in bytes
+    * <p>*Optional*. File size in bytes</p>
     * @var int|null
     */
     public ?int $file_size = null;

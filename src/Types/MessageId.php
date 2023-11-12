@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageId
  *
- *This object represents a unique message identifier.
+ *<p>Unique message identifier</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageid
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class MessageId
 {
     /**
-    * Unique message identifier
+    * <p>Unique message identifier</p>
     * @var int
     */
     public int $message_id;

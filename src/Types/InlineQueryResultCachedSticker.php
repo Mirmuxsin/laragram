@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultCachedSticker
  *
- *Represents a link to a sticker stored on the Telegram servers. By default, this sticker will be sent by the user. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the sticker.
+ *<p>*Optional*. Content of the message to be sent instead of the sticker</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultcachedsticker
@@ -14,31 +14,31 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultCachedSticker
 {
     /**
-    * Type of the result, must be *sticker*
+    * <p>Type of the result, must be *sticker*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * A valid file identifier of the sticker
+    * <p>A valid file identifier of the sticker</p>
     * @var string
     */
     public string $sticker_file_id;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the sticker
+    * <p>*Optional*. Content of the message to be sent instead of the sticker</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;

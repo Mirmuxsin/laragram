@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeAllPrivateChats
  *
- *Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all private chats.
+ *<p>Scope type, must be *all\<em>private\</em>chats*</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopeallprivatechats
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class BotCommandScopeAllPrivateChats
 {
     /**
-    * Scope type, must be *all\_private\_chats*
+    * <p>Scope type, must be *all\<em>private\</em>chats*</p>
     * @var string
     */
     public string $type;

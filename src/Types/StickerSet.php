@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * StickerSet
  *
- *This object represents a sticker set.
+ *<p>*Optional*. Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#stickerset
@@ -14,43 +14,43 @@ namespace Milly\Laragram\Types;
 class StickerSet
 {
     /**
-    * Sticker set name
+    * <p>Sticker set name</p>
     * @var string
     */
     public string $name;
 
     /**
-    * Sticker set title
+    * <p>Sticker set title</p>
     * @var string
     */
     public string $title;
 
     /**
-    * Type of stickers in the set, currently one of “regular”, “mask”, “custom\_emoji”
+    * <p>Type of stickers in the set, currently one of “regular”, “mask”, “custom\_emoji”</p>
     * @var string
     */
     public string $sticker_type;
 
     /**
-    * *True*, if the sticker set contains [animated stickers](https://telegram.org/blog/animated-stickers)
+    * <p>*True*, if the sticker set contains <a href="https://telegram.org/blog/animated-stickers">animated stickers</a></p>
     * @var bool
     */
     public bool $is_animated;
 
     /**
-    * *True*, if the sticker set contains [video stickers](https://telegram.org/blog/video-stickers-better-reactions)
+    * <p>*True*, if the sticker set contains <a href="https://telegram.org/blog/video-stickers-better-reactions">video stickers</a></p>
     * @var bool
     */
     public bool $is_video;
 
     /**
-    * List of all set stickers
+    * <p>List of all set stickers</p>
     * @var array
     */
     public array $stickers;
 
     /**
-    * *Optional*. Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format
+    * <p>*Optional*. Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format</p>
     * @var PhotoSize|null
     */
     public ?PhotoSize $thumbnail = null;

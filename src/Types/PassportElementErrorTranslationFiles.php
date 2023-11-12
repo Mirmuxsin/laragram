@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorTranslationFiles
  *
- *Represents an issue with the translated version of a document. The error is considered resolved when a file with the document translation change.
+ *<p>Error message</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrortranslationfiles
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class PassportElementErrorTranslationFiles
 {
     /**
-    * Error source, must be *translation\_files*
+    * <p>Error source, must be *translation\_files*</p>
     * @var string
     */
     public string $source;
 
     /**
-    * Type of element of the user's Telegram Passport which has the issue, one of “passport”, “driver\_license”, “identity\_card”, “internal\_passport”, “utility\_bill”, “bank\_statement”, “rental\_agreement”, “passport\_registration”, “temporary\_registration”
+    * <p>Type of element of the user's Telegram Passport which has the issue, one of “passport”, “driver\<em>license”, “identity\</em>card”, “internal\<em>passport”, “utility\</em>bill”, “bank\<em>statement”, “rental\</em>agreement”, “passport\<em>registration”, “temporary\</em>registration”</p>
     * @var string
     */
     public string $type;
 
     /**
-    * List of base64-encoded file hashes
+    * <p>List of base64-encoded file hashes</p>
     * @var array
     */
     public array $file_hashes;
 
     /**
-    * Error message
+    * <p>Error message</p>
     * @var string
     */
     public string $message;

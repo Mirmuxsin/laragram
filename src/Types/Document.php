@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * Document
  *
- *This object represents a general file (as opposed to [photos](https://core.telegram.org/bots/api/#photosize), [voice messages](https://core.telegram.org/bots/api/#voice) and [audio files](https://core.telegram.org/bots/api/#audio)).
+ *<p>*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#document
@@ -14,37 +14,37 @@ namespace Milly\Laragram\Types;
 class Document
 {
     /**
-    * Identifier for this file, which can be used to download or reuse the file
+    * <p>Identifier for this file, which can be used to download or reuse the file</p>
     * @var string
     */
     public string $file_id;
 
     /**
-    * Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+    * <p>Unique identifier for this file, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.</p>
     * @var string
     */
     public string $file_unique_id;
 
     /**
-    * *Optional*. Document thumbnail as defined by sender
+    * <p>*Optional*. Document thumbnail as defined by sender</p>
     * @var PhotoSize|null
     */
     public ?PhotoSize $thumbnail = null;
 
     /**
-    * *Optional*. Original filename as defined by sender
+    * <p>*Optional*. Original filename as defined by sender</p>
     * @var string|null
     */
     public ?string $file_name = null;
 
     /**
-    * *Optional*. MIME type of the file as defined by sender
+    * <p>*Optional*. MIME type of the file as defined by sender</p>
     * @var string|null
     */
     public ?string $mime_type = null;
 
     /**
-    * *Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.
+    * <p>*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.</p>
     * @var int|null
     */
     public ?int $file_size = null;

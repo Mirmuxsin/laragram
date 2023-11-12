@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * VideoChatScheduled
  *
- *This object represents a service message about a video chat scheduled in the chat.
+ *<p>Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#videochatscheduled
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class VideoChatScheduled
 {
     /**
-    * Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator
+    * <p>Point in time (Unix timestamp) when the video chat is supposed to be started by a chat administrator</p>
     * @var int
     */
     public int $start_date;

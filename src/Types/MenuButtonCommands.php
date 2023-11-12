@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * MenuButtonCommands
  *
- *Represents a menu button, which opens the bot's list of commands.
+ *<p>Type of the button, must be *commands*</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#menubuttoncommands
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class MenuButtonCommands
 {
     /**
-    * Type of the button, must be *commands*
+    * <p>Type of the button, must be *commands*</p>
     * @var string
     */
     public string $type;

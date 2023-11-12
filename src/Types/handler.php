@@ -9,7 +9,7 @@ use function PHPUnit\Framework\throwException;
 use Symfony\Component\HttpFoundation\IpUtils;
 use Illuminate\Support\Facades\App;
 
-class handler {
+class Handler {
 
     /**
      * Trusted Telegram IP addresses

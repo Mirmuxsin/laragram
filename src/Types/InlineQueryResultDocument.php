@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultDocument
  *
- *Represents a link to a file. By default, this file will be sent by the user with an optional caption. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the file. Currently, only **.PDF** and **.ZIP** files can be sent using this method.
+ *<p>*Optional*. Thumbnail height</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultdocument
@@ -14,85 +14,85 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultDocument
 {
     /**
-    * Type of the result, must be *document*
+    * <p>Type of the result, must be *document*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * Title for the result
+    * <p>Title for the result</p>
     * @var string
     */
     public string $title;
 
     /**
-    * *Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing
+    * <p>*Optional*. Caption of the document to be sent, 0-1024 characters after entities parsing</p>
     * @var string|null
     */
     public ?string $caption = null;
 
     /**
-    * *Optional*. Mode for parsing entities in the document caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.
+    * <p>*Optional*. Mode for parsing entities in the document caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
     * @var string|null
     */
     public ?string $parse_mode = null;
 
     /**
-    * *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*
+    * <p>*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
     * @var array|null
     */
     public ?array $caption_entities = null;
 
     /**
-    * A valid URL for the file
+    * <p>A valid URL for the file</p>
     * @var string
     */
     public string $document_url;
 
     /**
-    * MIME type of the content of the file, either “application/pdf” or “application/zip”
+    * <p>MIME type of the content of the file, either “application/pdf” or “application/zip”</p>
     * @var string
     */
     public string $mime_type;
 
     /**
-    * *Optional*. Short description of the result
+    * <p>*Optional*. Short description of the result</p>
     * @var string|null
     */
     public ?string $description = null;
 
     /**
-    * *Optional*. Inline keyboard attached to the message
+    * <p>*Optional*. Inline keyboard attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the file
+    * <p>*Optional*. Content of the message to be sent instead of the file</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;
 
     /**
-    * *Optional*. URL of the thumbnail (JPEG only) for the file
+    * <p>*Optional*. URL of the thumbnail (JPEG only) for the file</p>
     * @var string|null
     */
     public ?string $thumbnail_url = null;
 
     /**
-    * *Optional*. Thumbnail width
+    * <p>*Optional*. Thumbnail width</p>
     * @var int|null
     */
     public ?int $thumbnail_width = null;
 
     /**
-    * *Optional*. Thumbnail height
+    * <p>*Optional*. Thumbnail height</p>
     * @var int|null
     */
     public ?int $thumbnail_height = null;

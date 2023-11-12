@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorFrontSide
  *
- *Represents an issue with the front side of a document. The error is considered resolved when the file with the front side of the document changes.
+ *<p>Error message</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorfrontside
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class PassportElementErrorFrontSide
 {
     /**
-    * Error source, must be *front\_side*
+    * <p>Error source, must be *front\_side*</p>
     * @var string
     */
     public string $source;
 
     /**
-    * The section of the user's Telegram Passport which has the issue, one of “passport”, “driver\_license”, “identity\_card”, “internal\_passport”
+    * <p>The section of the user's Telegram Passport which has the issue, one of “passport”, “driver\<em>license”, “identity\</em>card”, “internal\_passport”</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Base64-encoded hash of the file with the front side of the document
+    * <p>Base64-encoded hash of the file with the front side of the document</p>
     * @var string
     */
     public string $file_hash;
 
     /**
-    * Error message
+    * <p>Error message</p>
     * @var string
     */
     public string $message;

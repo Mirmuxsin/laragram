@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultArticle
  *
- *Represents a link to an article or web page.
+ *<p>*Optional*. Thumbnail height</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultarticle
@@ -14,67 +14,67 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultArticle
 {
     /**
-    * Type of the result, must be *article*
+    * <p>Type of the result, must be *article*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 Bytes
+    * <p>Unique identifier for this result, 1-64 Bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * Title of the result
+    * <p>Title of the result</p>
     * @var string
     */
     public string $title;
 
     /**
-    * Content of the message to be sent
+    * <p>Content of the message to be sent</p>
     * @var InputMessageContent
     */
     public InputMessageContent $input_message_content;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. URL of the result
+    * <p>*Optional*. URL of the result</p>
     * @var string|null
     */
     public ?string $url = null;
 
     /**
-    * *Optional*. Pass *True* if you don't want the URL to be shown in the message
+    * <p>*Optional*. Pass *True* if you don't want the URL to be shown in the message</p>
     * @var bool|null
     */
     public ?bool $hide_url = null;
 
     /**
-    * *Optional*. Short description of the result
+    * <p>*Optional*. Short description of the result</p>
     * @var string|null
     */
     public ?string $description = null;
 
     /**
-    * *Optional*. Url of the thumbnail for the result
+    * <p>*Optional*. Url of the thumbnail for the result</p>
     * @var string|null
     */
     public ?string $thumbnail_url = null;
 
     /**
-    * *Optional*. Thumbnail width
+    * <p>*Optional*. Thumbnail width</p>
     * @var int|null
     */
     public ?int $thumbnail_width = null;
 
     /**
-    * *Optional*. Thumbnail height
+    * <p>*Optional*. Thumbnail height</p>
     * @var int|null
     */
     public ?int $thumbnail_height = null;

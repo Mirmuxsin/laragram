@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeAllGroupChats
  *
- *Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all group and supergroup chats.
+ *<p>Scope type, must be *all\<em>group\</em>chats*</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopeallgroupchats
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class BotCommandScopeAllGroupChats
 {
     /**
-    * Scope type, must be *all\_group\_chats*
+    * <p>Scope type, must be *all\<em>group\</em>chats*</p>
     * @var string
     */
     public string $type;

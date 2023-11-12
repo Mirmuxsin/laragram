@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageAutoDeleteTimerChanged
  *
- *This object represents a service message about a change in auto-delete timer settings.
+ *<p>New auto-delete time for messages in the chat; in seconds</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageautodeletetimerchanged
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class MessageAutoDeleteTimerChanged
 {
     /**
-    * New auto-delete time for messages in the chat; in seconds
+    * <p>New auto-delete time for messages in the chat; in seconds</p>
     * @var int
     */
     public int $message_auto_delete_time;

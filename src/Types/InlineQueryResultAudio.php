@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultAudio
  *
- *Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the audio.
+ *<p>*Optional*. Content of the message to be sent instead of the audio</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultaudio
@@ -14,67 +14,67 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultAudio
 {
     /**
-    * Type of the result, must be *audio*
+    * <p>Type of the result, must be *audio*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * A valid URL for the audio file
+    * <p>A valid URL for the audio file</p>
     * @var string
     */
     public string $audio_url;
 
     /**
-    * Title
+    * <p>Title</p>
     * @var string
     */
     public string $title;
 
     /**
-    * *Optional*. Caption, 0-1024 characters after entities parsing
+    * <p>*Optional*. Caption, 0-1024 characters after entities parsing</p>
     * @var string|null
     */
     public ?string $caption = null;
 
     /**
-    * *Optional*. Mode for parsing entities in the audio caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.
+    * <p>*Optional*. Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
     * @var string|null
     */
     public ?string $parse_mode = null;
 
     /**
-    * *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*
+    * <p>*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
     * @var array|null
     */
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. Performer
+    * <p>*Optional*. Performer</p>
     * @var string|null
     */
     public ?string $performer = null;
 
     /**
-    * *Optional*. Audio duration in seconds
+    * <p>*Optional*. Audio duration in seconds</p>
     * @var int|null
     */
     public ?int $audio_duration = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the audio
+    * <p>*Optional*. Content of the message to be sent instead of the audio</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;

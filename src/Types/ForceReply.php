@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ForceReply
  *
- *Upon receiving a message with this object, Telegram clients will display a reply interface to the user (act as if the user has selected the bot's message and tapped 'Reply'). This can be extremely useful if you want to create user-friendly step-by-step interfaces without having to sacrifice [privacy mode](https://core.telegram.org/bots/features#privacy-mode).
+ *<p>*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply (has *reply\<em>to\</em>message\_id*), sender of the original message.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#forcereply
@@ -14,19 +14,19 @@ namespace Milly\Laragram\Types;
 class ForceReply
 {
     /**
-    * Shows reply interface to the user, as if they manually selected the bot's message and tapped 'Reply'
+    * <p>Shows reply interface to the user, as if they manually selected the bot's message and tapped 'Reply'</p>
     * @var bool
     */
     public bool $force_reply;
 
     /**
-    * *Optional*. The placeholder to be shown in the input field when the reply is active; 1-64 characters
+    * <p>*Optional*. The placeholder to be shown in the input field when the reply is active; 1-64 characters</p>
     * @var string|null
     */
     public ?string $input_field_placeholder = null;
 
     /**
-    * *Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the [Message](https://core.telegram.org/bots/api/#message) object; 2) if the bot's message is a reply (has *reply\_to\_message\_id*), sender of the original message.
+    * <p>*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply (has *reply\<em>to\</em>message\_id*), sender of the original message.</p>
     * @var bool|null
     */
     public ?bool $selective = null;

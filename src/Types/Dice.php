@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * Dice
  *
- *This object represents an animated emoji that displays a random value.
+ *<p>Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#dice
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class Dice
 {
     /**
-    * Emoji on which the dice throw animation is based
+    * <p>Emoji on which the dice throw animation is based</p>
     * @var string
     */
     public string $emoji;
 
     /**
-    * Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji
+    * <p>Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji</p>
     * @var int
     */
     public int $value;

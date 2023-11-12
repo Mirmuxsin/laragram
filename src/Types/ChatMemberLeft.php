@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberLeft
  *
- *Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that isn't currently a member of the chat, but may join it themselves.
+ *<p>Information about the user</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberleft
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class ChatMemberLeft
 {
     /**
-    * The member's status in the chat, always “left”
+    * <p>The member's status in the chat, always “left”</p>
     * @var string
     */
     public string $status;
 
     /**
-    * Information about the user
+    * <p>Information about the user</p>
     * @var User
     */
     public User $user;

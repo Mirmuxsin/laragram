@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * EncryptedCredentials
  *
- *Describes data required for decrypting and authenticating [EncryptedPassportElement](https://core.telegram.org/bots/api/#encryptedpassportelement). See the [Telegram Passport Documentation](https://core.telegram.org/passport#receiving-information) for a complete description of the data decryption and authentication processes.
+ *<p>Base64-encoded secret, encrypted with the bot's public RSA key, required for data decryption</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#encryptedcredentials
@@ -14,19 +14,19 @@ namespace Milly\Laragram\Types;
 class EncryptedCredentials
 {
     /**
-    * Base64-encoded encrypted JSON-serialized data with unique user's payload, data hashes and secrets required for [EncryptedPassportElement](https://core.telegram.org/bots/api/#encryptedpassportelement) decryption and authentication
+    * <p>Base64-encoded encrypted JSON-serialized data with unique user's payload, data hashes and secrets required for <a href="https://core.telegram.org/bots/api/#encryptedpassportelement">EncryptedPassportElement</a> decryption and authentication</p>
     * @var string
     */
     public string $data;
 
     /**
-    * Base64-encoded data hash for data authentication
+    * <p>Base64-encoded data hash for data authentication</p>
     * @var string
     */
     public string $hash;
 
     /**
-    * Base64-encoded secret, encrypted with the bot's public RSA key, required for data decryption
+    * <p>Base64-encoded secret, encrypted with the bot's public RSA key, required for data decryption</p>
     * @var string
     */
     public string $secret;
