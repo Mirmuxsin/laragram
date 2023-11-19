@@ -50,6 +50,10 @@ class FSM
             $properties = (new \ReflectionClass($update))->getProperties();
             foreach ($properties as $property) {
                 foreach ($parameters as $parameter) {
+                    if ($parameter->getName() == 'update'){
+                        $params[$parameter->getName()] = $update;
+                        continue;
+                    }
                     if ($property->getType()->getName() == $parameter->getType()->getName())
                         $params[$parameter->getName()] = $update->{$parameter->getName()};
                 }

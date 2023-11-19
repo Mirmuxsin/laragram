@@ -16,13 +16,13 @@ abstract class Methods
     abstract static function request (string $method, array $array): string;
 
      /**
-     * @var integer|null $offset  <p>Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as <a href="https://core.telegram.org/bots/api/#getupdates">getUpdates</a> is called with an *offset* higher than its *update\_id*. The negative offset can be specified to retrieve updates starting from *-offset* update from the end of the updates queue. All previous updates will be forgotten.</p>
-     * @var integer|null $limit *(default: 100)* <p>Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.</p>
-     * @var integer|null $timeout *(default: 0)* <p>Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only.</p>
+     * @var int|null $offset  <p>Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as <a href="https://core.telegram.org/bots/api/#getupdates">getUpdates</a> is called with an *offset* higher than its *update\_id*. The negative offset can be specified to retrieve updates starting from *-offset* update from the end of the updates queue. All previous updates will be forgotten.</p>
+     * @var int|null $limit *(default: 100)* <p>Limits the number of updates to be retrieved. Values between 1-100 are accepted. Defaults to 100.</p>
+     * @var int|null $timeout *(default: 0)* <p>Timeout in seconds for long polling. Defaults to 0, i.e. usual short polling. Should be positive, short polling should be used for testing purposes only.</p>
      * @var array|null $allowed_updates  <p>A JSON-serialized list of the update types you want your bot to receive. For example, specify `<a href="https://core.telegram.org/bots/api/#update">"message", "edited<em>channel</em>post", "callback<em>query"]` to only receive updates of these types. See [Update</a> for a complete list of available update types. Specify an empty list to receive all update types except *chat\</em>member* (default). If not specified, the previous setting will be used.  </p><p>Please note that this parameter doesn't affect updates created before the call to the getUpdates, so unwanted updates may be received for a short period of time.</p>
      * */
 
-    public static function getUpdates (integer $offset = null, integer $limit = null, integer $timeout = null, array $allowed_updates = null, ) {
+    public static function getUpdates ( $offset = null,  $limit = null,  $timeout = null, array $allowed_updates = null, ) {
         return static::request('getUpdates', func_get_args_associative());
     }
 
@@ -30,14 +30,14 @@ abstract class Methods
      * @var string $url  <p>HTTPS URL to send updates to. Use an empty string to remove webhook integration</p>
      * @var \Milly\Laragram\Types\InputFile|null $certificate  <p>Upload your public key certificate so that the root certificate in use can be checked. See our <a href="https://core.telegram.org/bots/self-signed">self-signed guide</a> for details.</p>
      * @var string|null $ip_address  <p>The fixed IP address which will be used to send webhook requests instead of the IP address resolved through DNS</p>
-     * @var integer|null $max_connections *(default: 40)* <p>The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to *40*. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.</p>
+     * @var int|null $max_connections *(default: 40)* <p>The maximum allowed number of simultaneous HTTPS connections to the webhook for update delivery, 1-100. Defaults to *40*. Use lower values to limit the load on your bot's server, and higher values to increase your bot's throughput.</p>
      * @var array|null $allowed_updates  <p>A JSON-serialized list of the update types you want your bot to receive. For example, specify `<a href="https://core.telegram.org/bots/api/#update">"message", "edited<em>channel</em>post", "callback<em>query"]` to only receive updates of these types. See [Update</a> for a complete list of available update types. Specify an empty list to receive all update types except *chat\</em>member* (default). If not specified, the previous setting will be used.  
 Please note that this parameter doesn't affect updates created before the call to the setWebhook, so unwanted updates may be received for a short period of time.</p>
      * @var bool|null $drop_pending_updates  <p>Pass *True* to drop all pending updates</p>
      * @var string|null $secret_token *(min length: 1)**(max length: 1)* <p>A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed. The header is useful to ensure that the request comes from a webhook set by you.</p>
      * */
 
-    public static function setWebhook (string $url,  $certificate = null, string $ip_address = null, integer $max_connections = null, array $allowed_updates = null, bool $drop_pending_updates = null, string $secret_token = null, ) {
+    public static function setWebhook (string $url,  $certificate = null, string $ip_address = null,  $max_connections = null, array $allowed_updates = null, bool $drop_pending_updates = null, string $secret_token = null, ) {
         return static::request('setWebhook', func_get_args_associative());
     }
 
@@ -71,57 +71,57 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var string $text *(min length: 1)**(max length: 1)* <p>Text of the message to be sent, 1-4096 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
      * @var array|null $entities  <p>A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\_mode*</p>
      * @var bool|null $disable_web_page_preview  <p>Disables link previews for links in this message</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendMessage (int|string  $chat_id, integer $message_thread_id = null, string $text = null, string $parse_mode = null, array $entities = null, bool $disable_web_page_preview = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendMessage (int|string  $chat_id,  $message_thread_id = null, string $text = null, string $parse_mode = null, array $entities = null, bool $disable_web_page_preview = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendMessage', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var int|string  $from_chat_id  <p>Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the forwarded message from forwarding and saving</p>
-     * @var integer $message_id  <p>Message identifier in the chat specified in *from\<em>chat\</em>id*</p>
+     * @var int $message_id  <p>Message identifier in the chat specified in *from\<em>chat\</em>id*</p>
      * */
 
-    public static function forwardMessage (int|string  $chat_id, integer $message_thread_id = null, int|string  $from_chat_id = null, bool $disable_notification = null, bool $protect_content = null, integer $message_id = null, ) {
+    public static function forwardMessage (int|string  $chat_id,  $message_thread_id = null, int|string  $from_chat_id = null, bool $disable_notification = null, bool $protect_content = null,  $message_id = null, ) {
         return static::request('forwardMessage', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var int|string  $from_chat_id  <p>Unique identifier for the chat where the original message was sent (or channel username in the format `@channelusername`)</p>
-     * @var integer $message_id  <p>Message identifier in the chat specified in *from\<em>chat\</em>id*</p>
+     * @var int $message_id  <p>Message identifier in the chat specified in *from\<em>chat\</em>id*</p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>New caption for media, 0-1024 characters after entities parsing. If not specified, the original caption is kept</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the new caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
      * @var array|null $caption_entities  <p>A JSON-serialized list of special entities that appear in the new caption, which can be specified instead of *parse\_mode*</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function copyMessage (int|string  $chat_id, integer $message_thread_id = null, int|string  $from_chat_id = null, integer $message_id = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function copyMessage (int|string  $chat_id,  $message_thread_id = null, int|string  $from_chat_id = null,  $message_id = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('copyMessage', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $photo  <p>Photo to send. Pass a file\_id as String to send a photo that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a photo from the Internet, or upload a new photo using multipart/form-data. The photo must be at most 10 MB in size. The photo's width and height must not exceed 10000 in total. Width and height ratio must be at most 20. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>Photo caption (may also be used when resending photos by *file\_id*), 0-1024 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the photo caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
@@ -129,40 +129,40 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $has_spoiler  <p>Pass *True* if the photo needs to be covered with a spoiler animation</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendPhoto (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $photo = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendPhoto (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $photo = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendPhoto', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $audio  <p>Audio file to send. Pass a file\_id as String to send an audio file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an audio file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>Audio caption, 0-1024 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the audio caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
      * @var array|null $caption_entities  <p>A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
-     * @var integer|null $duration  <p>Duration of the audio in seconds</p>
+     * @var int|null $duration  <p>Duration of the audio in seconds</p>
      * @var string|null $performer  <p>Performer</p>
      * @var string|null $title  <p>Track name</p>
      * @var \Milly\Laragram\Types\InputFile|string |null $thumbnail  <p>Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\<file\<em>attach\</em>name\>” if the thumbnail was uploaded using multipart/form-data under \<file\<em>attach\</em>name\>. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendAudio (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $audio = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, integer $duration = null, string $performer = null, string $title = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendAudio (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $audio = null, string $caption = null, string $parse_mode = null, array $caption_entities = null,  $duration = null, string $performer = null, string $title = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendAudio', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $document  <p>File to send. Pass a file\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var \Milly\Laragram\Types\InputFile|string |null $thumbnail  <p>Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\<file\<em>attach\</em>name\>” if the thumbnail was uploaded using multipart/form-data under \<file\<em>attach\</em>name\>. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>Document caption (may also be used when resending documents by *file\_id*), 0-1024 characters after entities parsing</p>
@@ -171,22 +171,22 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $disable_content_type_detection  <p>Disables automatic server-side content type detection for files uploaded using multipart/form-data</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendDocument (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $document = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_content_type_detection = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendDocument (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $document = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_content_type_detection = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendDocument', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $video  <p>Video to send. Pass a file\_id as String to send a video that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a video from the Internet, or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
-     * @var integer|null $duration  <p>Duration of sent video in seconds</p>
-     * @var integer|null $width  <p>Video width</p>
-     * @var integer|null $height  <p>Video height</p>
+     * @var int|null $duration  <p>Duration of sent video in seconds</p>
+     * @var int|null $width  <p>Video width</p>
+     * @var int|null $height  <p>Video height</p>
      * @var \Milly\Laragram\Types\InputFile|string |null $thumbnail  <p>Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\<file\<em>attach\</em>name\>” if the thumbnail was uploaded using multipart/form-data under \<file\<em>attach\</em>name\>. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>Video caption (may also be used when resending videos by *file\_id*), 0-1024 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the video caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
@@ -195,22 +195,22 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $supports_streaming  <p>Pass *True* if the uploaded video is suitable for streaming</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVideo (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video = null, integer $duration = null, integer $width = null, integer $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $supports_streaming = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVideo (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video = null,  $duration = null,  $width = null,  $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $supports_streaming = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendVideo', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $animation  <p>Animation to send. Pass a file\_id as String to send an animation that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get an animation from the Internet, or upload a new animation using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
-     * @var integer|null $duration  <p>Duration of sent animation in seconds</p>
-     * @var integer|null $width  <p>Animation width</p>
-     * @var integer|null $height  <p>Animation height</p>
+     * @var int|null $duration  <p>Duration of sent animation in seconds</p>
+     * @var int|null $width  <p>Animation width</p>
+     * @var int|null $height  <p>Animation height</p>
      * @var \Milly\Laragram\Types\InputFile|string |null $thumbnail  <p>Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\<file\<em>attach\</em>name\>” if the thumbnail was uploaded using multipart/form-data under \<file\<em>attach\</em>name\>. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>Animation caption (may also be used when resending animation by *file\_id*), 0-1024 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the animation caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
@@ -218,89 +218,89 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $has_spoiler  <p>Pass *True* if the animation needs to be covered with a spoiler animation</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendAnimation (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $animation = null, integer $duration = null, integer $width = null, integer $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendAnimation (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $animation = null,  $duration = null,  $width = null,  $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendAnimation', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $voice  <p>Audio file to send. Pass a file\_id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>Voice message caption, 0-1024 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the voice message caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
      * @var array|null $caption_entities  <p>A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
-     * @var integer|null $duration  <p>Duration of the voice message in seconds</p>
+     * @var int|null $duration  <p>Duration of the voice message in seconds</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVoice (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $voice = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, integer $duration = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVoice (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $voice = null, string $caption = null, string $parse_mode = null, array $caption_entities = null,  $duration = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendVoice', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $video_note  <p>Video note to send. Pass a file\_id as String to send a video note that exists on the Telegram servers (recommended) or upload a new video using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a>. Sending video notes by a URL is currently unsupported</p>
-     * @var integer|null $duration  <p>Duration of sent video in seconds</p>
-     * @var integer|null $length  <p>Video width and height, i.e. diameter of the video message</p>
+     * @var int|null $duration  <p>Duration of sent video in seconds</p>
+     * @var int|null $length  <p>Video width and height, i.e. diameter of the video message</p>
      * @var \Milly\Laragram\Types\InputFile|string |null $thumbnail  <p>Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\<file\<em>attach\</em>name\>” if the thumbnail was uploaded using multipart/form-data under \<file\<em>attach\</em>name\>. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVideoNote (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video_note = null, integer $duration = null, integer $length = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVideoNote (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video_note = null,  $duration = null,  $length = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendVideoNote', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var array $media  <p>A JSON-serialized array describing messages to be sent, must include 2-10 items</p>
      * @var bool|null $disable_notification  <p>Sends messages <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent messages from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the messages are a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the messages are a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * */
 
-    public static function sendMediaGroup (int|string  $chat_id, integer $message_thread_id = null, array $media = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, ) {
+    public static function sendMediaGroup (int|string  $chat_id,  $message_thread_id = null, array $media = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, ) {
         return static::request('sendMediaGroup', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var float $latitude  <p>Latitude of the location</p>
      * @var float $longitude  <p>Longitude of the location</p>
      * @var float|null $horizontal_accuracy  <p>The radius of uncertainty for the location, measured in meters; 0-1500</p>
-     * @var integer|null $live_period  <p>Period in seconds for which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400.</p>
-     * @var integer|null $heading  <p>For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</p>
-     * @var integer|null $proximity_alert_radius  <p>For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
+     * @var int|null $live_period  <p>Period in seconds for which the location will be updated (see <a href="https://telegram.org/blog/live-locations">Live Locations</a>, should be between 60 and 86400.</p>
+     * @var int|null $heading  <p>For live locations, a direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</p>
+     * @var int|null $proximity_alert_radius  <p>For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendLocation (int|string  $chat_id, integer $message_thread_id = null, float $latitude = null, float $longitude = null, float $horizontal_accuracy = null, integer $live_period = null, integer $heading = null, integer $proximity_alert_radius = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendLocation (int|string  $chat_id,  $message_thread_id = null, float $latitude = null, float $longitude = null, float $horizontal_accuracy = null,  $live_period = null,  $heading = null,  $proximity_alert_radius = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendLocation', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var float $latitude  <p>Latitude of the venue</p>
      * @var float $longitude  <p>Longitude of the venue</p>
      * @var string $title  <p>Name of the venue</p>
@@ -311,91 +311,91 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $google_place_type  <p>Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVenue (int|string  $chat_id, integer $message_thread_id = null, float $latitude = null, float $longitude = null, string $title = null, string $address = null, string $foursquare_id = null, string $foursquare_type = null, string $google_place_id = null, string $google_place_type = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVenue (int|string  $chat_id,  $message_thread_id = null, float $latitude = null, float $longitude = null, string $title = null, string $address = null, string $foursquare_id = null, string $foursquare_type = null, string $google_place_id = null, string $google_place_type = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendVenue', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var string $phone_number  <p>Contact's phone number</p>
      * @var string $first_name  <p>Contact's first name</p>
      * @var string|null $last_name  <p>Contact's last name</p>
      * @var string|null $vcard  <p>Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendContact (int|string  $chat_id, integer $message_thread_id = null, string $phone_number = null, string $first_name = null, string $last_name = null, string $vcard = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendContact (int|string  $chat_id,  $message_thread_id = null, string $phone_number = null, string $first_name = null, string $last_name = null, string $vcard = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendContact', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var string $question *(min length: 1)**(max length: 1)* <p>Poll question, 1-300 characters</p>
      * @var array $options  <p>A JSON-serialized list of answer options, 2-10 strings 1-100 characters each</p>
      * @var bool|null $is_anonymous  <p>*True*, if the poll needs to be anonymous, defaults to *True*</p>
      * @var string|null $type  <p>Poll type, “quiz” or “regular”, defaults to “regular”</p>
      * @var bool|null $allows_multiple_answers  <p>*True*, if the poll allows multiple answers, ignored for polls in quiz mode, defaults to *False*</p>
-     * @var integer|null $correct_option_id  <p>0-based identifier of the correct answer option, required for polls in quiz mode</p>
+     * @var int|null $correct_option_id  <p>0-based identifier of the correct answer option, required for polls in quiz mode</p>
      * @var string|null $explanation *(min length: 0)**(max length: 0)* <p>Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters with at most 2 line feeds after entities parsing</p>
      * @var string|null $explanation_parse_mode  <p>Mode for parsing entities in the explanation. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
      * @var array|null $explanation_entities  <p>A JSON-serialized list of special entities that appear in the poll explanation, which can be specified instead of *parse\_mode*</p>
-     * @var integer|null $open_period  <p>Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\_date*.</p>
-     * @var integer|null $close_date  <p>Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\_period*.</p>
+     * @var int|null $open_period  <p>Amount of time in seconds the poll will be active after creation, 5-600. Can't be used together with *close\_date*.</p>
+     * @var int|null $close_date  <p>Point in time (Unix timestamp) when the poll will be automatically closed. Must be at least 5 and no more than 600 seconds in the future. Can't be used together with *open\_period*.</p>
      * @var bool|null $is_closed  <p>Pass *True* if the poll needs to be immediately closed. This can be useful for poll preview.</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendPoll (int|string  $chat_id, integer $message_thread_id = null, string $question = null, array $options = null, bool $is_anonymous = null, string $type = null, bool $allows_multiple_answers = null, integer $correct_option_id = null, string $explanation = null, string $explanation_parse_mode = null, array $explanation_entities = null, integer $open_period = null, integer $close_date = null, bool $is_closed = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendPoll (int|string  $chat_id,  $message_thread_id = null, string $question = null, array $options = null, bool $is_anonymous = null, string $type = null, bool $allows_multiple_answers = null,  $correct_option_id = null, string $explanation = null, string $explanation_parse_mode = null, array $explanation_entities = null,  $open_period = null,  $close_date = null, bool $is_closed = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendPoll', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var string|null $emoji *(default: 🎲)* <p>Emoji on which the dice throw animation is based. Currently, must be one of “🎲”, “🎯”, “🏀”, “⚽”, “🎳”, or “🎰”. Dice can have values 1-6 for “🎲”, “🎯” and “🎳”, values 1-5 for “🏀” and “⚽”, and values 1-64 for “🎰”. Defaults to “🎲”</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendDice (int|string  $chat_id, integer $message_thread_id = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendDice (int|string  $chat_id,  $message_thread_id = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendDice', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread; supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread; supergroups only</p>
      * @var string $action  <p>Type of action to broadcast. Choose one, depending on what the user is about to receive: *typing* for <a href="https://core.telegram.org/bots/api/#sendmessage">text messages</a>, *upload\<em>photo* for <a href="https://core.telegram.org/bots/api/#sendphoto">photos</a>, *record\</em>video* or *upload\<em>video* for <a href="https://core.telegram.org/bots/api/#sendvideo">videos</a>, *record\</em>voice* or *upload\<em>voice* for <a href="https://core.telegram.org/bots/api/#sendvoice">voice notes</a>, *upload\</em>document* for <a href="https://core.telegram.org/bots/api/#senddocument">general files</a>, *choose\<em>sticker* for <a href="https://core.telegram.org/bots/api/#sendsticker">stickers</a>, *find\</em>location* for <a href="https://core.telegram.org/bots/api/#sendlocation">location data</a>, *record\<em>video\</em>note* or *upload\<em>video\</em>note* for <a href="https://core.telegram.org/bots/api/#sendvideonote">video notes</a>.</p>
      * */
 
-    public static function sendChatAction (int|string  $chat_id, integer $message_thread_id = null, string $action = null, ) {
+    public static function sendChatAction (int|string  $chat_id,  $message_thread_id = null, string $action = null, ) {
         return static::request('sendChatAction', func_get_args_associative());
     }
 
      /**
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
-     * @var integer|null $offset  <p>Sequential number of the first photo to be returned. By default, all photos are returned.</p>
-     * @var integer|null $limit *(default: 100)* <p>Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100.</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
+     * @var int|null $offset  <p>Sequential number of the first photo to be returned. By default, all photos are returned.</p>
+     * @var int|null $limit *(default: 100)* <p>Limits the number of photos to be retrieved. Values between 1-100 are accepted. Defaults to 100.</p>
      * */
 
-    public static function getUserProfilePhotos (integer $user_id, integer $offset = null, integer $limit = null, ) {
+    public static function getUserProfilePhotos ( $user_id,  $offset = null,  $limit = null, ) {
         return static::request('getUserProfilePhotos', func_get_args_associative());
     }
 
@@ -409,40 +409,40 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
-     * @var integer|null $until_date  <p>Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
+     * @var int|null $until_date  <p>Date when the user will be unbanned; Unix time. If user is banned for more than 366 days or less than 30 seconds from the current time they are considered to be banned forever. Applied for supergroups and channels only.</p>
      * @var bool|null $revoke_messages  <p>Pass *True* to delete all messages from the chat for the user that is being removed. If *False*, the user will be able to see messages in the group that were sent before the user was removed. Always *True* for supergroups and channels.</p>
      * */
 
-    public static function banChatMember (int|string  $chat_id, integer $user_id, integer $until_date = null, bool $revoke_messages = null, ) {
+    public static function banChatMember (int|string  $chat_id,  $user_id,  $until_date = null, bool $revoke_messages = null, ) {
         return static::request('banChatMember', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target group or username of the target supergroup or channel (in the format `@channelusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
      * @var bool|null $only_if_banned  <p>Do nothing if the user is not banned</p>
      * */
 
-    public static function unbanChatMember (int|string  $chat_id, integer $user_id, bool $only_if_banned = null, ) {
+    public static function unbanChatMember (int|string  $chat_id,  $user_id, bool $only_if_banned = null, ) {
         return static::request('unbanChatMember', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
      * @var \Milly\Laragram\Types\ChatPermissions $permissions  <p>A JSON-serialized object for new user permissions</p>
      * @var bool|null $use_independent_chat_permissions  <p>Pass *True* if chat permissions are set independently. Otherwise, the *can\<em>send\</em>other\<em>messages* and *can\</em>add\<em>web\</em>page\<em>previews* permissions will imply the *can\</em>send\<em>messages*, *can\</em>send\<em>audios*, *can\</em>send\<em>documents*, *can\</em>send\<em>photos*, *can\</em>send\<em>videos*, *can\</em>send\<em>video\</em>notes*, and *can\<em>send\</em>voice\<em>notes* permissions; the *can\</em>send\<em>polls* permission will imply the *can\</em>send\_messages* permission.</p>
-     * @var integer|null $until_date  <p>Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever</p>
+     * @var int|null $until_date  <p>Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever</p>
      * */
 
-    public static function restrictChatMember (int|string  $chat_id, integer $user_id,  $permissions, bool $use_independent_chat_permissions = null, integer $until_date = null, ) {
+    public static function restrictChatMember (int|string  $chat_id,  $user_id,  $permissions, bool $use_independent_chat_permissions = null,  $until_date = null, ) {
         return static::request('restrictChatMember', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
      * @var bool|null $is_anonymous  <p>Pass *True* if the administrator's presence in the chat is hidden</p>
      * @var bool|null $can_manage_chat  <p>Pass *True* if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege</p>
      * @var bool|null $can_delete_messages  <p>Pass *True* if the administrator can delete messages of other users</p>
@@ -460,35 +460,35 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $can_manage_topics  <p>Pass *True* if the user is allowed to create, rename, close, and reopen forum topics, supergroups only</p>
      * */
 
-    public static function promoteChatMember (int|string  $chat_id, integer $user_id, bool $is_anonymous = null, bool $can_manage_chat = null, bool $can_delete_messages = null, bool $can_manage_video_chats = null, bool $can_restrict_members = null, bool $can_promote_members = null, bool $can_change_info = null, bool $can_invite_users = null, bool $can_post_messages = null, bool $can_edit_messages = null, bool $can_pin_messages = null, bool $can_post_stories = null, bool $can_edit_stories = null, bool $can_delete_stories = null, bool $can_manage_topics = null, ) {
+    public static function promoteChatMember (int|string  $chat_id,  $user_id, bool $is_anonymous = null, bool $can_manage_chat = null, bool $can_delete_messages = null, bool $can_manage_video_chats = null, bool $can_restrict_members = null, bool $can_promote_members = null, bool $can_change_info = null, bool $can_invite_users = null, bool $can_post_messages = null, bool $can_edit_messages = null, bool $can_pin_messages = null, bool $can_post_stories = null, bool $can_edit_stories = null, bool $can_delete_stories = null, bool $can_manage_topics = null, ) {
         return static::request('promoteChatMember', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
      * @var string $custom_title *(min length: 0)**(max length: 0)* <p>New custom title for the administrator; 0-16 characters, emoji are not allowed</p>
      * */
 
-    public static function setChatAdministratorCustomTitle (int|string  $chat_id, integer $user_id, string $custom_title, ) {
+    public static function setChatAdministratorCustomTitle (int|string  $chat_id,  $user_id, string $custom_title, ) {
         return static::request('setChatAdministratorCustomTitle', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $sender_chat_id  <p>Unique identifier of the target sender chat</p>
+     * @var int $sender_chat_id  <p>Unique identifier of the target sender chat</p>
      * */
 
-    public static function banChatSenderChat (int|string  $chat_id, integer $sender_chat_id, ) {
+    public static function banChatSenderChat (int|string  $chat_id,  $sender_chat_id, ) {
         return static::request('banChatSenderChat', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $sender_chat_id  <p>Unique identifier of the target sender chat</p>
+     * @var int $sender_chat_id  <p>Unique identifier of the target sender chat</p>
      * */
 
-    public static function unbanChatSenderChat (int|string  $chat_id, integer $sender_chat_id, ) {
+    public static function unbanChatSenderChat (int|string  $chat_id,  $sender_chat_id, ) {
         return static::request('unbanChatSenderChat', func_get_args_associative());
     }
 
@@ -513,12 +513,12 @@ Please note that this parameter doesn't affect updates created before the call t
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
      * @var string|null $name *(min length: 0)**(max length: 0)* <p>Invite link name; 0-32 characters</p>
-     * @var integer|null $expire_date  <p>Point in time (Unix timestamp) when the link will expire</p>
-     * @var integer|null $member_limit  <p>The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999</p>
+     * @var int|null $expire_date  <p>Point in time (Unix timestamp) when the link will expire</p>
+     * @var int|null $member_limit  <p>The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999</p>
      * @var bool|null $creates_join_request  <p>*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\_limit* can't be specified</p>
      * */
 
-    public static function createChatInviteLink (int|string  $chat_id, string $name = null, integer $expire_date = null, integer $member_limit = null, bool $creates_join_request = null, ) {
+    public static function createChatInviteLink (int|string  $chat_id, string $name = null,  $expire_date = null,  $member_limit = null, bool $creates_join_request = null, ) {
         return static::request('createChatInviteLink', func_get_args_associative());
     }
 
@@ -526,12 +526,12 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
      * @var string $invite_link  <p>The invite link to edit</p>
      * @var string|null $name *(min length: 0)**(max length: 0)* <p>Invite link name; 0-32 characters</p>
-     * @var integer|null $expire_date  <p>Point in time (Unix timestamp) when the link will expire</p>
-     * @var integer|null $member_limit  <p>The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999</p>
+     * @var int|null $expire_date  <p>Point in time (Unix timestamp) when the link will expire</p>
+     * @var int|null $member_limit  <p>The maximum number of users that can be members of the chat simultaneously after joining the chat via this invite link; 1-99999</p>
      * @var bool|null $creates_join_request  <p>*True*, if users joining the chat via the link need to be approved by chat administrators. If *True*, *member\_limit* can't be specified</p>
      * */
 
-    public static function editChatInviteLink (int|string  $chat_id, string $invite_link, string $name = null, integer $expire_date = null, integer $member_limit = null, bool $creates_join_request = null, ) {
+    public static function editChatInviteLink (int|string  $chat_id, string $invite_link, string $name = null,  $expire_date = null,  $member_limit = null, bool $creates_join_request = null, ) {
         return static::request('editChatInviteLink', func_get_args_associative());
     }
 
@@ -546,19 +546,19 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
      * */
 
-    public static function approveChatJoinRequest (int|string  $chat_id, integer $user_id, ) {
+    public static function approveChatJoinRequest (int|string  $chat_id,  $user_id, ) {
         return static::request('approveChatJoinRequest', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
      * */
 
-    public static function declineChatJoinRequest (int|string  $chat_id, integer $user_id, ) {
+    public static function declineChatJoinRequest (int|string  $chat_id,  $user_id, ) {
         return static::request('declineChatJoinRequest', func_get_args_associative());
     }
 
@@ -599,20 +599,20 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $message_id  <p>Identifier of a message to pin</p>
+     * @var int $message_id  <p>Identifier of a message to pin</p>
      * @var bool|null $disable_notification  <p>Pass *True* if it is not necessary to send a notification to all chat members about the new pinned message. Notifications are always disabled in channels and private chats.</p>
      * */
 
-    public static function pinChatMessage (int|string  $chat_id, integer $message_id, bool $disable_notification = null, ) {
+    public static function pinChatMessage (int|string  $chat_id,  $message_id, bool $disable_notification = null, ) {
         return static::request('pinChatMessage', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_id  <p>Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned.</p>
+     * @var int|null $message_id  <p>Identifier of a message to unpin. If not specified, the most recent pinned message (by sending date) will be unpinned.</p>
      * */
 
-    public static function unpinChatMessage (int|string  $chat_id, integer $message_id = null, ) {
+    public static function unpinChatMessage (int|string  $chat_id,  $message_id = null, ) {
         return static::request('unpinChatMessage', func_get_args_associative());
     }
 
@@ -658,10 +658,10 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup or channel (in the format `@channelusername`)</p>
-     * @var integer $user_id  <p>Unique identifier of the target user</p>
+     * @var int $user_id  <p>Unique identifier of the target user</p>
      * */
 
-    public static function getChatMember (int|string  $chat_id, integer $user_id, ) {
+    public static function getChatMember (int|string  $chat_id,  $user_id, ) {
         return static::request('getChatMember', func_get_args_associative());
     }
 
@@ -690,58 +690,58 @@ Please note that this parameter doesn't affect updates created before the call t
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
      * @var string $name *(min length: 1)**(max length: 1)* <p>Topic name, 1-128 characters</p>
-     * @var integer|null $icon_color  <p>Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)</p>
+     * @var int|null $icon_color  <p>Color of the topic icon in RGB format. Currently, must be one of 7322096 (0x6FB9F0), 16766590 (0xFFD67E), 13338331 (0xCB86DB), 9367192 (0x8EEE98), 16749490 (0xFF93B2), or 16478047 (0xFB6F5F)</p>
      * @var string|null $icon_custom_emoji_id  <p>Unique identifier of the custom emoji shown as the topic icon. Use <a href="https://core.telegram.org/bots/api/#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers.</p>
      * */
 
-    public static function createForumTopic (int|string  $chat_id, string $name, integer $icon_color = null, string $icon_custom_emoji_id = null, ) {
+    public static function createForumTopic (int|string  $chat_id, string $name,  $icon_color = null, string $icon_custom_emoji_id = null, ) {
         return static::request('createForumTopic', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-     * @var integer $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
+     * @var int $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
      * @var string|null $name *(min length: 0)**(max length: 0)* <p>New topic name, 0-128 characters. If not specified or empty, the current name of the topic will be kept</p>
      * @var string|null $icon_custom_emoji_id  <p>New unique identifier of the custom emoji shown as the topic icon. Use <a href="https://core.telegram.org/bots/api/#getforumtopiciconstickers">getForumTopicIconStickers</a> to get all allowed custom emoji identifiers. Pass an empty string to remove the icon. If not specified, the current icon will be kept</p>
      * */
 
-    public static function editForumTopic (int|string  $chat_id, integer $message_thread_id, string $name = null, string $icon_custom_emoji_id = null, ) {
+    public static function editForumTopic (int|string  $chat_id,  $message_thread_id, string $name = null, string $icon_custom_emoji_id = null, ) {
         return static::request('editForumTopic', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-     * @var integer $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
+     * @var int $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
      * */
 
-    public static function closeForumTopic (int|string  $chat_id, integer $message_thread_id, ) {
+    public static function closeForumTopic (int|string  $chat_id,  $message_thread_id, ) {
         return static::request('closeForumTopic', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-     * @var integer $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
+     * @var int $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
      * */
 
-    public static function reopenForumTopic (int|string  $chat_id, integer $message_thread_id, ) {
+    public static function reopenForumTopic (int|string  $chat_id,  $message_thread_id, ) {
         return static::request('reopenForumTopic', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-     * @var integer $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
+     * @var int $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
      * */
 
-    public static function deleteForumTopic (int|string  $chat_id, integer $message_thread_id, ) {
+    public static function deleteForumTopic (int|string  $chat_id,  $message_thread_id, ) {
         return static::request('deleteForumTopic', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-     * @var integer $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
+     * @var int $message_thread_id  <p>Unique identifier for the target message thread of the forum topic</p>
      * */
 
-    public static function unpinAllForumTopicMessages (int|string  $chat_id, integer $message_thread_id, ) {
+    public static function unpinAllForumTopicMessages (int|string  $chat_id,  $message_thread_id, ) {
         return static::request('unpinAllForumTopicMessages', func_get_args_associative());
     }
 
@@ -799,10 +799,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $text *(min length: 0)**(max length: 0)* <p>Text of the notification. If not specified, nothing will be shown to the user, 0-200 characters</p>
      * @var bool|null $show_alert *(default: )* <p>If *True*, an alert will be shown by the client instead of a notification at the top of the chat screen. Defaults to *false*.</p>
      * @var string|null $url  <p>URL that will be opened by the user's client. If you have created a <a href="https://core.telegram.org/bots/api/#game">Game</a> and accepted the conditions via <a href="https://t.me/botfather">@BotFather</a>, specify the URL that opens your game - note that this will only work if the query comes from a <a href="https://core.telegram.org/bots/api/#inlinekeyboardbutton">*callback\_game*</a> button.  </p><p>Otherwise, you may use links like `t.me/your_bot?start=XXXX` that open your bot with a parameter.</p>
-     * @var integer|null $cache_time *(default: 0)* <p>The maximum amount of time in seconds that the result of the callback query may be cached client-side. Telegram apps will support caching starting in version 3.14. Defaults to 0.</p>
+     * @var int|null $cache_time *(default: 0)* <p>The maximum amount of time in seconds that the result of the callback query may be cached client-side. Telegram apps will support caching starting in version 3.14. Defaults to 0.</p>
      * */
 
-    public static function answerCallbackQuery (string $callback_query_id, string $text = null, bool $show_alert = null, string $url = null, integer $cache_time = null, ) {
+    public static function answerCallbackQuery (string $callback_query_id, string $text = null, bool $show_alert = null, string $url = null,  $cache_time = null, ) {
         return static::request('answerCallbackQuery', func_get_args_associative());
     }
 
@@ -886,19 +886,19 @@ Please note that this parameter doesn't affect updates created before the call t
     }
 
      /**
-     * @var integer|null $chat_id  <p>Unique identifier for the target private chat. If not specified, default bot's menu button will be changed</p>
+     * @var int|null $chat_id  <p>Unique identifier for the target private chat. If not specified, default bot's menu button will be changed</p>
      * @var \Milly\Laragram\Types\MenuButton|null $menu_button  <p>A JSON-serialized object for the bot's new menu button. Defaults to <a href="https://core.telegram.org/bots/api/#menubuttondefault">MenuButtonDefault</a></p>
      * */
 
-    public static function setChatMenuButton (integer $chat_id = null,  $menu_button = null, ) {
+    public static function setChatMenuButton ( $chat_id = null,  $menu_button = null, ) {
         return static::request('setChatMenuButton', func_get_args_associative());
     }
 
      /**
-     * @var integer|null $chat_id  <p>Unique identifier for the target private chat. If not specified, default bot's menu button will be returned</p>
+     * @var int|null $chat_id  <p>Unique identifier for the target private chat. If not specified, default bot's menu button will be returned</p>
      * */
 
-    public static function getChatMenuButton (integer $chat_id = null, ) {
+    public static function getChatMenuButton ( $chat_id = null, ) {
         return static::request('getChatMenuButton', func_get_args_associative());
     }
 
@@ -921,7 +921,7 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * @var string $text *(min length: 1)**(max length: 1)* <p>New text of the message, 1-4096 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
@@ -930,13 +930,13 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function editMessageText (int|string  $chat_id = null, integer $message_id = null, string $inline_message_id = null, string $text = null, string $parse_mode = null, array $entities = null, bool $disable_web_page_preview = null,  $reply_markup = null, ) {
+    public static function editMessageText (int|string  $chat_id = null,  $message_id = null, string $inline_message_id = null, string $text = null, string $parse_mode = null, array $entities = null, bool $disable_web_page_preview = null,  $reply_markup = null, ) {
         return static::request('editMessageText', func_get_args_associative());
     }
 
      /**
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>New caption of the message, 0-1024 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
@@ -944,92 +944,92 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function editMessageCaption (int|string  $chat_id = null, integer $message_id = null, string $inline_message_id = null, string $caption = null, string $parse_mode = null, array $caption_entities = null,  $reply_markup = null, ) {
+    public static function editMessageCaption (int|string  $chat_id = null,  $message_id = null, string $inline_message_id = null, string $caption = null, string $parse_mode = null, array $caption_entities = null,  $reply_markup = null, ) {
         return static::request('editMessageCaption', func_get_args_associative());
     }
 
      /**
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * @var \Milly\Laragram\Types\InputMedia $media  <p>A JSON-serialized object for a new media content of the message</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function editMessageMedia (int|string  $chat_id = null, integer $message_id = null, string $inline_message_id = null,  $media = null,  $reply_markup = null, ) {
+    public static function editMessageMedia (int|string  $chat_id = null,  $message_id = null, string $inline_message_id = null,  $media = null,  $reply_markup = null, ) {
         return static::request('editMessageMedia', func_get_args_associative());
     }
 
      /**
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * @var float $latitude  <p>Latitude of new location</p>
      * @var float $longitude  <p>Longitude of new location</p>
      * @var float|null $horizontal_accuracy  <p>The radius of uncertainty for the location, measured in meters; 0-1500</p>
-     * @var integer|null $heading  <p>Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</p>
-     * @var integer|null $proximity_alert_radius  <p>The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
+     * @var int|null $heading  <p>Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</p>
+     * @var int|null $proximity_alert_radius  <p>The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function editMessageLiveLocation (int|string  $chat_id = null, integer $message_id = null, string $inline_message_id = null, float $latitude = null, float $longitude = null, float $horizontal_accuracy = null, integer $heading = null, integer $proximity_alert_radius = null,  $reply_markup = null, ) {
+    public static function editMessageLiveLocation (int|string  $chat_id = null,  $message_id = null, string $inline_message_id = null, float $latitude = null, float $longitude = null, float $horizontal_accuracy = null,  $heading = null,  $proximity_alert_radius = null,  $reply_markup = null, ) {
         return static::request('editMessageLiveLocation', func_get_args_associative());
     }
 
      /**
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message with live location to stop</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message with live location to stop</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function stopMessageLiveLocation (int|string  $chat_id = null, integer $message_id = null, string $inline_message_id = null,  $reply_markup = null, ) {
+    public static function stopMessageLiveLocation (int|string  $chat_id = null,  $message_id = null, string $inline_message_id = null,  $reply_markup = null, ) {
         return static::request('stopMessageLiveLocation', func_get_args_associative());
     }
 
      /**
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function editMessageReplyMarkup (int|string  $chat_id = null, integer $message_id = null, string $inline_message_id = null,  $reply_markup = null, ) {
+    public static function editMessageReplyMarkup (int|string  $chat_id = null,  $message_id = null, string $inline_message_id = null,  $reply_markup = null, ) {
         return static::request('editMessageReplyMarkup', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $message_id  <p>Identifier of the original message with the poll</p>
+     * @var int $message_id  <p>Identifier of the original message with the poll</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function stopPoll (int|string  $chat_id, integer $message_id,  $reply_markup = null, ) {
+    public static function stopPoll (int|string  $chat_id,  $message_id,  $reply_markup = null, ) {
         return static::request('stopPoll', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer $message_id  <p>Identifier of the message to delete</p>
+     * @var int $message_id  <p>Identifier of the message to delete</p>
      * */
 
-    public static function deleteMessage (int|string  $chat_id, integer $message_id, ) {
+    public static function deleteMessage (int|string  $chat_id,  $message_id, ) {
         return static::request('deleteMessage', func_get_args_associative());
     }
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var \Milly\Laragram\Types\InputFile|string  $sticker  <p>Sticker to send. Pass a file\<em>id as String to send a file that exists on the Telegram servers (recommended), pass an HTTP URL as a String for Telegram to get a .WEBP sticker from the Internet, or upload a new .WEBP or .TGS sticker using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a>. Video stickers can only be sent by a file\</em>id. Animated stickers can't be sent via an HTTP URL.</p>
      * @var string|null $emoji  <p>Emoji associated with the sticker; only for just uploaded stickers</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendSticker (int|string  $chat_id, integer $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $sticker = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendSticker (int|string  $chat_id,  $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $sticker = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
         return static::request('sendSticker', func_get_args_associative());
     }
 
@@ -1050,17 +1050,17 @@ Please note that this parameter doesn't affect updates created before the call t
     }
 
      /**
-     * @var integer $user_id  <p>User identifier of sticker file owner</p>
+     * @var int $user_id  <p>User identifier of sticker file owner</p>
      * @var \Milly\Laragram\Types\InputFile $sticker  <p>A file with the sticker in .WEBP, .PNG, .TGS, or .WEBM format. See <a href="https://core.telegram.org/stickers">https://core.telegram.org/stickers</a> for technical requirements. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
      * @var string $sticker_format  <p>Format of the sticker, must be one of “static”, “animated”, “video”</p>
      * */
 
-    public static function uploadStickerFile (integer $user_id,  $sticker, string $sticker_format, ) {
+    public static function uploadStickerFile ( $user_id,  $sticker, string $sticker_format, ) {
         return static::request('uploadStickerFile', func_get_args_associative());
     }
 
      /**
-     * @var integer $user_id  <p>User identifier of created sticker set owner</p>
+     * @var int $user_id  <p>User identifier of created sticker set owner</p>
      * @var string $name *(min length: 1)**(max length: 1)* <p>Short name of sticker set, to be used in `t.me/addstickers/` URLs (e.g., *animals*). Can contain only English letters, digits and underscores. Must begin with a letter, can't contain consecutive underscores and must end in `"<em>by</em><bot<em>username>"`. `<bot</em>username>` is case insensitive. 1-64 characters.</p>
      * @var string $title *(min length: 1)**(max length: 1)* <p>Sticker set title, 1-64 characters</p>
      * @var array $stickers  <p>A JSON-serialized list of 1-50 initial stickers to be added to the sticker set</p>
@@ -1069,26 +1069,26 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $needs_repainting  <p>Pass *True* if stickers in the sticker set must be repainted to the color of text when used in messages, the accent color if used as emoji status, white on chat photos, or another appropriate color based on context; for custom emoji sticker sets only</p>
      * */
 
-    public static function createNewStickerSet (integer $user_id, string $name, string $title, array $stickers, string $sticker_format, string $sticker_type = null, bool $needs_repainting = null, ) {
+    public static function createNewStickerSet ( $user_id, string $name, string $title, array $stickers, string $sticker_format, string $sticker_type = null, bool $needs_repainting = null, ) {
         return static::request('createNewStickerSet', func_get_args_associative());
     }
 
      /**
-     * @var integer $user_id  <p>User identifier of sticker set owner</p>
+     * @var int $user_id  <p>User identifier of sticker set owner</p>
      * @var string $name  <p>Sticker set name</p>
      * @var \Milly\Laragram\Types\InputSticker $sticker  <p>A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.</p>
      * */
 
-    public static function addStickerToSet (integer $user_id, string $name,  $sticker, ) {
+    public static function addStickerToSet ( $user_id, string $name,  $sticker, ) {
         return static::request('addStickerToSet', func_get_args_associative());
     }
 
      /**
      * @var string $sticker  <p>File identifier of the sticker</p>
-     * @var integer $position  <p>New sticker position in the set, zero-based</p>
+     * @var int $position  <p>New sticker position in the set, zero-based</p>
      * */
 
-    public static function setStickerPositionInSet (string $sticker, integer $position, ) {
+    public static function setStickerPositionInSet (string $sticker,  $position, ) {
         return static::request('setStickerPositionInSet', func_get_args_associative());
     }
 
@@ -1138,11 +1138,11 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var string $name  <p>Sticker set name</p>
-     * @var integer $user_id  <p>User identifier of the sticker set owner</p>
+     * @var int $user_id  <p>User identifier of the sticker set owner</p>
      * @var \Milly\Laragram\Types\InputFile|string |null $thumbnail  <p>A <strong>.WEBP</strong> or <strong>.PNG</strong> image with the thumbnail, must be up to 128 kilobytes in size and have a width and height of exactly 100px, or a <strong>.TGS</strong> animation with a thumbnail up to 32 kilobytes in size (see <a href="https://core.telegram.org/stickers#animated-sticker-requirements">https://core.telegram.org/stickers#animated-sticker-requirements</a> for animated sticker technical requirements), or a <strong>WEBM</strong> video with the thumbnail up to 32 kilobytes in size; see <a href="https://core.telegram.org/stickers#video-sticker-requirements">https://core.telegram.org/stickers#video-sticker-requirements</a> for video sticker technical requirements. Pass a *file\_id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, or upload a new one using multipart/form-data. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a>. Animated and video sticker set thumbnails can't be uploaded via HTTP URL. If omitted, then the thumbnail is dropped and the first sticker is used as the thumbnail.</p>
      * */
 
-    public static function setStickerSetThumbnail (string $name, integer $user_id, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, ) {
+    public static function setStickerSetThumbnail (string $name,  $user_id, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, ) {
         return static::request('setStickerSetThumbnail', func_get_args_associative());
     }
 
@@ -1166,13 +1166,13 @@ Please note that this parameter doesn't affect updates created before the call t
      /**
      * @var string $inline_query_id  <p>Unique identifier for the answered query</p>
      * @var array $results  <p>A JSON-serialized array of results for the inline query</p>
-     * @var integer|null $cache_time *(default: 300)* <p>The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.</p>
+     * @var int|null $cache_time *(default: 300)* <p>The maximum amount of time in seconds that the result of the inline query may be cached on the server. Defaults to 300.</p>
      * @var bool|null $is_personal  <p>Pass *True* if results may be cached on the server side only for the user that sent the query. By default, results may be returned to any user who sends the same query.</p>
      * @var string|null $next_offset  <p>Pass the offset that a client should send in the next query with the same text to receive more results. Pass an empty string if there are no more results or if you don't support pagination. Offset length can't exceed 64 bytes.</p>
      * @var \Milly\Laragram\Types\InlineQueryResultsButton|null $button  <p>A JSON-serialized object describing a button to be shown above inline query results</p>
      * */
 
-    public static function answerInlineQuery (string $inline_query_id, array $results, integer $cache_time = null, bool $is_personal = null, string $next_offset = null,  $button = null, ) {
+    public static function answerInlineQuery (string $inline_query_id, array $results,  $cache_time = null, bool $is_personal = null, string $next_offset = null,  $button = null, ) {
         return static::request('answerInlineQuery', func_get_args_associative());
     }
 
@@ -1187,21 +1187,21 @@ Please note that this parameter doesn't affect updates created before the call t
 
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var string $title *(min length: 1)**(max length: 1)* <p>Product name, 1-32 characters</p>
      * @var string $description *(min length: 1)**(max length: 1)* <p>Product description, 1-255 characters</p>
      * @var string $payload  <p>Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.</p>
      * @var string $provider_token  <p>Payment provider token, obtained via <a href="https://t.me/botfather">@BotFather</a></p>
      * @var string $currency  <p>Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a></p>
      * @var array $prices  <p>Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)</p>
-     * @var integer|null $max_tip_amount *(default: 0)* <p>The maximum accepted amount for tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of `US$ 1.45` pass `max<em>tip</em>amount = 145`. See the *exp* parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0</p>
+     * @var int|null $max_tip_amount *(default: 0)* <p>The maximum accepted amount for tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of `US$ 1.45` pass `max<em>tip</em>amount = 145`. See the *exp* parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0</p>
      * @var array|null $suggested_tip_amounts  <p>A JSON-serialized array of suggested amounts of tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed *max\<em>tip\</em>amount*.</p>
      * @var string|null $start_parameter  <p>Unique deep-linking parameter. If left empty, <strong>forwarded copies</strong> of the sent message will have a *Pay* button, allowing multiple users to pay directly from the forwarded message, using the same invoice. If non-empty, forwarded copies of the sent message will have a *URL* button with a deep link to the bot (instead of a *Pay* button), with the value used as the start parameter</p>
      * @var string|null $provider_data  <p>JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.</p>
      * @var string|null $photo_url  <p>URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service. People like it better when they see what they are paying for.</p>
-     * @var integer|null $photo_size  <p>Photo size in bytes</p>
-     * @var integer|null $photo_width  <p>Photo width</p>
-     * @var integer|null $photo_height  <p>Photo height</p>
+     * @var int|null $photo_size  <p>Photo size in bytes</p>
+     * @var int|null $photo_width  <p>Photo width</p>
+     * @var int|null $photo_height  <p>Photo height</p>
      * @var bool|null $need_name  <p>Pass *True* if you require the user's full name to complete the order</p>
      * @var bool|null $need_phone_number  <p>Pass *True* if you require the user's phone number to complete the order</p>
      * @var bool|null $need_email  <p>Pass *True* if you require the user's email address to complete the order</p>
@@ -1211,12 +1211,12 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $is_flexible  <p>Pass *True* if the final price depends on the shipping method</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay `total price`' button will be shown. If not empty, the first button must be a Pay button.</p>
      * */
 
-    public static function sendInvoice (int|string  $chat_id, integer $message_thread_id = null, string $title = null, string $description = null, string $payload = null, string $provider_token = null, string $currency = null, array $prices = null, integer $max_tip_amount = null, array $suggested_tip_amounts = null, string $start_parameter = null, string $provider_data = null, string $photo_url = null, integer $photo_size = null, integer $photo_width = null, integer $photo_height = null, bool $need_name = null, bool $need_phone_number = null, bool $need_email = null, bool $need_shipping_address = null, bool $send_phone_number_to_provider = null, bool $send_email_to_provider = null, bool $is_flexible = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null,  $reply_markup = null, ) {
+    public static function sendInvoice (int|string  $chat_id,  $message_thread_id = null, string $title = null, string $description = null, string $payload = null, string $provider_token = null, string $currency = null, array $prices = null,  $max_tip_amount = null, array $suggested_tip_amounts = null, string $start_parameter = null, string $provider_data = null, string $photo_url = null,  $photo_size = null,  $photo_width = null,  $photo_height = null, bool $need_name = null, bool $need_phone_number = null, bool $need_email = null, bool $need_shipping_address = null, bool $send_phone_number_to_provider = null, bool $send_email_to_provider = null, bool $is_flexible = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null,  $reply_markup = null, ) {
         return static::request('sendInvoice', func_get_args_associative());
     }
 
@@ -1227,13 +1227,13 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string $provider_token  <p>Payment provider token, obtained via <a href="https://t.me/botfather">BotFather</a></p>
      * @var string $currency  <p>Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a></p>
      * @var array $prices  <p>Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)</p>
-     * @var integer|null $max_tip_amount *(default: 0)* <p>The maximum accepted amount for tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of `US$ 1.45` pass `max<em>tip</em>amount = 145`. See the *exp* parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0</p>
+     * @var int|null $max_tip_amount *(default: 0)* <p>The maximum accepted amount for tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of `US$ 1.45` pass `max<em>tip</em>amount = 145`. See the *exp* parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0</p>
      * @var array|null $suggested_tip_amounts  <p>A JSON-serialized array of suggested amounts of tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). At most 4 suggested tip amounts can be specified. The suggested tip amounts must be positive, passed in a strictly increased order and must not exceed *max\<em>tip\</em>amount*.</p>
      * @var string|null $provider_data  <p>JSON-serialized data about the invoice, which will be shared with the payment provider. A detailed description of required fields should be provided by the payment provider.</p>
      * @var string|null $photo_url  <p>URL of the product photo for the invoice. Can be a photo of the goods or a marketing image for a service.</p>
-     * @var integer|null $photo_size  <p>Photo size in bytes</p>
-     * @var integer|null $photo_width  <p>Photo width</p>
-     * @var integer|null $photo_height  <p>Photo height</p>
+     * @var int|null $photo_size  <p>Photo size in bytes</p>
+     * @var int|null $photo_width  <p>Photo width</p>
+     * @var int|null $photo_height  <p>Photo height</p>
      * @var bool|null $need_name  <p>Pass *True* if you require the user's full name to complete the order</p>
      * @var bool|null $need_phone_number  <p>Pass *True* if you require the user's phone number to complete the order</p>
      * @var bool|null $need_email  <p>Pass *True* if you require the user's email address to complete the order</p>
@@ -1243,7 +1243,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $is_flexible  <p>Pass *True* if the final price depends on the shipping method</p>
      * */
 
-    public static function createInvoiceLink (string $title, string $description, string $payload, string $provider_token, string $currency, array $prices, integer $max_tip_amount = null, array $suggested_tip_amounts = null, string $provider_data = null, string $photo_url = null, integer $photo_size = null, integer $photo_width = null, integer $photo_height = null, bool $need_name = null, bool $need_phone_number = null, bool $need_email = null, bool $need_shipping_address = null, bool $send_phone_number_to_provider = null, bool $send_email_to_provider = null, bool $is_flexible = null, ) {
+    public static function createInvoiceLink (string $title, string $description, string $payload, string $provider_token, string $currency, array $prices,  $max_tip_amount = null, array $suggested_tip_amounts = null, string $provider_data = null, string $photo_url = null,  $photo_size = null,  $photo_width = null,  $photo_height = null, bool $need_name = null, bool $need_phone_number = null, bool $need_email = null, bool $need_shipping_address = null, bool $send_phone_number_to_provider = null, bool $send_email_to_provider = null, bool $is_flexible = null, ) {
         return static::request('createInvoiceLink', func_get_args_associative());
     }
 
@@ -1269,51 +1269,51 @@ Please note that this parameter doesn't affect updates created before the call t
     }
 
      /**
-     * @var integer $user_id  <p>User identifier</p>
+     * @var int $user_id  <p>User identifier</p>
      * @var array $errors  <p>A JSON-serialized array describing the errors</p>
      * */
 
-    public static function setPassportDataErrors (integer $user_id, array $errors, ) {
+    public static function setPassportDataErrors ( $user_id, array $errors, ) {
         return static::request('setPassportDataErrors', func_get_args_associative());
     }
 
      /**
-     * @var integer $chat_id  <p>Unique identifier for the target chat</p>
-     * @var integer|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
+     * @var int $chat_id  <p>Unique identifier for the target chat</p>
+     * @var int|null $message_thread_id  <p>Unique identifier for the target message thread (topic) of the forum; for forum supergroups only</p>
      * @var string $game_short_name  <p>Short name of the game, serves as the unique identifier for the game. Set up your games via <a href="https://t.me/botfather">@BotFather</a>.</p>
      * @var bool|null $disable_notification  <p>Sends the message <a href="https://telegram.org/blog/channels-2-0#silent-messages">silently</a>. Users will receive a notification with no sound.</p>
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
-     * @var integer|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
+     * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
      * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Play game\_title' button will be shown. If not empty, the first button must launch the game.</p>
      * */
 
-    public static function sendGame (integer $chat_id, integer $message_thread_id = null, string $game_short_name = null, bool $disable_notification = null, bool $protect_content = null, integer $reply_to_message_id = null, bool $allow_sending_without_reply = null,  $reply_markup = null, ) {
+    public static function sendGame ( $chat_id,  $message_thread_id = null, string $game_short_name = null, bool $disable_notification = null, bool $protect_content = null,  $reply_to_message_id = null, bool $allow_sending_without_reply = null,  $reply_markup = null, ) {
         return static::request('sendGame', func_get_args_associative());
     }
 
      /**
-     * @var integer $user_id  <p>User identifier</p>
-     * @var integer $score  <p>New score, must be non-negative</p>
+     * @var int $user_id  <p>User identifier</p>
+     * @var int $score  <p>New score, must be non-negative</p>
      * @var bool|null $force  <p>Pass *True* if the high score is allowed to decrease. This can be useful when fixing mistakes or banning cheaters</p>
      * @var bool|null $disable_edit_message  <p>Pass *True* if the game message should not be automatically edited to include the current scoreboard</p>
-     * @var integer|null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the sent message</p>
+     * @var int|null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the sent message</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * */
 
-    public static function setGameScore (integer $user_id, integer $score, bool $force = null, bool $disable_edit_message = null, integer $chat_id = null, integer $message_id = null, string $inline_message_id = null, ) {
+    public static function setGameScore ( $user_id,  $score, bool $force = null, bool $disable_edit_message = null,  $chat_id = null,  $message_id = null, string $inline_message_id = null, ) {
         return static::request('setGameScore', func_get_args_associative());
     }
 
      /**
-     * @var integer $user_id  <p>Target user id</p>
-     * @var integer|null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat</p>
-     * @var integer|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the sent message</p>
+     * @var int $user_id  <p>Target user id</p>
+     * @var int|null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat</p>
+     * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the sent message</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * */
 
-    public static function getGameHighScores (integer $user_id, integer $chat_id = null, integer $message_id = null, string $inline_message_id = null, ) {
+    public static function getGameHighScores ( $user_id,  $chat_id = null,  $message_id = null, string $inline_message_id = null, ) {
         return static::request('getGameHighScores', func_get_args_associative());
     }
 

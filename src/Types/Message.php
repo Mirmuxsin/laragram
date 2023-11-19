@@ -445,7 +445,7 @@ class Message
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
-    private $data;
+
 
     public function __construct($data)
     {

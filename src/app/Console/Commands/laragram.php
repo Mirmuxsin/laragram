@@ -93,6 +93,8 @@ class laragram extends Command
                         $argument['type'] = null;
                     } elseif ($argument['type']== 'reference'){
                         $argument['type'] = "\Milly\Laragram\Types\\".$argument['reference'];
+                    } elseif ($argument['type'] == 'integer') {
+                        $argument['type'] = 'int';
                     } else {
                         $function .= $argument['type'];
                     }
@@ -182,7 +184,7 @@ $arguments
         if ($method['name'] == 'Update') {
             $functions .= "    public function __construct()
     {
-        \$data = handler::get();
+        \$data = Handler::get();
 ";
         } else {
             $functions .= "    public function __construct(\$data)
