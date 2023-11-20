@@ -93,8 +93,9 @@ class Poll
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['poll'];
         $this->id = $data['id'];
         $this->question = $data['question'];
         $this->options = $data['options'];

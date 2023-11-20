@@ -45,8 +45,9 @@ class ChosenInlineResult
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['chosen_inline_result'];
         $this->result_id = $data['result_id'];
         $this->from = new User($data['from']);
 

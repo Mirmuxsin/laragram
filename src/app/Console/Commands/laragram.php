@@ -10,10 +10,6 @@ use Illuminate\Console\Command;
 class laragram extends Command
 {
     /**
-     * @param int|string sada
-     */
-
-    /**
      * The name and signature of the console command.
      *
      * @var string
@@ -34,6 +30,7 @@ class laragram extends Command
      */
 
     protected string $botApiJsonUrl = "https://ark0f.github.io/tg-bot-api/custom.json";
+    protected array $updateProperties;
 
     public function handle()
     {
@@ -182,9 +179,15 @@ $arguments
         $comments = "";
 
         if ($method['name'] == 'Update') {
+            $this->setUpdateProperties($method['properties']);
             $functions .= "    public function __construct()
     {
         \$data = Handler::get();
+";
+        } elseif (in_array($method['name'], $this->updateProperties)) {
+            $functions .= "    public function __construct(\$data = null)
+    {
+        if (\$data == null) \$data = Handler::get()['".strtolower(preg_replace('/(.)([A-Z])/', '$1_$2', $method['name']))."'];
 ";
         } else {
             $functions .= "    public function __construct(\$data)
@@ -247,6 +250,14 @@ $comments
 $functions
 }";
             file_put_contents(__DIR__ . "/../../../Types/" .$method['name'].".php", $text);
+        }
+    }
+
+    private function setUpdateProperties (array $properties)
+    {
+        foreach ($properties as $property) {
+            if ($property['type'] != 'reference') continue;
+            $this->updateProperties[] = $property['reference'];
         }
     }
 

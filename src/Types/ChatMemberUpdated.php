@@ -57,8 +57,9 @@ class ChatMemberUpdated
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['chat_member_updated'];
         $this->chat = new Chat($data['chat']);
 
         $this->from = new User($data['from']);

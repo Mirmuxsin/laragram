@@ -447,8 +447,9 @@ class Message
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['message'];
         $this->message_id = $data['message_id'];
         if (isset($data['message_thread_id'])){
             $this->message_thread_id = $data['message_thread_id'];

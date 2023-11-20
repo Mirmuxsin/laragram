@@ -1,10 +1,36 @@
 <h1 align='center'><samp>LARAGRAM</samp></h1>
-<h3 align='center'><sup align='center'>Laravel package to develop telegram bot inside laravel project</sup></h3>
+<h3 align='center'>
+    <sup align='center'>Simple laravel package to use telegram bot API inside your laravel project</sup>
+    <h6 align="center"><a href="">Check it out how easily you can send me a message</a></h6>
+</h3>
 <p align='center'>
   <a href='https://github.com/Mirmuxsin/laragram/blob/master/license'><img alt="License" src="https://img.shields.io/github/license/mirmuxsin/laragram?color=%23fefefe&logo=github&logoColor=%23fefefe&style=flat-square"></a>
   <a href='https://packagist.org/packages/milly/laragram'><img alt="Packagist Version" src="https://img.shields.io/packagist/v/milly/laragram?color=%23fefefe&label=Laragram&logo=packagist&logoColor=%23fefefe&style=flat-square"></a>
   <a href='https://www.patreon.com/millykhamroev'><img alt="Packagist Version" src="https://img.shields.io/badge/Buy%20me%20a-coffee-%23fefefe?style=flat-square&logo=patreon&logoColor=%23fefefe"></a>
 </p>
+
+- [Features](#Features)
+
+
+## Features
+
+### It has every method of telegram bot api:
+![img_1.png](img_1.png)
+
+### Which are fully documentated:
+![img_2.png](img_2.png)
+
+### Even update-objects (types) are documented:
+![img_3.png](img_3.png)
+
+### Which you can get directly throuhg your function:
+![img_5.png](img_5.png)
+
+### BTW, you can call many of them at once:
+![img_6.png](img_6.png)
+
+### Which supports FSM-Routing:
+![img_8.png](img_8.png)
 
 ## Installation
 
@@ -70,6 +96,9 @@ class LaragramController extends Controller
     }
 }
 ```
+
+---
+# 
 
 ---
 

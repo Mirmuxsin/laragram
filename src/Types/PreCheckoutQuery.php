@@ -57,8 +57,9 @@ class PreCheckoutQuery
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['pre_checkout_query'];
         $this->id = $data['id'];
         $this->from = new User($data['from']);
 

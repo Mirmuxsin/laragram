@@ -51,8 +51,9 @@ class ChatJoinRequest
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['chat_join_request'];
         $this->chat = new Chat($data['chat']);
 
         $this->from = new User($data['from']);

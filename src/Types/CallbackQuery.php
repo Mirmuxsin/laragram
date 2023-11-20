@@ -57,8 +57,9 @@ class CallbackQuery
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['callback_query'];
         $this->id = $data['id'];
         $this->from = new User($data['from']);
 

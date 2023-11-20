@@ -39,8 +39,9 @@ class PollAnswer
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['poll_answer'];
         $this->poll_id = $data['poll_id'];
         if (isset($data['voter_chat'])){
             $this->voter_chat = new Chat($data['voter_chat']);

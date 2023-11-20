@@ -39,8 +39,9 @@ class ShippingQuery
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['shipping_query'];
         $this->id = $data['id'];
         $this->from = new User($data['from']);
 
