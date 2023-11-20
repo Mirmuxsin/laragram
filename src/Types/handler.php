@@ -35,10 +35,11 @@ class Handler {
     /**
      * Get telegram updates from request
      *
-     * @return Update|mixed
+     * @return array
      * @throws Exception
      */
-    public static function get() {
+    public static function get(): array
+    {
         $request =  \request();
         return self::filterUpdate($request);
     }
