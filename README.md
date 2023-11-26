@@ -19,22 +19,22 @@
 ## Features
 
 ### It has every method of telegram bot api:
-![img_1.png](img_1.png)
+![img_1.png](img/img_1.png)
 
 ### Which are fully documented:
-![img_2.png](img_2.png)
+![img_2.png](img/img_2.png)
 
 ### Now you don't have to remember which property is in which object, because they are documented too):
-![img_3.png](img_3.png)
+![img_3.png](img/img_3.png)
 
 ### Which you can get directly throuhg your function:
-![img_5.png](img_5.png)
+![img_5.png](img/img_5.png)
 
 ### BTW, you can call many of them at once:
-![img_6.png](img_6.png)
+![img_6.png](img/img_6.png)
 
 ### It supports FSM-Routing:
-![img_8.png](img_8.png)
+![img_8.png](img/img_8.png)
 
 ---
 ## Installation
