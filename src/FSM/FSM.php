@@ -36,11 +36,19 @@ class FSM
      */
     public static function route(string|null $status, callable|string|array $callable): mixed
     {
-//        throw_if(!is_callable($class), json_encode($class) . " is not callable");
+//        throw_if(!is_callable($callable), json_encode($callable) . " is not callable");
 
-        $closure = $callable(...);
+        if (is_array($callable) and class_exists($callable[0])) {
+            $closure = new $callable[0]();
+            $r = new ReflectionMethod($closure, $callable[1]);
+            $function = $callable[1];
 
-        $r = new ReflectionFunction($closure);
+            $callable = [new $callable[0](), $callable[1]];
+        } else {
+            $closure = $callable(...);
+            $r = new ReflectionFunction($closure);
+            $function = $closure;
+        }
 
         $parameters = $r->getParameters();
         $params = [];
@@ -71,8 +79,7 @@ class FSM
             return false;
         }
 
-        $method = new \ReflectionFunction($callable);
-//        dd($params);
+//        $method = new \ReflectionFunction($function);
 
         return call_user_func_array($callable, $params);
     }
