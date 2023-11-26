@@ -137,7 +137,7 @@ On successful call, a JSON-object containing the result will be returned.
  */
 abstract class Methods
 {
-    abstract static function request (string \$method, array \$array): string;
+    abstract static function request (string \$method, array \$array): array;
 
 $arguments
 }

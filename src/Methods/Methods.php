@@ -13,7 +13,7 @@ On successful call, a JSON-object containing the result will be returned.
  */
 abstract class Methods
 {
-    abstract static function request (string $method, array $array): string;
+    abstract static function request (string $method, array $array): array;
 
      /**
      * @var int|null $offset  <p>Identifier of the first update to be returned. Must be greater by one than the highest among the identifiers of previously received updates. By default, updates starting with the earliest unconfirmed update are returned. An update is considered confirmed as soon as <a href="https://core.telegram.org/bots/api/#getupdates">getUpdates</a> is called with an *offset* higher than its *update\_id*. The negative offset can be specified to retrieve updates starting from *-offset* update from the end of the updates queue. All previous updates will be forgotten.</p>

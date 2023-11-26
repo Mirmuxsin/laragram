@@ -24,7 +24,7 @@ class Laragram extends Methods
     /**
      * @throws GuzzleException
      */
-    public static function request (string $method, array $array): string
+    public static function request (string $method, array $array): array
     {
         $token = self::$token ?? config('laragram.token');
         $client = new Client([
@@ -32,10 +32,10 @@ class Laragram extends Methods
             'http_errors' => false
         ]);
 
-        return $client->get("https://api.telegram.org/bot" . $token . "/" . $method, [
+        return json_decode($client->get("https://api.telegram.org/bot" . $token . "/" . $method, [
             "query" => $array,
             'http_errors' => false
-        ])->getBody()->getContents();
+        ])->getBody()->getContents(), true);
     }
 
     public static function setUrl ($url) {
