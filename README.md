@@ -104,10 +104,11 @@ And here we go, you can start your bot now
        FSM::route('state_1', [SomeClass::class, 'someMethod']);
   
         FSM::route('state_2', function (Message $message) {
-            Laragram::sendMessage([
-                'chat_id' => $message->chat->id,
-                'text' => "Inside anonymous function"
-            ]);
+            Laragram::sendMessage(
+                $message->chat->id,
+                null,
+                "Inside anonymous function"
+            );
         });
     }
     ```
@@ -129,9 +130,10 @@ use \Milly\Laragram\Laragram;
 
 FSM::route('', function (Message $message) {
     Laragram::sendMessage([
-        'chat_id' => $message->chat->id,
-        'text' => "Inside anonymous function"
-    ]);
+        $message->chat->id,
+        null,
+        "Inside anonymous function"
+    );
 }, [
   (new \Milly\Laragram\Types\Update())->message
 ]);
@@ -143,9 +145,7 @@ FSM::route('', function (Message $message) {
 // routes/laragram.php
 
 //...
-FSM::route('state_+', [SomeClass::class, 'someMethod'] [
-  (new \Milly\Laragram\Types\Update())->message
-]);
+FSM::route('state_+', [SomeClass::class, 'someMethod']);
 ```
 - minor fixes
 
