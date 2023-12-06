@@ -26,6 +26,8 @@ class FSM
 {
     protected static ?string $status = null;
 
+    private static ?string $callable_type = null;
+
     /**
      * Handle update from telegram
      *
@@ -37,8 +39,16 @@ class FSM
     public static function route(string|null $status, callable|string|array $callable): mixed
     {
 //        throw_if(!is_callable($callable), json_encode($callable) . " is not callable");
+        $userStatus = static::status();
+        if (!(bool)preg_match('#' . $status . '#', $userStatus)) {
+            //user status is not equal
+            return false;
+        }
 
         if (is_array($callable) and class_exists($callable[0])) {
+
+            self::$callable_type = 'class and method';
+
             $closure = new $callable[0]();
             $r = new ReflectionMethod($closure, $callable[1]);
             $function = $callable[1];
@@ -53,30 +63,39 @@ class FSM
         $parameters = $r->getParameters();
         $params = [];
 
-        if (count($parameters)) {
+        if ($count = count($parameters)) {
             $update = new Update();
             $properties = (new \ReflectionClass($update))->getProperties();
-            foreach ($properties as $property) {
-                foreach ($parameters as $parameter) {
-                    if ($parameter->getName() == 'update'){
-                        $params[$parameter->getName()] = $update;
-                        continue;
+
+            if ($count > 1) {
+                foreach ($properties as $property) {
+                    foreach ($parameters as $parameter) {
+                        if ($parameter->getName() == 'update'){
+                            $params[$parameter->getName()] = $update;
+                            continue;
+                        }
+                        if ($property->getType()->getName() == $parameter->getType()->getName())
+                            $params[$parameter->getName()] = $update->{strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $parameter->getName()))};
                     }
-                    if ($property->getType()->getName() == $parameter->getType()->getName())
-                        $params[$parameter->getName()] = $update->{$parameter->getName()};
                 }
+            } elseif ($single_prop_name = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $parameters[0]->getName())) and $update->{$single_prop_name}) {
+                $params = [$update->{$single_prop_name}];
+            } else {
+
+                if (self::$callable_type == 'class and method') {
+                    $handeWrongInput = (new $callable[0])->handeWrongInput ?? false;
+                    if ($handeWrongInput) {
+                        return (new $callable[0])->handleWrongInput($update);
+                    }
+                }
+                // wrong type hinting for wrop type of update
+                return false;
             }
 
             // todo throw beautiful exception if called is not found in update
             if (count($params) != count($parameters)) {
                 throw new UnexpectedValueException('Cannot call the method from update: '.json_encode($parameters));
             }
-        }
-
-        $userStatus = static::status();
-        if (!(bool)preg_match('#' . $status . '#', $userStatus)) {
-            //user status is not equal
-            return false;
         }
 
 //        $method = new \ReflectionFunction($function);
@@ -102,9 +121,9 @@ class FSM
             if (!$fsm) {
                 $fsm = new \Milly\Laragram\app\Models\FSM();
                 $fsm['telegram_id'] = $user_id;
-                $fsm['status'] = '';
+                $fsm['status'] = '/';
                 $fsm->save();
-                self::$status = '';
+                self::$status = '/';
             } else {
                 self::$status = $fsm['status'];
             }
@@ -116,9 +135,8 @@ class FSM
     {
         $user_id = self::getUserId();
         $fsm = \Milly\Laragram\app\Models\FSM::find($user_id);
-        $fsm['status'] = $status;
-        $fsm->save();
-        return true;
+        $fsm->status = $status;
+        return $fsm->save();
     }
 
     /**
