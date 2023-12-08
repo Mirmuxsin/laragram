@@ -70,6 +70,11 @@ class laragram extends Command
                 foreach ($method['arguments'] as $count_arg => $argument) {
                     $arguments .= "@var ";
 
+                    if($argument['name'] == 'reply_markup') {
+                        $function .= "string|";
+                        $arguments .= "string|";
+                    }
+
                     if ( $argument['type'] == 'any_of') {
                         foreach ($argument['any_of'] as $key => $type) {
 
@@ -88,10 +93,13 @@ class laragram extends Command
                             }
                         }
                         $argument['type'] = null;
-                    } elseif ($argument['type']== 'reference'){
+                    }
+                    elseif ($argument['type']== 'reference'){
                         $argument['type'] = "\Milly\Laragram\Types\\".$argument['reference'];
+                        $function .= $argument['type'];
                     } elseif ($argument['type'] == 'integer') {
                         $argument['type'] = 'int';
+                        $function .= $argument['type'];
                     } else {
                         $function .= $argument['type'];
                     }
