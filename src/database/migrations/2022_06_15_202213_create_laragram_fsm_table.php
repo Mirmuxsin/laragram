@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('laragram_fsm', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('telegram_id');
+            $table->bigInteger('telegram_id')->unique();
             $table->string('status')->nullable();
             $table->json('data')->nullable();
             $table->timestamps();
