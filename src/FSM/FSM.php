@@ -136,7 +136,12 @@ class FSM
         if (!$user_id) $user_id = self::getUserId();
         $fsm = \Milly\Laragram\app\Models\FSM::find($user_id);
         $fsm['status'] = $status;
-        return $fsm->save();
+        if ($fsm->save()) {
+            self::$status = $status;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
