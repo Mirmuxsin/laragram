@@ -133,9 +133,9 @@ class FSM
 
     public static function update(string $status, int $user_id = null)
     {
-        $user_id = self::getUserId();
+        if (!$user_id) $user_id = self::getUserId();
         $fsm = \Milly\Laragram\app\Models\FSM::find($user_id);
-        $fsm->status = $status;
+        $fsm['status'] = $status;
         return $fsm->save();
     }
 
