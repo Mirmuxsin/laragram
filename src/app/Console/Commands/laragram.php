@@ -70,11 +70,12 @@ class laragram extends Command
                 foreach ($method['arguments'] as $count_arg => $argument) {
                     $arguments .= "@var ";
 
-                    if($argument['name'] == 'reply_markup') {
-                        $function .= "string|";
-                        $arguments .= "string|";
-                    }
+//                    if($argument['name'] == 'reply_markup') {
+//                        $function .= "string|";
+//                        $arguments .= "string|";
+//                    }
 
+                    $has_reference = false;
                     if ( $argument['type'] == 'any_of') {
                         foreach ($argument['any_of'] as $key => $type) {
 
@@ -88,15 +89,15 @@ class laragram extends Command
 
                                 $function .= $type['type'].'|';
                             } else {
-                                $arguments .= $type['type'].' ';
-                                $function .= $type['type'].' ';
+                                $arguments .= $type['type']. $has_reference ? 'string ' : ' ';
+                                $function .= $type['type']. $has_reference ? 'string ' :' ';
                             }
                         }
                         $argument['type'] = null;
                     }
                     elseif ($argument['type']== 'reference'){
                         $argument['type'] = "\Milly\Laragram\Types\\".$argument['reference'];
-                        $function .= $argument['type'];
+                        $function .= "string|".$argument['type'];
                     } elseif ($argument['type'] == 'integer') {
                         $argument['type'] = 'int';
                         $function .= $argument['type'];

@@ -37,7 +37,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $secret_token *(min length: 1)**(max length: 1)* <p>A secret token to be sent in a header “X-Telegram-Bot-Api-Secret-Token” in every webhook request, 1-256 characters. Only characters `A-Z`, `a-z`, `0-9`, `_` and `-` are allowed. The header is useful to ensure that the request comes from a webhook set by you.</p>
      * */
 
-    public static function setWebhook (string $url, \Milly\Laragram\Types\InputFile $certificate = null, string $ip_address = null, int $max_connections = null, array $allowed_updates = null, bool $drop_pending_updates = null, string $secret_token = null, ) {
+    public static function setWebhook (string $url, string|\Milly\Laragram\Types\InputFile $certificate = null, string $ip_address = null, int $max_connections = null, array $allowed_updates = null, bool $drop_pending_updates = null, string $secret_token = null, ) {
         return static::request('setWebhook', func_get_args_associative());
     }
 
@@ -80,10 +80,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendMessage (int|string  $chat_id, int $message_thread_id = null, string $text = null, string $parse_mode = null, array $entities = null, bool $disable_web_page_preview = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendMessage (int|string  $chat_id, int $message_thread_id = null, string $text = null, string $parse_mode = null, array $entities = null, bool $disable_web_page_preview = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendMessage', func_get_args_associative());
     }
 
@@ -112,10 +112,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function copyMessage (int|string  $chat_id, int $message_thread_id = null, int|string  $from_chat_id = null, int $message_id = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function copyMessage (int|string  $chat_id, int $message_thread_id = null, int|string  $from_chat_id = null, int $message_id = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('copyMessage', func_get_args_associative());
     }
 
@@ -131,10 +131,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendPhoto (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $photo = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendPhoto (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $photo = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendPhoto', func_get_args_associative());
     }
 
@@ -153,10 +153,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendAudio (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $audio = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, int $duration = null, string $performer = null, string $title = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendAudio (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $audio = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, int $duration = null, string $performer = null, string $title = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendAudio', func_get_args_associative());
     }
 
@@ -173,10 +173,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendDocument (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $document = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_content_type_detection = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendDocument (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $document = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $disable_content_type_detection = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendDocument', func_get_args_associative());
     }
 
@@ -197,10 +197,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVideo (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video = null, int $duration = null, int $width = null, int $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $supports_streaming = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVideo (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video = null, int $duration = null, int $width = null, int $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $supports_streaming = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendVideo', func_get_args_associative());
     }
 
@@ -220,10 +220,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendAnimation (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $animation = null, int $duration = null, int $width = null, int $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendAnimation (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $animation = null, int $duration = null, int $width = null, int $height = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, bool $has_spoiler = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendAnimation', func_get_args_associative());
     }
 
@@ -239,10 +239,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVoice (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $voice = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, int $duration = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVoice (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $voice = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, int $duration = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendVoice', func_get_args_associative());
     }
 
@@ -257,10 +257,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVideoNote (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video_note = null, int $duration = null, int $length = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVideoNote (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $video_note = null, int $duration = null, int $length = null, \Milly\Laragram\Types\InputFile|string  $thumbnail = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendVideoNote', func_get_args_associative());
     }
 
@@ -291,10 +291,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendLocation (int|string  $chat_id, int $message_thread_id = null, float $latitude = null, float $longitude = null, float $horizontal_accuracy = null, int $live_period = null, int $heading = null, int $proximity_alert_radius = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendLocation (int|string  $chat_id, int $message_thread_id = null, float $latitude = null, float $longitude = null, float $horizontal_accuracy = null, int $live_period = null, int $heading = null, int $proximity_alert_radius = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendLocation', func_get_args_associative());
     }
 
@@ -313,10 +313,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendVenue (int|string  $chat_id, int $message_thread_id = null, float $latitude = null, float $longitude = null, string $title = null, string $address = null, string $foursquare_id = null, string $foursquare_type = null, string $google_place_id = null, string $google_place_type = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendVenue (int|string  $chat_id, int $message_thread_id = null, float $latitude = null, float $longitude = null, string $title = null, string $address = null, string $foursquare_id = null, string $foursquare_type = null, string $google_place_id = null, string $google_place_type = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendVenue', func_get_args_associative());
     }
 
@@ -331,10 +331,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendContact (int|string  $chat_id, int $message_thread_id = null, string $phone_number = null, string $first_name = null, string $last_name = null, string $vcard = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendContact (int|string  $chat_id, int $message_thread_id = null, string $phone_number = null, string $first_name = null, string $last_name = null, string $vcard = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendContact', func_get_args_associative());
     }
 
@@ -357,10 +357,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendPoll (int|string  $chat_id, int $message_thread_id = null, string $question = null, array $options = null, bool $is_anonymous = null, string $type = null, bool $allows_multiple_answers = null, int $correct_option_id = null, string $explanation = null, string $explanation_parse_mode = null, array $explanation_entities = null, int $open_period = null, int $close_date = null, bool $is_closed = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendPoll (int|string  $chat_id, int $message_thread_id = null, string $question = null, array $options = null, bool $is_anonymous = null, string $type = null, bool $allows_multiple_answers = null, int $correct_option_id = null, string $explanation = null, string $explanation_parse_mode = null, array $explanation_entities = null, int $open_period = null, int $close_date = null, bool $is_closed = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendPoll', func_get_args_associative());
     }
 
@@ -372,10 +372,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendDice (int|string  $chat_id, int $message_thread_id = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendDice (int|string  $chat_id, int $message_thread_id = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendDice', func_get_args_associative());
     }
 
@@ -436,7 +436,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var int|null $until_date  <p>Date when restrictions will be lifted for the user; Unix time. If user is restricted for more than 366 days or less than 30 seconds from the current time, they are considered to be restricted forever</p>
      * */
 
-    public static function restrictChatMember (int|string  $chat_id, int $user_id, \Milly\Laragram\Types\ChatPermissions $permissions, bool $use_independent_chat_permissions = null, int $until_date = null, ) {
+    public static function restrictChatMember (int|string  $chat_id, int $user_id, string|\Milly\Laragram\Types\ChatPermissions $permissions, bool $use_independent_chat_permissions = null, int $until_date = null, ) {
         return static::request('restrictChatMember', func_get_args_associative());
     }
 
@@ -498,7 +498,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $use_independent_chat_permissions  <p>Pass *True* if chat permissions are set independently. Otherwise, the *can\<em>send\</em>other\<em>messages* and *can\</em>add\<em>web\</em>page\<em>previews* permissions will imply the *can\</em>send\<em>messages*, *can\</em>send\<em>audios*, *can\</em>send\<em>documents*, *can\</em>send\<em>photos*, *can\</em>send\<em>videos*, *can\</em>send\<em>video\</em>notes*, and *can\<em>send\</em>voice\<em>notes* permissions; the *can\</em>send\<em>polls* permission will imply the *can\</em>send\_messages* permission.</p>
      * */
 
-    public static function setChatPermissions (int|string  $chat_id, \Milly\Laragram\Types\ChatPermissions $permissions, bool $use_independent_chat_permissions = null, ) {
+    public static function setChatPermissions (int|string  $chat_id, string|\Milly\Laragram\Types\ChatPermissions $permissions, bool $use_independent_chat_permissions = null, ) {
         return static::request('setChatPermissions', func_get_args_associative());
     }
 
@@ -567,7 +567,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\InputFile $photo  <p>New chat photo, uploaded using multipart/form-data</p>
      * */
 
-    public static function setChatPhoto (int|string  $chat_id, \Milly\Laragram\Types\InputFile $photo, ) {
+    public static function setChatPhoto (int|string  $chat_id, string|\Milly\Laragram\Types\InputFile $photo, ) {
         return static::request('setChatPhoto', func_get_args_associative());
     }
 
@@ -812,7 +812,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $language_code  <p>A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</p>
      * */
 
-    public static function setMyCommands (array $commands, \Milly\Laragram\Types\BotCommandScope $scope = null, string $language_code = null, ) {
+    public static function setMyCommands (array $commands, string|\Milly\Laragram\Types\BotCommandScope $scope = null, string $language_code = null, ) {
         return static::request('setMyCommands', func_get_args_associative());
     }
 
@@ -821,7 +821,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $language_code  <p>A two-letter ISO 639-1 language code. If empty, commands will be applied to all users from the given scope, for whose language there are no dedicated commands</p>
      * */
 
-    public static function deleteMyCommands (\Milly\Laragram\Types\BotCommandScope $scope = null, string $language_code = null, ) {
+    public static function deleteMyCommands (string|\Milly\Laragram\Types\BotCommandScope $scope = null, string $language_code = null, ) {
         return static::request('deleteMyCommands', func_get_args_associative());
     }
 
@@ -830,7 +830,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $language_code  <p>A two-letter ISO 639-1 language code or an empty string</p>
      * */
 
-    public static function getMyCommands (\Milly\Laragram\Types\BotCommandScope $scope = null, string $language_code = null, ) {
+    public static function getMyCommands (string|\Milly\Laragram\Types\BotCommandScope $scope = null, string $language_code = null, ) {
         return static::request('getMyCommands', func_get_args_associative());
     }
 
@@ -890,7 +890,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\MenuButton|null $menu_button  <p>A JSON-serialized object for the bot's new menu button. Defaults to <a href="https://core.telegram.org/bots/api/#menubuttondefault">MenuButtonDefault</a></p>
      * */
 
-    public static function setChatMenuButton (int $chat_id = null, \Milly\Laragram\Types\MenuButton $menu_button = null, ) {
+    public static function setChatMenuButton (int $chat_id = null, string|\Milly\Laragram\Types\MenuButton $menu_button = null, ) {
         return static::request('setChatMenuButton', func_get_args_associative());
     }
 
@@ -907,7 +907,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $for_channels  <p>Pass *True* to change the default administrator rights of the bot in channels. Otherwise, the default administrator rights of the bot for groups and supergroups will be changed.</p>
      * */
 
-    public static function setMyDefaultAdministratorRights (\Milly\Laragram\Types\ChatAdministratorRights $rights = null, bool $for_channels = null, ) {
+    public static function setMyDefaultAdministratorRights (string|\Milly\Laragram\Types\ChatAdministratorRights $rights = null, bool $for_channels = null, ) {
         return static::request('setMyDefaultAdministratorRights', func_get_args_associative());
     }
 
@@ -927,7 +927,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $parse_mode  <p>Mode for parsing entities in the message text. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
      * @var array|null $entities  <p>A JSON-serialized list of special entities that appear in message text, which can be specified instead of *parse\_mode*</p>
      * @var bool|null $disable_web_page_preview  <p>Disables link previews for links in this message</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
     public static function editMessageText (int|string  $chat_id = null, int $message_id = null, string $inline_message_id = null, string $text = null, string $parse_mode = null, array $entities = null, bool $disable_web_page_preview = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
@@ -941,7 +941,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string|null $caption *(min length: 0)**(max length: 0)* <p>New caption of the message, 0-1024 characters after entities parsing</p>
      * @var string|null $parse_mode  <p>Mode for parsing entities in the message caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
      * @var array|null $caption_entities  <p>A JSON-serialized list of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
     public static function editMessageCaption (int|string  $chat_id = null, int $message_id = null, string $inline_message_id = null, string $caption = null, string $parse_mode = null, array $caption_entities = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
@@ -953,10 +953,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
      * @var \Milly\Laragram\Types\InputMedia $media  <p>A JSON-serialized object for a new media content of the message</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
-    public static function editMessageMedia (int|string  $chat_id = null, int $message_id = null, string $inline_message_id = null, \Milly\Laragram\Types\InputMedia $media = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
+    public static function editMessageMedia (int|string  $chat_id = null, int $message_id = null, string $inline_message_id = null, string|\Milly\Laragram\Types\InputMedia $media = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
         return static::request('editMessageMedia', func_get_args_associative());
     }
 
@@ -969,7 +969,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var float|null $horizontal_accuracy  <p>The radius of uncertainty for the location, measured in meters; 0-1500</p>
      * @var int|null $heading  <p>Direction in which the user is moving, in degrees. Must be between 1 and 360 if specified.</p>
      * @var int|null $proximity_alert_radius  <p>The maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
     public static function editMessageLiveLocation (int|string  $chat_id = null, int $message_id = null, string $inline_message_id = null, float $latitude = null, float $longitude = null, float $horizontal_accuracy = null, int $heading = null, int $proximity_alert_radius = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
@@ -980,7 +980,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
      * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message with live location to stop</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
     public static function stopMessageLiveLocation (int|string  $chat_id = null, int $message_id = null, string $inline_message_id = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
@@ -991,7 +991,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var int|string |null $chat_id  <p>Required if *inline\<em>message\</em>id* is not specified. Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
      * @var int|null $message_id  <p>Required if *inline\<em>message\</em>id* is not specified. Identifier of the message to edit</p>
      * @var string|null $inline_message_id  <p>Required if *chat\<em>id* and *message\</em>id* are not specified. Identifier of the inline message</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
     public static function editMessageReplyMarkup (int|string  $chat_id = null, int $message_id = null, string $inline_message_id = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
@@ -1001,7 +1001,7 @@ Please note that this parameter doesn't affect updates created before the call t
      /**
      * @var int|string  $chat_id  <p>Unique identifier for the target chat or username of the target channel (in the format `@channelusername`)</p>
      * @var int $message_id  <p>Identifier of the original message with the poll</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for a new message <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>.</p>
      * */
 
     public static function stopPoll (int|string  $chat_id, int $message_id, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
@@ -1026,10 +1026,10 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string |null $reply_markup  <p>Additional interface options. A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>, <a href="https://core.telegram.org/bots/features#keyboards">custom reply keyboard</a>, instructions to remove reply keyboard or to force a reply from the user.</p>
      * */
 
-    public static function sendSticker (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $sticker = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|\Milly\Laragram\Types\ForceReply  $reply_markup = null, ) {
+    public static function sendSticker (int|string  $chat_id, int $message_thread_id = null, \Milly\Laragram\Types\InputFile|string  $sticker = null, string $emoji = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, \Milly\Laragram\Types\InlineKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardMarkup|\Milly\Laragram\Types\ReplyKeyboardRemove|string  $reply_markup = null, ) {
         return static::request('sendSticker', func_get_args_associative());
     }
 
@@ -1055,7 +1055,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var string $sticker_format  <p>Format of the sticker, must be one of “static”, “animated”, “video”</p>
      * */
 
-    public static function uploadStickerFile (int $user_id, \Milly\Laragram\Types\InputFile $sticker, string $sticker_format, ) {
+    public static function uploadStickerFile (int $user_id, string|\Milly\Laragram\Types\InputFile $sticker, string $sticker_format, ) {
         return static::request('uploadStickerFile', func_get_args_associative());
     }
 
@@ -1079,7 +1079,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\InputSticker $sticker  <p>A JSON-serialized object with information about the added sticker. If exactly the same sticker had already been added to the set, then the set isn't changed.</p>
      * */
 
-    public static function addStickerToSet (int $user_id, string $name, \Milly\Laragram\Types\InputSticker $sticker, ) {
+    public static function addStickerToSet (int $user_id, string $name, string|\Milly\Laragram\Types\InputSticker $sticker, ) {
         return static::request('addStickerToSet', func_get_args_associative());
     }
 
@@ -1123,7 +1123,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\MaskPosition|null $mask_position  <p>A JSON-serialized object with the position where the mask should be placed on faces. Omit the parameter to remove the mask position.</p>
      * */
 
-    public static function setStickerMaskPosition (string $sticker, \Milly\Laragram\Types\MaskPosition $mask_position = null, ) {
+    public static function setStickerMaskPosition (string $sticker, string|\Milly\Laragram\Types\MaskPosition $mask_position = null, ) {
         return static::request('setStickerMaskPosition', func_get_args_associative());
     }
 
@@ -1172,7 +1172,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\InlineQueryResultsButton|null $button  <p>A JSON-serialized object describing a button to be shown above inline query results</p>
      * */
 
-    public static function answerInlineQuery (string $inline_query_id, array $results, int $cache_time = null, bool $is_personal = null, string $next_offset = null, \Milly\Laragram\Types\InlineQueryResultsButton $button = null, ) {
+    public static function answerInlineQuery (string $inline_query_id, array $results, int $cache_time = null, bool $is_personal = null, string $next_offset = null, string|\Milly\Laragram\Types\InlineQueryResultsButton $button = null, ) {
         return static::request('answerInlineQuery', func_get_args_associative());
     }
 
@@ -1181,7 +1181,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var \Milly\Laragram\Types\InlineQueryResult $result  <p>A JSON-serialized object describing the message to be sent</p>
      * */
 
-    public static function answerWebAppQuery (string $web_app_query_id, \Milly\Laragram\Types\InlineQueryResult $result, ) {
+    public static function answerWebAppQuery (string $web_app_query_id, string|\Milly\Laragram\Types\InlineQueryResult $result, ) {
         return static::request('answerWebAppQuery', func_get_args_associative());
     }
 
@@ -1213,7 +1213,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay `total price`' button will be shown. If not empty, the first button must be a Pay button.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Pay `total price`' button will be shown. If not empty, the first button must be a Pay button.</p>
      * */
 
     public static function sendInvoice (int|string  $chat_id, int $message_thread_id = null, string $title = null, string $description = null, string $payload = null, string $provider_token = null, string $currency = null, array $prices = null, int $max_tip_amount = null, array $suggested_tip_amounts = null, string $start_parameter = null, string $provider_data = null, string $photo_url = null, int $photo_size = null, int $photo_width = null, int $photo_height = null, bool $need_name = null, bool $need_phone_number = null, bool $need_email = null, bool $need_shipping_address = null, bool $send_phone_number_to_provider = null, bool $send_email_to_provider = null, bool $is_flexible = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
@@ -1285,7 +1285,7 @@ Please note that this parameter doesn't affect updates created before the call t
      * @var bool|null $protect_content  <p>Protects the contents of the sent message from forwarding and saving</p>
      * @var int|null $reply_to_message_id  <p>If the message is a reply, ID of the original message</p>
      * @var bool|null $allow_sending_without_reply  <p>Pass *True* if the message should be sent even if the specified replied-to message is not found</p>
-     * @var string|\Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Play game\_title' button will be shown. If not empty, the first button must launch the game.</p>
+     * @var \Milly\Laragram\Types\InlineKeyboardMarkup|null $reply_markup  <p>A JSON-serialized object for an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If empty, one 'Play game\_title' button will be shown. If not empty, the first button must launch the game.</p>
      * */
 
     public static function sendGame (int $chat_id, int $message_thread_id = null, string $game_short_name = null, bool $disable_notification = null, bool $protect_content = null, int $reply_to_message_id = null, bool $allow_sending_without_reply = null, string|\Milly\Laragram\Types\InlineKeyboardMarkup $reply_markup = null, ) {
