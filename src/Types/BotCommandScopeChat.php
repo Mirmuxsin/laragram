@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeChat
  *
- *Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering a specific chat.
+ *<p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopechat
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class BotCommandScopeChat
 {
     /**
-    * Scope type, must be *chat*
+    * <p>Scope type, must be *chat*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)
+    * <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
     * @var any_of
     */
     public any_of $chat_id;

@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeChatAdministrators
  *
- *Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all administrators of a specific group or supergroup chat.
+ *<p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopechatadministrators
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class BotCommandScopeChatAdministrators
 {
     /**
-    * Scope type, must be *chat\_administrators*
+    * <p>Scope type, must be *chat\_administrators*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)
+    * <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
     * @var any_of
     */
     public any_of $chat_id;

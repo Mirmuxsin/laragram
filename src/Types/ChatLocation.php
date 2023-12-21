@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatLocation
  *
- *Represents a location to which a chat is connected.
+ *<p>Location address; 1-64 characters, as defined by the chat owner</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatlocation
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class ChatLocation
 {
     /**
-    * The location to which the supergroup is connected. Can't be a live location.
+    * <p>The location to which the supergroup is connected. Can't be a live location.</p>
     * @var Location
     */
     public Location $location;
 
     /**
-    * Location address; 1-64 characters, as defined by the chat owner
+    * <p>Location address; 1-64 characters, as defined by the chat owner</p>
     * @var string
     */
     public string $address;

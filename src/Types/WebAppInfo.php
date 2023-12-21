@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * WebAppInfo
  *
- *Describes a [Web App](https://core.telegram.org/bots/webapps).
+ *<p>An HTTPS URL of a Web App to be opened with additional data as specified in <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">Initializing Web Apps</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#webappinfo
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class WebAppInfo
 {
     /**
-    * An HTTPS URL of a Web App to be opened with additional data as specified in [Initializing Web Apps](https://core.telegram.org/bots/webapps#initializing-web-apps)
+    * <p>An HTTPS URL of a Web App to be opened with additional data as specified in <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">Initializing Web Apps</a></p>
     * @var string
     */
     public string $url;

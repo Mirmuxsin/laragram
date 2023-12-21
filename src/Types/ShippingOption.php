@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ShippingOption
  *
- *This object represents one shipping option.
+ *<p>List of price portions</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#shippingoption
@@ -14,19 +14,19 @@ namespace Milly\Laragram\Types;
 class ShippingOption
 {
     /**
-    * Shipping option identifier
+    * <p>Shipping option identifier</p>
     * @var string
     */
     public string $id;
 
     /**
-    * Option title
+    * <p>Option title</p>
     * @var string
     */
     public string $title;
 
     /**
-    * List of price portions
+    * <p>List of price portions</p>
     * @var array
     */
     public array $prices;

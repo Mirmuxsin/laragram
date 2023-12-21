@@ -3,10 +3,16 @@
 namespace Milly\Laragram\FSM;
 
 use App\Http\Controllers\Bot\TestController;
+use Closure;
 use Exception;
+use Illuminate\Routing\RouteAction;
+use Illuminate\Support\Arr;
 use Milly\Laragram\Laragram;
 use Milly\Laragram\Types\Update;
+use ReflectionFunction;
+use ReflectionMethod;
 use Throwable;
+use UnexpectedValueException;
 
 
 /**
@@ -20,30 +26,81 @@ class FSM
 {
     protected static ?string $status = null;
 
+    private static ?string $callable_type = null;
+
     /**
      * Handle update from telegram
      *
+     * @param string $status
+     * @param object|callable $class
+     * @return bool|mixed
      * @throws Throwable
-     * @var array $class Function to call from array
-     * @var array $types Types which allowed in to this function
-     * @var string $status Status of chat
      */
-    public static function route(string $status, callable $class, array $types)
+    public static function route(string|null $status, callable|string|array $callable): mixed
     {
-        throw_if(!is_callable($class), json_encode($class) . " is not callable");
-        foreach ($types as $type) {
-            if (!isset($type)) {
-                //when type is not found in this update
-                return true;
-            }
-        }
+//        throw_if(!is_callable($callable), json_encode($callable) . " is not callable");
         $userStatus = static::status();
         if (!(bool)preg_match('#' . $status . '#', $userStatus)) {
             //user status is not equal
             return false;
         }
 
-        return call_user_func_array($class, $types);
+        if (is_array($callable) and class_exists($callable[0])) {
+
+            self::$callable_type = 'class and method';
+
+            $closure = new $callable[0]();
+            $r = new ReflectionMethod($closure, $callable[1]);
+            $function = $callable[1];
+
+            $callable = [new $callable[0](), $callable[1]];
+        } else {
+            $closure = $callable(...);
+            $r = new ReflectionFunction($closure);
+            $function = $closure;
+        }
+
+        $parameters = $r->getParameters();
+        $params = [];
+
+        if ($count = count($parameters)) {
+            $update = new Update();
+            $properties = (new \ReflectionClass($update))->getProperties();
+
+            if ($count > 1) {
+                foreach ($properties as $property) {
+                    foreach ($parameters as $parameter) {
+                        if ($parameter->getName() == 'update'){
+                            $params[$parameter->getName()] = $update;
+                            continue;
+                        }
+                        if ($property->getType()->getName() == $parameter->getType()->getName())
+                            $params[$parameter->getName()] = $update->{strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $parameter->getName()))};
+                    }
+                }
+            } elseif ($single_prop_name = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $parameters[0]->getName())) and $update->{$single_prop_name}) {
+                $params = [$update->{$single_prop_name}];
+            } else {
+
+                if (self::$callable_type == 'class and method') {
+                    $handeWrongInput = (new $callable[0])->handeWrongInput ?? false;
+                    if ($handeWrongInput) {
+                        return (new $callable[0])->handleWrongInput($update);
+                    }
+                }
+                // wrong type hinting for wrop type of update
+                return false;
+            }
+
+            // todo throw beautiful exception if called is not found in update
+            if (count($params) != count($parameters)) {
+                throw new UnexpectedValueException('Cannot call the method from update: '.json_encode($parameters));
+            }
+        }
+
+//        $method = new \ReflectionFunction($function);
+
+        return call_user_func_array($callable, $params);
     }
 
 
@@ -64,9 +121,9 @@ class FSM
             if (!$fsm) {
                 $fsm = new \Milly\Laragram\app\Models\FSM();
                 $fsm['telegram_id'] = $user_id;
-                $fsm['status'] = '';
+                $fsm['status'] = '/';
                 $fsm->save();
-                self::$status = '';
+                self::$status = '/';
             } else {
                 self::$status = $fsm['status'];
             }
@@ -76,11 +133,15 @@ class FSM
 
     public static function update(string $status, int $user_id = null)
     {
-        $user_id = self::getUserId();
+        if (!$user_id) $user_id = self::getUserId();
         $fsm = \Milly\Laragram\app\Models\FSM::find($user_id);
         $fsm['status'] = $status;
-        $fsm->save();
-        return true;
+        if ($fsm->save()) {
+            self::$status = $status;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

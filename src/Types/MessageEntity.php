@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageEntity
  *
- *This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.
+ *<p>*Optional*. For “custom\_emoji” only, unique identifier of the custom emoji. Use <a href="https://core.telegram.org/bots/api/#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageentity
@@ -14,43 +14,43 @@ namespace Milly\Laragram\Types;
 class MessageEntity
 {
     /**
-    * Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\_command” (`/start@jobs_bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\_number” (`+1-212-555-0123`), “bold” (**bold text**), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\_link” (for clickable text URLs), “text\_mention” (for users [without usernames](https://telegram.org/blog/edit#new-mentions)), “custom\_emoji” (for inline custom emoji stickers)
+    * <p>Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\<em>command” (`/start@jobs</em>bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\<em>number” (`+1-212-555-0123`), “bold” (<strong>bold text</strong>), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\</em>link” (for clickable text URLs), “text\<em>mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom\</em>emoji” (for inline custom emoji stickers)</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Offset in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length) to the start of the entity
+    * <p>Offset in <a href="https://core.telegram.org/api/entities#entity-length">UTF-16 code units</a> to the start of the entity</p>
     * @var int
     */
     public int $offset;
 
     /**
-    * Length of the entity in [UTF-16 code units](https://core.telegram.org/api/entities#entity-length)
+    * <p>Length of the entity in <a href="https://core.telegram.org/api/entities#entity-length">UTF-16 code units</a></p>
     * @var int
     */
     public int $length;
 
     /**
-    * *Optional*. For “text\_link” only, URL that will be opened after user taps on the text
+    * <p>*Optional*. For “text\_link” only, URL that will be opened after user taps on the text</p>
     * @var string|null
     */
     public ?string $url = null;
 
     /**
-    * *Optional*. For “text\_mention” only, the mentioned user
+    * <p>*Optional*. For “text\_mention” only, the mentioned user</p>
     * @var User|null
     */
     public ?User $user = null;
 
     /**
-    * *Optional*. For “pre” only, the programming language of the entity text
+    * <p>*Optional*. For “pre” only, the programming language of the entity text</p>
     * @var string|null
     */
     public ?string $language = null;
 
     /**
-    * *Optional*. For “custom\_emoji” only, unique identifier of the custom emoji. Use [getCustomEmojiStickers](https://core.telegram.org/bots/api/#getcustomemojistickers) to get full information about the sticker
+    * <p>*Optional*. For “custom\_emoji” only, unique identifier of the custom emoji. Use <a href="https://core.telegram.org/bots/api/#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker</p>
     * @var string|null
     */
     public ?string $custom_emoji_id = null;

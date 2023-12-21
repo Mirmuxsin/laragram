@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ProximityAlertTriggered
  *
- *This object represents the content of a service message, sent whenever a user in the chat triggers a proximity alert set by another user.
+ *<p>The distance between the users</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#proximityalerttriggered
@@ -14,19 +14,19 @@ namespace Milly\Laragram\Types;
 class ProximityAlertTriggered
 {
     /**
-    * User that triggered the alert
+    * <p>User that triggered the alert</p>
     * @var User
     */
     public User $traveler;
 
     /**
-    * User that set the alert
+    * <p>User that set the alert</p>
     * @var User
     */
     public User $watcher;
 
     /**
-    * The distance between the users
+    * <p>The distance between the users</p>
     * @var int
     */
     public int $distance;

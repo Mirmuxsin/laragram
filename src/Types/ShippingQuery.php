@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ShippingQuery
  *
- *This object contains information about an incoming shipping query.
+ *<p>User specified shipping address</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#shippingquery
@@ -14,33 +14,34 @@ namespace Milly\Laragram\Types;
 class ShippingQuery
 {
     /**
-    * Unique query identifier
+    * <p>Unique query identifier</p>
     * @var string
     */
     public string $id;
 
     /**
-    * User who sent the query
+    * <p>User who sent the query</p>
     * @var User
     */
     public User $from;
 
     /**
-    * Bot specified invoice payload
+    * <p>Bot specified invoice payload</p>
     * @var string
     */
     public string $invoice_payload;
 
     /**
-    * User specified shipping address
+    * <p>User specified shipping address</p>
     * @var ShippingAddress
     */
     public ShippingAddress $shipping_address;
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['shipping_query'];
         $this->id = $data['id'];
         $this->from = new User($data['from']);
 

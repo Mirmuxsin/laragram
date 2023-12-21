@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberBanned
  *
- *Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that was banned in the chat and can't return to the chat or view chat messages.
+ *<p>Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberbanned
@@ -14,19 +14,19 @@ namespace Milly\Laragram\Types;
 class ChatMemberBanned
 {
     /**
-    * The member's status in the chat, always “kicked”
+    * <p>The member's status in the chat, always “kicked”</p>
     * @var string
     */
     public string $status;
 
     /**
-    * Information about the user
+    * <p>Information about the user</p>
     * @var User
     */
     public User $user;
 
     /**
-    * Date when restrictions will be lifted for this user; unix time. If 0, then the user is banned forever
+    * <p>Date when restrictions will be lifted for this user; Unix time. If 0, then the user is banned forever</p>
     * @var int
     */
     public int $until_date;

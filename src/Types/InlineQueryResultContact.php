@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultContact
  *
- *Represents a contact with a phone number. By default, this contact will be sent by the user. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the contact.
+ *<p>*Optional*. Thumbnail height</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultcontact
@@ -14,67 +14,67 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultContact
 {
     /**
-    * Type of the result, must be *contact*
+    * <p>Type of the result, must be *contact*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 Bytes
+    * <p>Unique identifier for this result, 1-64 Bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * Contact's phone number
+    * <p>Contact's phone number</p>
     * @var string
     */
     public string $phone_number;
 
     /**
-    * Contact's first name
+    * <p>Contact's first name</p>
     * @var string
     */
     public string $first_name;
 
     /**
-    * *Optional*. Contact's last name
+    * <p>*Optional*. Contact's last name</p>
     * @var string|null
     */
     public ?string $last_name = null;
 
     /**
-    * *Optional*. Additional data about the contact in the form of a [vCard](https://en.wikipedia.org/wiki/VCard), 0-2048 bytes
+    * <p>*Optional*. Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes</p>
     * @var string|null
     */
     public ?string $vcard = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the contact
+    * <p>*Optional*. Content of the message to be sent instead of the contact</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;
 
     /**
-    * *Optional*. Url of the thumbnail for the result
+    * <p>*Optional*. Url of the thumbnail for the result</p>
     * @var string|null
     */
     public ?string $thumbnail_url = null;
 
     /**
-    * *Optional*. Thumbnail width
+    * <p>*Optional*. Thumbnail width</p>
     * @var int|null
     */
     public ?int $thumbnail_width = null;
 
     /**
-    * *Optional*. Thumbnail height
+    * <p>*Optional*. Thumbnail height</p>
     * @var int|null
     */
     public ?int $thumbnail_height = null;

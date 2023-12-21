@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * GameHighScore
  *
- *This object represents one row of the high scores table for a game.
+ *<p>Score</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#gamehighscore
@@ -14,19 +14,19 @@ namespace Milly\Laragram\Types;
 class GameHighScore
 {
     /**
-    * Position in high score table for the game
+    * <p>Position in high score table for the game</p>
     * @var int
     */
     public int $position;
 
     /**
-    * User
+    * <p>User</p>
     * @var User
     */
     public User $user;
 
     /**
-    * Score
+    * <p>Score</p>
     * @var int
     */
     public int $score;

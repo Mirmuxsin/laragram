@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatPermissions
  *
- *Describes actions that a non-administrator user is allowed to take in a chat.
+ *<p>*Optional*. *True*, if the user is allowed to create forum topics. If omitted defaults to the value of can\<em>pin\</em>messages</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatpermissions
@@ -14,85 +14,85 @@ namespace Milly\Laragram\Types;
 class ChatPermissions
 {
     /**
-    * *Optional*. *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues
+    * <p>*Optional*. *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues</p>
     * @var bool|null
     */
     public ?bool $can_send_messages = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send audios
+    * <p>*Optional*. *True*, if the user is allowed to send audios</p>
     * @var bool|null
     */
     public ?bool $can_send_audios = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send documents
+    * <p>*Optional*. *True*, if the user is allowed to send documents</p>
     * @var bool|null
     */
     public ?bool $can_send_documents = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send photos
+    * <p>*Optional*. *True*, if the user is allowed to send photos</p>
     * @var bool|null
     */
     public ?bool $can_send_photos = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send videos
+    * <p>*Optional*. *True*, if the user is allowed to send videos</p>
     * @var bool|null
     */
     public ?bool $can_send_videos = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send video notes
+    * <p>*Optional*. *True*, if the user is allowed to send video notes</p>
     * @var bool|null
     */
     public ?bool $can_send_video_notes = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send voice notes
+    * <p>*Optional*. *True*, if the user is allowed to send voice notes</p>
     * @var bool|null
     */
     public ?bool $can_send_voice_notes = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send polls
+    * <p>*Optional*. *True*, if the user is allowed to send polls</p>
     * @var bool|null
     */
     public ?bool $can_send_polls = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots
+    * <p>*Optional*. *True*, if the user is allowed to send animations, games, stickers and use inline bots</p>
     * @var bool|null
     */
     public ?bool $can_send_other_messages = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to add web page previews to their messages
+    * <p>*Optional*. *True*, if the user is allowed to add web page previews to their messages</p>
     * @var bool|null
     */
     public ?bool $can_add_web_page_previews = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups
+    * <p>*Optional*. *True*, if the user is allowed to change the chat title, photo and other settings. Ignored in public supergroups</p>
     * @var bool|null
     */
     public ?bool $can_change_info = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to invite new users to the chat
+    * <p>*Optional*. *True*, if the user is allowed to invite new users to the chat</p>
     * @var bool|null
     */
     public ?bool $can_invite_users = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to pin messages. Ignored in public supergroups
+    * <p>*Optional*. *True*, if the user is allowed to pin messages. Ignored in public supergroups</p>
     * @var bool|null
     */
     public ?bool $can_pin_messages = null;
 
     /**
-    * *Optional*. *True*, if the user is allowed to create forum topics. If omitted defaults to the value of can\_pin\_messages
+    * <p>*Optional*. *True*, if the user is allowed to create forum topics. If omitted defaults to the value of can\<em>pin\</em>messages</p>
     * @var bool|null
     */
     public ?bool $can_manage_topics = null;

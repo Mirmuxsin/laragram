@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * User
  *
- *This object represents a Telegram user or bot.
+ *<p>*Optional*. *True*, if the bot supports inline queries. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#user
@@ -14,67 +14,67 @@ namespace Milly\Laragram\Types;
 class User
 {
     /**
-    * Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.
+    * <p>Unique identifier for this user or bot. This number may have more than 32 significant bits and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a 64-bit integer or double-precision float type are safe for storing this identifier.</p>
     * @var int
     */
     public int $id;
 
     /**
-    * *True*, if this user is a bot
+    * <p>*True*, if this user is a bot</p>
     * @var bool
     */
     public bool $is_bot;
 
     /**
-    * User's or bot's first name
+    * <p>User's or bot's first name</p>
     * @var string
     */
     public string $first_name;
 
     /**
-    * *Optional*. User's or bot's last name
+    * <p>*Optional*. User's or bot's last name</p>
     * @var string|null
     */
     public ?string $last_name = null;
 
     /**
-    * *Optional*. User's or bot's username
+    * <p>*Optional*. User's or bot's username</p>
     * @var string|null
     */
     public ?string $username = null;
 
     /**
-    * *Optional*. [IETF language tag](https://en.wikipedia.org/wiki/IETF_language_tag) of the user's language
+    * <p>*Optional*. <a href="https://en.wikipedia.org/wiki/IETF<em>language</em>tag">IETF language tag</a> of the user's language</p>
     * @var string|null
     */
     public ?string $language_code = null;
 
     /**
-    * *Optional*. *True*, if this user is a Telegram Premium user
+    * <p>*Optional*. *True*, if this user is a Telegram Premium user</p>
     * @var bool|null
     */
     public ?bool $is_premium = null;
 
     /**
-    * *Optional*. *True*, if this user added the bot to the attachment menu
+    * <p>*Optional*. *True*, if this user added the bot to the attachment menu</p>
     * @var bool|null
     */
     public ?bool $added_to_attachment_menu = null;
 
     /**
-    * *Optional*. *True*, if the bot can be invited to groups. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).
+    * <p>*Optional*. *True*, if the bot can be invited to groups. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
     * @var bool|null
     */
     public ?bool $can_join_groups = null;
 
     /**
-    * *Optional*. *True*, if [privacy mode](https://core.telegram.org/bots/features#privacy-mode) is disabled for the bot. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).
+    * <p>*Optional*. *True*, if <a href="https://core.telegram.org/bots/features#privacy-mode">privacy mode</a> is disabled for the bot. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
     * @var bool|null
     */
     public ?bool $can_read_all_group_messages = null;
 
     /**
-    * *Optional*. *True*, if the bot supports inline queries. Returned only in [getMe](https://core.telegram.org/bots/api/#getme).
+    * <p>*Optional*. *True*, if the bot supports inline queries. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
     * @var bool|null
     */
     public ?bool $supports_inline_queries = null;

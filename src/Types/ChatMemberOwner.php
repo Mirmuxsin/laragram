@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberOwner
  *
- *Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that owns the chat and has all administrator privileges.
+ *<p>*Optional*. Custom title for this user</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberowner
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class ChatMemberOwner
 {
     /**
-    * The member's status in the chat, always “creator”
+    * <p>The member's status in the chat, always “creator”</p>
     * @var string
     */
     public string $status;
 
     /**
-    * Information about the user
+    * <p>Information about the user</p>
     * @var User
     */
     public User $user;
 
     /**
-    * *True*, if the user's presence in the chat is hidden
+    * <p>*True*, if the user's presence in the chat is hidden</p>
     * @var bool
     */
     public bool $is_anonymous;
 
     /**
-    * *Optional*. Custom title for this user
+    * <p>*Optional*. Custom title for this user</p>
     * @var string|null
     */
     public ?string $custom_title = null;

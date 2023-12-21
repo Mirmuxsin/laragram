@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputVenueMessageContent
  *
- *Represents the [content](https://core.telegram.org/bots/api/#inputmessagecontent) of a venue message to be sent as the result of an inline query.
+ *<p>*Optional*. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputvenuemessagecontent
@@ -14,49 +14,49 @@ namespace Milly\Laragram\Types;
 class InputVenueMessageContent
 {
     /**
-    * Latitude of the venue in degrees
+    * <p>Latitude of the venue in degrees</p>
     * @var float
     */
     public float $latitude;
 
     /**
-    * Longitude of the venue in degrees
+    * <p>Longitude of the venue in degrees</p>
     * @var float
     */
     public float $longitude;
 
     /**
-    * Name of the venue
+    * <p>Name of the venue</p>
     * @var string
     */
     public string $title;
 
     /**
-    * Address of the venue
+    * <p>Address of the venue</p>
     * @var string
     */
     public string $address;
 
     /**
-    * *Optional*. Foursquare identifier of the venue, if known
+    * <p>*Optional*. Foursquare identifier of the venue, if known</p>
     * @var string|null
     */
     public ?string $foursquare_id = null;
 
     /**
-    * *Optional*. Foursquare type of the venue, if known. (For example, “arts\_entertainment/default”, “arts\_entertainment/aquarium” or “food/icecream”.)
+    * <p>*Optional*. Foursquare type of the venue, if known. (For example, “arts\<em>entertainment/default”, “arts\</em>entertainment/aquarium” or “food/icecream”.)</p>
     * @var string|null
     */
     public ?string $foursquare_type = null;
 
     /**
-    * *Optional*. Google Places identifier of the venue
+    * <p>*Optional*. Google Places identifier of the venue</p>
     * @var string|null
     */
     public ?string $google_place_id = null;
 
     /**
-    * *Optional*. Google Places type of the venue. (See [supported types](https://developers.google.com/places/web-service/supported_types).)
+    * <p>*Optional*. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
     * @var string|null
     */
     public ?string $google_place_type = null;

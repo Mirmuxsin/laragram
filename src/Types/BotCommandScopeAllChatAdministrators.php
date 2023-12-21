@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeAllChatAdministrators
  *
- *Represents the [scope](https://core.telegram.org/bots/api/#botcommandscope) of bot commands, covering all group and supergroup chat administrators.
+ *<p>Scope type, must be *all\<em>chat\</em>administrators*</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopeallchatadministrators
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class BotCommandScopeAllChatAdministrators
 {
     /**
-    * Scope type, must be *all\_chat\_administrators*
+    * <p>Scope type, must be *all\<em>chat\</em>administrators*</p>
     * @var string
     */
     public string $type;

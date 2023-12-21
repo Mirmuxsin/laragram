@@ -1,11 +1,42 @@
 <h1 align='center'><samp>LARAGRAM</samp></h1>
-<h3 align='center'><sup align='center'>Laravel package to develop telegram bot inside laravel project</sup></h3>
+<h3 align='center'>
+    <sup align='center'>Simple laravel package to use telegram bot API inside your laravel project</sup>
+
+[//]: # (    <h6 align="center"><a href="">Check it out how easily you can send me a message</a></h6>)
+</h3>
 <p align='center'>
   <a href='https://github.com/Mirmuxsin/laragram/blob/master/license'><img alt="License" src="https://img.shields.io/github/license/mirmuxsin/laragram?color=%23fefefe&logo=github&logoColor=%23fefefe&style=flat-square"></a>
   <a href='https://packagist.org/packages/milly/laragram'><img alt="Packagist Version" src="https://img.shields.io/packagist/v/milly/laragram?color=%23fefefe&label=Laragram&logo=packagist&logoColor=%23fefefe&style=flat-square"></a>
   <a href='https://www.patreon.com/millykhamroev'><img alt="Packagist Version" src="https://img.shields.io/badge/Buy%20me%20a-coffee-%23fefefe?style=flat-square&logo=patreon&logoColor=%23fefefe"></a>
 </p>
 
+---
+- [Features](#Features)
+- [Installation](#Installation)
+- [Usage](#Usage)
+---
+
+## Features
+
+### It has every method of telegram bot api:
+![img_1.png](img/img_1.png)
+
+### Which are fully documented:
+![img_2.png](img/img_2.png)
+
+### Now you don't have to remember which property is in which object, because they are documented too):
+![img_3.png](img/img_3.png)
+
+### Which you can get directly throuhg your function:
+![img_5.png](img/img_5.png)
+
+### BTW, you can call many of them at once:
+![img_6.png](img/img_6.png)
+
+### It supports FSM-Routing:
+![img_8.png](img/img_8.png)
+
+---
 ## Installation
 
 > This package requires PHP 8.0+
@@ -28,48 +59,60 @@ Add your telegram bot token to .env
 TELEGRAM_BOT_TOKEN=123456789:XXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-After running this command you can find config file in `config/laragram.php`. \
-At last create `routes/laragram.php` and controller, \
-and run this command to run application.
+Run migration to be able to use FSM-Routing
 
 ```bash
-php artisan laragram:start
+php artisan migrate
 ```
 
-Sample:
+If you want to get updates, set webhook to your adress (like domain.com/api/bot) where you handle updates
 
-```php
-// routes/laragram.php
+And here we go, you can start your bot now
 
-use App\Http\Controllers\LaragramController;
-use Milly\Laragram\FSM\FSM;
+---
+## Usage:
 
-FSM::route('', [LaragramController::class, 'start'], [
-  (new \Milly\Laragram\Types\Update())->message
-]);
-```
+- Methods:
+    ```php
+    use Milly\Laragram\Facades\Laragram;
 
-```php
-// LaragramController.php
-
-namespace App\Http\LaragramController;
-
-use Milly\Laragram\Laragram;
-use Milly\Laragram\Types\Message;
-
-class LaragramController extends Controller
-{
-    public static function start(Message $message)
-    {
-        $chat_id = $message->from->id;
-
-        return Laragram::sendMessage([
-            'chat_id' => $chat_id,
-            'text' => 'Hello from laragram!'
-        ]);
+    Laragram::sendMessage(
+        123456789, // chat_id
+        null, // message thread id
+        "Hello world", // message text  
+  );
+- Objects:
+    ```php
+    use Milly\Laragram\Types\Message;
+      
+    // with variable
+    $message = new Message();
+    $text = $message->text;
+  
+    // inside the function
+    function getText(Message $message) {
+        $text = $message->text;
     }
-}
-```
+    ```
+- FSM Routing:
+    ```php
+    // routes/api.php
+    use Milly\Laragram\FSM\FSM;
+  
+    Route::post('/bot', function () {
+  
+       FSM::route('state_1', [SomeClass::class, 'someMethod']);
+  
+        FSM::route('state_2', function (Message $message) {
+            Laragram::sendMessage(
+                $message->chat->id,
+                null,
+                "Inside anonymous function"
+            );
+        });
+    }
+    ```
+
 
 ---
 
@@ -87,9 +130,10 @@ use \Milly\Laragram\Laragram;
 
 FSM::route('', function (Message $message) {
     Laragram::sendMessage([
-        'chat_id' => $message->chat->id,
-        'text' => "Inside anonymous function"
-    ]);
+        $message->chat->id,
+        null,
+        "Inside anonymous function"
+    );
 }, [
   (new \Milly\Laragram\Types\Update())->message
 ]);
@@ -101,26 +145,9 @@ FSM::route('', function (Message $message) {
 // routes/laragram.php
 
 //...
-FSM::route('state_+', [SomeClass::class, 'someMethod'] [
-  (new \Milly\Laragram\Types\Update())->message
-]);
+FSM::route('state_+', [SomeClass::class, 'someMethod']);
 ```
 - minor fixes
-## Features
-
-### First PHP telegram bot package which supports FSM-Routing:
-
-> ![FSM-Routing](./img/fsm-routing.png) <br/><br/>
-> ![Update types](./img/types.png)
-
-### Using telegram bot api methods:
-
-> ![Laragram bot api methods](./img/methods.png)
-
-### All types and methods are documented so you can code easily with your IDE:
-
-> ![Types](./img/img.png) <br/><br/>
-> ![Hints](https://user-images.githubusercontent.com/88322285/181101799-9143e994-a746-4683-9b7a-0cbda79fb328.png)
 
 ### Use it inside laravel project as a package and you will be able to use all features, including:
 

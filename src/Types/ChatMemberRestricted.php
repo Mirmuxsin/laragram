@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberRestricted
  *
- *Represents a [chat member](https://core.telegram.org/bots/api/#chatmember) that is under certain restrictions in the chat. Supergroups only.
+ *<p>Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberrestricted
@@ -14,109 +14,109 @@ namespace Milly\Laragram\Types;
 class ChatMemberRestricted
 {
     /**
-    * The member's status in the chat, always “restricted”
+    * <p>The member's status in the chat, always “restricted”</p>
     * @var string
     */
     public string $status;
 
     /**
-    * Information about the user
+    * <p>Information about the user</p>
     * @var User
     */
     public User $user;
 
     /**
-    * *True*, if the user is a member of the chat at the moment of the request
+    * <p>*True*, if the user is a member of the chat at the moment of the request</p>
     * @var bool
     */
     public bool $is_member;
 
     /**
-    * *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues
+    * <p>*True*, if the user is allowed to send text messages, contacts, invoices, locations and venues</p>
     * @var bool
     */
     public bool $can_send_messages;
 
     /**
-    * *True*, if the user is allowed to send audios
+    * <p>*True*, if the user is allowed to send audios</p>
     * @var bool
     */
     public bool $can_send_audios;
 
     /**
-    * *True*, if the user is allowed to send documents
+    * <p>*True*, if the user is allowed to send documents</p>
     * @var bool
     */
     public bool $can_send_documents;
 
     /**
-    * *True*, if the user is allowed to send photos
+    * <p>*True*, if the user is allowed to send photos</p>
     * @var bool
     */
     public bool $can_send_photos;
 
     /**
-    * *True*, if the user is allowed to send videos
+    * <p>*True*, if the user is allowed to send videos</p>
     * @var bool
     */
     public bool $can_send_videos;
 
     /**
-    * *True*, if the user is allowed to send video notes
+    * <p>*True*, if the user is allowed to send video notes</p>
     * @var bool
     */
     public bool $can_send_video_notes;
 
     /**
-    * *True*, if the user is allowed to send voice notes
+    * <p>*True*, if the user is allowed to send voice notes</p>
     * @var bool
     */
     public bool $can_send_voice_notes;
 
     /**
-    * *True*, if the user is allowed to send polls
+    * <p>*True*, if the user is allowed to send polls</p>
     * @var bool
     */
     public bool $can_send_polls;
 
     /**
-    * *True*, if the user is allowed to send animations, games, stickers and use inline bots
+    * <p>*True*, if the user is allowed to send animations, games, stickers and use inline bots</p>
     * @var bool
     */
     public bool $can_send_other_messages;
 
     /**
-    * *True*, if the user is allowed to add web page previews to their messages
+    * <p>*True*, if the user is allowed to add web page previews to their messages</p>
     * @var bool
     */
     public bool $can_add_web_page_previews;
 
     /**
-    * *True*, if the user is allowed to change the chat title, photo and other settings
+    * <p>*True*, if the user is allowed to change the chat title, photo and other settings</p>
     * @var bool
     */
     public bool $can_change_info;
 
     /**
-    * *True*, if the user is allowed to invite new users to the chat
+    * <p>*True*, if the user is allowed to invite new users to the chat</p>
     * @var bool
     */
     public bool $can_invite_users;
 
     /**
-    * *True*, if the user is allowed to pin messages
+    * <p>*True*, if the user is allowed to pin messages</p>
     * @var bool
     */
     public bool $can_pin_messages;
 
     /**
-    * *True*, if the user is allowed to create forum topics
+    * <p>*True*, if the user is allowed to create forum topics</p>
     * @var bool
     */
     public bool $can_manage_topics;
 
     /**
-    * Date when restrictions will be lifted for this user; unix time. If 0, then the user is restricted forever
+    * <p>Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever</p>
     * @var int
     */
     public int $until_date;

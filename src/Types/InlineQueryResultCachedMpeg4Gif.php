@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultCachedMpeg4Gif
  *
- *Represents a link to a video animation (H.264/MPEG-4 AVC video without sound) stored on the Telegram servers. By default, this animated MPEG-4 file will be sent by the user with an optional caption. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the animation.
+ *<p>*Optional*. Content of the message to be sent instead of the video animation</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultcachedmpeg4gif
@@ -14,55 +14,55 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultCachedMpeg4Gif
 {
     /**
-    * Type of the result, must be *mpeg4\_gif*
+    * <p>Type of the result, must be *mpeg4\_gif*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * A valid file identifier for the MPEG4 file
+    * <p>A valid file identifier for the MPEG4 file</p>
     * @var string
     */
     public string $mpeg4_file_id;
 
     /**
-    * *Optional*. Title for the result
+    * <p>*Optional*. Title for the result</p>
     * @var string|null
     */
     public ?string $title = null;
 
     /**
-    * *Optional*. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing
+    * <p>*Optional*. Caption of the MPEG-4 file to be sent, 0-1024 characters after entities parsing</p>
     * @var string|null
     */
     public ?string $caption = null;
 
     /**
-    * *Optional*. Mode for parsing entities in the caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.
+    * <p>*Optional*. Mode for parsing entities in the caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
     * @var string|null
     */
     public ?string $parse_mode = null;
 
     /**
-    * *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*
+    * <p>*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
     * @var array|null
     */
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the video animation
+    * <p>*Optional*. Content of the message to be sent instead of the video animation</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;

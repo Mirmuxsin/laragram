@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * Venue
  *
- *This object represents a venue.
+ *<p>*Optional*. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#venue
@@ -14,43 +14,43 @@ namespace Milly\Laragram\Types;
 class Venue
 {
     /**
-    * Venue location. Can't be a live location
+    * <p>Venue location. Can't be a live location</p>
     * @var Location
     */
     public Location $location;
 
     /**
-    * Name of the venue
+    * <p>Name of the venue</p>
     * @var string
     */
     public string $title;
 
     /**
-    * Address of the venue
+    * <p>Address of the venue</p>
     * @var string
     */
     public string $address;
 
     /**
-    * *Optional*. Foursquare identifier of the venue
+    * <p>*Optional*. Foursquare identifier of the venue</p>
     * @var string|null
     */
     public ?string $foursquare_id = null;
 
     /**
-    * *Optional*. Foursquare type of the venue. (For example, “arts\_entertainment/default”, “arts\_entertainment/aquarium” or “food/icecream”.)
+    * <p>*Optional*. Foursquare type of the venue. (For example, “arts\<em>entertainment/default”, “arts\</em>entertainment/aquarium” or “food/icecream”.)</p>
     * @var string|null
     */
     public ?string $foursquare_type = null;
 
     /**
-    * *Optional*. Google Places identifier of the venue
+    * <p>*Optional*. Google Places identifier of the venue</p>
     * @var string|null
     */
     public ?string $google_place_id = null;
 
     /**
-    * *Optional*. Google Places type of the venue. (See [supported types](https://developers.google.com/places/web-service/supported_types).)
+    * <p>*Optional*. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
     * @var string|null
     */
     public ?string $google_place_type = null;

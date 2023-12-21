@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotDescription
  *
- *This object represents the bot's description.
+ *<p>The bot's description</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botdescription
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class BotDescription
 {
     /**
-    * The bot's description
+    * <p>The bot's description</p>
     * @var string
     */
     public string $description;

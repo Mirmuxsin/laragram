@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * SentWebAppMessage
  *
- *Describes an inline message sent by a [Web App](https://core.telegram.org/bots/webapps) on behalf of a user.
+ *<p>*Optional*. Identifier of the sent inline message. Available only if there is an <a href="https://core.telegram.org/bots/api/#inlinekeyboardmarkup">inline keyboard</a> attached to the message.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#sentwebappmessage
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class SentWebAppMessage
 {
     /**
-    * *Optional*. Identifier of the sent inline message. Available only if there is an [inline keyboard](https://core.telegram.org/bots/api/#inlinekeyboardmarkup) attached to the message.
+    * <p>*Optional*. Identifier of the sent inline message. Available only if there is an <a href="https://core.telegram.org/bots/api/#inlinekeyboardmarkup">inline keyboard</a> attached to the message.</p>
     * @var string|null
     */
     public ?string $inline_message_id = null;

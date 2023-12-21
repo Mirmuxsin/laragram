@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommand
  *
- *This object represents a bot command.
+ *<p>Description of the command; 1-256 characters.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommand
@@ -14,13 +14,13 @@ namespace Milly\Laragram\Types;
 class BotCommand
 {
     /**
-    * Text of the command; 1-32 characters. Can contain only lowercase English letters, digits and underscores.
+    * <p>Text of the command; 1-32 characters. Can contain only lowercase English letters, digits and underscores.</p>
     * @var string
     */
     public string $command;
 
     /**
-    * Description of the command; 1-256 characters.
+    * <p>Description of the command; 1-256 characters.</p>
     * @var string
     */
     public string $description;

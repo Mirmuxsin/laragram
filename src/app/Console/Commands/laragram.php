@@ -10,10 +10,6 @@ use Illuminate\Console\Command;
 class laragram extends Command
 {
     /**
-     * @param int|string sada
-     */
-
-    /**
      * The name and signature of the console command.
      *
      * @var string
@@ -34,6 +30,7 @@ class laragram extends Command
      */
 
     protected string $botApiJsonUrl = "https://ark0f.github.io/tg-bot-api/custom.json";
+    protected array $updateProperties;
 
     public function handle()
     {
@@ -68,10 +65,17 @@ class laragram extends Command
             $comment = "";
             $function = "    public static function " . $method['name'] . " (";
             if (isset($method['arguments'])) {
+                $not_required = false;
                 $arguments .= "     /**\n     * ";
-                foreach ($method['arguments'] as $argument) {
+                foreach ($method['arguments'] as $count_arg => $argument) {
                     $arguments .= "@var ";
 
+//                    if($argument['name'] == 'reply_markup') {
+//                        $function .= "string|";
+//                        $arguments .= "string|";
+//                    }
+
+                    $has_reference = false;
                     if ( $argument['type'] == 'any_of') {
                         foreach ($argument['any_of'] as $key => $type) {
 
@@ -85,25 +89,40 @@ class laragram extends Command
 
                                 $function .= $type['type'].'|';
                             } else {
-                                $arguments .= $type['type'].' ';
-                                $function .= $type['type'].' ';
+                                $arguments .= $type['type']. $has_reference ? 'string ' : ' ';
+                                $function .= $type['type']. $has_reference ? 'string ' :' ';
                             }
                         }
                         $argument['type'] = null;
-                    } elseif ($argument['type']== 'reference'){
-                        $argument['type'] = "\Milly\Laragram\Types\\".$argument['reference'];
                     }
-                    $arguments .= $argument['type']." ".$argument['name']." ".
-                        ($argument['required'] ? '*(required: true)*':'').
+                    elseif ($argument['type']== 'reference'){
+                        $argument['type'] = "\Milly\Laragram\Types\\".$argument['reference'];
+                        $function .= "string|".$argument['type'];
+                    } elseif ($argument['type'] == 'integer') {
+                        $argument['type'] = 'int';
+                        $function .= $argument['type'];
+                    } else {
+                        $function .= $argument['type'];
+                    }
+                    if (!$argument['required']) {
+                        $not_required = true;
+                    }
+                    $arguments .= $argument['type'].
+                        ($argument['required'] ? '':'|null').
+                        " $".$argument['name']." ".
                         (array_key_exists('min_len', $argument) ? '*(min length: '.$argument['min_len'].')*':null).
                         (array_key_exists('max_len', $argument) ? '*(max length: '.$argument['min_len'].')*':null).
                         (array_key_exists('default', $argument) ? '*(default: '.$argument['default'].')*':null)
-                        ." ".$argument['description']."\n     * ";
-                    $function .= "$".$argument['name'].", ";
+                        ." ".$this->filterDescription($argument['description'])."\n     * ";
+                    if ($not_required) {
+                        $function .= " $".$argument['name']." = null, ";
+                    } else {
+                        $function .= " $".$argument['name'].", ";
+                    }
                 }
             }
             $function .= ") {
-        return Laragram::request('".$method['name']."', func_get_args());
+        return static::request('".$method['name']."', func_get_args_associative());
     }\n\n";
             if (isset($method['arguments'])){
                 $arguments .= "*/\n";
@@ -116,8 +135,6 @@ class laragram extends Command
 
 namespace Milly\Laragram\Methods;
 
-
-
 /**
  * Telegram methods
  *
@@ -127,10 +144,42 @@ On successful call, a JSON-object containing the result will be returned.
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api#available-methods
  */
-class Methods
+abstract class Methods
 {
+    abstract static function request (string \$method, array \$array): array;
+
 $arguments
-}";
+}
+
+    /**
+     * Get function arguments as associative array
+     * (same as func_get_args() but with keys)
+     *
+     * @param bool \$populateMissingArgumentsWithDefaults whether to populate the array with default values for missing arguments
+     *
+     * @return array
+     */
+    function func_get_args_associative(bool \$populateMissingArgumentsWithDefaults = false): array
+    {
+        \$trace = debug_backtrace(0, 2)[1];
+        \$reflection = null;
+        if (isset(\$trace['class'])) {
+            \$reflection = new \ReflectionMethod(\$trace['class'], \$trace['function']);
+        } else {
+            \$reflection = new \ReflectionFunction(\$trace['function']);
+        }
+        \$ret = [];
+        foreach (\$reflection->getParameters() as \$param) {
+            if (array_key_exists(\$param->getPosition(), \$trace['args'])) {
+                \$ret[\$param->name] = \$trace['args'][\$param->getPosition()];
+            } elseif (\$populateMissingArgumentsWithDefaults) {
+                // because of the \"required arguments declared after an optional argument are implicitly required\" rule:
+                assert(\$param->isDefaultValueAvailable(), \"i think all params are either in trace[args] or have default values\");
+                \$ret[\$param->name] = \$param->getDefaultValue();
+            }
+        }
+        return \$ret;
+    }";
         file_put_contents(__DIR__ . "/../../../Methods/Methods.php", $text);
     }
 
@@ -139,9 +188,15 @@ $arguments
         $comments = "";
 
         if ($method['name'] == 'Update') {
+            $this->setUpdateProperties($method['properties']);
             $functions .= "    public function __construct()
     {
-        \$data = handler::get();
+        \$data = Handler::get();
+";
+        } elseif (in_array($method['name'], $this->updateProperties)) {
+            $functions .= "    public function __construct(\$data = null)
+    {
+        if (\$data == null) \$data = Handler::get()['".strtolower(preg_replace('/(.)([A-Z])/', '$1_$2', $method['name']))."'];
 ";
         } else {
             $functions .= "    public function __construct(\$data)
@@ -158,8 +213,8 @@ $arguments
                 }
 
                 $comments .= "    /**
-    * ".$argument['description']."
-    * @var ".$argument['type'].($argument['required']? null:"|null")."
+    * ".$this->filterDescription($argument['description'])."
+    * @var ".$argument['type'].($argument['required'] ? null:"|null")."
     */
     public ".($argument['required']? null:"?").$argument['type']." $".$argument['name'].($argument['required']? null:" = null").";\n\n";
 
@@ -192,7 +247,7 @@ namespace Milly\Laragram\Types;
 /**
 * ".$method['name']."
  *
- *".$method['description']."
+ *".$this->filterDescription($argument['description'])."
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url ".$method['documentation_link']."
@@ -205,6 +260,33 @@ $functions
 }";
             file_put_contents(__DIR__ . "/../../../Types/" .$method['name'].".php", $text);
         }
+    }
+
+    private function setUpdateProperties (array $properties)
+    {
+        foreach ($properties as $property) {
+            if ($property['type'] != 'reference') continue;
+            $this->updateProperties[] = $property['reference'];
+        }
+    }
+
+    private function filterDescription (string $markdownText) {
+        // Convert headers (e.g., # Header) to <h1> tags
+        $markdownText = preg_replace('/^(#{1,6})\s+(.*)$/m', '<h$1>$2</h$1>', $markdownText);
+
+        // Convert bold (e.g., **bold text**) to <strong> tags
+        $markdownText = preg_replace('/\*\*(.*?)\*\*/', '<strong>$1</strong>', $markdownText);
+
+        // Convert italic (e.g., _italic text_) to <em> tags
+        $markdownText = preg_replace('/_(.*?)_/', '<em>$1</em>', $markdownText);
+
+        // Convert links (e.g., [Link](url)) to <a> tags
+        $markdownText = preg_replace('/\[(.*?)\]\((.*?)\)/', '<a href="$2">$1</a>', $markdownText);
+
+        // Convert paragraphs
+        $markdownText = '<p>' . preg_replace('/\n\n/', '</p><p>', $markdownText) . '</p>';
+
+        return $markdownText;
     }
 
 }

@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ShippingAddress
  *
- *This object represents a shipping address.
+ *<p>Address post code</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#shippingaddress
@@ -14,37 +14,37 @@ namespace Milly\Laragram\Types;
 class ShippingAddress
 {
     /**
-    * Two-letter ISO 3166-1 alpha-2 country code
+    * <p>Two-letter ISO 3166-1 alpha-2 country code</p>
     * @var string
     */
     public string $country_code;
 
     /**
-    * State, if applicable
+    * <p>State, if applicable</p>
     * @var string
     */
     public string $state;
 
     /**
-    * City
+    * <p>City</p>
     * @var string
     */
     public string $city;
 
     /**
-    * First line for the address
+    * <p>First line for the address</p>
     * @var string
     */
     public string $street_line1;
 
     /**
-    * Second line for the address
+    * <p>Second line for the address</p>
     * @var string
     */
     public string $street_line2;
 
     /**
-    * Address post code
+    * <p>Address post code</p>
     * @var string
     */
     public string $post_code;

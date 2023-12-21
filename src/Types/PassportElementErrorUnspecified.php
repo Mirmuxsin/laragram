@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorUnspecified
  *
- *Represents an issue in an unspecified place. The error is considered resolved when new data is added.
+ *<p>Error message</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorunspecified
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class PassportElementErrorUnspecified
 {
     /**
-    * Error source, must be *unspecified*
+    * <p>Error source, must be *unspecified*</p>
     * @var string
     */
     public string $source;
 
     /**
-    * Type of element of the user's Telegram Passport which has the issue
+    * <p>Type of element of the user's Telegram Passport which has the issue</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Base64-encoded element hash
+    * <p>Base64-encoded element hash</p>
     * @var string
     */
     public string $element_hash;
 
     /**
-    * Error message
+    * <p>Error message</p>
     * @var string
     */
     public string $message;

@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatPhoto
  *
- *This object represents a chat photo.
+ *<p>Unique file identifier of big (640x640) chat photo, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatphoto
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class ChatPhoto
 {
     /**
-    * File identifier of small (160x160) chat photo. This file\_id can be used only for photo download and only for as long as the photo is not changed.
+    * <p>File identifier of small (160x160) chat photo. This file\_id can be used only for photo download and only for as long as the photo is not changed.</p>
     * @var string
     */
     public string $small_file_id;
 
     /**
-    * Unique file identifier of small (160x160) chat photo, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+    * <p>Unique file identifier of small (160x160) chat photo, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.</p>
     * @var string
     */
     public string $small_file_unique_id;
 
     /**
-    * File identifier of big (640x640) chat photo. This file\_id can be used only for photo download and only for as long as the photo is not changed.
+    * <p>File identifier of big (640x640) chat photo. This file\_id can be used only for photo download and only for as long as the photo is not changed.</p>
     * @var string
     */
     public string $big_file_id;
 
     /**
-    * Unique file identifier of big (640x640) chat photo, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.
+    * <p>Unique file identifier of big (640x640) chat photo, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.</p>
     * @var string
     */
     public string $big_file_unique_id;

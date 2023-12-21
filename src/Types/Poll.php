@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * Poll
  *
- *This object contains information about a poll.
+ *<p>*Optional*. Point in time (Unix timestamp) when the poll will be automatically closed</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#poll
@@ -14,87 +14,88 @@ namespace Milly\Laragram\Types;
 class Poll
 {
     /**
-    * Unique poll identifier
+    * <p>Unique poll identifier</p>
     * @var string
     */
     public string $id;
 
     /**
-    * Poll question, 1-300 characters
+    * <p>Poll question, 1-300 characters</p>
     * @var string
     */
     public string $question;
 
     /**
-    * List of poll options
+    * <p>List of poll options</p>
     * @var array
     */
     public array $options;
 
     /**
-    * Total number of users that voted in the poll
+    * <p>Total number of users that voted in the poll</p>
     * @var int
     */
     public int $total_voter_count;
 
     /**
-    * *True*, if the poll is closed
+    * <p>*True*, if the poll is closed</p>
     * @var bool
     */
     public bool $is_closed;
 
     /**
-    * *True*, if the poll is anonymous
+    * <p>*True*, if the poll is anonymous</p>
     * @var bool
     */
     public bool $is_anonymous;
 
     /**
-    * Poll type, currently can be “regular” or “quiz”
+    * <p>Poll type, currently can be “regular” or “quiz”</p>
     * @var string
     */
     public string $type;
 
     /**
-    * *True*, if the poll allows multiple answers
+    * <p>*True*, if the poll allows multiple answers</p>
     * @var bool
     */
     public bool $allows_multiple_answers;
 
     /**
-    * *Optional*. 0-based identifier of the correct answer option. Available only for polls in the quiz mode, which are closed, or was sent (not forwarded) by the bot or to the private chat with the bot.
+    * <p>*Optional*. 0-based identifier of the correct answer option. Available only for polls in the quiz mode, which are closed, or was sent (not forwarded) by the bot or to the private chat with the bot.</p>
     * @var int|null
     */
     public ?int $correct_option_id = null;
 
     /**
-    * *Optional*. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters
+    * <p>*Optional*. Text that is shown when a user chooses an incorrect answer or taps on the lamp icon in a quiz-style poll, 0-200 characters</p>
     * @var string|null
     */
     public ?string $explanation = null;
 
     /**
-    * *Optional*. Special entities like usernames, URLs, bot commands, etc. that appear in the *explanation*
+    * <p>*Optional*. Special entities like usernames, URLs, bot commands, etc. that appear in the *explanation*</p>
     * @var array|null
     */
     public ?array $explanation_entities = null;
 
     /**
-    * *Optional*. Amount of time in seconds the poll will be active after creation
+    * <p>*Optional*. Amount of time in seconds the poll will be active after creation</p>
     * @var int|null
     */
     public ?int $open_period = null;
 
     /**
-    * *Optional*. Point in time (Unix timestamp) when the poll will be automatically closed
+    * <p>*Optional*. Point in time (Unix timestamp) when the poll will be automatically closed</p>
     * @var int|null
     */
     public ?int $close_date = null;
 
 
 
-    public function __construct($data)
+    public function __construct($data = null)
     {
+        if ($data == null) $data = Handler::get()['poll'];
         $this->id = $data['id'];
         $this->question = $data['question'];
         $this->options = $data['options'];

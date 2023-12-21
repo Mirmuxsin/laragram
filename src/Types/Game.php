@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * Game
  *
- *This object represents a game. Use BotFather to create and edit games, their short names will act as unique identifiers.
+ *<p>*Optional*. Animation that will be displayed in the game message in chats. Upload via <a href="https://t.me/botfather">BotFather</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#game
@@ -14,37 +14,37 @@ namespace Milly\Laragram\Types;
 class Game
 {
     /**
-    * Title of the game
+    * <p>Title of the game</p>
     * @var string
     */
     public string $title;
 
     /**
-    * Description of the game
+    * <p>Description of the game</p>
     * @var string
     */
     public string $description;
 
     /**
-    * Photo that will be displayed in the game message in chats.
+    * <p>Photo that will be displayed in the game message in chats.</p>
     * @var array
     */
     public array $photo;
 
     /**
-    * *Optional*. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls [setGameScore](https://core.telegram.org/bots/api/#setgamescore), or manually edited using [editMessageText](https://core.telegram.org/bots/api/#editmessagetext). 0-4096 characters.
+    * <p>*Optional*. Brief description of the game or high scores included in the game message. Can be automatically edited to include current high scores for the game when the bot calls <a href="https://core.telegram.org/bots/api/#setgamescore">setGameScore</a>, or manually edited using <a href="https://core.telegram.org/bots/api/#editmessagetext">editMessageText</a>. 0-4096 characters.</p>
     * @var string|null
     */
     public ?string $text = null;
 
     /**
-    * *Optional*. Special entities that appear in *text*, such as usernames, URLs, bot commands, etc.
+    * <p>*Optional*. Special entities that appear in *text*, such as usernames, URLs, bot commands, etc.</p>
     * @var array|null
     */
     public ?array $text_entities = null;
 
     /**
-    * *Optional*. Animation that will be displayed in the game message in chats. Upload via [BotFather](https://t.me/botfather)
+    * <p>*Optional*. Animation that will be displayed in the game message in chats. Upload via <a href="https://t.me/botfather">BotFather</a></p>
     * @var Animation|null
     */
     public ?Animation $animation = null;

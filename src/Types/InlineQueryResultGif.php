@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultGif
  *
- *Represents a link to an animated GIF file. By default, this animated GIF file will be sent by the user with optional caption. Alternatively, you can use *input\_message\_content* to send a message with the specified content instead of the animation.
+ *<p>*Optional*. Content of the message to be sent instead of the GIF animation</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultgif
@@ -14,85 +14,85 @@ namespace Milly\Laragram\Types;
 class InlineQueryResultGif
 {
     /**
-    * Type of the result, must be *gif*
+    * <p>Type of the result, must be *gif*</p>
     * @var string
     */
     public string $type;
 
     /**
-    * Unique identifier for this result, 1-64 bytes
+    * <p>Unique identifier for this result, 1-64 bytes</p>
     * @var string
     */
     public string $id;
 
     /**
-    * A valid URL for the GIF file. File size must not exceed 1MB
+    * <p>A valid URL for the GIF file. File size must not exceed 1MB</p>
     * @var string
     */
     public string $gif_url;
 
     /**
-    * *Optional*. Width of the GIF
+    * <p>*Optional*. Width of the GIF</p>
     * @var int|null
     */
     public ?int $gif_width = null;
 
     /**
-    * *Optional*. Height of the GIF
+    * <p>*Optional*. Height of the GIF</p>
     * @var int|null
     */
     public ?int $gif_height = null;
 
     /**
-    * *Optional*. Duration of the GIF in seconds
+    * <p>*Optional*. Duration of the GIF in seconds</p>
     * @var int|null
     */
     public ?int $gif_duration = null;
 
     /**
-    * URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result
+    * <p>URL of the static (JPEG or GIF) or animated (MPEG4) thumbnail for the result</p>
     * @var string
     */
     public string $thumbnail_url;
 
     /**
-    * *Optional*. MIME type of the thumbnail, must be one of “image/jpeg”, “image/gif”, or “video/mp4”. Defaults to “image/jpeg”
+    * <p>*Optional*. MIME type of the thumbnail, must be one of “image/jpeg”, “image/gif”, or “video/mp4”. Defaults to “image/jpeg”</p>
     * @var string|null
     */
     public ?string $thumbnail_mime_type = null;
 
     /**
-    * *Optional*. Title for the result
+    * <p>*Optional*. Title for the result</p>
     * @var string|null
     */
     public ?string $title = null;
 
     /**
-    * *Optional*. Caption of the GIF file to be sent, 0-1024 characters after entities parsing
+    * <p>*Optional*. Caption of the GIF file to be sent, 0-1024 characters after entities parsing</p>
     * @var string|null
     */
     public ?string $caption = null;
 
     /**
-    * *Optional*. Mode for parsing entities in the caption. See [formatting options](https://core.telegram.org/bots/api/#formatting-options) for more details.
+    * <p>*Optional*. Mode for parsing entities in the caption. See <a href="https://core.telegram.org/bots/api/#formatting-options">formatting options</a> for more details.</p>
     * @var string|null
     */
     public ?string $parse_mode = null;
 
     /**
-    * *Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*
+    * <p>*Optional*. List of special entities that appear in the caption, which can be specified instead of *parse\_mode*</p>
     * @var array|null
     */
     public ?array $caption_entities = null;
 
     /**
-    * *Optional*. [Inline keyboard](https://core.telegram.org/bots/features#inline-keyboards) attached to the message
+    * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
     public ?InlineKeyboardMarkup $reply_markup = null;
 
     /**
-    * *Optional*. Content of the message to be sent instead of the GIF animation
+    * <p>*Optional*. Content of the message to be sent instead of the GIF animation</p>
     * @var InputMessageContent|null
     */
     public ?InputMessageContent $input_message_content = null;

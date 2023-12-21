@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * VideoChatEnded
  *
- *This object represents a service message about a video chat ended in the chat.
+ *<p>Video chat duration in seconds</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#videochatended
@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class VideoChatEnded
 {
     /**
-    * Video chat duration in seconds
+    * <p>Video chat duration in seconds</p>
     * @var int
     */
     public int $duration;

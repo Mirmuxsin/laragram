@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * OrderInfo
  *
- *This object represents information about an order.
+ *<p>*Optional*. User shipping address</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#orderinfo
@@ -14,25 +14,25 @@ namespace Milly\Laragram\Types;
 class OrderInfo
 {
     /**
-    * *Optional*. User name
+    * <p>*Optional*. User name</p>
     * @var string|null
     */
     public ?string $name = null;
 
     /**
-    * *Optional*. User's phone number
+    * <p>*Optional*. User's phone number</p>
     * @var string|null
     */
     public ?string $phone_number = null;
 
     /**
-    * *Optional*. User email
+    * <p>*Optional*. User email</p>
     * @var string|null
     */
     public ?string $email = null;
 
     /**
-    * *Optional*. User shipping address
+    * <p>*Optional*. User shipping address</p>
     * @var ShippingAddress|null
     */
     public ?ShippingAddress $shipping_address = null;
