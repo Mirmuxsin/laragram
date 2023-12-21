@@ -92,7 +92,8 @@ class FSM
         if (!$user_id) {
             if (isset((new Update())->message->from->id)) $user_id = (new Update())->message->from->id;
             else if (isset((new Update())->callback_query->from->id)) $user_id = (new Update())->callback_query->from->id;
-            else die('cant reach user_id!');
+            else if (isset((new Update())->chat_join_request->from->id)) $user_id = (new Update())->chat_join_request->from->id;
+            else die("can't reach user_id!");
         }
         return $user_id;
     }
