@@ -51,7 +51,12 @@ class Handler {
      * @return array
      * @throws Exception
      */
-    private static function filterUpdate (Request $update) {
+    private static function filterUpdate (Request $update)
+    {
+
+        if (IpUtils::checkIp($update->ip(), config('laragram.trusted_ips'))) {
+            return $update->all();
+        }
 
         if (App::environment('local') && IpUtils::checkIp($update->ip(), self::$localIpNets)) {
             return $update->all();
