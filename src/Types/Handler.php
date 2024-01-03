@@ -54,7 +54,7 @@ class Handler {
     private static function filterUpdate (Request $update)
     {
 
-        if (isset(config('laragram.trusted_ips')) and IpUtils::checkIp($update->ip(), config('laragram.trusted_ips'))) {
+        if (config('laragram.trusted_ips') !== null and IpUtils::checkIp($update->ip(), config('laragram.trusted_ips'))) {
             return $update->all();
         }
 
