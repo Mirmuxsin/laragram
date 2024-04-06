@@ -100,7 +100,7 @@ class FSM
 
 //        $method = new \ReflectionFunction($function);
 
-        return call_user_func_array($callable, $params);
+        return response(call_user_func_array($callable, $params))->send();
     }
 
 
