@@ -74,7 +74,7 @@ And here we go, you can start your bot now
 
 - Methods:
     ```php
-    use Milly\Laragram\Facades\Laragram;
+    use Milly\Laragram\Laragram;
 
     Laragram::sendMessage(
         123456789, // chat_id
@@ -98,6 +98,7 @@ And here we go, you can start your bot now
     ```php
     // routes/api.php
     use Milly\Laragram\FSM\FSM;
+    use Milly\Laragram\Laragram;
   
     Route::post('/bot', function () {
   
