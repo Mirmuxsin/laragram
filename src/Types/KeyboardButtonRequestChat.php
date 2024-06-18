@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * KeyboardButtonRequestChat
  *
- *<p>*Optional*. Pass *True* to request a chat with the bot as a member. Otherwise, no additional restrictions are applied.</p>
+ *<p>*Optional*. Pass *True* to request the chat's photo</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#keyboardbuttonrequestchat
@@ -61,6 +61,24 @@ class KeyboardButtonRequestChat
     */
     public ?bool $bot_is_member = null;
 
+    /**
+    * <p>*Optional*. Pass *True* to request the chat's title</p>
+    * @var bool|null
+    */
+    public ?bool $request_title = null;
+
+    /**
+    * <p>*Optional*. Pass *True* to request the chat's username</p>
+    * @var bool|null
+    */
+    public ?bool $request_username = null;
+
+    /**
+    * <p>*Optional*. Pass *True* to request the chat's photo</p>
+    * @var bool|null
+    */
+    public ?bool $request_photo = null;
+
 
 
     public function __construct($data)
@@ -89,6 +107,18 @@ class KeyboardButtonRequestChat
 
         if (isset($data['bot_is_member'])){
             $this->bot_is_member = $data['bot_is_member'];
+        }
+
+        if (isset($data['request_title'])){
+            $this->request_title = $data['request_title'];
+        }
+
+        if (isset($data['request_username'])){
+            $this->request_username = $data['request_username'];
+        }
+
+        if (isset($data['request_photo'])){
+            $this->request_photo = $data['request_photo'];
         }
 
     }

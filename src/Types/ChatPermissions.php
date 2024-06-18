@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class ChatPermissions
 {
     /**
-    * <p>*Optional*. *True*, if the user is allowed to send text messages, contacts, invoices, locations and venues</p>
+    * <p>*Optional*. *True*, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues</p>
     * @var bool|null
     */
     public ?bool $can_send_messages = null;

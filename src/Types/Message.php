@@ -38,52 +38,40 @@ class Message
     public ?Chat $sender_chat = null;
 
     /**
-    * <p>Date the message was sent in Unix time</p>
+    * <p>*Optional*. If the sender of the message boosted the chat, the number of boosts added by the user</p>
+    * @var int|null
+    */
+    public ?int $sender_boost_count = null;
+
+    /**
+    * <p>*Optional*. The bot that actually sent the message on behalf of the business account. Available only for outgoing messages sent on behalf of the connected business account.</p>
+    * @var User|null
+    */
+    public ?User $sender_business_bot = null;
+
+    /**
+    * <p>Date the message was sent in Unix time. It is always a positive number, representing a valid date.</p>
     * @var int
     */
     public int $date;
 
     /**
-    * <p>Conversation the message belongs to</p>
+    * <p>*Optional*. Unique identifier of the business connection from which the message was received. If non-empty, the message belongs to a chat of the corresponding business account that is independent from any potential bot chat which might share the same identifier.</p>
+    * @var string|null
+    */
+    public ?string $business_connection_id = null;
+
+    /**
+    * <p>Chat the message belongs to</p>
     * @var Chat
     */
     public Chat $chat;
 
     /**
-    * <p>*Optional*. For forwarded messages, sender of the original message</p>
-    * @var User|null
+    * <p>*Optional*. Information about the original message for forwarded messages</p>
+    * @var MessageOrigin|null
     */
-    public ?User $forward_from = null;
-
-    /**
-    * <p>*Optional*. For messages forwarded from channels or from anonymous administrators, information about the original sender chat</p>
-    * @var Chat|null
-    */
-    public ?Chat $forward_from_chat = null;
-
-    /**
-    * <p>*Optional*. For messages forwarded from channels, identifier of the original message in the channel</p>
-    * @var int|null
-    */
-    public ?int $forward_from_message_id = null;
-
-    /**
-    * <p>*Optional*. For forwarded messages that were originally sent in channels or by an anonymous chat administrator, signature of the message sender if present</p>
-    * @var string|null
-    */
-    public ?string $forward_signature = null;
-
-    /**
-    * <p>*Optional*. Sender's name for messages forwarded from users who disallow adding a link to their account in forwarded messages</p>
-    * @var string|null
-    */
-    public ?string $forward_sender_name = null;
-
-    /**
-    * <p>*Optional*. For forwarded messages, date the original message was sent in Unix time</p>
-    * @var int|null
-    */
-    public ?int $forward_date = null;
+    public ?MessageOrigin $forward_origin = null;
 
     /**
     * <p>*Optional*. *True*, if the message is sent to a forum topic</p>
@@ -98,10 +86,28 @@ class Message
     public ?bool $is_automatic_forward = null;
 
     /**
-    * <p>*Optional*. For replies, the original message. Note that the Message object in this field will not contain further *reply\<em>to\</em>message* fields even if it itself is a reply.</p>
+    * <p>*Optional*. For replies in the same chat and message thread, the original message. Note that the Message object in this field will not contain further *reply\<em>to\</em>message* fields even if it itself is a reply.</p>
     * @var Message|null
     */
     public ?Message $reply_to_message = null;
+
+    /**
+    * <p>*Optional*. Information about the message that is being replied to, which may come from another chat or forum topic</p>
+    * @var ExternalReplyInfo|null
+    */
+    public ?ExternalReplyInfo $external_reply = null;
+
+    /**
+    * <p>*Optional*. For replies that quote part of the original message, the quoted part of the message</p>
+    * @var TextQuote|null
+    */
+    public ?TextQuote $quote = null;
+
+    /**
+    * <p>*Optional*. For replies to a story, the original story</p>
+    * @var Story|null
+    */
+    public ?Story $reply_to_story = null;
 
     /**
     * <p>*Optional*. Bot through which the message was sent</p>
@@ -120,6 +126,12 @@ class Message
     * @var bool|null
     */
     public ?bool $has_protected_content = null;
+
+    /**
+    * <p>*Optional*. True, if the message was sent by an implicit action, for example, as an away or a greeting business message, or as a scheduled message</p>
+    * @var bool|null
+    */
+    public ?bool $is_from_offline = null;
 
     /**
     * <p>*Optional*. The unique identifier of a media message group this message belongs to</p>
@@ -144,6 +156,18 @@ class Message
     * @var array|null
     */
     public ?array $entities = null;
+
+    /**
+    * <p>*Optional*. Options used for link preview generation for the message, if it is a text message and link preview options were changed</p>
+    * @var LinkPreviewOptions|null
+    */
+    public ?LinkPreviewOptions $link_preview_options = null;
+
+    /**
+    * <p>*Optional*. Unique identifier of the message effect added to the message</p>
+    * @var string|null
+    */
+    public ?string $effect_id = null;
 
     /**
     * <p>*Optional*. Message is an animation, information about the animation. For backward compatibility, when this field is set, the *document* field will also be set</p>
@@ -210,6 +234,12 @@ class Message
     * @var array|null
     */
     public ?array $caption_entities = null;
+
+    /**
+    * <p>*Optional*. True, if the caption must be shown above the message media</p>
+    * @var bool|null
+    */
+    public ?bool $show_caption_above_media = null;
 
     /**
     * <p>*Optional*. *True*, if the message media is covered by a spoiler animation</p>
@@ -320,10 +350,10 @@ class Message
     public ?int $migrate_from_chat_id = null;
 
     /**
-    * <p>*Optional*. Specified message was pinned. Note that the Message object in this field will not contain further *reply\<em>to\</em>message* fields even if it is itself a reply.</p>
-    * @var Message|null
+    * <p>*Optional*. Specified message was pinned. Note that the Message object in this field will not contain further *reply\<em>to\</em>message* fields even if it itself is a reply.</p>
+    * @var MaybeInaccessibleMessage|null
     */
-    public ?Message $pinned_message = null;
+    public ?MaybeInaccessibleMessage $pinned_message = null;
 
     /**
     * <p>*Optional*. Message is an invoice for a <a href="https://core.telegram.org/bots/api/#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api/#payments">More about payments »</a></p>
@@ -338,10 +368,10 @@ class Message
     public ?SuccessfulPayment $successful_payment = null;
 
     /**
-    * <p>*Optional*. Service message: a user was shared with the bot</p>
-    * @var UserShared|null
+    * <p>*Optional*. Service message: users were shared with the bot</p>
+    * @var UsersShared|null
     */
-    public ?UserShared $user_shared = null;
+    public ?UsersShared $users_shared = null;
 
     /**
     * <p>*Optional*. Service message: a chat was shared with the bot</p>
@@ -372,6 +402,18 @@ class Message
     * @var ProximityAlertTriggered|null
     */
     public ?ProximityAlertTriggered $proximity_alert_triggered = null;
+
+    /**
+    * <p>*Optional*. Service message: user boosted the chat</p>
+    * @var ChatBoostAdded|null
+    */
+    public ?ChatBoostAdded $boost_added = null;
+
+    /**
+    * <p>*Optional*. Service message: chat background set</p>
+    * @var ChatBackground|null
+    */
+    public ?ChatBackground $chat_background_set = null;
 
     /**
     * <p>*Optional*. Service message: forum topic created</p>
@@ -408,6 +450,30 @@ class Message
     * @var GeneralForumTopicUnhidden|null
     */
     public ?GeneralForumTopicUnhidden $general_forum_topic_unhidden = null;
+
+    /**
+    * <p>*Optional*. Service message: a scheduled giveaway was created</p>
+    * @var GiveawayCreated|null
+    */
+    public ?GiveawayCreated $giveaway_created = null;
+
+    /**
+    * <p>*Optional*. The message is a scheduled giveaway message</p>
+    * @var Giveaway|null
+    */
+    public ?Giveaway $giveaway = null;
+
+    /**
+    * <p>*Optional*. A giveaway with public winners was completed</p>
+    * @var GiveawayWinners|null
+    */
+    public ?GiveawayWinners $giveaway_winners = null;
+
+    /**
+    * <p>*Optional*. Service message: a giveaway without public winners was completed</p>
+    * @var GiveawayCompleted|null
+    */
+    public ?GiveawayCompleted $giveaway_completed = null;
 
     /**
     * <p>*Optional*. Service message: video chat scheduled</p>
@@ -463,31 +529,23 @@ class Message
             $this->sender_chat = new Chat($data['sender_chat']);
         }
 
+        if (isset($data['sender_boost_count'])){
+            $this->sender_boost_count = $data['sender_boost_count'];
+        }
+
+        if (isset($data['sender_business_bot'])){
+            $this->sender_business_bot = new User($data['sender_business_bot']);
+        }
+
         $this->date = $data['date'];
+        if (isset($data['business_connection_id'])){
+            $this->business_connection_id = $data['business_connection_id'];
+        }
+
         $this->chat = new Chat($data['chat']);
 
-        if (isset($data['forward_from'])){
-            $this->forward_from = new User($data['forward_from']);
-        }
-
-        if (isset($data['forward_from_chat'])){
-            $this->forward_from_chat = new Chat($data['forward_from_chat']);
-        }
-
-        if (isset($data['forward_from_message_id'])){
-            $this->forward_from_message_id = $data['forward_from_message_id'];
-        }
-
-        if (isset($data['forward_signature'])){
-            $this->forward_signature = $data['forward_signature'];
-        }
-
-        if (isset($data['forward_sender_name'])){
-            $this->forward_sender_name = $data['forward_sender_name'];
-        }
-
-        if (isset($data['forward_date'])){
-            $this->forward_date = $data['forward_date'];
+        if (isset($data['forward_origin'])){
+            $this->forward_origin = new MessageOrigin($data['forward_origin']);
         }
 
         if (isset($data['is_topic_message'])){
@@ -502,6 +560,18 @@ class Message
             $this->reply_to_message = new Message($data['reply_to_message']);
         }
 
+        if (isset($data['external_reply'])){
+            $this->external_reply = new ExternalReplyInfo($data['external_reply']);
+        }
+
+        if (isset($data['quote'])){
+            $this->quote = new TextQuote($data['quote']);
+        }
+
+        if (isset($data['reply_to_story'])){
+            $this->reply_to_story = new Story($data['reply_to_story']);
+        }
+
         if (isset($data['via_bot'])){
             $this->via_bot = new User($data['via_bot']);
         }
@@ -512,6 +582,10 @@ class Message
 
         if (isset($data['has_protected_content'])){
             $this->has_protected_content = $data['has_protected_content'];
+        }
+
+        if (isset($data['is_from_offline'])){
+            $this->is_from_offline = $data['is_from_offline'];
         }
 
         if (isset($data['media_group_id'])){
@@ -528,6 +602,14 @@ class Message
 
         if (isset($data['entities'])){
             $this->entities = $data['entities'];
+        }
+
+        if (isset($data['link_preview_options'])){
+            $this->link_preview_options = new LinkPreviewOptions($data['link_preview_options']);
+        }
+
+        if (isset($data['effect_id'])){
+            $this->effect_id = $data['effect_id'];
         }
 
         if (isset($data['animation'])){
@@ -572,6 +654,10 @@ class Message
 
         if (isset($data['caption_entities'])){
             $this->caption_entities = $data['caption_entities'];
+        }
+
+        if (isset($data['show_caption_above_media'])){
+            $this->show_caption_above_media = $data['show_caption_above_media'];
         }
 
         if (isset($data['has_media_spoiler'])){
@@ -647,7 +733,7 @@ class Message
         }
 
         if (isset($data['pinned_message'])){
-            $this->pinned_message = new Message($data['pinned_message']);
+            $this->pinned_message = new MaybeInaccessibleMessage($data['pinned_message']);
         }
 
         if (isset($data['invoice'])){
@@ -658,8 +744,8 @@ class Message
             $this->successful_payment = new SuccessfulPayment($data['successful_payment']);
         }
 
-        if (isset($data['user_shared'])){
-            $this->user_shared = new UserShared($data['user_shared']);
+        if (isset($data['users_shared'])){
+            $this->users_shared = new UsersShared($data['users_shared']);
         }
 
         if (isset($data['chat_shared'])){
@@ -680,6 +766,14 @@ class Message
 
         if (isset($data['proximity_alert_triggered'])){
             $this->proximity_alert_triggered = new ProximityAlertTriggered($data['proximity_alert_triggered']);
+        }
+
+        if (isset($data['boost_added'])){
+            $this->boost_added = new ChatBoostAdded($data['boost_added']);
+        }
+
+        if (isset($data['chat_background_set'])){
+            $this->chat_background_set = new ChatBackground($data['chat_background_set']);
         }
 
         if (isset($data['forum_topic_created'])){
@@ -704,6 +798,22 @@ class Message
 
         if (isset($data['general_forum_topic_unhidden'])){
             $this->general_forum_topic_unhidden = new GeneralForumTopicUnhidden($data['general_forum_topic_unhidden']);
+        }
+
+        if (isset($data['giveaway_created'])){
+            $this->giveaway_created = new GiveawayCreated($data['giveaway_created']);
+        }
+
+        if (isset($data['giveaway'])){
+            $this->giveaway = new Giveaway($data['giveaway']);
+        }
+
+        if (isset($data['giveaway_winners'])){
+            $this->giveaway_winners = new GiveawayWinners($data['giveaway_winners']);
+        }
+
+        if (isset($data['giveaway_completed'])){
+            $this->giveaway_completed = new GiveawayCompleted($data['giveaway_completed']);
         }
 
         if (isset($data['video_chat_scheduled'])){

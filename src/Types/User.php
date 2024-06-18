@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * User
  *
- *<p>*Optional*. *True*, if the bot supports inline queries. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
+ *<p>*Optional*. *True*, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#user
@@ -79,6 +79,12 @@ class User
     */
     public ?bool $supports_inline_queries = null;
 
+    /**
+    * <p>*Optional*. *True*, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
+    * @var bool|null
+    */
+    public ?bool $can_connect_to_business = null;
+
 
 
     public function __construct($data)
@@ -116,6 +122,10 @@ class User
 
         if (isset($data['supports_inline_queries'])){
             $this->supports_inline_queries = $data['supports_inline_queries'];
+        }
+
+        if (isset($data['can_connect_to_business'])){
+            $this->can_connect_to_business = $data['can_connect_to_business'];
         }
 
     }

@@ -20,10 +20,10 @@ class KeyboardButton
     public string $text;
 
     /**
-    * <p>*Optional.* If specified, pressing the button will open a list of suitable users. Tapping on any user will send their identifier to the bot in a “user\_shared” service message. Available in private chats only.</p>
-    * @var KeyboardButtonRequestUser|null
+    * <p>*Optional.* If specified, pressing the button will open a list of suitable users. Identifiers of selected users will be sent to the bot in a “users\_shared” service message. Available in private chats only.</p>
+    * @var KeyboardButtonRequestUsers|null
     */
-    public ?KeyboardButtonRequestUser $request_user = null;
+    public ?KeyboardButtonRequestUsers $request_users = null;
 
     /**
     * <p>*Optional.* If specified, pressing the button will open a list of suitable chats. Tapping on a chat will send its identifier to the bot in a “chat\_shared” service message. Available in private chats only.</p>
@@ -60,8 +60,8 @@ class KeyboardButton
     public function __construct($data)
     {
         $this->text = $data['text'];
-        if (isset($data['request_user'])){
-            $this->request_user = new KeyboardButtonRequestUser($data['request_user']);
+        if (isset($data['request_users'])){
+            $this->request_users = new KeyboardButtonRequestUsers($data['request_users']);
         }
 
         if (isset($data['request_chat'])){

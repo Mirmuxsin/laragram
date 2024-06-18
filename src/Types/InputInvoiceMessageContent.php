@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputInvoiceMessageContent
  *
- *<p>*Optional*. Pass *True* if the final price depends on the shipping method</p>
+ *<p>*Optional*. Pass *True* if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputinvoicemessagecontent
@@ -32,25 +32,25 @@ class InputInvoiceMessageContent
     public string $payload;
 
     /**
-    * <p>Payment provider token, obtained via <a href="https://t.me/botfather">@BotFather</a></p>
-    * @var string
+    * <p>*Optional*. Payment provider token, obtained via <a href="https://t.me/botfather">@BotFather</a>. Pass an empty string for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
+    * @var string|null
     */
-    public string $provider_token;
+    public ?string $provider_token = null;
 
     /**
-    * <p>Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a></p>
+    * <p>Three-letter ISO 4217 currency code, see <a href="https://core.telegram.org/bots/payments#supported-currencies">more on currencies</a>. Pass “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var string
     */
     public string $currency;
 
     /**
-    * <p>Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.)</p>
+    * <p>Price breakdown, a JSON-serialized list of components (e.g. product price, tax, discount, delivery cost, delivery tax, bonus, etc.). Must contain exactly one item for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var array
     */
     public array $prices;
 
     /**
-    * <p>*Optional*. The maximum accepted amount for tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of `US$ 1.45` pass `max<em>tip</em>amount = 145`. See the *exp* parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0</p>
+    * <p>*Optional*. The maximum accepted amount for tips in the *smallest units* of the currency (integer, <strong>not</strong> float/double). For example, for a maximum tip of `US$ 1.45` pass `max<em>tip</em>amount = 145`. See the *exp* parameter in <a href="https://core.telegram.org/bots/payments/currencies.json">currencies.json</a>, it shows the number of digits past the decimal point for each currency (2 for the majority of currencies). Defaults to 0. Not supported for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var int|null
     */
     public ?int $max_tip_amount = null;
@@ -92,43 +92,43 @@ class InputInvoiceMessageContent
     public ?int $photo_height = null;
 
     /**
-    * <p>*Optional*. Pass *True* if you require the user's full name to complete the order</p>
+    * <p>*Optional*. Pass *True* if you require the user's full name to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var bool|null
     */
     public ?bool $need_name = null;
 
     /**
-    * <p>*Optional*. Pass *True* if you require the user's phone number to complete the order</p>
+    * <p>*Optional*. Pass *True* if you require the user's phone number to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var bool|null
     */
     public ?bool $need_phone_number = null;
 
     /**
-    * <p>*Optional*. Pass *True* if you require the user's email address to complete the order</p>
+    * <p>*Optional*. Pass *True* if you require the user's email address to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var bool|null
     */
     public ?bool $need_email = null;
 
     /**
-    * <p>*Optional*. Pass *True* if you require the user's shipping address to complete the order</p>
+    * <p>*Optional*. Pass *True* if you require the user's shipping address to complete the order. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var bool|null
     */
     public ?bool $need_shipping_address = null;
 
     /**
-    * <p>*Optional*. Pass *True* if the user's phone number should be sent to provider</p>
+    * <p>*Optional*. Pass *True* if the user's phone number should be sent to the provider. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var bool|null
     */
     public ?bool $send_phone_number_to_provider = null;
 
     /**
-    * <p>*Optional*. Pass *True* if the user's email address should be sent to provider</p>
+    * <p>*Optional*. Pass *True* if the user's email address should be sent to the provider. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var bool|null
     */
     public ?bool $send_email_to_provider = null;
 
     /**
-    * <p>*Optional*. Pass *True* if the final price depends on the shipping method</p>
+    * <p>*Optional*. Pass *True* if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
     * @var bool|null
     */
     public ?bool $is_flexible = null;
@@ -140,7 +140,10 @@ class InputInvoiceMessageContent
         $this->title = $data['title'];
         $this->description = $data['description'];
         $this->payload = $data['payload'];
-        $this->provider_token = $data['provider_token'];
+        if (isset($data['provider_token'])){
+            $this->provider_token = $data['provider_token'];
+        }
+
         $this->currency = $data['currency'];
         $this->prices = $data['prices'];
         if (isset($data['max_tip_amount'])){

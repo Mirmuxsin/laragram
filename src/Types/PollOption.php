@@ -20,6 +20,12 @@ class PollOption
     public string $text;
 
     /**
+    * <p>*Optional*. Special entities that appear in the option *text*. Currently, only custom emoji entities are allowed in poll option texts</p>
+    * @var array|null
+    */
+    public ?array $text_entities = null;
+
+    /**
     * <p>Number of users that voted for this option</p>
     * @var int
     */
@@ -30,6 +36,10 @@ class PollOption
     public function __construct($data)
     {
         $this->text = $data['text'];
+        if (isset($data['text_entities'])){
+            $this->text_entities = $data['text_entities'];
+        }
+
         $this->voter_count = $data['voter_count'];
     }
 }

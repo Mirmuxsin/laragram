@@ -50,6 +50,12 @@ class ChatMemberUpdated
     public ?ChatInviteLink $invite_link = null;
 
     /**
+    * <p>*Optional*. True, if the user joined the chat after sending a direct join request without using an invite link and being approved by an administrator</p>
+    * @var bool|null
+    */
+    public ?bool $via_join_request = null;
+
+    /**
     * <p>*Optional*. True, if the user joined the chat via a chat folder invite link</p>
     * @var bool|null
     */
@@ -71,6 +77,10 @@ class ChatMemberUpdated
 
         if (isset($data['invite_link'])){
             $this->invite_link = new ChatInviteLink($data['invite_link']);
+        }
+
+        if (isset($data['via_join_request'])){
+            $this->via_join_request = $data['via_join_request'];
         }
 
         if (isset($data['via_chat_folder_invite_link'])){

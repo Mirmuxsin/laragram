@@ -20,6 +20,12 @@ class InputSticker
     public any_of $sticker;
 
     /**
+    * <p>Format of the added sticker, must be one of “static” for a <strong>.WEBP</strong> or <strong>.PNG</strong> image, “animated” for a <strong>.TGS</strong> animation, “video” for a <strong>WEBM</strong> video</p>
+    * @var string
+    */
+    public string $format;
+
+    /**
     * <p>List of 1-20 emoji associated with the sticker</p>
     * @var array
     */
@@ -42,6 +48,7 @@ class InputSticker
     public function __construct($data)
     {
         $this->sticker = $data['sticker'];
+        $this->format = $data['format'];
         $this->emoji_list = $data['emoji_list'];
         if (isset($data['mask_position'])){
             $this->mask_position = new MaskPosition($data['mask_position']);

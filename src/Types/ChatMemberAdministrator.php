@@ -38,7 +38,7 @@ class ChatMemberAdministrator
     public bool $is_anonymous;
 
     /**
-    * <p>*True*, if the administrator can access the chat event log, boost list in channels, see channel members, report spam messages, see anonymous administrators in supergroups and ignore slow mode. Implied by any other administrator privilege</p>
+    * <p>*True*, if the administrator can access the chat event log, get boost list, see hidden supergroup and channel members, report spam messages and ignore slow mode. Implied by any other administrator privilege.</p>
     * @var bool
     */
     public bool $can_manage_chat;
@@ -80,43 +80,43 @@ class ChatMemberAdministrator
     public bool $can_invite_users;
 
     /**
-    * <p>*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; channels only</p>
+    * <p>*True*, if the administrator can post stories to the chat</p>
+    * @var bool
+    */
+    public bool $can_post_stories;
+
+    /**
+    * <p>*True*, if the administrator can edit stories posted by other users, post stories to the chat page, pin chat stories, and access the chat's story archive</p>
+    * @var bool
+    */
+    public bool $can_edit_stories;
+
+    /**
+    * <p>*True*, if the administrator can delete stories posted by other users</p>
+    * @var bool
+    */
+    public bool $can_delete_stories;
+
+    /**
+    * <p>*Optional*. *True*, if the administrator can post messages in the channel, or access channel statistics; for channels only</p>
     * @var bool|null
     */
     public ?bool $can_post_messages = null;
 
     /**
-    * <p>*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; channels only</p>
+    * <p>*Optional*. *True*, if the administrator can edit messages of other users and can pin messages; for channels only</p>
     * @var bool|null
     */
     public ?bool $can_edit_messages = null;
 
     /**
-    * <p>*Optional*. *True*, if the user is allowed to pin messages; groups and supergroups only</p>
+    * <p>*Optional*. *True*, if the user is allowed to pin messages; for groups and supergroups only</p>
     * @var bool|null
     */
     public ?bool $can_pin_messages = null;
 
     /**
-    * <p>*Optional*. *True*, if the administrator can post stories in the channel; channels only</p>
-    * @var bool|null
-    */
-    public ?bool $can_post_stories = null;
-
-    /**
-    * <p>*Optional*. *True*, if the administrator can edit stories posted by other users; channels only</p>
-    * @var bool|null
-    */
-    public ?bool $can_edit_stories = null;
-
-    /**
-    * <p>*Optional*. *True*, if the administrator can delete stories posted by other users; channels only</p>
-    * @var bool|null
-    */
-    public ?bool $can_delete_stories = null;
-
-    /**
-    * <p>*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; supergroups only</p>
+    * <p>*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</p>
     * @var bool|null
     */
     public ?bool $can_manage_topics = null;
@@ -143,6 +143,9 @@ class ChatMemberAdministrator
         $this->can_promote_members = $data['can_promote_members'];
         $this->can_change_info = $data['can_change_info'];
         $this->can_invite_users = $data['can_invite_users'];
+        $this->can_post_stories = $data['can_post_stories'];
+        $this->can_edit_stories = $data['can_edit_stories'];
+        $this->can_delete_stories = $data['can_delete_stories'];
         if (isset($data['can_post_messages'])){
             $this->can_post_messages = $data['can_post_messages'];
         }
@@ -153,18 +156,6 @@ class ChatMemberAdministrator
 
         if (isset($data['can_pin_messages'])){
             $this->can_pin_messages = $data['can_pin_messages'];
-        }
-
-        if (isset($data['can_post_stories'])){
-            $this->can_post_stories = $data['can_post_stories'];
-        }
-
-        if (isset($data['can_edit_stories'])){
-            $this->can_edit_stories = $data['can_edit_stories'];
-        }
-
-        if (isset($data['can_delete_stories'])){
-            $this->can_delete_stories = $data['can_delete_stories'];
         }
 
         if (isset($data['can_manage_topics'])){

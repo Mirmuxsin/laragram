@@ -32,18 +32,6 @@ class StickerSet
     public string $sticker_type;
 
     /**
-    * <p>*True*, if the sticker set contains <a href="https://telegram.org/blog/animated-stickers">animated stickers</a></p>
-    * @var bool
-    */
-    public bool $is_animated;
-
-    /**
-    * <p>*True*, if the sticker set contains <a href="https://telegram.org/blog/video-stickers-better-reactions">video stickers</a></p>
-    * @var bool
-    */
-    public bool $is_video;
-
-    /**
     * <p>List of all set stickers</p>
     * @var array
     */
@@ -62,8 +50,6 @@ class StickerSet
         $this->name = $data['name'];
         $this->title = $data['title'];
         $this->sticker_type = $data['sticker_type'];
-        $this->is_animated = $data['is_animated'];
-        $this->is_video = $data['is_video'];
         $this->stickers = $data['stickers'];
         if (isset($data['thumbnail'])){
             $this->thumbnail = new PhotoSize($data['thumbnail']);

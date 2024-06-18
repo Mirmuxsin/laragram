@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class MessageEntity
 {
     /**
-    * <p>Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\<em>command” (`/start@jobs</em>bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\<em>number” (`+1-212-555-0123`), “bold” (<strong>bold text</strong>), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “code” (monowidth string), “pre” (monowidth block), “text\</em>link” (for clickable text URLs), “text\<em>mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom\</em>emoji” (for inline custom emoji stickers)</p>
+    * <p>Type of the entity. Currently, can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag” (`$USD`), “bot\<em>command” (`/start@jobs</em>bot`), “url” (`https://telegram.org`), “email” (`do-not-reply@telegram.org`), “phone\<em>number” (`+1-212-555-0123`), “bold” (<strong>bold text</strong>), “italic” (*italic text*), “underline” (underlined text), “strikethrough” (strikethrough text), “spoiler” (spoiler message), “blockquote” (block quotation), “expandable\</em>blockquote” (collapsed-by-default block quotation), “code” (monowidth string), “pre” (monowidth block), “text\<em>link” (for clickable text URLs), “text\</em>mention” (for users <a href="https://telegram.org/blog/edit#new-mentions">without usernames</a>), “custom\_emoji” (for inline custom emoji stickers)</p>
     * @var string
     */
     public string $type;

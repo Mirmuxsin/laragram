@@ -26,6 +26,12 @@ class Poll
     public string $question;
 
     /**
+    * <p>*Optional*. Special entities that appear in the *question*. Currently, only custom emoji entities are allowed in poll questions</p>
+    * @var array|null
+    */
+    public ?array $question_entities = null;
+
+    /**
     * <p>List of poll options</p>
     * @var array
     */
@@ -98,6 +104,10 @@ class Poll
         if ($data == null) $data = Handler::get()['poll'];
         $this->id = $data['id'];
         $this->question = $data['question'];
+        if (isset($data['question_entities'])){
+            $this->question_entities = $data['question_entities'];
+        }
+
         $this->options = $data['options'];
         $this->total_voter_count = $data['total_voter_count'];
         $this->is_closed = $data['is_closed'];

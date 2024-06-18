@@ -32,7 +32,7 @@ class ChatMemberRestricted
     public bool $is_member;
 
     /**
-    * <p>*True*, if the user is allowed to send text messages, contacts, invoices, locations and venues</p>
+    * <p>*True*, if the user is allowed to send text messages, contacts, giveaways, giveaway winners, invoices, locations and venues</p>
     * @var bool
     */
     public bool $can_send_messages;

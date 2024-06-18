@@ -32,7 +32,7 @@ class Invoice
     public string $start_parameter;
 
     /**
-    * <p>Three-letter ISO 4217 <a href="https://core.telegram.org/bots/payments#supported-currencies">currency</a> code</p>
+    * <p>Three-letter ISO 4217 <a href="https://core.telegram.org/bots/payments#supported-currencies">currency</a> code, or “XTR” for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a></p>
     * @var string
     */
     public string $currency;

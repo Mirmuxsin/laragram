@@ -62,6 +62,12 @@ class InlineQueryResultCachedVideo
     public ?array $caption_entities = null;
 
     /**
+    * <p>*Optional*. Pass *True*, if the caption must be shown above the message media</p>
+    * @var bool|null
+    */
+    public ?bool $show_caption_above_media = null;
+
+    /**
     * <p>*Optional*. <a href="https://core.telegram.org/bots/features#inline-keyboards">Inline keyboard</a> attached to the message</p>
     * @var InlineKeyboardMarkup|null
     */
@@ -95,6 +101,10 @@ class InlineQueryResultCachedVideo
 
         if (isset($data['caption_entities'])){
             $this->caption_entities = $data['caption_entities'];
+        }
+
+        if (isset($data['show_caption_above_media'])){
+            $this->show_caption_above_media = $data['show_caption_above_media'];
         }
 
         if (isset($data['reply_markup'])){

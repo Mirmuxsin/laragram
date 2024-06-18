@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ForceReply
  *
- *<p>*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply (has *reply\<em>to\</em>message\_id*), sender of the original message.</p>
+ *<p>*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#forcereply
@@ -26,7 +26,7 @@ class ForceReply
     public ?string $input_field_placeholder = null;
 
     /**
-    * <p>*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply (has *reply\<em>to\</em>message\_id*), sender of the original message.</p>
+    * <p>*Optional*. Use this parameter if you want to force reply from specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.</p>
     * @var bool|null
     */
     public ?bool $selective = null;

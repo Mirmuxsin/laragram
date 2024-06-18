@@ -14,7 +14,7 @@ namespace Milly\Laragram\Types;
 class ShippingAddress
 {
     /**
-    * <p>Two-letter ISO 3166-1 alpha-2 country code</p>
+    * <p>Two-letter <a href="https://en.wikipedia.org/wiki/ISO<em>3166-1</em>alpha-2">ISO 3166-1 alpha-2</a> country code</p>
     * @var string
     */
     public string $country_code;

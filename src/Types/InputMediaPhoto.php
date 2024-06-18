@@ -44,6 +44,12 @@ class InputMediaPhoto
     public ?array $caption_entities = null;
 
     /**
+    * <p>*Optional*. Pass *True*, if the caption must be shown above the message media</p>
+    * @var bool|null
+    */
+    public ?bool $show_caption_above_media = null;
+
+    /**
     * <p>*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation</p>
     * @var bool|null
     */
@@ -65,6 +71,10 @@ class InputMediaPhoto
 
         if (isset($data['caption_entities'])){
             $this->caption_entities = $data['caption_entities'];
+        }
+
+        if (isset($data['show_caption_above_media'])){
+            $this->show_caption_above_media = $data['show_caption_above_media'];
         }
 
         if (isset($data['has_spoiler'])){

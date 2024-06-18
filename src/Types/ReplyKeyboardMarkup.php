@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * ReplyKeyboardMarkup
  *
- *<p>*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply (has *reply\<em>to\</em>message\_id*), sender of the original message.  </p><p>*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.</p>
+ *<p>*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.  </p><p>*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#replykeyboardmarkup
@@ -44,7 +44,7 @@ class ReplyKeyboardMarkup
     public ?string $input_field_placeholder = null;
 
     /**
-    * <p>*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply (has *reply\<em>to\</em>message\_id*), sender of the original message.  </p><p>*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.</p>
+    * <p>*Optional*. Use this parameter if you want to show the keyboard to specific users only. Targets: 1) users that are @mentioned in the *text* of the <a href="https://core.telegram.org/bots/api/#message">Message</a> object; 2) if the bot's message is a reply to a message in the same chat and forum topic, sender of the original message.  </p><p>*Example:* A user requests to change the bot's language, bot replies to the request with a keyboard to select the new language. Other users in the group don't see the keyboard.</p>
     * @var bool|null
     */
     public ?bool $selective = null;

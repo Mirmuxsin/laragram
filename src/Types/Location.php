@@ -14,16 +14,16 @@ namespace Milly\Laragram\Types;
 class Location
 {
     /**
-    * <p>Longitude as defined by sender</p>
-    * @var float
-    */
-    public float $longitude;
-
-    /**
     * <p>Latitude as defined by sender</p>
     * @var float
     */
     public float $latitude;
+
+    /**
+    * <p>Longitude as defined by sender</p>
+    * @var float
+    */
+    public float $longitude;
 
     /**
     * <p>*Optional*. The radius of uncertainty for the location, measured in meters; 0-1500</p>
@@ -53,8 +53,8 @@ class Location
 
     public function __construct($data)
     {
-        $this->longitude = $data['longitude'];
         $this->latitude = $data['latitude'];
+        $this->longitude = $data['longitude'];
         if (isset($data['horizontal_accuracy'])){
             $this->horizontal_accuracy = $data['horizontal_accuracy'];
         }

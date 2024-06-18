@@ -6,7 +6,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputTextMessageContent
  *
- *<p>*Optional*. Disables link previews for links in the sent message</p>
+ *<p>*Optional*. Link preview generation options for the message</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputtextmessagecontent
@@ -32,10 +32,10 @@ class InputTextMessageContent
     public ?array $entities = null;
 
     /**
-    * <p>*Optional*. Disables link previews for links in the sent message</p>
-    * @var bool|null
+    * <p>*Optional*. Link preview generation options for the message</p>
+    * @var LinkPreviewOptions|null
     */
-    public ?bool $disable_web_page_preview = null;
+    public ?LinkPreviewOptions $link_preview_options = null;
 
 
 
@@ -50,8 +50,8 @@ class InputTextMessageContent
             $this->entities = $data['entities'];
         }
 
-        if (isset($data['disable_web_page_preview'])){
-            $this->disable_web_page_preview = $data['disable_web_page_preview'];
+        if (isset($data['link_preview_options'])){
+            $this->link_preview_options = new LinkPreviewOptions($data['link_preview_options']);
         }
 
     }
