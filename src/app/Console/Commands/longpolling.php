@@ -2,11 +2,14 @@
 
 namespace Milly\Laragram\app\Console\Commands;
 
+use GuzzleHttp\Client;
 use Illuminate\Console\Command;
+use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 
 class longpolling extends Command
 {
+
     /**
      * The name and signature of the console command.
      *
@@ -19,89 +22,43 @@ class longpolling extends Command
      *
      * @var string
      */
-    protected $description = 'Run telegram bot on longpolling mode';
+    protected $description = 'Run telegram bot on long-polling mode';
 
     /**
      * Execute the console command.
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        $this->info('Telegram bot starting on long-polling mode...');
-        $token = config('laragram.token');
+        $this->info('Waiting for updates...');
+        $offset = 0;
 
-        if (empty($token)) {
-            $this->error('Telegram bot token is required');
-            exit();
-        }
+        while (true) {
 
-        if (!$this->existTunnel()) return;
-        $url = $this->serve();
+            $updates = \Milly\Laragram\Laragram::getUpdates(
+                offset: $offset,
+            );
 
-        $this->info('Webhook address: ' . $url.config('laragram.url'));
-        file_get_contents("https://api.telegram.org/bot" . $token . "/setWebhook?url=" . $url.config('laragram.url'));
-        $setUrl = \Milly\Laragram\Laragram::setUrl($url);
-        $this->info('Webhook was set successfully');
-        $this->call('serve');
-    }
+            $request = new Client();
 
-    /**
-     * Check if exist localtunnel server
-     *
-     * @return boolean
-     */
-    public function existTunnel()
-    {
-        $expression = '/([0-9]\.?)+$/'; // Regular expression. https://regex101.com/r/r8a7eB/1
+            if (isset($updates['result']) and !empty($updates['result'])) {
+                $this->info('Received updates: ' . json_encode($updates));
+                foreach ($updates['result'] as $update) {
+                    $this->info('Processing update: ' . json_encode($update));
+                    $this->newLine();
 
-        $process = new Process(['lt', '--version']);
-        $process->start();
+                    $response = $request->post(config('app.url').config('laragram.url'), [
+                        'form_params' => $update
+                    ]);
 
-        while ($process->isRunning()) {
+                    $this->info('Response: '.$response->getBody()->getContents());
+
+                    $offset = $update['update_id'] + 1;
+                }
+            }
+
             sleep(1);
-            $output = $process->getOutput();
-
-            if (!empty($output)) break;
         }
-
-        if (!preg_match($expression, $output)) {
-            $this->warn("\nLocaltunnel is not found
-                \rPlease run this command in terminal:");
-            $this->info("npm install --global localtunnel");
-
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * Start localtunnel server
-     *
-     * @var array $url
-     * @return string
-     */
-    public function serve()
-    {
-        $expression = "/(https?:\/{2}[\w+-]+\.\w+\.\w+)$/"; // Regular expression. https://regex101.com/r/2c6sZC/1
-
-        $process = new Process(['lt', '--port', '8000']);
-        $process->start();
-
-        while ($process->isRunning()) {
-            sleep(1);
-            $output = $process->getOutput();
-
-            if (!empty($output)) break;
-        }
-
-        if (!preg_match($expression, $output, $url)) {
-            $this->error("\nLocaltunnel didn't return url");
-
-            exit();
-        }
-
-        return $url[0]; // return webhook payload url
     }
 }

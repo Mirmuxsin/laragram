@@ -72,6 +72,11 @@ And here we go, you can start your bot now
 ---
 ## Usage:
 
+- Local development:
+    ```bash
+    php artisan laragram:start
+    ```
+
 - Methods:
     ```php
     use Milly\Laragram\Laragram;
