@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Update
  *
@@ -110,6 +109,12 @@ class Update
     public ?PreCheckoutQuery $pre_checkout_query = null;
 
     /**
+    * <p>*Optional*. A user purchased paid media with a non-empty payload sent by the bot in a non-channel chat</p>
+    * @var PaidMediaPurchased|null
+    */
+    public ?PaidMediaPurchased $purchased_paid_media = null;
+
+    /**
     * <p>*Optional*. New poll state. Bots receive only updates about manually stopped polls and polls, which are sent by the bot</p>
     * @var Poll|null
     */
@@ -215,6 +220,10 @@ class Update
 
         if (isset($data['pre_checkout_query'])){
             $this->pre_checkout_query = new PreCheckoutQuery($data['pre_checkout_query']);
+        }
+
+        if (isset($data['purchased_paid_media'])){
+            $this->purchased_paid_media = new PaidMediaPurchased($data['purchased_paid_media']);
         }
 
         if (isset($data['poll'])){

@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * InlineQueryResultArticle
  *
@@ -50,12 +49,6 @@ class InlineQueryResultArticle
     public ?string $url = null;
 
     /**
-    * <p>*Optional*. Pass *True* if you don't want the URL to be shown in the message</p>
-    * @var bool|null
-    */
-    public ?bool $hide_url = null;
-
-    /**
     * <p>*Optional*. Short description of the result</p>
     * @var string|null
     */
@@ -94,10 +87,6 @@ class InlineQueryResultArticle
 
         if (isset($data['url'])){
             $this->url = $data['url'];
-        }
-
-        if (isset($data['hide_url'])){
-            $this->hide_url = $data['hide_url'];
         }
 
         if (isset($data['description'])){

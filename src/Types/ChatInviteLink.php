@@ -2,11 +2,10 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * ChatInviteLink
  *
- *<p>*Optional*. Number of pending join requests created using this link</p>
+ *<p>*Optional*. The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of the chat using the link</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatinvitelink
@@ -67,6 +66,18 @@ class ChatInviteLink
     */
     public ?int $pending_join_request_count = null;
 
+    /**
+    * <p>*Optional*. The number of seconds the subscription will be active for before the next payment</p>
+    * @var int|null
+    */
+    public ?int $subscription_period = null;
+
+    /**
+    * <p>*Optional*. The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of the chat using the link</p>
+    * @var int|null
+    */
+    public ?int $subscription_price = null;
+
 
 
     public function __construct($data)
@@ -91,6 +102,14 @@ class ChatInviteLink
 
         if (isset($data['pending_join_request_count'])){
             $this->pending_join_request_count = $data['pending_join_request_count'];
+        }
+
+        if (isset($data['subscription_period'])){
+            $this->subscription_period = $data['subscription_period'];
+        }
+
+        if (isset($data['subscription_price'])){
+            $this->subscription_price = $data['subscription_price'];
         }
 
     }

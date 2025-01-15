@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * InlineKeyboardButton
  *
@@ -26,7 +25,7 @@ class InlineKeyboardButton
     public ?string $url = null;
 
     /**
-    * <p>*Optional*. Data to be sent in a <a href="https://core.telegram.org/bots/api/#callbackquery">callback query</a> to the bot when button is pressed, 1-64 bytes. Not supported for messages sent on behalf of a Telegram Business account.</p>
+    * <p>*Optional*. Data to be sent in a <a href="https://core.telegram.org/bots/api/#callbackquery">callback query</a> to the bot when the button is pressed, 1-64 bytes</p>
     * @var string|null
     */
     public ?string $callback_data = null;
@@ -60,6 +59,12 @@ class InlineKeyboardButton
     * @var SwitchInlineQueryChosenChat|null
     */
     public ?SwitchInlineQueryChosenChat $switch_inline_query_chosen_chat = null;
+
+    /**
+    * <p>*Optional*. Description of the button that copies the specified text to the clipboard.</p>
+    * @var CopyTextButton|null
+    */
+    public ?CopyTextButton $copy_text = null;
 
     /**
     * <p>*Optional*. Description of the game that will be launched when the user presses the button.  </p><p><strong>NOTE:</strong> This type of button <strong>must</strong> always be the first button in the first row.</p>
@@ -104,6 +109,10 @@ class InlineKeyboardButton
 
         if (isset($data['switch_inline_query_chosen_chat'])){
             $this->switch_inline_query_chosen_chat = new SwitchInlineQueryChosenChat($data['switch_inline_query_chosen_chat']);
+        }
+
+        if (isset($data['copy_text'])){
+            $this->copy_text = new CopyTextButton($data['copy_text']);
         }
 
         if (isset($data['callback_game'])){

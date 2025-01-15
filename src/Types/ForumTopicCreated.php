@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * ForumTopicCreated
  *

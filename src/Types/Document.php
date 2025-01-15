@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Document
  *
@@ -26,19 +25,19 @@ class Document
     public string $file_unique_id;
 
     /**
-    * <p>*Optional*. Document thumbnail as defined by sender</p>
+    * <p>*Optional*. Document thumbnail as defined by the sender</p>
     * @var PhotoSize|null
     */
     public ?PhotoSize $thumbnail = null;
 
     /**
-    * <p>*Optional*. Original filename as defined by sender</p>
+    * <p>*Optional*. Original filename as defined by the sender</p>
     * @var string|null
     */
     public ?string $file_name = null;
 
     /**
-    * <p>*Optional*. MIME type of the file as defined by sender</p>
+    * <p>*Optional*. MIME type of the file as defined by the sender</p>
     * @var string|null
     */
     public ?string $mime_type = null;

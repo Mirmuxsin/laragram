@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * SuccessfulPayment
  *
@@ -26,10 +25,28 @@ class SuccessfulPayment
     public int $total_amount;
 
     /**
-    * <p>Bot specified invoice payload</p>
+    * <p>Bot-specified invoice payload</p>
     * @var string
     */
     public string $invoice_payload;
+
+    /**
+    * <p>*Optional*. Expiration date of the subscription, in Unix time; for recurring payments only</p>
+    * @var int|null
+    */
+    public ?int $subscription_expiration_date = null;
+
+    /**
+    * <p>*Optional*. True, if the payment is a recurring payment for a subscription</p>
+    * @var bool|null
+    */
+    public ?bool $is_recurring = null;
+
+    /**
+    * <p>*Optional*. True, if the payment is the first payment for a subscription</p>
+    * @var bool|null
+    */
+    public ?bool $is_first_recurring = null;
 
     /**
     * <p>*Optional*. Identifier of the shipping option chosen by the user</p>
@@ -62,6 +79,18 @@ class SuccessfulPayment
         $this->currency = $data['currency'];
         $this->total_amount = $data['total_amount'];
         $this->invoice_payload = $data['invoice_payload'];
+        if (isset($data['subscription_expiration_date'])){
+            $this->subscription_expiration_date = $data['subscription_expiration_date'];
+        }
+
+        if (isset($data['is_recurring'])){
+            $this->is_recurring = $data['is_recurring'];
+        }
+
+        if (isset($data['is_first_recurring'])){
+            $this->is_first_recurring = $data['is_first_recurring'];
+        }
+
         if (isset($data['shipping_option_id'])){
             $this->shipping_option_id = $data['shipping_option_id'];
         }

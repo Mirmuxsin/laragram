@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * GiveawayWinners
  *
@@ -50,7 +49,13 @@ class GiveawayWinners
     public ?int $additional_chat_count = null;
 
     /**
-    * <p>*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for</p>
+    * <p>*Optional*. The number of Telegram Stars that were split between giveaway winners; for Telegram Star giveaways only</p>
+    * @var int|null
+    */
+    public ?int $prize_star_count = null;
+
+    /**
+    * <p>*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only</p>
     * @var int|null
     */
     public ?int $premium_subscription_month_count = null;
@@ -91,6 +96,10 @@ class GiveawayWinners
         $this->winners = $data['winners'];
         if (isset($data['additional_chat_count'])){
             $this->additional_chat_count = $data['additional_chat_count'];
+        }
+
+        if (isset($data['prize_star_count'])){
+            $this->prize_star_count = $data['prize_star_count'];
         }
 
         if (isset($data['premium_subscription_month_count'])){

@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Audio
  *
@@ -26,31 +25,31 @@ class Audio
     public string $file_unique_id;
 
     /**
-    * <p>Duration of the audio in seconds as defined by sender</p>
+    * <p>Duration of the audio in seconds as defined by the sender</p>
     * @var int
     */
     public int $duration;
 
     /**
-    * <p>*Optional*. Performer of the audio as defined by sender or by audio tags</p>
+    * <p>*Optional*. Performer of the audio as defined by the sender or by audio tags</p>
     * @var string|null
     */
     public ?string $performer = null;
 
     /**
-    * <p>*Optional*. Title of the audio as defined by sender or by audio tags</p>
+    * <p>*Optional*. Title of the audio as defined by the sender or by audio tags</p>
     * @var string|null
     */
     public ?string $title = null;
 
     /**
-    * <p>*Optional*. Original filename as defined by sender</p>
+    * <p>*Optional*. Original filename as defined by the sender</p>
     * @var string|null
     */
     public ?string $file_name = null;
 
     /**
-    * <p>*Optional*. MIME type of the file as defined by sender</p>
+    * <p>*Optional*. MIME type of the file as defined by the sender</p>
     * @var string|null
     */
     public ?string $mime_type = null;

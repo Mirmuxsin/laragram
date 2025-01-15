@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * PreCheckoutQuery
  *
@@ -38,7 +37,7 @@ class PreCheckoutQuery
     public int $total_amount;
 
     /**
-    * <p>Bot specified invoice payload</p>
+    * <p>Bot-specified invoice payload</p>
     * @var string
     */
     public string $invoice_payload;

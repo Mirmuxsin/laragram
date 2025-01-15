@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * ChatFullInfo
  *
@@ -200,6 +199,12 @@ class ChatFullInfo
     public ?ChatPermissions $permissions = null;
 
     /**
+    * <p>*Optional*. *True*, if paid media messages can be sent or forwarded to the channel chat. The field is available only for channel chats.</p>
+    * @var bool|null
+    */
+    public ?bool $can_send_paid_media = null;
+
+    /**
     * <p>*Optional*. For supergroups, the minimum allowed delay between consecutive messages sent by each unprivileged user; in seconds</p>
     * @var int|null
     */
@@ -385,6 +390,10 @@ class ChatFullInfo
 
         if (isset($data['permissions'])){
             $this->permissions = new ChatPermissions($data['permissions']);
+        }
+
+        if (isset($data['can_send_paid_media'])){
+            $this->can_send_paid_media = $data['can_send_paid_media'];
         }
 
         if (isset($data['slow_mode_delay'])){

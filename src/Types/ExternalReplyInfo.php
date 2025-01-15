@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * ExternalReplyInfo
  *
@@ -54,6 +53,12 @@ class ExternalReplyInfo
     * @var Document|null
     */
     public ?Document $document = null;
+
+    /**
+    * <p>*Optional*. Message contains paid media; information about the paid media</p>
+    * @var PaidMediaInfo|null
+    */
+    public ?PaidMediaInfo $paid_media = null;
 
     /**
     * <p>*Optional*. Message is a photo, available sizes of the photo</p>
@@ -179,6 +184,10 @@ class ExternalReplyInfo
 
         if (isset($data['document'])){
             $this->document = new Document($data['document']);
+        }
+
+        if (isset($data['paid_media'])){
+            $this->paid_media = new PaidMediaInfo($data['paid_media']);
         }
 
         if (isset($data['photo'])){

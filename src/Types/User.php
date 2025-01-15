@@ -2,11 +2,10 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * User
  *
- *<p>*Optional*. *True*, if the bot can be connected to a Telegram Business account to receive its messages. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
+ *<p>*Optional*. *True*, if the bot has a main Web App. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#user
@@ -85,6 +84,12 @@ class User
     */
     public ?bool $can_connect_to_business = null;
 
+    /**
+    * <p>*Optional*. *True*, if the bot has a main Web App. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
+    * @var bool|null
+    */
+    public ?bool $has_main_web_app = null;
+
 
 
     public function __construct($data)
@@ -126,6 +131,10 @@ class User
 
         if (isset($data['can_connect_to_business'])){
             $this->can_connect_to_business = $data['can_connect_to_business'];
+        }
+
+        if (isset($data['has_main_web_app'])){
+            $this->has_main_web_app = $data['has_main_web_app'];
         }
 
     }

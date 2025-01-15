@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Location
  *
@@ -14,13 +13,13 @@ namespace Milly\Laragram\Types;
 class Location
 {
     /**
-    * <p>Latitude as defined by sender</p>
+    * <p>Latitude as defined by the sender</p>
     * @var float
     */
     public float $latitude;
 
     /**
-    * <p>Longitude as defined by sender</p>
+    * <p>Longitude as defined by the sender</p>
     * @var float
     */
     public float $longitude;

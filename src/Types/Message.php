@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Message
  *
@@ -14,7 +13,7 @@ namespace Milly\Laragram\Types;
 class Message
 {
     /**
-    * <p>Unique message identifier inside this chat</p>
+    * <p>Unique message identifier inside this chat. In specific instances (e.g., message containing a video sent to a big chat), the server might automatically schedule a message instead of sending it immediately. In such cases, this field will be 0 and the relevant message will be unusable until it is actually sent</p>
     * @var int
     */
     public int $message_id;
@@ -26,13 +25,13 @@ class Message
     public ?int $message_thread_id = null;
 
     /**
-    * <p>*Optional*. Sender of the message; empty for messages sent to channels. For backward compatibility, the field contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.</p>
+    * <p>*Optional*. Sender of the message; may be empty for messages sent to channels. For backward compatibility, if the message was sent on behalf of a chat, the field contains a fake sender user in non-channel chats</p>
     * @var User|null
     */
     public ?User $from = null;
 
     /**
-    * <p>*Optional*. Sender of the message, sent on behalf of a chat. For example, the channel itself for channel posts, the supergroup itself for messages from anonymous group administrators, the linked channel for messages automatically forwarded to the discussion group. For backward compatibility, the field *from* contains a fake sender user in non-channel chats, if the message was sent on behalf of a chat.</p>
+    * <p>*Optional*. Sender of the message when sent on behalf of a chat. For example, the supergroup itself for messages sent by its anonymous administrators or a linked channel for messages automatically forwarded to the channel's discussion group. For backward compatibility, if the message was sent on behalf of a chat, the field *from* contains a fake sender user in non-channel chats.</p>
     * @var Chat|null
     */
     public ?Chat $sender_chat = null;
@@ -188,6 +187,12 @@ class Message
     public ?Document $document = null;
 
     /**
+    * <p>*Optional*. Message contains paid media; information about the paid media</p>
+    * @var PaidMediaInfo|null
+    */
+    public ?PaidMediaInfo $paid_media = null;
+
+    /**
     * <p>*Optional*. Message is a photo, available sizes of the photo</p>
     * @var array|null
     */
@@ -224,7 +229,7 @@ class Message
     public ?Voice $voice = null;
 
     /**
-    * <p>*Optional*. Caption for the animation, audio, document, photo, video or voice</p>
+    * <p>*Optional*. Caption for the animation, audio, document, paid media, photo, video or voice</p>
     * @var string|null
     */
     public ?string $caption = null;
@@ -366,6 +371,12 @@ class Message
     * @var SuccessfulPayment|null
     */
     public ?SuccessfulPayment $successful_payment = null;
+
+    /**
+    * <p>*Optional*. Message is a service message about a refunded payment, information about the payment. <a href="https://core.telegram.org/bots/api/#payments">More about payments »</a></p>
+    * @var RefundedPayment|null
+    */
+    public ?RefundedPayment $refunded_payment = null;
 
     /**
     * <p>*Optional*. Service message: users were shared with the bot</p>
@@ -624,6 +635,10 @@ class Message
             $this->document = new Document($data['document']);
         }
 
+        if (isset($data['paid_media'])){
+            $this->paid_media = new PaidMediaInfo($data['paid_media']);
+        }
+
         if (isset($data['photo'])){
             $this->photo = $data['photo'];
         }
@@ -742,6 +757,10 @@ class Message
 
         if (isset($data['successful_payment'])){
             $this->successful_payment = new SuccessfulPayment($data['successful_payment']);
+        }
+
+        if (isset($data['refunded_payment'])){
+            $this->refunded_payment = new RefundedPayment($data['refunded_payment']);
         }
 
         if (isset($data['users_shared'])){

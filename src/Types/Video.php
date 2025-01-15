@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Video
  *
@@ -26,19 +25,19 @@ class Video
     public string $file_unique_id;
 
     /**
-    * <p>Video width as defined by sender</p>
+    * <p>Video width as defined by the sender</p>
     * @var int
     */
     public int $width;
 
     /**
-    * <p>Video height as defined by sender</p>
+    * <p>Video height as defined by the sender</p>
     * @var int
     */
     public int $height;
 
     /**
-    * <p>Duration of the video in seconds as defined by sender</p>
+    * <p>Duration of the video in seconds as defined by the sender</p>
     * @var int
     */
     public int $duration;
@@ -50,13 +49,13 @@ class Video
     public ?PhotoSize $thumbnail = null;
 
     /**
-    * <p>*Optional*. Original filename as defined by sender</p>
+    * <p>*Optional*. Original filename as defined by the sender</p>
     * @var string|null
     */
     public ?string $file_name = null;
 
     /**
-    * <p>*Optional*. MIME type of the file as defined by sender</p>
+    * <p>*Optional*. MIME type of the file as defined by the sender</p>
     * @var string|null
     */
     public ?string $mime_type = null;

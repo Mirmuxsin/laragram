@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * ChatBoostSourceGiveaway
  *
@@ -26,10 +25,16 @@ class ChatBoostSourceGiveaway
     public int $giveaway_message_id;
 
     /**
-    * <p>*Optional*. User that won the prize in the giveaway if any</p>
+    * <p>*Optional*. User that won the prize in the giveaway if any; for Telegram Premium giveaways only</p>
     * @var User|null
     */
     public ?User $user = null;
+
+    /**
+    * <p>*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only</p>
+    * @var int|null
+    */
+    public ?int $prize_star_count = null;
 
     /**
     * <p>*Optional*. True, if the giveaway was completed, but there was no user to win the prize</p>
@@ -45,6 +50,10 @@ class ChatBoostSourceGiveaway
         $this->giveaway_message_id = $data['giveaway_message_id'];
         if (isset($data['user'])){
             $this->user = new User($data['user']);
+        }
+
+        if (isset($data['prize_star_count'])){
+            $this->prize_star_count = $data['prize_star_count'];
         }
 
         if (isset($data['is_unclaimed'])){

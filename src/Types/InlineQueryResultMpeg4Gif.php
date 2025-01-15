@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * InlineQueryResultMpeg4Gif
  *
@@ -26,7 +25,7 @@ class InlineQueryResultMpeg4Gif
     public string $id;
 
     /**
-    * <p>A valid URL for the MPEG4 file. File size must not exceed 1MB</p>
+    * <p>A valid URL for the MPEG4 file</p>
     * @var string
     */
     public string $mpeg4_url;

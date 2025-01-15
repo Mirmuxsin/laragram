@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * ShippingQuery
  *
@@ -26,7 +25,7 @@ class ShippingQuery
     public User $from;
 
     /**
-    * <p>Bot specified invoice payload</p>
+    * <p>Bot-specified invoice payload</p>
     * @var string
     */
     public string $invoice_payload;

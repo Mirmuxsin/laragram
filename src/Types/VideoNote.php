@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * VideoNote
  *
@@ -26,13 +25,13 @@ class VideoNote
     public string $file_unique_id;
 
     /**
-    * <p>Video width and height (diameter of the video message) as defined by sender</p>
+    * <p>Video width and height (diameter of the video message) as defined by the sender</p>
     * @var int
     */
     public int $length;
 
     /**
-    * <p>Duration of the video in seconds as defined by sender</p>
+    * <p>Duration of the video in seconds as defined by the sender</p>
     * @var int
     */
     public int $duration;

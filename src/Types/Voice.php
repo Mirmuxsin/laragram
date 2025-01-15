@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Voice
  *
@@ -26,13 +25,13 @@ class Voice
     public string $file_unique_id;
 
     /**
-    * <p>Duration of the audio in seconds as defined by sender</p>
+    * <p>Duration of the audio in seconds as defined by the sender</p>
     * @var int
     */
     public int $duration;
 
     /**
-    * <p>*Optional*. MIME type of the file as defined by sender</p>
+    * <p>*Optional*. MIME type of the file as defined by the sender</p>
     * @var string|null
     */
     public ?string $mime_type = null;

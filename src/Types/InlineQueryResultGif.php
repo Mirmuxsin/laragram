@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * InlineQueryResultGif
  *
@@ -26,7 +25,7 @@ class InlineQueryResultGif
     public string $id;
 
     /**
-    * <p>A valid URL for the GIF file. File size must not exceed 1MB</p>
+    * <p>A valid URL for the GIF file</p>
     * @var string
     */
     public string $gif_url;

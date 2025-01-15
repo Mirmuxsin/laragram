@@ -2,11 +2,10 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * Giveaway
  *
- *<p>*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for</p>
+ *<p>*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#giveaway
@@ -56,7 +55,13 @@ class Giveaway
     public ?array $country_codes = null;
 
     /**
-    * <p>*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for</p>
+    * <p>*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only</p>
+    * @var int|null
+    */
+    public ?int $prize_star_count = null;
+
+    /**
+    * <p>*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only</p>
     * @var int|null
     */
     public ?int $premium_subscription_month_count = null;
@@ -82,6 +87,10 @@ class Giveaway
 
         if (isset($data['country_codes'])){
             $this->country_codes = $data['country_codes'];
+        }
+
+        if (isset($data['prize_star_count'])){
+            $this->prize_star_count = $data['prize_star_count'];
         }
 
         if (isset($data['premium_subscription_month_count'])){

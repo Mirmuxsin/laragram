@@ -2,11 +2,10 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * GiveawayCompleted
  *
- *<p>*Optional*. Message with the giveaway that was completed, if it wasn't deleted</p>
+ *<p>*Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#giveawaycompleted
@@ -31,6 +30,12 @@ class GiveawayCompleted
     */
     public ?Message $giveaway_message = null;
 
+    /**
+    * <p>*Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway.</p>
+    * @var bool|null
+    */
+    public ?bool $is_star_giveaway = null;
+
 
 
     public function __construct($data)
@@ -42,6 +47,10 @@ class GiveawayCompleted
 
         if (isset($data['giveaway_message'])){
             $this->giveaway_message = new Message($data['giveaway_message']);
+        }
+
+        if (isset($data['is_star_giveaway'])){
+            $this->is_star_giveaway = $data['is_star_giveaway'];
         }
 
     }

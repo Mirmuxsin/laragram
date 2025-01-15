@@ -2,7 +2,6 @@
 
 namespace Milly\Laragram\Types;
 
-
 /**
 * InputInvoiceMessageContent
  *
@@ -26,7 +25,7 @@ class InputInvoiceMessageContent
     public string $description;
 
     /**
-    * <p>Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use for your internal processes.</p>
+    * <p>Bot-defined invoice payload, 1-128 bytes. This will not be displayed to the user, use it for your internal processes.</p>
     * @var string
     */
     public string $payload;
