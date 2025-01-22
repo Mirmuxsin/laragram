@@ -27,9 +27,9 @@ class CallbackQuery
 
     /**
     * <p>*Optional*. Message sent by the bot with the callback button that originated the query</p>
-    * @var MaybeInaccessibleMessage|null
+    * @var Message|null
     */
-    public ?MaybeInaccessibleMessage $message = null;
+    public ?Message $message = null;
 
     /**
     * <p>*Optional*. Identifier of the message sent via the bot in inline mode, that originated the query.</p>
@@ -64,7 +64,7 @@ class CallbackQuery
         $this->from = new User($data['from']);
 
         if (isset($data['message'])){
-            $this->message = new MaybeInaccessibleMessage($data['message']);
+            $this->message = new Message($data['message']);
         }
 
         if (isset($data['inline_message_id'])){

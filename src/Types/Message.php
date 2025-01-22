@@ -351,9 +351,9 @@ class Message
 
     /**
     * <p>*Optional*. Specified message was pinned. Note that the Message object in this field will not contain further *reply\<em>to\</em>message* fields even if it itself is a reply.</p>
-    * @var MaybeInaccessibleMessage|null
+    * @var Message|null
     */
-    public ?MaybeInaccessibleMessage $pinned_message = null;
+    public ?Message $pinned_message = null;
 
     /**
     * <p>*Optional*. Message is an invoice for a <a href="https://core.telegram.org/bots/api/#payments">payment</a>, information about the invoice. <a href="https://core.telegram.org/bots/api/#payments">More about payments »</a></p>
@@ -733,7 +733,7 @@ class Message
         }
 
         if (isset($data['pinned_message'])){
-            $this->pinned_message = new MaybeInaccessibleMessage($data['pinned_message']);
+            $this->pinned_message = new Message($data['pinned_message']);
         }
 
         if (isset($data['invoice'])){
