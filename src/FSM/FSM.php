@@ -75,7 +75,7 @@ class FSM
                             continue;
                         }
                         if ($property->getType()->getName() == $parameter->getType()->getName())
-                            $params[$parameter->getName()] = $update->{strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $parameter->getName()))};
+                            $params[$parameter->getType()->getName()] = $update->{strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $parameter->getName()))};
                     }
                 }
             } elseif ($single_prop_name = strtolower(preg_replace('/(?<!^)[A-Z]/', '_$0', $parameters[0]->getName())) and $update->{$single_prop_name}) {
