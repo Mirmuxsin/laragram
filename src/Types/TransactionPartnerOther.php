@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * TransactionPartnerOther
  *
- *<p>Type of the transaction partner, always “other”</p>
+ *<p>Describes a transaction with an unknown source or recipient.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#transactionpartnerother

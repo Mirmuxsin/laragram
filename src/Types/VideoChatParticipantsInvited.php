@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * VideoChatParticipantsInvited
  *
- *<p>New members that were invited to the video chat</p>
+ *<p>This object represents a service message about new members invited to a video chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#videochatparticipantsinvited

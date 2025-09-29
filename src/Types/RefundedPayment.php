@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * RefundedPayment
  *
- *<p>*Optional*. Provider payment identifier</p>
+ *<p>This object contains basic information about a refunded payment.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#refundedpayment

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InaccessibleMessage
  *
- *<p>Always 0. The field can be used to differentiate regular and inaccessible messages.</p>
+ *<p>This object describes a message that was deleted or is otherwise inaccessible to the bot.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inaccessiblemessage

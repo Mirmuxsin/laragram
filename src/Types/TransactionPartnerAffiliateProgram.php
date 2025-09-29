@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * TransactionPartnerAffiliateProgram
  *
- *<p>The number of Telegram Stars received by the bot for each 1000 Telegram Stars received by the affiliate program sponsor from referred users</p>
+ *<p>Describes the affiliate program that issued the affiliate commission received via this transaction.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#transactionpartneraffiliateprogram

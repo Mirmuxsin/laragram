@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * WebhookInfo
  *
- *<p>*Optional*. A list of update types the bot is subscribed to. Defaults to all update types except *chat\_member*</p>
+ *<p>Describes the current status of a webhook.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#webhookinfo

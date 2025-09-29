@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PollOption
  *
- *<p>Number of users that voted for this option</p>
+ *<p>This object contains information about one answer option in a poll.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#polloption

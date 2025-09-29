@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommand
  *
- *<p>Description of the command; 1-256 characters.</p>
+ *<p>This object represents a bot command.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommand

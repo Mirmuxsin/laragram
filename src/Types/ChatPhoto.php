@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatPhoto
  *
- *<p>Unique file identifier of big (640x640) chat photo, which is supposed to be the same over time and for different bots. Can't be used to download or reuse the file.</p>
+ *<p>This object represents a chat photo.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatphoto

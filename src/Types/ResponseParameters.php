@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ResponseParameters
  *
- *<p>*Optional*. In case of exceeding flood control, the number of seconds left to wait before the request can be repeated</p>
+ *<p>Describes why a request was unsuccessful.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#responseparameters

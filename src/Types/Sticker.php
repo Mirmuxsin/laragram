@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Sticker
  *
- *<p>*Optional*. File size in bytes</p>
+ *<p>This object represents a sticker.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#sticker

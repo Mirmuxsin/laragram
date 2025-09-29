@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundTypeChatTheme
  *
- *<p>Name of the chat theme, which is usually an emoji</p>
+ *<p>The background is taken directly from a built-in chat theme.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundtypechattheme

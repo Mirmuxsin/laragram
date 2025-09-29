@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberRestricted
  *
- *<p>Date when restrictions will be lifted for this user; Unix time. If 0, then the user is restricted forever</p>
+ *<p>Represents a <a href="https://core.telegram.org/bots/api/#chatmember">chat member</a> that is under certain restrictions in the chat. Supergroups only.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberrestricted

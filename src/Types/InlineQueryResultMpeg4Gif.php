@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultMpeg4Gif
  *
- *<p>*Optional*. Content of the message to be sent instead of the video animation</p>
+ *<p>Represents a link to a video animation (H.264/MPEG-4 AVC video without sound). By default, this animated MPEG-4 file will be sent by the user with optional caption. Alternatively, you can use *input\<em>message\</em>content* to send a message with the specified content instead of the animation.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultmpeg4gif

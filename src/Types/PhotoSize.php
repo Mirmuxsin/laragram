@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PhotoSize
  *
- *<p>*Optional*. File size in bytes</p>
+ *<p>This object represents one size of a photo or a <a href="https://core.telegram.org/bots/api/#document">file</a> / <a href="https://core.telegram.org/bots/api/#sticker">sticker</a> thumbnail.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#photosize

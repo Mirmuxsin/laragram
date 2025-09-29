@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorUnspecified
  *
- *<p>Error message</p>
+ *<p>Represents an issue in an unspecified place. The error is considered resolved when new data is added.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorunspecified

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * RevenueWithdrawalStatePending
  *
- *<p>Type of the state, always “pending”</p>
+ *<p>The withdrawal is in progress.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#revenuewithdrawalstatepending

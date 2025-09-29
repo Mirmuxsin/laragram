@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Gift
  *
- *<p>*Optional*. The number of remaining gifts of this type that can be sent; for limited gifts only</p>
+ *<p>This object represents a gift that can be sent by the bot.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#gift

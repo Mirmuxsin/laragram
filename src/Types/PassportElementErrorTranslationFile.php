@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorTranslationFile
  *
- *<p>Error message</p>
+ *<p>Represents an issue with one of the files that constitute the translation of a document. The error is considered resolved when the file changes.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrortranslationfile

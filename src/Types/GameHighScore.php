@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * GameHighScore
  *
- *<p>Score</p>
+ *<p>This object represents one row of the high scores table for a game.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#gamehighscore

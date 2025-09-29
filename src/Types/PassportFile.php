@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportFile
  *
- *<p>Unix time when the file was uploaded</p>
+ *<p>This object represents a file uploaded to Telegram Passport. Currently all Telegram Passport files are in JPEG format when decrypted and don't exceed 10MB.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportfile

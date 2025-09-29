@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatBoostSourceGiveaway
  *
- *<p>*Optional*. True, if the giveaway was completed, but there was no user to win the prize</p>
+ *<p>The boost was obtained by the creation of a Telegram Premium or a Telegram Star giveaway. This boosts the chat 4 times for the duration of the corresponding Telegram Premium subscription for Telegram Premium giveaways and *prize\<em>star\</em>count* / 500 times for one year for Telegram Star giveaways.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatboostsourcegiveaway

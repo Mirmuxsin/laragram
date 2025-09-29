@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * TextQuote
  *
- *<p>*Optional*. True, if the quote was chosen manually by the message sender. Otherwise, the quote was added automatically by the server.</p>
+ *<p>This object contains information about the quoted part of a message that is replied to by the given message.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#textquote

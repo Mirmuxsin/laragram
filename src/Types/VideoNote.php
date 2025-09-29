@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * VideoNote
  *
- *<p>*Optional*. File size in bytes</p>
+ *<p>This object represents a <a href="https://telegram.org/blog/video-messages-and-telescope">video message</a> (available in Telegram apps as of <a href="https://telegram.org/blog/video-messages-and-telescope">v.4.0</a>).</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#videonote

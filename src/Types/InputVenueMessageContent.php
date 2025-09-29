@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputVenueMessageContent
  *
- *<p>*Optional*. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
+ *<p>Represents the <a href="https://core.telegram.org/bots/api/#inputmessagecontent">content</a> of a venue message to be sent as the result of an inline query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputvenuemessagecontent

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQuery
  *
- *<p>*Optional*. Sender location, only for bots that request user location</p>
+ *<p>This object represents an incoming inline query. When the user sends an empty query, your bot could return some default or trending results.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequery

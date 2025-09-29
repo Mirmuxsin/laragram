@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * SuccessfulPayment
  *
- *<p>Provider payment identifier</p>
+ *<p>This object contains basic information about a successful payment. Note that if the buyer initiates a chargeback with the relevant payment provider following this transaction, the funds may be debited from your balance. This is outside of Telegram's control.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#successfulpayment

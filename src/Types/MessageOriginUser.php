@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageOriginUser
  *
- *<p>User that sent the message originally</p>
+ *<p>The message was originally sent by a known user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageoriginuser

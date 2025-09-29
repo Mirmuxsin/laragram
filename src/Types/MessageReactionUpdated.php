@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageReactionUpdated
  *
- *<p>New list of reaction types that have been set by the user</p>
+ *<p>This object represents a change of a reaction on a message performed by a user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messagereactionupdated

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Contact
  *
- *<p>*Optional*. Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a></p>
+ *<p>This object represents a phone contact.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#contact

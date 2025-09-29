@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatAdministratorRights
  *
- *<p>*Optional*. *True*, if the user is allowed to create, rename, close, and reopen forum topics; for supergroups only</p>
+ *<p>Represents the rights of an administrator in a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatadministratorrights

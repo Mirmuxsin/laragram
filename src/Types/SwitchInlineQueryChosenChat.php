@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * SwitchInlineQueryChosenChat
  *
- *<p>*Optional*. True, if channel chats can be chosen</p>
+ *<p>This object represents an inline button that switches the current user to inline mode in a chosen chat, with an optional default inline query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#switchinlinequerychosenchat

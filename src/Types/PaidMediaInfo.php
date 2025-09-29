@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PaidMediaInfo
  *
- *<p>Information about the paid media</p>
+ *<p>Describes the paid media added to a message.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#paidmediainfo

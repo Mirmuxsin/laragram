@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputMediaAudio
  *
- *<p>*Optional*. Title of the audio</p>
+ *<p>Represents an audio file to be treated as music to be sent.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputmediaaudio
@@ -26,9 +26,9 @@ class InputMediaAudio
 
     /**
     * <p>*Optional*. Thumbnail of the file sent; can be ignored if thumbnail generation for the file is supported server-side. The thumbnail should be in JPEG format and less than 200 kB in size. A thumbnail's width and height should not exceed 320. Ignored if the file is not uploaded using multipart/form-data. Thumbnails can't be reused and can be only uploaded as a new file, so you can pass “attach://\<file\<em>attach\</em>name\>” if the thumbnail was uploaded using multipart/form-data under \<file\<em>attach\</em>name\>. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
-    * @var any_of|null
+    * @var string|null
     */
-    public ?any_of $thumbnail = null;
+    public ?string $thumbnail = null;
 
     /**
     * <p>*Optional*. Caption of the audio to be sent, 0-1024 characters after entities parsing</p>

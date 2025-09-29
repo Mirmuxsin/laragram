@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundFillSolid
  *
- *<p>The color of the background fill in the RGB24 format</p>
+ *<p>The background is filled using the selected color.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundfillsolid

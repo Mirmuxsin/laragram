@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundTypeFill
  *
- *<p>Dimming of the background in dark themes, as a percentage; 0-100</p>
+ *<p>The background is automatically filled based on the selected colors.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundtypefill

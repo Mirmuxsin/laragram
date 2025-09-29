@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BusinessOpeningHours
  *
- *<p>List of time intervals describing business opening hours</p>
+ *<p>Describes the opening hours of a business.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#businessopeninghours

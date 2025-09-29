@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultCachedDocument
  *
- *<p>*Optional*. Content of the message to be sent instead of the file</p>
+ *<p>Represents a link to a file stored on the Telegram servers. By default, this file will be sent by the user with an optional caption. Alternatively, you can use *input\<em>message\</em>content* to send a message with the specified content instead of the file.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultcacheddocument

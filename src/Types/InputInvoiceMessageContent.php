@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputInvoiceMessageContent
  *
- *<p>*Optional*. Pass *True* if the final price depends on the shipping method. Ignored for payments in <a href="https://t.me/BotNews/90">Telegram Stars</a>.</p>
+ *<p>Represents the <a href="https://core.telegram.org/bots/api/#inputmessagecontent">content</a> of an invoice message to be sent as the result of an inline query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputinvoicemessagecontent

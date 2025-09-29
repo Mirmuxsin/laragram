@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * UserProfilePhotos
  *
- *<p>Requested profile pictures (in up to 4 sizes each)</p>
+ *<p>This object represent a user's profile pictures.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#userprofilephotos

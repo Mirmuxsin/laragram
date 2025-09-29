@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ShippingOption
  *
- *<p>List of price portions</p>
+ *<p>This object represents one shipping option.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#shippingoption

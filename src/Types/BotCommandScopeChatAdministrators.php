@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeChatAdministrators
  *
- *<p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
+ *<p>Represents the <a href="https://core.telegram.org/bots/api/#botcommandscope">scope</a> of bot commands, covering all administrators of a specific group or supergroup chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopechatadministrators

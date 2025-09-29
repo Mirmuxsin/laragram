@@ -25,7 +25,9 @@
         ],
         "post-autoload-dump": [
             "# <href=https://www.patreon.com/millykhamroev>Buy me a coffee</>"
-        ]
+        ],
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html coverage"
     },
     "extra": {
         "laravel": {
@@ -33,5 +35,8 @@
                 "Milly\\Laragram\\LaragramServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
     }
 }

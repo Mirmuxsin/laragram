@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorFiles
  *
- *<p>Error message</p>
+ *<p>Represents an issue with a list of scans. The error is considered resolved when the list of files containing the scans changes.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorfiles

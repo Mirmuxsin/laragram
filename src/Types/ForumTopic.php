@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ForumTopic
  *
- *<p>*Optional*. Unique identifier of the custom emoji shown as the topic icon</p>
+ *<p>This object represents a forum topic.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#forumtopic

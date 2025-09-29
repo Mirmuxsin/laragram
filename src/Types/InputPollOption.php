@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputPollOption
  *
- *<p>*Optional*. A JSON-serialized list of special entities that appear in the poll option text. It can be specified instead of *text\<em>parse\</em>mode*</p>
+ *<p>This object contains information about one answer option in a poll to be sent.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputpolloption

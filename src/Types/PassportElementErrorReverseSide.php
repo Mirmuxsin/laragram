@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorReverseSide
  *
- *<p>Error message</p>
+ *<p>Represents an issue with the reverse side of a document. The error is considered resolved when the file with reverse side of the document changes.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorreverseside

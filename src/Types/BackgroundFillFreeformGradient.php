@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundFillFreeformGradient
  *
- *<p>A list of the 3 or 4 base colors that are used to generate the freeform gradient in the RGB24 format</p>
+ *<p>The background is a freeform gradient that rotates after every message in the chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundfillfreeformgradient

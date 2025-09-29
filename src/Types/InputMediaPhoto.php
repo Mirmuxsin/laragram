@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputMediaPhoto
  *
- *<p>*Optional*. Pass *True* if the photo needs to be covered with a spoiler animation</p>
+ *<p>Represents a photo to be sent.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputmediaphoto

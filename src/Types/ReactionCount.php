@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ReactionCount
  *
- *<p>Number of times the reaction was added</p>
+ *<p>Represents a reaction added to a message along with the number of times it was added.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#reactioncount

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * StarTransactions
  *
- *<p>The list of transactions</p>
+ *<p>Contains a list of Telegram Star transactions.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#startransactions

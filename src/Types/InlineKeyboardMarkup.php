@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineKeyboardMarkup
  *
- *<p>Array of button rows, each represented by an Array of <a href="https://core.telegram.org/bots/api/#inlinekeyboardbutton">InlineKeyboardButton</a> objects</p>
+ *<p>This object represents an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a> that appears right next to the message it belongs to.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinekeyboardmarkup

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Location
  *
- *<p>*Optional*. The maximum distance for proximity alerts about approaching another chat member, in meters. For sent live locations only.</p>
+ *<p>This object represents a point on the map.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#location

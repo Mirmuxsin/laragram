@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * OrderInfo
  *
- *<p>*Optional*. User shipping address</p>
+ *<p>This object represents information about an order.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#orderinfo

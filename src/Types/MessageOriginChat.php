@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageOriginChat
  *
- *<p>*Optional*. For messages originally sent by an anonymous chat administrator, original message author signature</p>
+ *<p>The message was originally sent on behalf of a chat to a group chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageoriginchat

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PaidMediaPreview
  *
- *<p>*Optional*. Duration of the media in seconds as defined by the sender</p>
+ *<p>The paid media isn't available before the payment.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#paidmediapreview

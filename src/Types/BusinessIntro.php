@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BusinessIntro
  *
- *<p>*Optional*. Sticker of the business intro</p>
+ *<p>Contains information about the start page settings of a Telegram Business account.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#businessintro

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Birthdate
  *
- *<p>*Optional*. Year of the user's birth</p>
+ *<p>Describes the birthdate of a user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#birthdate

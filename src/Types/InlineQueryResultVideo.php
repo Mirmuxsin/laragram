@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultVideo
  *
- *<p>*Optional*. Content of the message to be sent instead of the video. This field is <strong>required</strong> if InlineQueryResultVideo is used to send an HTML-page as a result (e.g., a YouTube video).</p>
+ *<p>Represents a link to a page containing an embedded video player or a video file. By default, this video file will be sent by the user with an optional caption. Alternatively, you can use *input\<em>message\</em>content* to send a message with the specified content instead of the video.</p><p>If an InlineQueryResultVideo message contains an embedded video (e.g., YouTube), you <strong>must</strong> replace its content using *input\<em>message\</em>content*.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultvideo

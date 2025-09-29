@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorDataField
  *
- *<p>Error message</p>
+ *<p>Represents an issue in one of the data fields that was provided by the user. The error is considered resolved when the field's value changes.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrordatafield

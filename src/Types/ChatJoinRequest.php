@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatJoinRequest
  *
- *<p>*Optional*. Chat invite link that was used by the user to send the join request</p>
+ *<p>Represents a join request sent to a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatjoinrequest

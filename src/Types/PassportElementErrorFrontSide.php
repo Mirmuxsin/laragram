@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorFrontSide
  *
- *<p>Error message</p>
+ *<p>Represents an issue with the front side of a document. The error is considered resolved when the file with the front side of the document changes.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorfrontside

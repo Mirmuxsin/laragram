@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportData
  *
- *<p>Encrypted credentials required to decrypt the data</p>
+ *<p>Describes Telegram Passport data shared with the bot by the user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportdata

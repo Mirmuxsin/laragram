@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Venue
  *
- *<p>*Optional*. Google Places type of the venue. (See <a href="https://developers.google.com/places/web-service/supported_types">supported types</a>.)</p>
+ *<p>This object represents a venue.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#venue

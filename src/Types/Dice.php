@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Dice
  *
- *<p>Value of the dice, 1-6 for “🎲”, “🎯” and “🎳” base emoji, 1-5 for “🏀” and “⚽” base emoji, 1-64 for “🎰” base emoji</p>
+ *<p>This object represents an animated emoji that displays a random value.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#dice

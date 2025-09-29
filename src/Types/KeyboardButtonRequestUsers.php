@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * KeyboardButtonRequestUsers
  *
- *<p>*Optional*. Pass *True* to request the users' photos</p>
+ *<p>This object defines the criteria used to request suitable users. Information about the selected users will be shared with the bot when the corresponding button is pressed. <a href="https://core.telegram.org/bots/features#chat-and-user-selection">More about requesting users »</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#keyboardbuttonrequestusers

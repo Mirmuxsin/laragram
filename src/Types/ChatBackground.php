@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatBackground
  *
- *<p>Type of the background</p>
+ *<p>This object represents a chat background.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatbackground

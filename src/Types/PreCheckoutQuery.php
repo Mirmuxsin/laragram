@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PreCheckoutQuery
  *
- *<p>*Optional*. Order information provided by the user</p>
+ *<p>This object contains information about an incoming pre-checkout query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#precheckoutquery

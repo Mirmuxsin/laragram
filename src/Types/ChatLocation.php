@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatLocation
  *
- *<p>Location address; 1-64 characters, as defined by the chat owner</p>
+ *<p>Represents a location to which a chat is connected.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatlocation

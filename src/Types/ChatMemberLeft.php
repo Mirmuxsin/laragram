@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberLeft
  *
- *<p>Information about the user</p>
+ *<p>Represents a <a href="https://core.telegram.org/bots/api/#chatmember">chat member</a> that isn't currently a member of the chat, but may join it themselves.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberleft

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultArticle
  *
- *<p>*Optional*. Thumbnail height</p>
+ *<p>Represents a link to an article or web page.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultarticle

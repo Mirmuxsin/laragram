@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Story
  *
- *<p>Unique identifier for the story in the chat</p>
+ *<p>This object represents a story.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#story

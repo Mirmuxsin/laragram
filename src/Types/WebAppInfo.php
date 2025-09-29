@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * WebAppInfo
  *
- *<p>An HTTPS URL of a Web App to be opened with additional data as specified in <a href="https://core.telegram.org/bots/webapps#initializing-mini-apps">Initializing Web Apps</a></p>
+ *<p>Describes a <a href="https://core.telegram.org/bots/webapps">Web App</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#webappinfo

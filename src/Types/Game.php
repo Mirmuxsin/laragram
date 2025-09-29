@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Game
  *
- *<p>*Optional*. Animation that will be displayed in the game message in chats. Upload via <a href="https://t.me/botfather">BotFather</a></p>
+ *<p>This object represents a game. Use BotFather to create and edit games, their short names will act as unique identifiers.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#game

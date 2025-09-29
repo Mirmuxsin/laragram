@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundTypePattern
  *
- *<p>*Optional*. *True*, if the background moves slightly when the device is tilted</p>
+ *<p>The background is a .PNG or .TGV (gzipped subset of SVG with MIME type “application/x-tgwallpattern”) pattern to be combined with the background fill chosen by the user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundtypepattern

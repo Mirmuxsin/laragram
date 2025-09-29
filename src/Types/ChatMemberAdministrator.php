@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberAdministrator
  *
- *<p>*Optional*. Custom title for this user</p>
+ *<p>Represents a <a href="https://core.telegram.org/bots/api/#chatmember">chat member</a> that has some additional privileges.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberadministrator

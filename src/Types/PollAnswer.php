@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PollAnswer
  *
- *<p>0-based identifiers of chosen answer options. May be empty if the vote was retracted.</p>
+ *<p>This object represents an answer of a user in a non-anonymous poll.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#pollanswer

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Giveaway
  *
- *<p>*Optional*. The number of months the Telegram Premium subscription won from the giveaway will be active for; for Telegram Premium giveaways only</p>
+ *<p>This object represents a message about a scheduled giveaway.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#giveaway

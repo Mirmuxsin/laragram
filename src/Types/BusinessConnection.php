@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BusinessConnection
  *
- *<p>True, if the connection is active</p>
+ *<p>Describes the connection of the bot with a business account.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#businessconnection

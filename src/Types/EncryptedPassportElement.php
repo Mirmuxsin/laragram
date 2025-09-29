@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * EncryptedPassportElement
  *
- *<p>Base64-encoded element hash for using in <a href="https://core.telegram.org/bots/api/#passportelementerrorunspecified">PassportElementErrorUnspecified</a></p>
+ *<p>Describes documents or other Telegram Passport elements shared with the bot by the user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#encryptedpassportelement

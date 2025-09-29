@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Gifts
  *
- *<p>The list of gifts</p>
+ *<p>This object represent a list of gifts.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#gifts

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * UserChatBoosts
  *
- *<p>The list of boosts added to the chat by the user</p>
+ *<p>This object represents a list of boosts added to a chat by a user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#userchatboosts

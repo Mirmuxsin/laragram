@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Document
  *
- *<p>*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.</p>
+ *<p>This object represents a general file (as opposed to <a href="https://core.telegram.org/bots/api/#photosize">photos</a>, <a href="https://core.telegram.org/bots/api/#voice">voice messages</a> and <a href="https://core.telegram.org/bots/api/#audio">audio files</a>).</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#document

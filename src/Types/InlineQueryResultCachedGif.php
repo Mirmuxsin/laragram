@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultCachedGif
  *
- *<p>*Optional*. Content of the message to be sent instead of the GIF animation</p>
+ *<p>Represents a link to an animated GIF file stored on the Telegram servers. By default, this animated GIF file will be sent by the user with an optional caption. Alternatively, you can use *input\<em>message\</em>content* to send a message with specified content instead of the animation.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultcachedgif

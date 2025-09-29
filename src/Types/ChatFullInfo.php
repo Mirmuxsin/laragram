@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatFullInfo
  *
- *<p>*Optional*. For supergroups, the location to which the supergroup is connected</p>
+ *<p>This object contains full information about a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatfullinfo
@@ -199,6 +199,12 @@ class ChatFullInfo
     public ?ChatPermissions $permissions = null;
 
     /**
+    * <p>*Optional*. *True*, if gifts can be sent to the chat</p>
+    * @var bool|null
+    */
+    public ?bool $can_send_gift = null;
+
+    /**
     * <p>*Optional*. *True*, if paid media messages can be sent or forwarded to the channel chat. The field is available only for channel chats.</p>
     * @var bool|null
     */
@@ -390,6 +396,10 @@ class ChatFullInfo
 
         if (isset($data['permissions'])){
             $this->permissions = new ChatPermissions($data['permissions']);
+        }
+
+        if (isset($data['can_send_gift'])){
+            $this->can_send_gift = $data['can_send_gift'];
         }
 
         if (isset($data['can_send_paid_media'])){

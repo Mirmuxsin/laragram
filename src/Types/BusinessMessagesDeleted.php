@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BusinessMessagesDeleted
  *
- *<p>The list of identifiers of deleted messages in the chat of the business account</p>
+ *<p>This object is received when messages are deleted from a connected business account.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#businessmessagesdeleted

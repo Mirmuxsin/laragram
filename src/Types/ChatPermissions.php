@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatPermissions
  *
- *<p>*Optional*. *True*, if the user is allowed to create forum topics. If omitted defaults to the value of can\<em>pin\</em>messages</p>
+ *<p>Describes actions that a non-administrator user is allowed to take in a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatpermissions

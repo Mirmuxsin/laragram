@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Video
  *
- *<p>*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.</p>
+ *<p>This object represents a video file.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#video
@@ -49,6 +49,18 @@ class Video
     public ?PhotoSize $thumbnail = null;
 
     /**
+    * <p>*Optional*. Available sizes of the cover of the video in the message</p>
+    * @var array|null
+    */
+    public ?array $cover = null;
+
+    /**
+    * <p>*Optional*. Timestamp in seconds from which the video will play in the message</p>
+    * @var int|null
+    */
+    public ?int $start_timestamp = null;
+
+    /**
     * <p>*Optional*. Original filename as defined by the sender</p>
     * @var string|null
     */
@@ -77,6 +89,14 @@ class Video
         $this->duration = $data['duration'];
         if (isset($data['thumbnail'])){
             $this->thumbnail = new PhotoSize($data['thumbnail']);
+        }
+
+        if (isset($data['cover'])){
+            $this->cover = $data['cover'];
+        }
+
+        if (isset($data['start_timestamp'])){
+            $this->start_timestamp = $data['start_timestamp'];
         }
 
         if (isset($data['file_name'])){

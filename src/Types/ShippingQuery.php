@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ShippingQuery
  *
- *<p>User specified shipping address</p>
+ *<p>This object contains information about an incoming shipping query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#shippingquery

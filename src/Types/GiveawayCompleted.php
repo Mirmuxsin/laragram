@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * GiveawayCompleted
  *
- *<p>*Optional*. *True*, if the giveaway is a Telegram Star giveaway. Otherwise, currently, the giveaway is a Telegram Premium giveaway.</p>
+ *<p>This object represents a service message about the completion of a giveaway without public winners.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#giveawaycompleted

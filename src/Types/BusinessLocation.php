@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BusinessLocation
  *
- *<p>*Optional*. Location of the business</p>
+ *<p>Contains information about the location of a Telegram Business account.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#businesslocation

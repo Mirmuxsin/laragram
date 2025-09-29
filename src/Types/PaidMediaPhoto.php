@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PaidMediaPhoto
  *
- *<p>The photo</p>
+ *<p>The paid media is a photo.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#paidmediaphoto

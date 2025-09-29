@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PaidMediaVideo
  *
- *<p>The video</p>
+ *<p>The paid media is a video.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#paidmediavideo

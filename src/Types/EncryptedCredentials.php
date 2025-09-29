@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * EncryptedCredentials
  *
- *<p>Base64-encoded secret, encrypted with the bot's public RSA key, required for data decryption</p>
+ *<p>Describes data required for decrypting and authenticating <a href="https://core.telegram.org/bots/api/#encryptedpassportelement">EncryptedPassportElement</a>. See the <a href="https://core.telegram.org/passport#receiving-information">Telegram Passport Documentation</a> for a complete description of the data decryption and authentication processes.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#encryptedcredentials

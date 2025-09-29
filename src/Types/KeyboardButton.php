@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * KeyboardButton
  *
- *<p>*Optional*. If specified, the described <a href="https://core.telegram.org/bots/webapps">Web App</a> will be launched when the button is pressed. The Web App will be able to send a “web\<em>app\</em>data” service message. Available in private chats only.</p>
+ *<p>This object represents one button of the reply keyboard. At most one of the optional fields must be used to specify type of the button. For simple text buttons, *String* can be used instead of this object to specify the button text.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#keyboardbutton

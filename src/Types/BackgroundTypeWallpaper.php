@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundTypeWallpaper
  *
- *<p>*Optional*. *True*, if the background moves slightly when the device is tilted</p>
+ *<p>The background is a wallpaper in the JPEG format.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundtypewallpaper

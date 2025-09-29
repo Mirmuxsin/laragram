@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageOriginHiddenUser
  *
- *<p>Name of the user that sent the message originally</p>
+ *<p>The message was originally sent by an unknown user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageoriginhiddenuser

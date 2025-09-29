@@ -5,7 +5,8 @@ namespace Milly\Laragram\Types;
 /**
 * Update
  *
- *<p>*Optional*. A boost was removed from a chat. The bot must be an administrator in the chat to receive these updates.</p>
+ *<p>This <a href="https://core.telegram.org/bots/api/#available-types">object</a> represents an incoming update.  
+At most <strong>one</strong> of the optional parameters can be present in any given update.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#update

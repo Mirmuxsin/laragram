@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatShared
  *
- *<p>*Optional*. Available sizes of the chat photo, if the photo was requested by the bot</p>
+ *<p>This object contains information about a chat that was shared with the bot using a <a href="https://core.telegram.org/bots/api/#keyboardbuttonrequestchat">KeyboardButtonRequestChat</a> button.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatshared

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * AffiliateInfo
  *
- *<p>*Optional*. The number of 1/1000000000 shares of Telegram Stars received by the affiliate; from -999999999 to 999999999; can be negative for refunds</p>
+ *<p>Contains information about the affiliate that received a commission via this transaction.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#affiliateinfo

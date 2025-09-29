@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ShippingAddress
  *
- *<p>Address post code</p>
+ *<p>This object represents a shipping address.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#shippingaddress

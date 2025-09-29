@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * WebAppData
  *
- *<p>Text of the *web\_app* keyboard button from which the Web App was opened. Be aware that a bad client can send arbitrary data in this field.</p>
+ *<p>Describes data sent from a <a href="https://core.telegram.org/bots/webapps">Web App</a> to the bot.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#webappdata

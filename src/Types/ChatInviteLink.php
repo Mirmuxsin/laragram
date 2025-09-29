@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatInviteLink
  *
- *<p>*Optional*. The amount of Telegram Stars a user must pay initially and after each subsequent subscription period to be a member of the chat using the link</p>
+ *<p>Represents an invite link for a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatinvitelink

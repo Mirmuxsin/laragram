@@ -5,6 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputMedia
  *
+ * Union type that can be one of: InputMediaAnimation, InputMediaDocument, InputMediaAudio, InputMediaPhoto, InputMediaVideo
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputmedia
@@ -13,24 +14,96 @@ class InputMedia
 {
 
 
-    public InputMediaAnimation $inputMediaAnimation;
-
-    public InputMediaDocument $inputMediaDocument;
-
-    public InputMediaAudio $inputMediaAudio;
-
-    public InputMediaPhoto $inputMediaPhoto;
-
-    public InputMediaVideo $inputMediaVideo;
+    public ?InputMediaAnimation $inputMediaAnimation = null;
+    public ?InputMediaDocument $inputMediaDocument = null;
+    public ?InputMediaAudio $inputMediaAudio = null;
+    public ?InputMediaPhoto $inputMediaPhoto = null;
+    public ?InputMediaVideo $inputMediaVideo = null;
+    public string $type;
 
 
 
     public function __construct($data)
     {
-        $this->inputMediaAnimation = new InputMediaAnimation($data);
-        $this->inputMediaDocument = new InputMediaDocument($data);
-        $this->inputMediaAudio = new InputMediaAudio($data);
-        $this->inputMediaPhoto = new InputMediaPhoto($data);
-        $this->inputMediaVideo = new InputMediaVideo($data);
+        // Try to instantiate each possible type and see which one works
+        $errors = [];
+        $successfulType = null;
+        $successfulObject = null;
+        
+                // Try to create InputMediaAnimation
+        try {
+            $inputMediaAnimation = new InputMediaAnimation($data);
+            $successfulType = 'InputMediaAnimation';
+            $successfulObject = $inputMediaAnimation;
+            break;
+        } catch (Exception $e) {
+            $errors['InputMediaAnimation'] = $e->getMessage();
+        }
+
+        // Try to create InputMediaDocument
+        try {
+            $inputMediaDocument = new InputMediaDocument($data);
+            $successfulType = 'InputMediaDocument';
+            $successfulObject = $inputMediaDocument;
+            break;
+        } catch (Exception $e) {
+            $errors['InputMediaDocument'] = $e->getMessage();
+        }
+
+        // Try to create InputMediaAudio
+        try {
+            $inputMediaAudio = new InputMediaAudio($data);
+            $successfulType = 'InputMediaAudio';
+            $successfulObject = $inputMediaAudio;
+            break;
+        } catch (Exception $e) {
+            $errors['InputMediaAudio'] = $e->getMessage();
+        }
+
+        // Try to create InputMediaPhoto
+        try {
+            $inputMediaPhoto = new InputMediaPhoto($data);
+            $successfulType = 'InputMediaPhoto';
+            $successfulObject = $inputMediaPhoto;
+            break;
+        } catch (Exception $e) {
+            $errors['InputMediaPhoto'] = $e->getMessage();
+        }
+
+        // Try to create InputMediaVideo
+        try {
+            $inputMediaVideo = new InputMediaVideo($data);
+            $successfulType = 'InputMediaVideo';
+            $successfulObject = $inputMediaVideo;
+            break;
+        } catch (Exception $e) {
+            $errors['InputMediaVideo'] = $e->getMessage();
+        }
+
+        
+        if ($successfulObject === null) {
+            throw new Exception('Could not create any of the union types for InputMedia. Errors: ' . json_encode($errors));
+        }
+        
+        // Set the successful object
+        switch ($successfulType) {
+            case 'InputMediaAnimation':
+                $this->inputMediaAnimation = $successfulObject;
+                break;
+            case 'InputMediaDocument':
+                $this->inputMediaDocument = $successfulObject;
+                break;
+            case 'InputMediaAudio':
+                $this->inputMediaAudio = $successfulObject;
+                break;
+            case 'InputMediaPhoto':
+                $this->inputMediaPhoto = $successfulObject;
+                break;
+            case 'InputMediaVideo':
+                $this->inputMediaVideo = $successfulObject;
+                break;
+        }
+        
+        $this->type = $successfulType;
     }
 }

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberMember
  *
- *<p>*Optional*. Date when the user's subscription will expire; Unix time</p>
+ *<p>Represents a <a href="https://core.telegram.org/bots/api/#chatmember">chat member</a> that has no additional privileges or restrictions.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmembermember

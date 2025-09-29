@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputContactMessageContent
  *
- *<p>*Optional*. Additional data about the contact in the form of a <a href="https://en.wikipedia.org/wiki/VCard">vCard</a>, 0-2048 bytes</p>
+ *<p>Represents the <a href="https://core.telegram.org/bots/api/#inputmessagecontent">content</a> of a contact message to be sent as the result of an inline query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputcontactmessagecontent

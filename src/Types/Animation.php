@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Animation
  *
- *<p>*Optional*. File size in bytes. It can be bigger than 2^31 and some programming languages may have difficulty/silent defects in interpreting it. But it has at most 52 significant bits, so a signed 64-bit integer or double-precision float type are safe for storing this value.</p>
+ *<p>This object represents an animation file (GIF or H.264/MPEG-4 AVC video without sound).</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#animation

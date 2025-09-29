@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputTextMessageContent
  *
- *<p>*Optional*. Link preview generation options for the message</p>
+ *<p>Represents the <a href="https://core.telegram.org/bots/api/#inputmessagecontent">content</a> of a text message to be sent as the result of an inline query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputtextmessagecontent

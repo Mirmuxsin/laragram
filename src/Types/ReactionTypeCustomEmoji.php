@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ReactionTypeCustomEmoji
  *
- *<p>Custom emoji identifier</p>
+ *<p>The reaction is based on a custom emoji.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#reactiontypecustomemoji

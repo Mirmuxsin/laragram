@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ForumTopicCreated
  *
- *<p>*Optional*. Unique identifier of the custom emoji shown as the topic icon</p>
+ *<p>This object represents a service message about a new forum topic created in the chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#forumtopiccreated

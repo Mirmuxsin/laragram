@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineKeyboardButton
  *
- *<p>*Optional*. Specify *True*, to send a <a href="https://core.telegram.org/bots/api/#payments">Pay button</a>. Substrings “⭐” and “XTR” in the buttons's text will be replaced with a Telegram Star icon.  </p><p><strong>NOTE:</strong> This type of button <strong>must</strong> always be the first button in the first row and can only be used in invoice messages.</p>
+ *<p>This object represents one button of an inline keyboard. Exactly one of the optional fields must be used to specify type of the button.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinekeyboardbutton

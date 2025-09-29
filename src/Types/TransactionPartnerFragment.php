@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * TransactionPartnerFragment
  *
- *<p>*Optional*. State of the transaction if the transaction is outgoing</p>
+ *<p>Describes a withdrawal transaction with Fragment.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#transactionpartnerfragment

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PaidMediaPurchased
  *
- *<p>Bot-specified paid media payload</p>
+ *<p>This object contains information about a paid media purchase.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#paidmediapurchased

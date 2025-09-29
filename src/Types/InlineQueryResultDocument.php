@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultDocument
  *
- *<p>*Optional*. Thumbnail height</p>
+ *<p>Represents a link to a file. By default, this file will be sent by the user with an optional caption. Alternatively, you can use *input\<em>message\</em>content* to send a message with the specified content instead of the file. Currently, only <strong>.PDF</strong> and <strong>.ZIP</strong> files can be sent using this method.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultdocument

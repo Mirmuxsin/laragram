@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * CallbackQuery
  *
- *<p>*Optional*. Short name of a <a href="https://core.telegram.org/bots/api/#games">Game</a> to be returned, serves as the unique identifier for the game</p>
+ *<p>This object represents an incoming callback query from a callback button in an <a href="https://core.telegram.org/bots/features#inline-keyboards">inline keyboard</a>. If the button that originated the query was attached to a message sent by the bot, the field *message* will be present. If the button was attached to a message sent via the bot (in <a href="https://core.telegram.org/bots/api/#inline-mode">inline mode</a>), the field *inline\<em>message\</em>id* will be present. Exactly one of the fields *data* or *game\<em>short\</em>name* will be present.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#callbackquery

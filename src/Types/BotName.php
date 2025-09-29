@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotName
  *
- *<p>The bot's name</p>
+ *<p>This object represents the bot's name.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botname

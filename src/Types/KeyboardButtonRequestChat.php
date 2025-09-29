@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * KeyboardButtonRequestChat
  *
- *<p>*Optional*. Pass *True* to request the chat's photo</p>
+ *<p>This object defines the criteria used to request a suitable chat. Information about the selected chat will be shared with the bot when the corresponding button is pressed. The bot will be granted requested rights in the chat if appropriate. <a href="https://core.telegram.org/bots/features#chat-and-user-selection">More about requesting chats »</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#keyboardbuttonrequestchat

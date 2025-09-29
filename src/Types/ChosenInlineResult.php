@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChosenInlineResult
  *
- *<p>The query that was used to obtain the result</p>
+ *<p>Represents a <a href="https://core.telegram.org/bots/api/#inlinequeryresult">result</a> of an inline query that was chosen by the user and sent to their chat partner.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#choseninlineresult

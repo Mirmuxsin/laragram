@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * User
  *
- *<p>*Optional*. *True*, if the bot has a main Web App. Returned only in <a href="https://core.telegram.org/bots/api/#getme">getMe</a>.</p>
+ *<p>This object represents a Telegram user or bot.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#user

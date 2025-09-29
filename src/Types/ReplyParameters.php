@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ReplyParameters
  *
- *<p>*Optional*. Position of the quote in the original message in UTF-16 code units</p>
+ *<p>Describes reply parameters for the message that is being sent.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#replyparameters

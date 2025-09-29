@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * StickerSet
  *
- *<p>*Optional*. Sticker set thumbnail in the .WEBP, .TGS, or .WEBM format</p>
+ *<p>This object represents a sticker set.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#stickerset

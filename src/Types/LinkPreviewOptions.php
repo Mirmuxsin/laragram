@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * LinkPreviewOptions
  *
- *<p>*Optional*. *True*, if the link preview must be shown above the message text; otherwise, the link preview will be shown below the message text</p>
+ *<p>Describes the options used for link preview generation.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#linkpreviewoptions

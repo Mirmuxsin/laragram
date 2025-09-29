@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * TransactionPartnerUser
  *
- *<p>*Optional*. The gift sent to the user by the bot</p>
+ *<p>Describes a transaction with a user.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#transactionpartneruser

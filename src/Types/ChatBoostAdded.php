@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatBoostAdded
  *
- *<p>Number of boosts added by the user</p>
+ *<p>This object represents a service message about a user boosting a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatboostadded

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Poll
  *
- *<p>*Optional*. Point in time (Unix timestamp) when the poll will be automatically closed</p>
+ *<p>This object contains information about a poll.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#poll

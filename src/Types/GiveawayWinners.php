@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * GiveawayWinners
  *
- *<p>*Optional*. Description of additional giveaway prize</p>
+ *<p>This object represents a message about the completion of a giveaway with public winners.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#giveawaywinners

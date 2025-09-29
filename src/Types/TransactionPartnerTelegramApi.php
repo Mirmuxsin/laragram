@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * TransactionPartnerTelegramApi
  *
- *<p>The number of successful requests that exceeded regular limits and were therefore billed</p>
+ *<p>Describes a transaction with payment for <a href="https://core.telegram.org/bots/api/#paid-broadcasts">paid broadcasting</a>.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#transactionpartnertelegramapi

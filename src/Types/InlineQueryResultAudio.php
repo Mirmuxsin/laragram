@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultAudio
  *
- *<p>*Optional*. Content of the message to be sent instead of the audio</p>
+ *<p>Represents a link to an MP3 audio file. By default, this audio file will be sent by the user. Alternatively, you can use *input\<em>message\</em>content* to send a message with the specified content instead of the audio.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultaudio

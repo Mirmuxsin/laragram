@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Message
  *
- *<p>*Optional*. Inline keyboard attached to the message. `login_url` buttons are represented as ordinary `url` buttons.</p>
+ *<p>This object represents a message.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#message

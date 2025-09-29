@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputSticker
  *
- *<p>*Optional*. List of 0-20 search keywords for the sticker with total length of up to 64 characters. For “regular” and “custom\_emoji” stickers only.</p>
+ *<p>This object describes a sticker to be added to a sticker set.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputsticker

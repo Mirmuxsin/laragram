@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageEntity
  *
- *<p>*Optional*. For “custom\_emoji” only, unique identifier of the custom emoji. Use <a href="https://core.telegram.org/bots/api/#getcustomemojistickers">getCustomEmojiStickers</a> to get full information about the sticker</p>
+ *<p>This object represents one special entity in a text message. For example, hashtags, usernames, URLs, etc.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageentity

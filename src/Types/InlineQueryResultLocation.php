@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResultLocation
  *
- *<p>*Optional*. Thumbnail height</p>
+ *<p>Represents a location on a map. By default, the location will be sent by the user. Alternatively, you can use *input\<em>message\</em>content* to send a message with the specified content instead of the location.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresultlocation

@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * RevenueWithdrawalStateSucceeded
  *
- *<p>An HTTPS URL that can be used to see transaction details</p>
+ *<p>The withdrawal succeeded.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#revenuewithdrawalstatesucceeded

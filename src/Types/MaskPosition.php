@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MaskPosition
  *
- *<p>Mask scaling coefficient. For example, 2.0 means double size.</p>
+ *<p>This object describes the position on faces where a mask should be placed by default.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#maskposition

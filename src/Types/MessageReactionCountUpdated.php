@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageReactionCountUpdated
  *
- *<p>List of reactions that are present on the message</p>
+ *<p>This object represents reaction changes on a message with anonymous reactions.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messagereactioncountupdated

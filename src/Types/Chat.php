@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * Chat
  *
- *<p>*Optional*. *True*, if the supergroup chat is a forum (has <a href="https://telegram.org/blog/topics-in-groups-collectible-usernames#topics-in-groups">topics</a> enabled)</p>
+ *<p>This object represents a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chat

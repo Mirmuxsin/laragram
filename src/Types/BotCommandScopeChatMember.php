@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScopeChatMember
  *
- *<p>Unique identifier of the target user</p>
+ *<p>Represents the <a href="https://core.telegram.org/bots/api/#botcommandscope">scope</a> of bot commands, covering a specific member of a group or supergroup chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscopechatmember

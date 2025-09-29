@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PreparedInlineMessage
  *
- *<p>Expiration date of the prepared message, in Unix time. Expired prepared messages can no longer be used</p>
+ *<p>Describes an inline message to be sent by a user of a Mini App.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#preparedinlinemessage

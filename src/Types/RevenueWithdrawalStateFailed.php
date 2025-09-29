@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * RevenueWithdrawalStateFailed
  *
- *<p>Type of the state, always “failed”</p>
+ *<p>The withdrawal failed and the transaction was refunded.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#revenuewithdrawalstatefailed

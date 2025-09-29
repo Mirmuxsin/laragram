@@ -5,6 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundFill
  *
+ * Union type that can be one of: BackgroundFillSolid, BackgroundFillGradient, BackgroundFillFreeformGradient
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundfill
@@ -13,18 +14,68 @@ class BackgroundFill
 {
 
 
-    public BackgroundFillSolid $backgroundFillSolid;
-
-    public BackgroundFillGradient $backgroundFillGradient;
-
-    public BackgroundFillFreeformGradient $backgroundFillFreeformGradient;
+    public ?BackgroundFillSolid $backgroundFillSolid = null;
+    public ?BackgroundFillGradient $backgroundFillGradient = null;
+    public ?BackgroundFillFreeformGradient $backgroundFillFreeformGradient = null;
+    public string $type;
 
 
 
     public function __construct($data)
     {
-        $this->backgroundFillSolid = new BackgroundFillSolid($data);
-        $this->backgroundFillGradient = new BackgroundFillGradient($data);
-        $this->backgroundFillFreeformGradient = new BackgroundFillFreeformGradient($data);
+        // Try to instantiate each possible type and see which one works
+        $errors = [];
+        $successfulType = null;
+        $successfulObject = null;
+        
+                // Try to create BackgroundFillSolid
+        try {
+            $backgroundFillSolid = new BackgroundFillSolid($data);
+            $successfulType = 'BackgroundFillSolid';
+            $successfulObject = $backgroundFillSolid;
+            break;
+        } catch (Exception $e) {
+            $errors['BackgroundFillSolid'] = $e->getMessage();
+        }
+
+        // Try to create BackgroundFillGradient
+        try {
+            $backgroundFillGradient = new BackgroundFillGradient($data);
+            $successfulType = 'BackgroundFillGradient';
+            $successfulObject = $backgroundFillGradient;
+            break;
+        } catch (Exception $e) {
+            $errors['BackgroundFillGradient'] = $e->getMessage();
+        }
+
+        // Try to create BackgroundFillFreeformGradient
+        try {
+            $backgroundFillFreeformGradient = new BackgroundFillFreeformGradient($data);
+            $successfulType = 'BackgroundFillFreeformGradient';
+            $successfulObject = $backgroundFillFreeformGradient;
+            break;
+        } catch (Exception $e) {
+            $errors['BackgroundFillFreeformGradient'] = $e->getMessage();
+        }
+
+        
+        if ($successfulObject === null) {
+            throw new Exception('Could not create any of the union types for BackgroundFill. Errors: ' . json_encode($errors));
+        }
+        
+        // Set the successful object
+        switch ($successfulType) {
+            case 'BackgroundFillSolid':
+                $this->backgroundFillSolid = $successfulObject;
+                break;
+            case 'BackgroundFillGradient':
+                $this->backgroundFillGradient = $successfulObject;
+                break;
+            case 'BackgroundFillFreeformGradient':
+                $this->backgroundFillFreeformGradient = $successfulObject;
+                break;
+        }
+        
+        $this->type = $successfulType;
     }
 }

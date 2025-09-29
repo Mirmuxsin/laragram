@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundFillGradient
  *
- *<p>Clockwise rotation angle of the background fill in degrees; 0-359</p>
+ *<p>The background is a gradient fill.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundfillgradient

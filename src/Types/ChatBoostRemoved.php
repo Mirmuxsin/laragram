@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatBoostRemoved
  *
- *<p>Source of the removed boost</p>
+ *<p>This object represents a boost removed from a chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatboostremoved

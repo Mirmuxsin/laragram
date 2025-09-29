@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementErrorSelfie
  *
- *<p>Error message</p>
+ *<p>Represents an issue with the selfie with a document. The error is considered resolved when the file with the selfie changes.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerrorselfie

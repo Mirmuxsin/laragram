@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MenuButtonDefault
  *
- *<p>Type of the button, must be *default*</p>
+ *<p>Describes that no specific value for the menu button was set.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#menubuttondefault

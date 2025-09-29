@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMemberUpdated
  *
- *<p>*Optional*. True, if the user joined the chat via a chat folder invite link</p>
+ *<p>This object represents changes in the status of a chat member.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmemberupdated

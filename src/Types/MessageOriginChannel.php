@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * MessageOriginChannel
  *
- *<p>*Optional*. Signature of the original post author</p>
+ *<p>The message was originally sent to a channel chat.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageoriginchannel

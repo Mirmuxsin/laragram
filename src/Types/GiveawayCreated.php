@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * GiveawayCreated
  *
- *<p>*Optional*. The number of Telegram Stars to be split between giveaway winners; for Telegram Star giveaways only</p>
+ *<p>This object represents a service message about the creation of a scheduled giveaway.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#giveawaycreated

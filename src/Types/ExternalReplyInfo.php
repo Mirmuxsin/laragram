@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * ExternalReplyInfo
  *
- *<p>*Optional*. Message is a venue, information about the venue</p>
+ *<p>This object contains information about a message that is being replied to, which may come from another chat or forum topic.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#externalreplyinfo

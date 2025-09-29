@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * InputLocationMessageContent
  *
- *<p>*Optional*. For live locations, a maximum distance for proximity alerts about approaching another chat member, in meters. Must be between 1 and 100000 if specified.</p>
+ *<p>Represents the <a href="https://core.telegram.org/bots/api/#inputmessagecontent">content</a> of a location message to be sent as the result of an inline query.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputlocationmessagecontent

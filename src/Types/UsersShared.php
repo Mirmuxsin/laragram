@@ -5,7 +5,7 @@ namespace Milly\Laragram\Types;
 /**
 * UsersShared
  *
- *<p>Information about users shared with the bot.</p>
+ *<p>This object contains information about the users whose identifiers were shared with the bot using a <a href="https://core.telegram.org/bots/api/#keyboardbuttonrequestusers">KeyboardButtonRequestUsers</a> button.</p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#usersshared
