@@ -5,15 +5,15 @@ namespace Milly\Laragram\Types;
 /**
 * ReactionType
  *
- * Union type that can be one of: ReactionTypeEmoji, ReactionTypeCustomEmoji, ReactionTypePaid
+ *<p>This object describes the type of a reaction. Currently, it can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#reactiontypeemoji">ReactionTypeEmoji</a>
+* <a href="https://core.telegram.org/bots/api/#reactiontypecustomemoji">ReactionTypeCustomEmoji</a>
+* <a href="https://core.telegram.org/bots/api/#reactiontypepaid">ReactionTypePaid</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#reactiontype
  */
 class ReactionType
 {
-
-
     public ?ReactionTypeEmoji $reactionTypeEmoji = null;
     public ?ReactionTypeCustomEmoji $reactionTypeCustomEmoji = null;
     public ?ReactionTypePaid $reactionTypePaid = null;
@@ -33,8 +33,8 @@ class ReactionType
             $reactionTypeEmoji = new ReactionTypeEmoji($data);
             $successfulType = 'ReactionTypeEmoji';
             $successfulObject = $reactionTypeEmoji;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ReactionTypeEmoji'] = $e->getMessage();
         }
 
@@ -43,8 +43,8 @@ class ReactionType
             $reactionTypeCustomEmoji = new ReactionTypeCustomEmoji($data);
             $successfulType = 'ReactionTypeCustomEmoji';
             $successfulObject = $reactionTypeCustomEmoji;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ReactionTypeCustomEmoji'] = $e->getMessage();
         }
 
@@ -53,16 +53,17 @@ class ReactionType
             $reactionTypePaid = new ReactionTypePaid($data);
             $successfulType = 'ReactionTypePaid';
             $successfulObject = $reactionTypePaid;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ReactionTypePaid'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for ReactionType. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for ReactionType. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'ReactionTypeEmoji':

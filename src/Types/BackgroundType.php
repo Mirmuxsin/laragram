@@ -5,15 +5,16 @@ namespace Milly\Laragram\Types;
 /**
 * BackgroundType
  *
- * Union type that can be one of: BackgroundTypeFill, BackgroundTypeWallpaper, BackgroundTypePattern, BackgroundTypeChatTheme
+ *<p>This object describes the type of a background. Currently, it can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#backgroundtypefill">BackgroundTypeFill</a>
+* <a href="https://core.telegram.org/bots/api/#backgroundtypewallpaper">BackgroundTypeWallpaper</a>
+* <a href="https://core.telegram.org/bots/api/#backgroundtypepattern">BackgroundTypePattern</a>
+* <a href="https://core.telegram.org/bots/api/#backgroundtypechattheme">BackgroundTypeChatTheme</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#backgroundtype
  */
 class BackgroundType
 {
-
-
     public ?BackgroundTypeFill $backgroundTypeFill = null;
     public ?BackgroundTypeWallpaper $backgroundTypeWallpaper = null;
     public ?BackgroundTypePattern $backgroundTypePattern = null;
@@ -34,8 +35,8 @@ class BackgroundType
             $backgroundTypeFill = new BackgroundTypeFill($data);
             $successfulType = 'BackgroundTypeFill';
             $successfulObject = $backgroundTypeFill;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BackgroundTypeFill'] = $e->getMessage();
         }
 
@@ -44,8 +45,8 @@ class BackgroundType
             $backgroundTypeWallpaper = new BackgroundTypeWallpaper($data);
             $successfulType = 'BackgroundTypeWallpaper';
             $successfulObject = $backgroundTypeWallpaper;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BackgroundTypeWallpaper'] = $e->getMessage();
         }
 
@@ -54,8 +55,8 @@ class BackgroundType
             $backgroundTypePattern = new BackgroundTypePattern($data);
             $successfulType = 'BackgroundTypePattern';
             $successfulObject = $backgroundTypePattern;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BackgroundTypePattern'] = $e->getMessage();
         }
 
@@ -64,16 +65,17 @@ class BackgroundType
             $backgroundTypeChatTheme = new BackgroundTypeChatTheme($data);
             $successfulType = 'BackgroundTypeChatTheme';
             $successfulObject = $backgroundTypeChatTheme;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BackgroundTypeChatTheme'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for BackgroundType. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for BackgroundType. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'BackgroundTypeFill':

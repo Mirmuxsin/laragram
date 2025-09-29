@@ -5,15 +5,32 @@ namespace Milly\Laragram\Types;
 /**
 * InlineQueryResult
  *
- * Union type that can be one of: InlineQueryResultCachedAudio, InlineQueryResultCachedDocument, InlineQueryResultCachedGif, InlineQueryResultCachedMpeg4Gif, InlineQueryResultCachedPhoto, InlineQueryResultCachedSticker, InlineQueryResultCachedVideo, InlineQueryResultCachedVoice, InlineQueryResultArticle, InlineQueryResultAudio, InlineQueryResultContact, InlineQueryResultGame, InlineQueryResultDocument, InlineQueryResultGif, InlineQueryResultLocation, InlineQueryResultMpeg4Gif, InlineQueryResultPhoto, InlineQueryResultVenue, InlineQueryResultVideo, InlineQueryResultVoice
+ *<p>This object represents one result of an inline query. Telegram clients currently support results of the following 20 types:</p><p>* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcachedaudio">InlineQueryResultCachedAudio</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcacheddocument">InlineQueryResultCachedDocument</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcachedgif">InlineQueryResultCachedGif</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcachedmpeg4gif">InlineQueryResultCachedMpeg4Gif</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcachedphoto">InlineQueryResultCachedPhoto</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcachedsticker">InlineQueryResultCachedSticker</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcachedvideo">InlineQueryResultCachedVideo</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcachedvoice">InlineQueryResultCachedVoice</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultarticle">InlineQueryResultArticle</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultaudio">InlineQueryResultAudio</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultcontact">InlineQueryResultContact</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultgame">InlineQueryResultGame</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultdocument">InlineQueryResultDocument</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultgif">InlineQueryResultGif</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultlocation">InlineQueryResultLocation</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultmpeg4gif">InlineQueryResultMpeg4Gif</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultphoto">InlineQueryResultPhoto</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultvenue">InlineQueryResultVenue</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultvideo">InlineQueryResultVideo</a>
+* <a href="https://core.telegram.org/bots/api/#inlinequeryresultvoice">InlineQueryResultVoice</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inlinequeryresult
  */
 class InlineQueryResult
 {
-
-
     public ?InlineQueryResultCachedAudio $inlineQueryResultCachedAudio = null;
     public ?InlineQueryResultCachedDocument $inlineQueryResultCachedDocument = null;
     public ?InlineQueryResultCachedGif $inlineQueryResultCachedGif = null;
@@ -50,8 +67,8 @@ class InlineQueryResult
             $inlineQueryResultCachedAudio = new InlineQueryResultCachedAudio($data);
             $successfulType = 'InlineQueryResultCachedAudio';
             $successfulObject = $inlineQueryResultCachedAudio;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedAudio'] = $e->getMessage();
         }
 
@@ -60,8 +77,8 @@ class InlineQueryResult
             $inlineQueryResultCachedDocument = new InlineQueryResultCachedDocument($data);
             $successfulType = 'InlineQueryResultCachedDocument';
             $successfulObject = $inlineQueryResultCachedDocument;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedDocument'] = $e->getMessage();
         }
 
@@ -70,8 +87,8 @@ class InlineQueryResult
             $inlineQueryResultCachedGif = new InlineQueryResultCachedGif($data);
             $successfulType = 'InlineQueryResultCachedGif';
             $successfulObject = $inlineQueryResultCachedGif;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedGif'] = $e->getMessage();
         }
 
@@ -80,8 +97,8 @@ class InlineQueryResult
             $inlineQueryResultCachedMpeg4Gif = new InlineQueryResultCachedMpeg4Gif($data);
             $successfulType = 'InlineQueryResultCachedMpeg4Gif';
             $successfulObject = $inlineQueryResultCachedMpeg4Gif;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedMpeg4Gif'] = $e->getMessage();
         }
 
@@ -90,8 +107,8 @@ class InlineQueryResult
             $inlineQueryResultCachedPhoto = new InlineQueryResultCachedPhoto($data);
             $successfulType = 'InlineQueryResultCachedPhoto';
             $successfulObject = $inlineQueryResultCachedPhoto;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedPhoto'] = $e->getMessage();
         }
 
@@ -100,8 +117,8 @@ class InlineQueryResult
             $inlineQueryResultCachedSticker = new InlineQueryResultCachedSticker($data);
             $successfulType = 'InlineQueryResultCachedSticker';
             $successfulObject = $inlineQueryResultCachedSticker;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedSticker'] = $e->getMessage();
         }
 
@@ -110,8 +127,8 @@ class InlineQueryResult
             $inlineQueryResultCachedVideo = new InlineQueryResultCachedVideo($data);
             $successfulType = 'InlineQueryResultCachedVideo';
             $successfulObject = $inlineQueryResultCachedVideo;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedVideo'] = $e->getMessage();
         }
 
@@ -120,8 +137,8 @@ class InlineQueryResult
             $inlineQueryResultCachedVoice = new InlineQueryResultCachedVoice($data);
             $successfulType = 'InlineQueryResultCachedVoice';
             $successfulObject = $inlineQueryResultCachedVoice;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultCachedVoice'] = $e->getMessage();
         }
 
@@ -130,8 +147,8 @@ class InlineQueryResult
             $inlineQueryResultArticle = new InlineQueryResultArticle($data);
             $successfulType = 'InlineQueryResultArticle';
             $successfulObject = $inlineQueryResultArticle;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultArticle'] = $e->getMessage();
         }
 
@@ -140,8 +157,8 @@ class InlineQueryResult
             $inlineQueryResultAudio = new InlineQueryResultAudio($data);
             $successfulType = 'InlineQueryResultAudio';
             $successfulObject = $inlineQueryResultAudio;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultAudio'] = $e->getMessage();
         }
 
@@ -150,8 +167,8 @@ class InlineQueryResult
             $inlineQueryResultContact = new InlineQueryResultContact($data);
             $successfulType = 'InlineQueryResultContact';
             $successfulObject = $inlineQueryResultContact;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultContact'] = $e->getMessage();
         }
 
@@ -160,8 +177,8 @@ class InlineQueryResult
             $inlineQueryResultGame = new InlineQueryResultGame($data);
             $successfulType = 'InlineQueryResultGame';
             $successfulObject = $inlineQueryResultGame;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultGame'] = $e->getMessage();
         }
 
@@ -170,8 +187,8 @@ class InlineQueryResult
             $inlineQueryResultDocument = new InlineQueryResultDocument($data);
             $successfulType = 'InlineQueryResultDocument';
             $successfulObject = $inlineQueryResultDocument;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultDocument'] = $e->getMessage();
         }
 
@@ -180,8 +197,8 @@ class InlineQueryResult
             $inlineQueryResultGif = new InlineQueryResultGif($data);
             $successfulType = 'InlineQueryResultGif';
             $successfulObject = $inlineQueryResultGif;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultGif'] = $e->getMessage();
         }
 
@@ -190,8 +207,8 @@ class InlineQueryResult
             $inlineQueryResultLocation = new InlineQueryResultLocation($data);
             $successfulType = 'InlineQueryResultLocation';
             $successfulObject = $inlineQueryResultLocation;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultLocation'] = $e->getMessage();
         }
 
@@ -200,8 +217,8 @@ class InlineQueryResult
             $inlineQueryResultMpeg4Gif = new InlineQueryResultMpeg4Gif($data);
             $successfulType = 'InlineQueryResultMpeg4Gif';
             $successfulObject = $inlineQueryResultMpeg4Gif;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultMpeg4Gif'] = $e->getMessage();
         }
 
@@ -210,8 +227,8 @@ class InlineQueryResult
             $inlineQueryResultPhoto = new InlineQueryResultPhoto($data);
             $successfulType = 'InlineQueryResultPhoto';
             $successfulObject = $inlineQueryResultPhoto;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultPhoto'] = $e->getMessage();
         }
 
@@ -220,8 +237,8 @@ class InlineQueryResult
             $inlineQueryResultVenue = new InlineQueryResultVenue($data);
             $successfulType = 'InlineQueryResultVenue';
             $successfulObject = $inlineQueryResultVenue;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultVenue'] = $e->getMessage();
         }
 
@@ -230,8 +247,8 @@ class InlineQueryResult
             $inlineQueryResultVideo = new InlineQueryResultVideo($data);
             $successfulType = 'InlineQueryResultVideo';
             $successfulObject = $inlineQueryResultVideo;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultVideo'] = $e->getMessage();
         }
 
@@ -240,16 +257,17 @@ class InlineQueryResult
             $inlineQueryResultVoice = new InlineQueryResultVoice($data);
             $successfulType = 'InlineQueryResultVoice';
             $successfulObject = $inlineQueryResultVoice;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InlineQueryResultVoice'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for InlineQueryResult. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for InlineQueryResult. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'InlineQueryResultCachedAudio':

@@ -5,15 +5,16 @@ namespace Milly\Laragram\Types;
 /**
 * MessageOrigin
  *
- * Union type that can be one of: MessageOriginUser, MessageOriginHiddenUser, MessageOriginChat, MessageOriginChannel
+ *<p>This object describes the origin of a message. It can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#messageoriginuser">MessageOriginUser</a>
+* <a href="https://core.telegram.org/bots/api/#messageoriginhiddenuser">MessageOriginHiddenUser</a>
+* <a href="https://core.telegram.org/bots/api/#messageoriginchat">MessageOriginChat</a>
+* <a href="https://core.telegram.org/bots/api/#messageoriginchannel">MessageOriginChannel</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#messageorigin
  */
 class MessageOrigin
 {
-
-
     public ?MessageOriginUser $messageOriginUser = null;
     public ?MessageOriginHiddenUser $messageOriginHiddenUser = null;
     public ?MessageOriginChat $messageOriginChat = null;
@@ -34,8 +35,8 @@ class MessageOrigin
             $messageOriginUser = new MessageOriginUser($data);
             $successfulType = 'MessageOriginUser';
             $successfulObject = $messageOriginUser;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['MessageOriginUser'] = $e->getMessage();
         }
 
@@ -44,8 +45,8 @@ class MessageOrigin
             $messageOriginHiddenUser = new MessageOriginHiddenUser($data);
             $successfulType = 'MessageOriginHiddenUser';
             $successfulObject = $messageOriginHiddenUser;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['MessageOriginHiddenUser'] = $e->getMessage();
         }
 
@@ -54,8 +55,8 @@ class MessageOrigin
             $messageOriginChat = new MessageOriginChat($data);
             $successfulType = 'MessageOriginChat';
             $successfulObject = $messageOriginChat;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['MessageOriginChat'] = $e->getMessage();
         }
 
@@ -64,16 +65,17 @@ class MessageOrigin
             $messageOriginChannel = new MessageOriginChannel($data);
             $successfulType = 'MessageOriginChannel';
             $successfulObject = $messageOriginChannel;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['MessageOriginChannel'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for MessageOrigin. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for MessageOrigin. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'MessageOriginUser':

@@ -1,0 +1,34 @@
+- title: Home
+  url: /
+  
+- title: Getting Started
+  url: /getting-started
+  
+- title: FSM Routing
+  url: /fsm-routing
+  
+- title: API Reference
+  children:
+    - title: Overview
+      url: /api
+    - title: Methods
+      url: /api/methods
+    - title: Types
+      url: /api/types
+      
+- title: Examples
+  children:
+    - title: Basic Bot
+      url: /examples/basic-bot
+    - title: FSM Bot
+      url: /examples/fsm-bot
+    - title: Webhook Bot
+      url: /examples/webhook-bot
+    - title: Advanced Features
+      url: /examples/advanced-features
+      
+- title: Configuration
+  url: /configuration
+  
+- title: Changelog
+  url: /changelog

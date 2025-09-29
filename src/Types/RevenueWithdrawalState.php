@@ -5,15 +5,15 @@ namespace Milly\Laragram\Types;
 /**
 * RevenueWithdrawalState
  *
- * Union type that can be one of: RevenueWithdrawalStatePending, RevenueWithdrawalStateSucceeded, RevenueWithdrawalStateFailed
+ *<p>This object describes the state of a revenue withdrawal operation. Currently, it can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#revenuewithdrawalstatepending">RevenueWithdrawalStatePending</a>
+* <a href="https://core.telegram.org/bots/api/#revenuewithdrawalstatesucceeded">RevenueWithdrawalStateSucceeded</a>
+* <a href="https://core.telegram.org/bots/api/#revenuewithdrawalstatefailed">RevenueWithdrawalStateFailed</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#revenuewithdrawalstate
  */
 class RevenueWithdrawalState
 {
-
-
     public ?RevenueWithdrawalStatePending $revenueWithdrawalStatePending = null;
     public ?RevenueWithdrawalStateSucceeded $revenueWithdrawalStateSucceeded = null;
     public ?RevenueWithdrawalStateFailed $revenueWithdrawalStateFailed = null;
@@ -33,8 +33,8 @@ class RevenueWithdrawalState
             $revenueWithdrawalStatePending = new RevenueWithdrawalStatePending($data);
             $successfulType = 'RevenueWithdrawalStatePending';
             $successfulObject = $revenueWithdrawalStatePending;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['RevenueWithdrawalStatePending'] = $e->getMessage();
         }
 
@@ -43,8 +43,8 @@ class RevenueWithdrawalState
             $revenueWithdrawalStateSucceeded = new RevenueWithdrawalStateSucceeded($data);
             $successfulType = 'RevenueWithdrawalStateSucceeded';
             $successfulObject = $revenueWithdrawalStateSucceeded;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['RevenueWithdrawalStateSucceeded'] = $e->getMessage();
         }
 
@@ -53,16 +53,17 @@ class RevenueWithdrawalState
             $revenueWithdrawalStateFailed = new RevenueWithdrawalStateFailed($data);
             $successfulType = 'RevenueWithdrawalStateFailed';
             $successfulObject = $revenueWithdrawalStateFailed;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['RevenueWithdrawalStateFailed'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for RevenueWithdrawalState. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for RevenueWithdrawalState. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'RevenueWithdrawalStatePending':

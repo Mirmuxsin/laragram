@@ -94,8 +94,8 @@ class UnionTypeHandler
             $typeChecks .= "            \$".$propertyName." = new ".$typeName."(\$data);\n";
             $typeChecks .= "            \$successfulType = '".$typeName."';\n";
             $typeChecks .= "            \$successfulObject = \$".$propertyName.";\n";
-            $typeChecks .= "            break;\n";
-            $typeChecks .= "        } catch (Exception \$e) {\n";
+            $typeChecks .= "            goto success;\n"; // Use goto instead of break
+            $typeChecks .= "        } catch (\\Exception \$e) {\n";
             $typeChecks .= "            \$errors['".$typeName."'] = \$e->getMessage();\n";
             $typeChecks .= "        }\n\n";
         }
@@ -103,9 +103,10 @@ class UnionTypeHandler
         $functions .= $typeChecks;
         $functions .= "        
         if (\$successfulObject === null) {
-            throw new Exception('Could not create any of the union types for ".$object['name'].". Errors: ' . json_encode(\$errors));
+            throw new \\Exception('Could not create any of the union types for ".$object['name'].". Errors: ' . json_encode(\$errors));
         }
         
+        success:
         // Set the successful object
         switch (\$successfulType) {
 ";

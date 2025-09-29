@@ -5,15 +5,18 @@ namespace Milly\Laragram\Types;
 /**
 * ChatMember
  *
- * Union type that can be one of: ChatMemberOwner, ChatMemberAdministrator, ChatMemberMember, ChatMemberRestricted, ChatMemberLeft, ChatMemberBanned
+ *<p>This object contains information about one member of a chat. Currently, the following 6 types of chat members are supported:</p><p>* <a href="https://core.telegram.org/bots/api/#chatmemberowner">ChatMemberOwner</a>
+* <a href="https://core.telegram.org/bots/api/#chatmemberadministrator">ChatMemberAdministrator</a>
+* <a href="https://core.telegram.org/bots/api/#chatmembermember">ChatMemberMember</a>
+* <a href="https://core.telegram.org/bots/api/#chatmemberrestricted">ChatMemberRestricted</a>
+* <a href="https://core.telegram.org/bots/api/#chatmemberleft">ChatMemberLeft</a>
+* <a href="https://core.telegram.org/bots/api/#chatmemberbanned">ChatMemberBanned</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#chatmember
  */
 class ChatMember
 {
-
-
     public ?ChatMemberOwner $chatMemberOwner = null;
     public ?ChatMemberAdministrator $chatMemberAdministrator = null;
     public ?ChatMemberMember $chatMemberMember = null;
@@ -36,8 +39,8 @@ class ChatMember
             $chatMemberOwner = new ChatMemberOwner($data);
             $successfulType = 'ChatMemberOwner';
             $successfulObject = $chatMemberOwner;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ChatMemberOwner'] = $e->getMessage();
         }
 
@@ -46,8 +49,8 @@ class ChatMember
             $chatMemberAdministrator = new ChatMemberAdministrator($data);
             $successfulType = 'ChatMemberAdministrator';
             $successfulObject = $chatMemberAdministrator;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ChatMemberAdministrator'] = $e->getMessage();
         }
 
@@ -56,8 +59,8 @@ class ChatMember
             $chatMemberMember = new ChatMemberMember($data);
             $successfulType = 'ChatMemberMember';
             $successfulObject = $chatMemberMember;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ChatMemberMember'] = $e->getMessage();
         }
 
@@ -66,8 +69,8 @@ class ChatMember
             $chatMemberRestricted = new ChatMemberRestricted($data);
             $successfulType = 'ChatMemberRestricted';
             $successfulObject = $chatMemberRestricted;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ChatMemberRestricted'] = $e->getMessage();
         }
 
@@ -76,8 +79,8 @@ class ChatMember
             $chatMemberLeft = new ChatMemberLeft($data);
             $successfulType = 'ChatMemberLeft';
             $successfulObject = $chatMemberLeft;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ChatMemberLeft'] = $e->getMessage();
         }
 
@@ -86,16 +89,17 @@ class ChatMember
             $chatMemberBanned = new ChatMemberBanned($data);
             $successfulType = 'ChatMemberBanned';
             $successfulObject = $chatMemberBanned;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['ChatMemberBanned'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for ChatMember. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for ChatMember. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'ChatMemberOwner':

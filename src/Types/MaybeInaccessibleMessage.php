@@ -5,15 +5,14 @@ namespace Milly\Laragram\Types;
 /**
 * MaybeInaccessibleMessage
  *
- * Union type that can be one of: Message, InaccessibleMessage
+ *<p>This object describes a message that can be inaccessible to the bot. It can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#message">Message</a>
+* <a href="https://core.telegram.org/bots/api/#inaccessiblemessage">InaccessibleMessage</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#maybeinaccessiblemessage
  */
 class MaybeInaccessibleMessage
 {
-
-
     public ?Message $message = null;
     public ?InaccessibleMessage $inaccessibleMessage = null;
     public string $type;

@@ -5,15 +5,15 @@ namespace Milly\Laragram\Types;
 /**
 * MenuButton
  *
- * Union type that can be one of: MenuButtonCommands, MenuButtonWebApp, MenuButtonDefault
+ *<p>This object describes the bot's menu button in a private chat. It should be one of</p><p>* <a href="https://core.telegram.org/bots/api/#menubuttoncommands">MenuButtonCommands</a>
+* <a href="https://core.telegram.org/bots/api/#menubuttonwebapp">MenuButtonWebApp</a>
+* <a href="https://core.telegram.org/bots/api/#menubuttondefault">MenuButtonDefault</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#menubutton
  */
 class MenuButton
 {
-
-
     public ?MenuButtonCommands $menuButtonCommands = null;
     public ?MenuButtonWebApp $menuButtonWebApp = null;
     public ?MenuButtonDefault $menuButtonDefault = null;
@@ -33,8 +33,8 @@ class MenuButton
             $menuButtonCommands = new MenuButtonCommands($data);
             $successfulType = 'MenuButtonCommands';
             $successfulObject = $menuButtonCommands;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['MenuButtonCommands'] = $e->getMessage();
         }
 
@@ -43,8 +43,8 @@ class MenuButton
             $menuButtonWebApp = new MenuButtonWebApp($data);
             $successfulType = 'MenuButtonWebApp';
             $successfulObject = $menuButtonWebApp;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['MenuButtonWebApp'] = $e->getMessage();
         }
 
@@ -53,16 +53,17 @@ class MenuButton
             $menuButtonDefault = new MenuButtonDefault($data);
             $successfulType = 'MenuButtonDefault';
             $successfulObject = $menuButtonDefault;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['MenuButtonDefault'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for MenuButton. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for MenuButton. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'MenuButtonCommands':

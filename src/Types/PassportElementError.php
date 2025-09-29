@@ -5,15 +5,21 @@ namespace Milly\Laragram\Types;
 /**
 * PassportElementError
  *
- * Union type that can be one of: PassportElementErrorDataField, PassportElementErrorFrontSide, PassportElementErrorReverseSide, PassportElementErrorSelfie, PassportElementErrorFile, PassportElementErrorFiles, PassportElementErrorTranslationFile, PassportElementErrorTranslationFiles, PassportElementErrorUnspecified
+ *<p>This object represents an error in the Telegram Passport element which was submitted that should be resolved by the user. It should be one of:</p><p>* <a href="https://core.telegram.org/bots/api/#passportelementerrordatafield">PassportElementErrorDataField</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrorfrontside">PassportElementErrorFrontSide</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrorreverseside">PassportElementErrorReverseSide</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrorselfie">PassportElementErrorSelfie</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrorfile">PassportElementErrorFile</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrorfiles">PassportElementErrorFiles</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrortranslationfile">PassportElementErrorTranslationFile</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrortranslationfiles">PassportElementErrorTranslationFiles</a>
+* <a href="https://core.telegram.org/bots/api/#passportelementerrorunspecified">PassportElementErrorUnspecified</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#passportelementerror
  */
 class PassportElementError
 {
-
-
     public ?PassportElementErrorDataField $passportElementErrorDataField = null;
     public ?PassportElementErrorFrontSide $passportElementErrorFrontSide = null;
     public ?PassportElementErrorReverseSide $passportElementErrorReverseSide = null;
@@ -39,8 +45,8 @@ class PassportElementError
             $passportElementErrorDataField = new PassportElementErrorDataField($data);
             $successfulType = 'PassportElementErrorDataField';
             $successfulObject = $passportElementErrorDataField;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorDataField'] = $e->getMessage();
         }
 
@@ -49,8 +55,8 @@ class PassportElementError
             $passportElementErrorFrontSide = new PassportElementErrorFrontSide($data);
             $successfulType = 'PassportElementErrorFrontSide';
             $successfulObject = $passportElementErrorFrontSide;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorFrontSide'] = $e->getMessage();
         }
 
@@ -59,8 +65,8 @@ class PassportElementError
             $passportElementErrorReverseSide = new PassportElementErrorReverseSide($data);
             $successfulType = 'PassportElementErrorReverseSide';
             $successfulObject = $passportElementErrorReverseSide;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorReverseSide'] = $e->getMessage();
         }
 
@@ -69,8 +75,8 @@ class PassportElementError
             $passportElementErrorSelfie = new PassportElementErrorSelfie($data);
             $successfulType = 'PassportElementErrorSelfie';
             $successfulObject = $passportElementErrorSelfie;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorSelfie'] = $e->getMessage();
         }
 
@@ -79,8 +85,8 @@ class PassportElementError
             $passportElementErrorFile = new PassportElementErrorFile($data);
             $successfulType = 'PassportElementErrorFile';
             $successfulObject = $passportElementErrorFile;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorFile'] = $e->getMessage();
         }
 
@@ -89,8 +95,8 @@ class PassportElementError
             $passportElementErrorFiles = new PassportElementErrorFiles($data);
             $successfulType = 'PassportElementErrorFiles';
             $successfulObject = $passportElementErrorFiles;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorFiles'] = $e->getMessage();
         }
 
@@ -99,8 +105,8 @@ class PassportElementError
             $passportElementErrorTranslationFile = new PassportElementErrorTranslationFile($data);
             $successfulType = 'PassportElementErrorTranslationFile';
             $successfulObject = $passportElementErrorTranslationFile;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorTranslationFile'] = $e->getMessage();
         }
 
@@ -109,8 +115,8 @@ class PassportElementError
             $passportElementErrorTranslationFiles = new PassportElementErrorTranslationFiles($data);
             $successfulType = 'PassportElementErrorTranslationFiles';
             $successfulObject = $passportElementErrorTranslationFiles;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorTranslationFiles'] = $e->getMessage();
         }
 
@@ -119,16 +125,17 @@ class PassportElementError
             $passportElementErrorUnspecified = new PassportElementErrorUnspecified($data);
             $successfulType = 'PassportElementErrorUnspecified';
             $successfulObject = $passportElementErrorUnspecified;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PassportElementErrorUnspecified'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for PassportElementError. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for PassportElementError. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'PassportElementErrorDataField':

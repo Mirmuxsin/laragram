@@ -5,15 +5,15 @@ namespace Milly\Laragram\Types;
 /**
 * PaidMedia
  *
- * Union type that can be one of: PaidMediaPreview, PaidMediaPhoto, PaidMediaVideo
+ *<p>This object describes paid media. Currently, it can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#paidmediapreview">PaidMediaPreview</a>
+* <a href="https://core.telegram.org/bots/api/#paidmediaphoto">PaidMediaPhoto</a>
+* <a href="https://core.telegram.org/bots/api/#paidmediavideo">PaidMediaVideo</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#paidmedia
  */
 class PaidMedia
 {
-
-
     public ?PaidMediaPreview $paidMediaPreview = null;
     public ?PaidMediaPhoto $paidMediaPhoto = null;
     public ?PaidMediaVideo $paidMediaVideo = null;
@@ -33,8 +33,8 @@ class PaidMedia
             $paidMediaPreview = new PaidMediaPreview($data);
             $successfulType = 'PaidMediaPreview';
             $successfulObject = $paidMediaPreview;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PaidMediaPreview'] = $e->getMessage();
         }
 
@@ -43,8 +43,8 @@ class PaidMedia
             $paidMediaPhoto = new PaidMediaPhoto($data);
             $successfulType = 'PaidMediaPhoto';
             $successfulObject = $paidMediaPhoto;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PaidMediaPhoto'] = $e->getMessage();
         }
 
@@ -53,16 +53,17 @@ class PaidMedia
             $paidMediaVideo = new PaidMediaVideo($data);
             $successfulType = 'PaidMediaVideo';
             $successfulObject = $paidMediaVideo;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['PaidMediaVideo'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for PaidMedia. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for PaidMedia. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'PaidMediaPreview':

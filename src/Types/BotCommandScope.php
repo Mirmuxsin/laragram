@@ -5,15 +5,19 @@ namespace Milly\Laragram\Types;
 /**
 * BotCommandScope
  *
- * Union type that can be one of: BotCommandScopeDefault, BotCommandScopeAllPrivateChats, BotCommandScopeAllGroupChats, BotCommandScopeAllChatAdministrators, BotCommandScopeChat, BotCommandScopeChatAdministrators, BotCommandScopeChatMember
+ *<p>This object represents the scope to which bot commands are applied. Currently, the following 7 scopes are supported:</p><p>* <a href="https://core.telegram.org/bots/api/#botcommandscopedefault">BotCommandScopeDefault</a>
+* <a href="https://core.telegram.org/bots/api/#botcommandscopeallprivatechats">BotCommandScopeAllPrivateChats</a>
+* <a href="https://core.telegram.org/bots/api/#botcommandscopeallgroupchats">BotCommandScopeAllGroupChats</a>
+* <a href="https://core.telegram.org/bots/api/#botcommandscopeallchatadministrators">BotCommandScopeAllChatAdministrators</a>
+* <a href="https://core.telegram.org/bots/api/#botcommandscopechat">BotCommandScopeChat</a>
+* <a href="https://core.telegram.org/bots/api/#botcommandscopechatadministrators">BotCommandScopeChatAdministrators</a>
+* <a href="https://core.telegram.org/bots/api/#botcommandscopechatmember">BotCommandScopeChatMember</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#botcommandscope
  */
 class BotCommandScope
 {
-
-
     public ?BotCommandScopeDefault $botCommandScopeDefault = null;
     public ?BotCommandScopeAllPrivateChats $botCommandScopeAllPrivateChats = null;
     public ?BotCommandScopeAllGroupChats $botCommandScopeAllGroupChats = null;
@@ -37,8 +41,8 @@ class BotCommandScope
             $botCommandScopeDefault = new BotCommandScopeDefault($data);
             $successfulType = 'BotCommandScopeDefault';
             $successfulObject = $botCommandScopeDefault;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BotCommandScopeDefault'] = $e->getMessage();
         }
 
@@ -47,8 +51,8 @@ class BotCommandScope
             $botCommandScopeAllPrivateChats = new BotCommandScopeAllPrivateChats($data);
             $successfulType = 'BotCommandScopeAllPrivateChats';
             $successfulObject = $botCommandScopeAllPrivateChats;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BotCommandScopeAllPrivateChats'] = $e->getMessage();
         }
 
@@ -57,8 +61,8 @@ class BotCommandScope
             $botCommandScopeAllGroupChats = new BotCommandScopeAllGroupChats($data);
             $successfulType = 'BotCommandScopeAllGroupChats';
             $successfulObject = $botCommandScopeAllGroupChats;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BotCommandScopeAllGroupChats'] = $e->getMessage();
         }
 
@@ -67,8 +71,8 @@ class BotCommandScope
             $botCommandScopeAllChatAdministrators = new BotCommandScopeAllChatAdministrators($data);
             $successfulType = 'BotCommandScopeAllChatAdministrators';
             $successfulObject = $botCommandScopeAllChatAdministrators;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BotCommandScopeAllChatAdministrators'] = $e->getMessage();
         }
 
@@ -77,8 +81,8 @@ class BotCommandScope
             $botCommandScopeChat = new BotCommandScopeChat($data);
             $successfulType = 'BotCommandScopeChat';
             $successfulObject = $botCommandScopeChat;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BotCommandScopeChat'] = $e->getMessage();
         }
 
@@ -87,8 +91,8 @@ class BotCommandScope
             $botCommandScopeChatAdministrators = new BotCommandScopeChatAdministrators($data);
             $successfulType = 'BotCommandScopeChatAdministrators';
             $successfulObject = $botCommandScopeChatAdministrators;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BotCommandScopeChatAdministrators'] = $e->getMessage();
         }
 
@@ -97,16 +101,17 @@ class BotCommandScope
             $botCommandScopeChatMember = new BotCommandScopeChatMember($data);
             $successfulType = 'BotCommandScopeChatMember';
             $successfulObject = $botCommandScopeChatMember;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['BotCommandScopeChatMember'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for BotCommandScope. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for BotCommandScope. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'BotCommandScopeDefault':

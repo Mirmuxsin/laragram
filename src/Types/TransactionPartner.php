@@ -5,15 +5,19 @@ namespace Milly\Laragram\Types;
 /**
 * TransactionPartner
  *
- * Union type that can be one of: TransactionPartnerUser, TransactionPartnerChat, TransactionPartnerAffiliateProgram, TransactionPartnerFragment, TransactionPartnerTelegramAds, TransactionPartnerTelegramApi, TransactionPartnerOther
+ *<p>This object describes the source of a transaction, or its recipient for outgoing transactions. Currently, it can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#transactionpartneruser">TransactionPartnerUser</a>
+* <a href="https://core.telegram.org/bots/api/#transactionpartnerchat">TransactionPartnerChat</a>
+* <a href="https://core.telegram.org/bots/api/#transactionpartneraffiliateprogram">TransactionPartnerAffiliateProgram</a>
+* <a href="https://core.telegram.org/bots/api/#transactionpartnerfragment">TransactionPartnerFragment</a>
+* <a href="https://core.telegram.org/bots/api/#transactionpartnertelegramads">TransactionPartnerTelegramAds</a>
+* <a href="https://core.telegram.org/bots/api/#transactionpartnertelegramapi">TransactionPartnerTelegramApi</a>
+* <a href="https://core.telegram.org/bots/api/#transactionpartnerother">TransactionPartnerOther</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#transactionpartner
  */
 class TransactionPartner
 {
-
-
     public ?TransactionPartnerUser $transactionPartnerUser = null;
     public ?TransactionPartnerChat $transactionPartnerChat = null;
     public ?TransactionPartnerAffiliateProgram $transactionPartnerAffiliateProgram = null;
@@ -37,8 +41,8 @@ class TransactionPartner
             $transactionPartnerUser = new TransactionPartnerUser($data);
             $successfulType = 'TransactionPartnerUser';
             $successfulObject = $transactionPartnerUser;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['TransactionPartnerUser'] = $e->getMessage();
         }
 
@@ -47,8 +51,8 @@ class TransactionPartner
             $transactionPartnerChat = new TransactionPartnerChat($data);
             $successfulType = 'TransactionPartnerChat';
             $successfulObject = $transactionPartnerChat;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['TransactionPartnerChat'] = $e->getMessage();
         }
 
@@ -57,8 +61,8 @@ class TransactionPartner
             $transactionPartnerAffiliateProgram = new TransactionPartnerAffiliateProgram($data);
             $successfulType = 'TransactionPartnerAffiliateProgram';
             $successfulObject = $transactionPartnerAffiliateProgram;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['TransactionPartnerAffiliateProgram'] = $e->getMessage();
         }
 
@@ -67,8 +71,8 @@ class TransactionPartner
             $transactionPartnerFragment = new TransactionPartnerFragment($data);
             $successfulType = 'TransactionPartnerFragment';
             $successfulObject = $transactionPartnerFragment;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['TransactionPartnerFragment'] = $e->getMessage();
         }
 
@@ -77,8 +81,8 @@ class TransactionPartner
             $transactionPartnerTelegramAds = new TransactionPartnerTelegramAds($data);
             $successfulType = 'TransactionPartnerTelegramAds';
             $successfulObject = $transactionPartnerTelegramAds;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['TransactionPartnerTelegramAds'] = $e->getMessage();
         }
 
@@ -87,8 +91,8 @@ class TransactionPartner
             $transactionPartnerTelegramApi = new TransactionPartnerTelegramApi($data);
             $successfulType = 'TransactionPartnerTelegramApi';
             $successfulObject = $transactionPartnerTelegramApi;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['TransactionPartnerTelegramApi'] = $e->getMessage();
         }
 
@@ -97,16 +101,17 @@ class TransactionPartner
             $transactionPartnerOther = new TransactionPartnerOther($data);
             $successfulType = 'TransactionPartnerOther';
             $successfulObject = $transactionPartnerOther;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['TransactionPartnerOther'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for TransactionPartner. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for TransactionPartner. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'TransactionPartnerUser':

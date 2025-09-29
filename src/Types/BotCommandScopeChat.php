@@ -20,9 +20,9 @@ class BotCommandScopeChat
 
     /**
     * <p>Unique identifier for the target chat or username of the target supergroup (in the format `@supergroupusername`)</p>
-    * @var any_of
+    * @var mixed
     */
-    public any_of $chat_id;
+    public mixed $chat_id;
 
 
 

@@ -14,9 +14,9 @@ class InputSticker
 {
     /**
     * <p>The added sticker. Pass a *file\<em>id* as a String to send a file that already exists on the Telegram servers, pass an HTTP URL as a String for Telegram to get a file from the Internet, upload a new one using multipart/form-data, or pass “attach://\<file\</em>attach\<em>name\>” to upload a new one using multipart/form-data under \<file\</em>attach\_name\> name. Animated and video stickers can't be uploaded via HTTP URL. <a href="https://core.telegram.org/bots/api/#sending-files">More information on Sending Files »</a></p>
-    * @var any_of
+    * @var mixed
     */
-    public any_of $sticker;
+    public mixed $sticker;
 
     /**
     * <p>Format of the added sticker, must be one of “static” for a <strong>.WEBP</strong> or <strong>.PNG</strong> image, “animated” for a <strong>.TGS</strong> animation, “video” for a <strong>.WEBM</strong> video</p>

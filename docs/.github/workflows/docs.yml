@@ -1,0 +1,35 @@
+name: Deploy Documentation
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+      - 'docs/**'
+      - '.github/workflows/docs.yml'
+  release:
+    types: [ published ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        
+    - name: Install dependencies
+      run: composer install --no-dev --optimize-autoloader
+      
+    - name: Generate documentation
+      run: php generate_types.php
+      
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./docs
+        cname: laragram.mirmuxsin.dev

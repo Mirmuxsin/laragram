@@ -20,9 +20,9 @@ class ReplyParameters
 
     /**
     * <p>*Optional*. If the message to be replied to is from a different chat, unique identifier for the chat or username of the channel (in the format `@channelusername`). Not supported for messages sent on behalf of a business account.</p>
-    * @var any_of|null
+    * @var mixed|null
     */
-    public ?any_of $chat_id = null;
+    public mixed $chat_id;
 
     /**
     * <p>*Optional*. Pass *True* if the message should be sent even if the specified message to be replied to is not found. Always *False* for replies in another chat or forum topic. Always *True* for messages sent on behalf of a business account.</p>

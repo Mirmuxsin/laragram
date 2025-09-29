@@ -22,6 +22,39 @@ class TypeGenerator
 
     public function generate(): array
     {
+        // Increase memory limit for documentation generation
+        ini_set('memory_limit', '512M');
+        
+        $json = $this->fetchApiJson();
+        
+        $this->generateMethods($json['methods']);
+        $this->generateTypes($json['objects']);
+        
+        // Generate documentation by default
+        $docGenerator = new DocumentationGenerator($this, 'docs');
+        $docStats = $docGenerator->generate();
+        
+        return [
+            'methods_count' => count($json['methods']),
+            'types_count' => count($json['objects']),
+            'api_version' => $json['version']['major'],
+            'docs_generated' => true,
+            'docs_path' => 'docs'
+        ];
+    }
+
+    public function generateWithDocumentation(string $docsPath = 'docs'): array
+    {
+        $stats = $this->generate();
+        
+        $docGenerator = new DocumentationGenerator($this, $docsPath);
+        $docStats = $docGenerator->generate();
+        
+        return array_merge($stats, $docStats);
+    }
+
+    public function generateTypesOnly(): array
+    {
         $json = $this->fetchApiJson();
         
         $this->generateMethods($json['methods']);
@@ -132,20 +165,60 @@ class TypeGenerator
             $unionTypeHandler = new UnionTypeHandler();
             $functions .= $unionTypeHandler->generateConstructor($object);
             $properties = $unionTypeHandler->generateProperties($object);
+            
+            // For union types, use the properties from the handler
+            $text = $this->buildTypeClass($object, $properties, $functions);
+            file_put_contents($this->typesPath . "/" .$object['name'].".php", $text);
         } else {
             $functions .= "    public function __construct(\$data)
     {
 ";
         }
         
-        if (isset($object['properties'])) {
+        if (isset($object['properties']) && !isset($object['type'])) {
             foreach ($object['properties'] as $argument) {
-                $argument['type'] = $argument['type'] == 'integer' ? 'int' : ($argument['type'] == "reference" ? $argument['reference'] : $argument['type']);
+                // Handle any_of types properly
+                if ($argument['type'] == 'any_of') {
+                    // For any_of types, determine the appropriate PHP type
+                    if (isset($argument['any_of'])) {
+                        $types = array_map(function($t) {
+                            return $t['type'] == 'integer' ? 'int' : $t['type'];
+                        }, $argument['any_of']);
+                        
+                        // If all types are the same, use that type
+                        if (count(array_unique($types)) === 1) {
+                            $argument['type'] = $types[0];
+                        } else {
+                            // Mixed types - use mixed for all cases to avoid union type issues
+                            $argument['type'] = 'mixed';
+                        }
+                    } else {
+                        $argument['type'] = $argument['reference'] ?? 'mixed';
+                    }
+                } else {
+                    $argument['type'] = $argument['type'] == 'integer' ? 'int' : ($argument['type'] == "reference" ? $argument['reference'] : $argument['type']);
+                }
+                
+                // Fix mixed type nullable issue - mixed cannot be nullable in PHP 8.0+
+                if ($argument['type'] == 'mixed' && !$argument['required']) {
+                    // For mixed types that are optional, make them required to avoid ?mixed
+                    $argument['required'] = true;
+                }
+                
+                // Fix mixed type nullable issue - mixed cannot be nullable in PHP 8.0+
+                $phpType = $argument['type'];
+                $isNullable = !$argument['required'];
+                
+                if ($phpType == 'mixed' && $isNullable) {
+                    // For mixed types that are optional, make them required to avoid ?mixed
+                    $isNullable = false;
+                }
+                
                 $comments .= "    /**
     * ".$this->filterDescription($argument['description'])."
-    * @var ".$argument['type'].($argument['required'] ? '' : "|null")."
+    * @var ".$phpType.($isNullable ? "|null" : "")."
     */
-    public ".($argument['required'] ? '' : "?").$argument['type']." $".$argument['name'].($argument['required'] ? '' : " = null").";\n\n";
+    public ".($isNullable ? "?" : "").$phpType." $".$argument['name'].($isNullable ? " = null" : "").";\n\n";
 
                 if (!$argument['required']) {
                     $functions .= "        if (isset(\$data['".$argument['name']."'])){\n";

@@ -1,0 +1,38 @@
+title: Laragram Documentation
+description: Complete Telegram Bot API wrapper for Laravel
+baseurl: "/laragram"
+url: "https://mirmuxsin.github.io"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Navigation
+navigation:
+  - title: Getting Started
+    url: /getting-started
+  - title: FSM Routing
+    url: /fsm-routing
+  - title: API Reference
+    url: /api
+  - title: Examples
+    url: /examples
+  - title: Configuration
+    url: /configuration
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO
+author: Mirmuxsin Khamroev
+twitter:
+  username: mirmuxsin
+  card: summary_large_image
+
+# GitHub
+github:
+  repository_url: https://github.com/Mirmuxsin/laragram

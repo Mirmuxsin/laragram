@@ -5,15 +5,17 @@ namespace Milly\Laragram\Types;
 /**
 * InputMedia
  *
- * Union type that can be one of: InputMediaAnimation, InputMediaDocument, InputMediaAudio, InputMediaPhoto, InputMediaVideo
+ *<p>This object represents the content of a media message to be sent. It should be one of</p><p>* <a href="https://core.telegram.org/bots/api/#inputmediaanimation">InputMediaAnimation</a>
+* <a href="https://core.telegram.org/bots/api/#inputmediadocument">InputMediaDocument</a>
+* <a href="https://core.telegram.org/bots/api/#inputmediaaudio">InputMediaAudio</a>
+* <a href="https://core.telegram.org/bots/api/#inputmediaphoto">InputMediaPhoto</a>
+* <a href="https://core.telegram.org/bots/api/#inputmediavideo">InputMediaVideo</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputmedia
  */
 class InputMedia
 {
-
-
     public ?InputMediaAnimation $inputMediaAnimation = null;
     public ?InputMediaDocument $inputMediaDocument = null;
     public ?InputMediaAudio $inputMediaAudio = null;
@@ -35,8 +37,8 @@ class InputMedia
             $inputMediaAnimation = new InputMediaAnimation($data);
             $successfulType = 'InputMediaAnimation';
             $successfulObject = $inputMediaAnimation;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputMediaAnimation'] = $e->getMessage();
         }
 
@@ -45,8 +47,8 @@ class InputMedia
             $inputMediaDocument = new InputMediaDocument($data);
             $successfulType = 'InputMediaDocument';
             $successfulObject = $inputMediaDocument;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputMediaDocument'] = $e->getMessage();
         }
 
@@ -55,8 +57,8 @@ class InputMedia
             $inputMediaAudio = new InputMediaAudio($data);
             $successfulType = 'InputMediaAudio';
             $successfulObject = $inputMediaAudio;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputMediaAudio'] = $e->getMessage();
         }
 
@@ -65,8 +67,8 @@ class InputMedia
             $inputMediaPhoto = new InputMediaPhoto($data);
             $successfulType = 'InputMediaPhoto';
             $successfulObject = $inputMediaPhoto;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputMediaPhoto'] = $e->getMessage();
         }
 
@@ -75,16 +77,17 @@ class InputMedia
             $inputMediaVideo = new InputMediaVideo($data);
             $successfulType = 'InputMediaVideo';
             $successfulObject = $inputMediaVideo;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputMediaVideo'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for InputMedia. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for InputMedia. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'InputMediaAnimation':

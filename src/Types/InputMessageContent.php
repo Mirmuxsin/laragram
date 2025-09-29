@@ -5,15 +5,17 @@ namespace Milly\Laragram\Types;
 /**
 * InputMessageContent
  *
- * Union type that can be one of: InputTextMessageContent, InputLocationMessageContent, InputVenueMessageContent, InputContactMessageContent, InputInvoiceMessageContent
+ *<p>This object represents the content of a message to be sent as a result of an inline query. Telegram clients currently support the following 5 types:</p><p>* <a href="https://core.telegram.org/bots/api/#inputtextmessagecontent">InputTextMessageContent</a>
+* <a href="https://core.telegram.org/bots/api/#inputlocationmessagecontent">InputLocationMessageContent</a>
+* <a href="https://core.telegram.org/bots/api/#inputvenuemessagecontent">InputVenueMessageContent</a>
+* <a href="https://core.telegram.org/bots/api/#inputcontactmessagecontent">InputContactMessageContent</a>
+* <a href="https://core.telegram.org/bots/api/#inputinvoicemessagecontent">InputInvoiceMessageContent</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputmessagecontent
  */
 class InputMessageContent
 {
-
-
     public ?InputTextMessageContent $inputTextMessageContent = null;
     public ?InputLocationMessageContent $inputLocationMessageContent = null;
     public ?InputVenueMessageContent $inputVenueMessageContent = null;
@@ -35,8 +37,8 @@ class InputMessageContent
             $inputTextMessageContent = new InputTextMessageContent($data);
             $successfulType = 'InputTextMessageContent';
             $successfulObject = $inputTextMessageContent;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputTextMessageContent'] = $e->getMessage();
         }
 
@@ -45,8 +47,8 @@ class InputMessageContent
             $inputLocationMessageContent = new InputLocationMessageContent($data);
             $successfulType = 'InputLocationMessageContent';
             $successfulObject = $inputLocationMessageContent;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputLocationMessageContent'] = $e->getMessage();
         }
 
@@ -55,8 +57,8 @@ class InputMessageContent
             $inputVenueMessageContent = new InputVenueMessageContent($data);
             $successfulType = 'InputVenueMessageContent';
             $successfulObject = $inputVenueMessageContent;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputVenueMessageContent'] = $e->getMessage();
         }
 
@@ -65,8 +67,8 @@ class InputMessageContent
             $inputContactMessageContent = new InputContactMessageContent($data);
             $successfulType = 'InputContactMessageContent';
             $successfulObject = $inputContactMessageContent;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputContactMessageContent'] = $e->getMessage();
         }
 
@@ -75,16 +77,17 @@ class InputMessageContent
             $inputInvoiceMessageContent = new InputInvoiceMessageContent($data);
             $successfulType = 'InputInvoiceMessageContent';
             $successfulObject = $inputInvoiceMessageContent;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputInvoiceMessageContent'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for InputMessageContent. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for InputMessageContent. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'InputTextMessageContent':

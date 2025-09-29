@@ -5,15 +5,14 @@ namespace Milly\Laragram\Types;
 /**
 * InputPaidMedia
  *
- * Union type that can be one of: InputPaidMediaPhoto, InputPaidMediaVideo
+ *<p>This object describes the paid media to be sent. Currently, it can be one of</p><p>* <a href="https://core.telegram.org/bots/api/#inputpaidmediaphoto">InputPaidMediaPhoto</a>
+* <a href="https://core.telegram.org/bots/api/#inputpaidmediavideo">InputPaidMediaVideo</a></p>
  *
  * @author Mirmuxsin Khamroev (https://github.com/Mirmuxsin)
  * @url https://core.telegram.org/bots/api/#inputpaidmedia
  */
 class InputPaidMedia
 {
-
-
     public ?InputPaidMediaPhoto $inputPaidMediaPhoto = null;
     public ?InputPaidMediaVideo $inputPaidMediaVideo = null;
     public string $type;
@@ -32,8 +31,8 @@ class InputPaidMedia
             $inputPaidMediaPhoto = new InputPaidMediaPhoto($data);
             $successfulType = 'InputPaidMediaPhoto';
             $successfulObject = $inputPaidMediaPhoto;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputPaidMediaPhoto'] = $e->getMessage();
         }
 
@@ -42,16 +41,17 @@ class InputPaidMedia
             $inputPaidMediaVideo = new InputPaidMediaVideo($data);
             $successfulType = 'InputPaidMediaVideo';
             $successfulObject = $inputPaidMediaVideo;
-            break;
-        } catch (Exception $e) {
+            goto success;
+        } catch (\Exception $e) {
             $errors['InputPaidMediaVideo'] = $e->getMessage();
         }
 
         
         if ($successfulObject === null) {
-            throw new Exception('Could not create any of the union types for InputPaidMedia. Errors: ' . json_encode($errors));
+            throw new \Exception('Could not create any of the union types for InputPaidMedia. Errors: ' . json_encode($errors));
         }
         
+        success:
         // Set the successful object
         switch ($successfulType) {
             case 'InputPaidMediaPhoto':
