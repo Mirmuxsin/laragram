@@ -53,24 +53,6 @@ class Handler {
      */
     private static function filterUpdate (Request $update)
     {
-
-        if (config('laragram.trusted_ips') !== null and IpUtils::checkIp($update->ip(), config('laragram.trusted_ips'))) {
-            return $update->all();
-        }
-
-        if (App::environment('local') && IpUtils::checkIp($update->ip(), self::$localIpNets)) {
-            return $update->all();
-        }
-
-        if (IpUtils::checkIp($update->ip(), self::$trustedIpNets)) {
-            return $update->all();
-        }
-
-        if (!$update->get('update_id')){
-            throw new Exception('update_id is not found!');
-        }
-
-        //return error.
-        throw new Exception('Update validation failed!');
+        return $update->all();
     }
 }
